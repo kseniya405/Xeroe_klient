@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import Alamofire
+
 
 class LoginViewController: UIViewController {
     
 
+    //mutable constraints
     @IBOutlet weak var logoXeroTopSpace: NSLayoutConstraint!
     @IBOutlet weak var connectWithLableTopSpace: NSLayoutConstraint!
     @IBOutlet weak var logoFGTopSpace: NSLayoutConstraint!
@@ -22,23 +25,82 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var forgotButtomTopSpace: NSLayoutConstraint!
     @IBOutlet weak var signInButtomButtomSpace: NSLayoutConstraint!
     @IBOutlet weak var donthaveAccountButtomTopSpace: NSLayoutConstraint!
+    @IBOutlet weak var fbHeight: NSLayoutConstraint!
+    @IBOutlet weak var heightTextField: NSLayoutConstraint!
     
+    // text field login and password
+    @IBOutlet weak var loginTextField: UITextField!{
+        didSet{
+            loginTextField.layer.cornerRadius = 2
+            loginTextField.layer.masksToBounds = true
+        }
+    }
+    @IBOutlet weak var passwordTextField: UITextField!{
+        didSet{
+            passwordTextField.layer.cornerRadius = 2
+            passwordTextField.layer.masksToBounds = true
+        }
+    }
     
-//    @IBAction func forgotPasswordButtom(_ sender: Any) {
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        let initialViewController = storyboard.instantiateViewController(withIdentifier: "ForgotPasswordViewControll") as! ForgotPasswordViewControll
-//        self.present(initialViewController, animated: false, completion: nil)
-//    }
-
-    @IBAction func registrationTapButton(_ sender: Any) {
+    @IBOutlet weak var fbButton: UIButton! {
+        didSet{
+            fbButton.layer.cornerRadius = 2
+            fbButton.layer.masksToBounds = true
+        }
+    }
+    
+    @IBOutlet weak var signInButton: UIButton! {
+        didSet {
+            signInButton.layer.cornerRadius = 2
+            signInButton.layer.masksToBounds = true
+            signInButton.addTarget(self, action: #selector(setLogin), for: .touchUpInside)
+        }
+    }
+    
+    @objc func setLogin(){
+        let parameters: [String: String] = ["username": loginTextField.text!, "password": passwordTextField.text!]
+        
+        Alamofire.request("http://xeroe.kinect.pro:8091/api/auth/login", method: .post, parameters: parameters).responseJSON { response in
+            
+        print(response)
+        }
+    }
+    
+    @IBOutlet weak var forgotButton: UIButton!{
+        didSet {
+            forgotButton.layer.cornerRadius = 2
+            forgotButton.layer.masksToBounds = true
+            forgotButton.addTarget(self, action: #selector(openForgotPasswordViewControll), for: .touchUpInside)
+        }
+    }
+    
+    @objc func openForgotPasswordViewControll(){
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let initialViewController = storyboard.instantiateViewController(withIdentifier: "ForgotPasswordViewControll") as! ForgotPasswordViewControll
+        self.navigationController?.pushViewController(initialViewController, animated: false)
+    }
+    
+    @IBOutlet weak var createAccountButton: UIButton! {
+        didSet {
+            createAccountButton.addTarget(self, action: #selector(openRegistrationViewController), for: .touchUpInside)
+        }
+    }
+    
+    @objc func openRegistrationViewController(){
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let initialViewController = storyboard.instantiateViewController(withIdentifier: "RegistrationViewController") as! RegistrationViewController
-        self.present(initialViewController, animated: false, completion: nil)
+        self.navigationController?.pushViewController(initialViewController, animated: false)
     }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let allConstraints = [logoXeroTopSpace, connectWithLableTopSpace, logoFGTopSpace, lineTopLogin, loginLableTopSpace, loginTextFieldTopSpace, passwordLableTopSpace, passwordTextFieldTopSpace, forgotButtomTopSpace, signInButtomButtomSpace, donthaveAccountButtomTopSpace]
+        Alamofire.request("http://xeroe.kinect.pro:8091/api/client/find/8ceb", method: .get).responseJSON { response in
+            print(response)
+        }
+
+        let allConstraints = [logoXeroTopSpace, connectWithLableTopSpace, logoFGTopSpace, lineTopLogin, loginLableTopSpace, loginTextFieldTopSpace, passwordLableTopSpace, passwordTextFieldTopSpace, forgotButtomTopSpace, signInButtomButtomSpace, donthaveAccountButtomTopSpace, fbHeight, heightTextField]
+        
         reloadConstraints(allConstraints as! [NSLayoutConstraint])
     }
 
