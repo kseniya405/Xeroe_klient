@@ -63,6 +63,8 @@ class LoginViewController: UIViewController {
         Alamofire.request("http://xeroe.kinect.pro:8091/api/auth/login", method: .post, parameters: parameters).responseJSON { response in
             
         print(response)
+            let mapVC = MapViewController()
+            self.navigationController?.pushViewController(mapVC, animated: false)
         }
     }
     
@@ -95,7 +97,11 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Alamofire.request("http://xeroe.kinect.pro:8091/api/client/find/8ceb", method: .get).responseJSON { response in
+    
+        let parameters = ["username": "example@gmail.com", "password": "password", "access_token": userData.userData.access_token]
+        
+        Alamofire.request("http://xeroe.kinect.pro:8091/api/auth/login", method: .post, parameters: parameters).responseJSON { response in
+            
             print(response)
         }
 
@@ -109,14 +115,16 @@ class LoginViewController: UIViewController {
 extension UIViewController {
     public func chooseConstraint(_ heightFrame: CGFloat, _ constraint: NSLayoutConstraint) {
         let heithDefolt:CGFloat = 720
-        constraint.constant = heightFrame * (constraint.constant / heithDefolt)
+        constraint.constant = heightFrame * (constraint.constant / (heithDefolt-20))
     }
     
     public func reloadConstraints(_ localArr: [NSLayoutConstraint]) {
         let heightFrame = self.view.frame.height
+        let guide = view.safeAreaLayoutGuide
+        let height = heightFrame - guide.layoutFrame.size.height
         var i = 0
         while i < localArr.count {
-            chooseConstraint(heightFrame, localArr[i])
+            chooseConstraint(height, localArr[i])
             i+=1
         }
         
