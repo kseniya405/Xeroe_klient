@@ -28,6 +28,10 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var fbHeight: NSLayoutConstraint!
     @IBOutlet weak var heightTextField: NSLayoutConstraint!
     
+    @IBOutlet weak var enterPasswordLabel: UILabel!
+    @IBOutlet weak var wrongPaswordLabel: UILabel!
+    @IBOutlet weak var passwordLabel: UILabel!
+    
     // text field login and password
     @IBOutlet weak var loginTextField: UITextField!{
         didSet{
@@ -35,6 +39,7 @@ class LoginViewController: UIViewController {
             loginTextField.layer.masksToBounds = true
         }
     }
+    
     @IBOutlet weak var passwordTextField: UITextField!{
         didSet{
             passwordTextField.layer.cornerRadius = 2
@@ -62,9 +67,23 @@ class LoginViewController: UIViewController {
         
         Alamofire.request("http://xeroe.kinect.pro:8091/api/auth/login", method: .post, parameters: parameters).responseJSON { response in
             
-        print(response)
-            let mapVC = MapViewController()
-            self.navigationController?.pushViewController(mapVC, animated: false)
+            guard let newsResponse = response.result.value as? [String:Any] else{
+                print("Error: \(String(describing: response.result.error))")
+                return
+            }
+            
+            let localArray = newsResponse
+            guard (localArray["message"] as? String) != nil else{
+                let mapVC = MapViewController()
+                self.navigationController?.pushViewController(mapVC, animated: false)
+                return
+            }
+            
+            self.wrongPaswordLabel.textColor = .red
+            self.enterPasswordLabel.textColor = .red
+            self.passwordLabel.textColor = .white
+            self.enterPasswordLabel.backgroundColor = .white
+            
         }
     }
     
@@ -97,34 +116,36 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        let parameters = ["username": "example@gmail.com", "password": "password", "access_token": userData.userData.access_token]
-        
-        Alamofire.request("http://xeroe.kinect.pro:8091/api/auth/login", method: .post, parameters: parameters).responseJSON { response in
-            
-            print(response)
-        }
 
         let allConstraints = [logoXeroTopSpace, connectWithLableTopSpace, logoFGTopSpace, lineTopLogin, loginLableTopSpace, loginTextFieldTopSpace, passwordLableTopSpace, passwordTextFieldTopSpace, forgotButtomTopSpace, signInButtomButtomSpace, donthaveAccountButtomTopSpace, fbHeight, heightTextField]
         
-        reloadConstraints(allConstraints as! [NSLayoutConstraint])
+        reloadConstraints(allConstraints as! [NSLayoutConstraint], "height")
     }
 
 }
 
 extension UIViewController {
-    public func chooseConstraint(_ heightFrame: CGFloat, _ constraint: NSLayoutConstraint) {
-        let heithDefolt:CGFloat = 720
-        constraint.constant = heightFrame * (constraint.constant / (heithDefolt-20))
+    public func chooseConstraint(_ sizeFrame: CGFloat, _ constraint: NSLayoutConstraint, _ heightOrWidth: String) {
+        let heightDefolt:CGFloat = 720
+        let widthDefolt:CGFloat = 320
+        if heightOrWidth == "height" {
+            constraint.constant = sizeFrame * (constraint.constant / heightDefolt)
+        } else {
+            constraint.constant = sizeFrame * (constraint.constant / widthDefolt)
+        }
     }
     
-    public func reloadConstraints(_ localArr: [NSLayoutConstraint]) {
-        let heightFrame = self.view.frame.height
-        let guide = view.safeAreaLayoutGuide
-        let height = heightFrame - guide.layoutFrame.size.height
+    public func reloadConstraints(_ localArr: [NSLayoutConstraint], _ heightOrWidth: String) {
+        
+        var size = self.view.frame.width
         var i = 0
+        if heightOrWidth == "height" {
+            let heightFrame = self.view.frame.height
+            let guide = view.safeAreaLayoutGuide
+            size = heightFrame - guide.layoutFrame.size.height * 4
+        }
         while i < localArr.count {
-            chooseConstraint(height, localArr[i])
+            chooseConstraint(size, localArr[i], "height")
             i+=1
         }
         

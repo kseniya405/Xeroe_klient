@@ -39,7 +39,7 @@ class ForgotPasswordViewControll: UIViewController {
         super.viewDidLoad()
         let registrationConstraints = [textViewTopSpace, checkMailButtomTopSpace, checkEmailButtonHeight, textFieldHeight, xeroLogoTopSpace, loginTextFieldTopSpace, resetPasswordButtonTopSpace, emailAdressTopSpace, resetPasswordButtomHeight]
 
-        reloadConstraints(registrationConstraints as! [NSLayoutConstraint])
+        reloadConstraints(registrationConstraints as! [NSLayoutConstraint], "height")
     }
 
 

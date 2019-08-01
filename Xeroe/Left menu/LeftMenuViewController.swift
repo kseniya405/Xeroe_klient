@@ -7,9 +7,13 @@
 //
 
 import UIKit
+import QuartzCore
 
 class LeftMenuViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    private var transitioner: CAVTransitioner?
+
+
     @IBOutlet weak var leftMenu: UIView!
     
     @IBOutlet weak var leftMenuTableView: UITableView!
@@ -35,6 +39,9 @@ class LeftMenuViewController: UIViewController, UITableViewDataSource, UITableVi
         leftMenuTableView.delegate = self
         leftMenuTableView.register(UINib(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
         leftMenuTableView.tableFooterView = UIView()
+        self.transitioner = CAVTransitioner()
+        self.modalPresentationStyle = .custom
+        self.transitioningDelegate = self.transitioner
         // Do any additional setup after loading the view.
     }
 
