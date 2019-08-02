@@ -34,61 +34,16 @@ class RegistrationViewController: UIViewController {
     @IBOutlet weak var haveAccountLaining: NSLayoutConstraint!
     
     
-    @IBOutlet weak var fbButton: UIButton!{
+    @IBOutlet weak var fbButton: ButtonWithCornerRadius!
+    @IBOutlet weak var gButton: ButtonWithCornerRadius!
+    @IBOutlet weak var usernameTextField: TextFieldWithCorner!
+    @IBOutlet weak var emailTextField: TextFieldWithCorner!
+    @IBOutlet weak var phoneTextField: TextFieldWithCorner!
+    @IBOutlet weak var passwordTextField: TextFieldWithCorner!
+    @IBOutlet weak var confirmPasswordTextField: TextFieldWithCorner!
+    @IBOutlet weak var signUpButton: ButtonWithCornerRadius!
+    @IBOutlet weak var loginButton: ButtonWithCornerRadius! {
         didSet {
-            fbButton.layer.cornerRadius = 2
-            fbButton.layer.masksToBounds = true
-        }
-    }
-    @IBOutlet weak var gButton: UIButton!{
-        didSet {
-            gButton.layer.cornerRadius = 2
-            gButton.layer.masksToBounds = true
-        }
-    }
-    @IBOutlet weak var usernameTextField: UITextField!
-        {
-        didSet {
-            usernameTextField.layer.cornerRadius = 2
-            usernameTextField.layer.masksToBounds = true
-        }
-    }
-    @IBOutlet weak var emailTextField: UITextField!
-        {
-        didSet {
-            emailTextField.layer.cornerRadius = 2
-            emailTextField.layer.masksToBounds = true
-        }
-    }
-    @IBOutlet weak var phoneTextField: UITextField!{
-        didSet {
-            phoneTextField.layer.cornerRadius = 2
-            phoneTextField.layer.masksToBounds = true
-        }
-    }
-    @IBOutlet weak var passwordTextField: UITextField!{
-        didSet {
-            passwordTextField.layer.cornerRadius = 2
-            passwordTextField.layer.masksToBounds = true
-        }
-    }
-    @IBOutlet weak var confirmPasswordTextField: UITextField!{
-        didSet {
-            confirmPasswordTextField.layer.cornerRadius = 2
-            confirmPasswordTextField.layer.masksToBounds = true
-        }
-    }
-    @IBOutlet weak var signUpButton: UIButton!{
-        didSet {
-            signUpButton.layer.cornerRadius = 2
-            signUpButton.layer.masksToBounds = true
-        }
-    }
-    
-    @IBOutlet weak var loginButton: UIButton! {
-        didSet {
-            loginButton.layer.cornerRadius = 2
-            loginButton.layer.masksToBounds = true
             loginButton.addTarget(self, action: #selector(login), for: .touchUpInside)
         }
     }
@@ -106,8 +61,6 @@ class RegistrationViewController: UIViewController {
         
         let widthConstraints = [loginTrailing, haveAccountLaining]
         reloadConstraints(widthConstraints as! [NSLayoutConstraint], "width")
-
-        
 
     }
     

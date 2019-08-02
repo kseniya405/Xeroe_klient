@@ -11,13 +11,12 @@ import UIKit
 
 class ForgotPasswordViewControll: UIViewController {
     
-    @IBOutlet weak var checkEmailButton: UIButton!{
+    @IBOutlet weak var checkEmailButton: ButtonWithCornerRadius!{
         didSet {
-            checkEmailButton.layer.cornerRadius = 2
-            checkEmailButton.layer.masksToBounds = true
-            checkEmailButton.addTarget(self, action: #selector(backToAutorizathion), for: .touchUpInside)
+        checkEmailButton.addTarget(self, action: #selector(backToAutorizathion), for: .touchUpInside)
         }
     }
+
     @objc func backToAutorizathion() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let initialViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController

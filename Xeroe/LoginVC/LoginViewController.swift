@@ -33,64 +33,46 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordLabel: UILabel!
     
     // text field login and password
-    @IBOutlet weak var loginTextField: UITextField!{
-        didSet{
-            loginTextField.layer.cornerRadius = 2
-            loginTextField.layer.masksToBounds = true
-        }
-    }
-    
-    @IBOutlet weak var passwordTextField: UITextField!{
-        didSet{
-            passwordTextField.layer.cornerRadius = 2
-            passwordTextField.layer.masksToBounds = true
-        }
-    }
-    
-    @IBOutlet weak var fbButton: UIButton! {
-        didSet{
-            fbButton.layer.cornerRadius = 2
-            fbButton.layer.masksToBounds = true
-        }
-    }
-    
-    @IBOutlet weak var signInButton: UIButton! {
+    @IBOutlet weak var loginTextField: TextFieldWithCorner!
+    @IBOutlet weak var passwordTextField: TextFieldWithCorner!
+    @IBOutlet weak var fbButton: ButtonWithCornerRadius!
+    @IBOutlet weak var signInButton: ButtonWithCornerRadius! {
         didSet {
-            signInButton.layer.cornerRadius = 2
-            signInButton.layer.masksToBounds = true
             signInButton.addTarget(self, action: #selector(setLogin), for: .touchUpInside)
         }
     }
     
-    @objc func setLogin(){
-        let parameters: [String: String] = ["username": loginTextField.text!, "password": passwordTextField.text!]
-        
-        Alamofire.request("http://xeroe.kinect.pro:8091/api/auth/login", method: .post, parameters: parameters).responseJSON { response in
-            
-            guard let newsResponse = response.result.value as? [String:Any] else{
-                print("Error: \(String(describing: response.result.error))")
-                return
-            }
-            
-            let localArray = newsResponse
-            guard (localArray["message"] as? String) != nil else{
-                let mapVC = MapViewController()
-                self.navigationController?.pushViewController(mapVC, animated: false)
-                return
-            }
-            
-            self.wrongPaswordLabel.textColor = .red
-            self.enterPasswordLabel.textColor = .red
-            self.passwordLabel.textColor = .white
-            self.enterPasswordLabel.backgroundColor = .white
-            
-        }
+    fileprivate func errorTextFieldPassword() {
+        self.wrongPaswordLabel.textColor = .red
+        self.enterPasswordLabel.textColor = .red
+        self.passwordLabel.textColor = .white
+        self.enterPasswordLabel.backgroundColor = .white
+        self.passwordTextField.layer.borderColor = UIColor(red: 1, green: 0, blue: 0, alpha: 0).cgColor
+        self.passwordTextField.layer.borderWidth = 2
+        self.passwordTextField.layer.masksToBounds = true
     }
     
-    @IBOutlet weak var forgotButton: UIButton!{
+    @objc func setLogin(){
+        guard let login = loginTextField.text, let password = passwordTextField.text, !login.isEmpty, !password.isEmpty else{
+            self.errorTextFieldPassword()
+            return
+        }
+        RestApi().login(login: login, password: password) { (isOk, token) in
+            
+        guard isOk, let token = token else {
+            self.errorTextFieldPassword()
+            return
+        }
+            
+            let mapVC = MapViewController()
+            self.navigationController?.pushViewController(mapVC, animated: false)
+            return
+        }
+        
+    }
+    
+    @IBOutlet weak var forgotButton: ButtonWithCornerRadius!{
         didSet {
-            forgotButton.layer.cornerRadius = 2
-            forgotButton.layer.masksToBounds = true
             forgotButton.addTarget(self, action: #selector(openForgotPasswordViewControll), for: .touchUpInside)
         }
     }
@@ -101,7 +83,7 @@ class LoginViewController: UIViewController {
         self.navigationController?.pushViewController(initialViewController, animated: false)
     }
     
-    @IBOutlet weak var createAccountButton: UIButton! {
+    @IBOutlet weak var createAccountButton: ButtonWithCornerRadius! {
         didSet {
             createAccountButton.addTarget(self, action: #selector(openRegistrationViewController), for: .touchUpInside)
         }
@@ -151,7 +133,6 @@ extension UIViewController {
         
     }
 }
-
 
 
 

@@ -1,38 +1,20 @@
 //
-//  ViewController.swift
-//  Card #6
+//  MapView.swift
+//  Xeroe
 //
-//  Created by Денис Марков on 7/28/19.
+//  Created by Денис Марков on 8/2/19.
 //  Copyright © 2019 Денис Марков. All rights reserved.
 //
 
 import UIKit
 import GoogleMaps
 
-
-class MapViewController: UIViewController, CLLocationManagerDelegate {
-
-    @IBOutlet weak var loadMenu: UIButton!{
-        didSet {
-            loadMenu.layer.cornerRadius = 2
-            loadMenu.layer.masksToBounds = true
-            loadMenu.addTarget(self, action: #selector(login), for: .touchUpInside)
-        }
-    }
-    
-    
-    @objc func login() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let initialViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-        self.navigationController?.pushViewController(initialViewController, animated: true)
-    }
-
-    // You don't need to modify the default init(nibName:bundle:) method.
+class MapView: UIView {
     
     let locationManager = CLLocationManager()
     var mapView: GMSMapView?
     
-    override func viewDidLoad() {
+    override func awakeFromNib() {
         
         // Ask for Authorisation from the User.
         self.locationManager.requestAlwaysAuthorization()
@@ -41,12 +23,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         self.locationManager.requestWhenInUseAuthorization()
         
         if CLLocationManager.locationServicesEnabled() {
-            locationManager.delegate = self
+            locationManager.delegate = self as? CLLocationManagerDelegate
             locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             locationManager.startUpdatingLocation()
         }
-        let lm = LeftMenuViewController()
-        self.present(lm, animated: true, completion: nil)
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -56,17 +36,15 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         // Create a GMSCameraPosition that tells the map to display the
         // coordinate -33.86,151.20 at zoom level 6.
         let camera = GMSCameraPosition.camera(withLatitude: locValue.latitude, longitude: locValue.longitude, zoom: 6.0)
-            mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
-        if view != nil, let map = mapView{
-            view = map
-        }
+        mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
         
+        if let map = mapView {
+            self.mapView = map
+        }
         // Creates a marker in the center of the map.
         let marker = GMSMarker()
         marker.position = CLLocationCoordinate2D(latitude: locValue.latitude, longitude: locValue.longitude)
         marker.map = mapView
-        
     }
 
 }
-

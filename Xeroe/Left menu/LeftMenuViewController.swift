@@ -11,12 +11,16 @@ import QuartzCore
 
 class LeftMenuViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    private var transitioner: CAVTransitioner?
+    
+    
+    
+
 
 
     @IBOutlet weak var leftMenu: UIView!
     
     @IBOutlet weak var leftMenuTableView: UITableView!
+    
     @IBOutlet weak var logoutButton: UIButton!{
         didSet {
             logoutButton.addTarget(self, action: #selector(openLoginViewControll), for: .touchUpInside)
@@ -35,14 +39,14 @@ class LeftMenuViewController: UIViewController, UITableViewDataSource, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        leftMenuTableView.dataSource = self
-        leftMenuTableView.delegate = self
-        leftMenuTableView.register(UINib(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
-        leftMenuTableView.tableFooterView = UIView()
-        self.transitioner = CAVTransitioner()
-        self.modalPresentationStyle = .custom
-        self.transitioningDelegate = self.transitioner
+//        leftMenuTableView.dataSource = self
+//        leftMenuTableView.delegate = self
+//        leftMenuTableView.register(UINib(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
+//        leftMenuTableView.tableFooterView = UIView()
+        
         // Do any additional setup after loading the view.
+        
+        
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
