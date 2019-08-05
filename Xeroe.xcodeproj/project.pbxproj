@@ -8,30 +8,29 @@
 
 /* Begin PBXBuildFile section */
 		9D09D7DF22F1E23800D4369F /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D09D7DE22F1E23800D4369F /* MapViewController.swift */; };
-		9D09D7E122F1E96700D4369F /* MenuWithPodsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D09D7E022F1E96700D4369F /* MenuWithPodsStoryboard.storyboard */; };
 		9D09D7E322F1E97400D4369F /* View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D09D7E222F1E97400D4369F /* View.xib */; };
 		9D23E9F422F0808C00E0E2C0 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D23E9F222F0808B00E0E2C0 /* Roboto-Bold.ttf */; };
 		9D23E9F522F0808C00E0E2C0 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D23E9F322F0808B00E0E2C0 /* Roboto-Regular.ttf */; };
 		9D23E9F822F08AA500E0E2C0 /* FuturaDemiC.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D23E9F722F08AA500E0E2C0 /* FuturaDemiC.ttf */; };
 		9D75BE6D22F033D4001E907B /* userData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D75BE6C22F033D4001E907B /* userData.swift */; };
-		9DA4BC1822F2AF92000E2719 /* Storyboard copy.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DA4BC1722F2AF91000E2719 /* Storyboard copy.storyboard */; };
-		9DA4BC1C22F2B44A000E2719 /* AlertViewTransitioner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA4BC1B22F2B44A000E2719 /* AlertViewTransitioner.swift */; };
 		9DACCB8022F415A400D9F433 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DACCB7F22F415A400D9F433 /* MapView.swift */; };
 		9DACCB8822F42D7200D9F433 /* ButtonWithCornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DACCB8722F42D7200D9F433 /* ButtonWithCornerRadius.swift */; };
 		9DACCB8A22F42E8600D9F433 /* TextFieldWithCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DACCB8922F42E8600D9F433 /* TextFieldWithCorner.swift */; };
 		9DACCB8E22F4473C00D9F433 /* LoginDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DACCB8D22F4473C00D9F433 /* LoginDataModel.swift */; };
 		9DCF034922EF1EEE00A7F283 /* ForgotPasswordViewControll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCF034822EF1EEE00A7F283 /* ForgotPasswordViewControll.swift */; };
 		9DCF034B22EF364000A7F283 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCF034A22EF364000A7F283 /* RegistrationViewController.swift */; };
+		9DD0BE7622F8465D00E55EA8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD0BE7522F8465D00E55EA8 /* ViewController.swift */; };
+		9DD0BE9C22F8671D00E55EA8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DD0BE9B22F8671D00E55EA8 /* Main.storyboard */; };
+		9DD0BE9E22F8727C00E55EA8 /* ClientDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD0BE9D22F8727C00E55EA8 /* ClientDetailViewController.swift */; };
+		9DD0BEA422F87B9200E55EA8 /* LeftMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD0BEA122F87B9200E55EA8 /* LeftMenuTableViewCell.swift */; };
+		9DD0BEA522F87B9300E55EA8 /* LeftMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DD0BEA222F87B9200E55EA8 /* LeftMenuTableViewCell.xib */; };
+		9DD0BEA622F87B9300E55EA8 /* LeftMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD0BEA322F87B9200E55EA8 /* LeftMenuViewController.swift */; };
 		9DF533A222EEDBE10036866C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF533A122EEDBE10036866C /* AppDelegate.swift */; };
 		9DF533A422EEDBE10036866C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF533A322EEDBE10036866C /* LoginViewController.swift */; };
-		9DF533A722EEDBE10036866C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DF533A522EEDBE10036866C /* Main.storyboard */; };
 		9DF533A922EEDBE30036866C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DF533A822EEDBE30036866C /* Assets.xcassets */; };
 		9DF533AC22EEDBE30036866C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DF533AA22EEDBE30036866C /* LaunchScreen.storyboard */; };
 		9DFFAB7922F179880008F325 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9DFFAB7822F179880008F325 /* Roboto-Medium.ttf */; };
 		9DFFAB7B22F181D10008F325 /* fontello.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9DFFAB7A22F181D00008F325 /* fontello.ttf */; };
-		9DFFAB7E22F18C310008F325 /* LeftMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFFAB7C22F18C310008F325 /* LeftMenuTableViewCell.swift */; };
-		9DFFAB7F22F18C310008F325 /* LeftMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DFFAB7D22F18C310008F325 /* LeftMenuTableViewCell.xib */; };
-		9DFFAB8222F18C7C0008F325 /* LeftMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DFFAB8122F18C7C0008F325 /* LeftMenuViewController.swift */; };
 		C6584510C50C1F01F832B9EA /* Pods_Xeroe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FA96868B0382980D707E3E7 /* Pods_Xeroe.framework */; };
 /* End PBXBuildFile section */
 
@@ -40,33 +39,33 @@
 		462B678E837F5DDE2DEF6AA4 /* Pods-Xeroe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Xeroe.debug.xcconfig"; path = "Target Support Files/Pods-Xeroe/Pods-Xeroe.debug.xcconfig"; sourceTree = "<group>"; };
 		4FA96868B0382980D707E3E7 /* Pods_Xeroe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Xeroe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D09D7DE22F1E23800D4369F /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		9D09D7E022F1E96700D4369F /* MenuWithPodsStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MenuWithPodsStoryboard.storyboard; sourceTree = "<group>"; };
 		9D09D7E222F1E97400D4369F /* View.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = View.xib; sourceTree = "<group>"; };
 		9D23E9F222F0808B00E0E2C0 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		9D23E9F322F0808B00E0E2C0 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		9D23E9F722F08AA500E0E2C0 /* FuturaDemiC.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FuturaDemiC.ttf; sourceTree = "<group>"; };
 		9D75BE6C22F033D4001E907B /* userData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userData.swift; sourceTree = "<group>"; };
-		9DA4BC1722F2AF91000E2719 /* Storyboard copy.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Storyboard copy.storyboard"; sourceTree = "<group>"; };
-		9DA4BC1B22F2B44A000E2719 /* AlertViewTransitioner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertViewTransitioner.swift; sourceTree = "<group>"; };
 		9DACCB7F22F415A400D9F433 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
-		9DACCB8422F41EF800D9F433 /* Xeroe-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Xeroe-Bridging-Header.h"; sourceTree = "<group>"; };
 		9DACCB8722F42D7200D9F433 /* ButtonWithCornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonWithCornerRadius.swift; sourceTree = "<group>"; };
 		9DACCB8922F42E8600D9F433 /* TextFieldWithCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithCorner.swift; sourceTree = "<group>"; };
 		9DACCB8D22F4473C00D9F433 /* LoginDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDataModel.swift; sourceTree = "<group>"; };
 		9DCF034822EF1EEE00A7F283 /* ForgotPasswordViewControll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewControll.swift; sourceTree = "<group>"; };
 		9DCF034A22EF364000A7F283 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		9DD0BE5522F817FE00E55EA8 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		9DD0BE7422F838A300E55EA8 /* Xeroe-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Xeroe-Bridging-Header.h"; sourceTree = "<group>"; };
+		9DD0BE7522F8465D00E55EA8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9DD0BE9B22F8671D00E55EA8 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		9DD0BE9D22F8727C00E55EA8 /* ClientDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientDetailViewController.swift; sourceTree = "<group>"; };
+		9DD0BEA122F87B9200E55EA8 /* LeftMenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuTableViewCell.swift; sourceTree = "<group>"; };
+		9DD0BEA222F87B9200E55EA8 /* LeftMenuTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeftMenuTableViewCell.xib; sourceTree = "<group>"; };
+		9DD0BEA322F87B9200E55EA8 /* LeftMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuViewController.swift; sourceTree = "<group>"; };
 		9DF5339E22EEDBE10036866C /* Xeroe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Xeroe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DF533A122EEDBE10036866C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9DF533A322EEDBE10036866C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		9DF533A622EEDBE10036866C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9DF533A822EEDBE30036866C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9DF533AB22EEDBE30036866C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9DF533AD22EEDBE30036866C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9DFFAB7822F179880008F325 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		9DFFAB7A22F181D00008F325 /* fontello.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = fontello.ttf; sourceTree = "<group>"; };
-		9DFFAB7C22F18C310008F325 /* LeftMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftMenuTableViewCell.swift; sourceTree = "<group>"; };
-		9DFFAB7D22F18C310008F325 /* LeftMenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeftMenuTableViewCell.xib; sourceTree = "<group>"; };
-		9DFFAB8122F18C7C0008F325 /* LeftMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftMenuViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,16 +116,36 @@
 				9DF533A322EEDBE10036866C /* LoginViewController.swift */,
 				9DCF034822EF1EEE00A7F283 /* ForgotPasswordViewControll.swift */,
 				9DCF034A22EF364000A7F283 /* RegistrationViewController.swift */,
+				9DD0BE7522F8465D00E55EA8 /* ViewController.swift */,
 			);
 			path = LoginVC;
+			sourceTree = "<group>";
+		};
+		9DD0BE5622F8182F00E55EA8 /* draft */ = {
+			isa = PBXGroup;
+			children = (
+				9D09D7E222F1E97400D4369F /* View.xib */,
+				9DACCB7F22F415A400D9F433 /* MapView.swift */,
+			);
+			path = draft;
+			sourceTree = "<group>";
+		};
+		9DD0BE5722F81DDB00E55EA8 /* Left menu */ = {
+			isa = PBXGroup;
+			children = (
+				9DD0BEA122F87B9200E55EA8 /* LeftMenuTableViewCell.swift */,
+				9DD0BEA222F87B9200E55EA8 /* LeftMenuTableViewCell.xib */,
+				9DD0BEA322F87B9200E55EA8 /* LeftMenuViewController.swift */,
+			);
+			path = "Left menu";
 			sourceTree = "<group>";
 		};
 		9DF5339522EEDBE00036866C = {
 			isa = PBXGroup;
 			children = (
+				9DD0BE7422F838A300E55EA8 /* Xeroe-Bridging-Header.h */,
 				9DF533A022EEDBE10036866C /* Xeroe */,
 				9DF5339F22EEDBE10036866C /* Products */,
-				9DACCB8422F41EF800D9F433 /* Xeroe-Bridging-Header.h */,
 				A21E6A318FC93CD9EDD2FD6C /* Pods */,
 				B45D06F90FF36F3B5DA3C328 /* Frameworks */,
 			);
@@ -143,34 +162,21 @@
 		9DF533A022EEDBE10036866C /* Xeroe */ = {
 			isa = PBXGroup;
 			children = (
-				9DA4BC1722F2AF91000E2719 /* Storyboard copy.storyboard */,
 				9D09D7DE22F1E23800D4369F /* MapViewController.swift */,
 				9DF533A122EEDBE10036866C /* AppDelegate.swift */,
 				9DACCB8C22F4320100D9F433 /* LoginVC */,
-				9DFFAB8022F18C3D0008F325 /* Left menu */,
-				9DF533A522EEDBE10036866C /* Main.storyboard */,
-				9D09D7E222F1E97400D4369F /* View.xib */,
-				9DACCB7F22F415A400D9F433 /* MapView.swift */,
 				9DF533A822EEDBE30036866C /* Assets.xcassets */,
+				9DD0BE9B22F8671D00E55EA8 /* Main.storyboard */,
+				9DD0BE9D22F8727C00E55EA8 /* ClientDetailViewController.swift */,
+				9DD0BE5722F81DDB00E55EA8 /* Left menu */,
 				9D75BE6B22F0337C001E907B /* Models */,
 				9DACCB8B22F431BF00D9F433 /* MutableUIObjects */,
 				9DF533AA22EEDBE30036866C /* LaunchScreen.storyboard */,
 				9DF533AD22EEDBE30036866C /* Info.plist */,
-				9D09D7E022F1E96700D4369F /* MenuWithPodsStoryboard.storyboard */,
-				9DA4BC1B22F2B44A000E2719 /* AlertViewTransitioner.swift */,
+				9DD0BE5622F8182F00E55EA8 /* draft */,
 				9D23E9F622F08A6E00E0E2C0 /* Fonts */,
 			);
 			path = Xeroe;
-			sourceTree = "<group>";
-		};
-		9DFFAB8022F18C3D0008F325 /* Left menu */ = {
-			isa = PBXGroup;
-			children = (
-				9DFFAB8122F18C7C0008F325 /* LeftMenuViewController.swift */,
-				9DFFAB7C22F18C310008F325 /* LeftMenuTableViewCell.swift */,
-				9DFFAB7D22F18C310008F325 /* LeftMenuTableViewCell.xib */,
-			);
-			path = "Left menu";
 			sourceTree = "<group>";
 		};
 		A21E6A318FC93CD9EDD2FD6C /* Pods */ = {
@@ -185,6 +191,7 @@
 		B45D06F90FF36F3B5DA3C328 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9DD0BE5522F817FE00E55EA8 /* MapKit.framework */,
 				4FA96868B0382980D707E3E7 /* Pods_Xeroe.framework */,
 			);
 			name = Frameworks;
@@ -253,17 +260,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D09D7E322F1E97400D4369F /* View.xib in Resources */,
+				9DD0BE9C22F8671D00E55EA8 /* Main.storyboard in Resources */,
 				9D23E9F822F08AA500E0E2C0 /* FuturaDemiC.ttf in Resources */,
 				9DF533AC22EEDBE30036866C /* LaunchScreen.storyboard in Resources */,
 				9DF533A922EEDBE30036866C /* Assets.xcassets in Resources */,
 				9DFFAB7B22F181D10008F325 /* fontello.ttf in Resources */,
-				9DA4BC1822F2AF92000E2719 /* Storyboard copy.storyboard in Resources */,
-				9D09D7E122F1E96700D4369F /* MenuWithPodsStoryboard.storyboard in Resources */,
-				9DFFAB7F22F18C310008F325 /* LeftMenuTableViewCell.xib in Resources */,
 				9DFFAB7922F179880008F325 /* Roboto-Medium.ttf in Resources */,
+				9DD0BEA522F87B9300E55EA8 /* LeftMenuTableViewCell.xib in Resources */,
 				9D23E9F522F0808C00E0E2C0 /* Roboto-Regular.ttf in Resources */,
 				9D23E9F422F0808C00E0E2C0 /* Roboto-Bold.ttf in Resources */,
-				9DF533A722EEDBE10036866C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,14 +342,15 @@
 				9DF533A422EEDBE10036866C /* LoginViewController.swift in Sources */,
 				9DCF034922EF1EEE00A7F283 /* ForgotPasswordViewControll.swift in Sources */,
 				9DCF034B22EF364000A7F283 /* RegistrationViewController.swift in Sources */,
+				9DD0BE9E22F8727C00E55EA8 /* ClientDetailViewController.swift in Sources */,
 				9DF533A222EEDBE10036866C /* AppDelegate.swift in Sources */,
 				9DACCB8822F42D7200D9F433 /* ButtonWithCornerRadius.swift in Sources */,
-				9DFFAB8222F18C7C0008F325 /* LeftMenuViewController.swift in Sources */,
-				9DFFAB7E22F18C310008F325 /* LeftMenuTableViewCell.swift in Sources */,
+				9DD0BEA422F87B9200E55EA8 /* LeftMenuTableViewCell.swift in Sources */,
+				9DD0BE7622F8465D00E55EA8 /* ViewController.swift in Sources */,
 				9DACCB8022F415A400D9F433 /* MapView.swift in Sources */,
-				9DA4BC1C22F2B44A000E2719 /* AlertViewTransitioner.swift in Sources */,
 				9DACCB8E22F4473C00D9F433 /* LoginDataModel.swift in Sources */,
 				9DACCB8A22F42E8600D9F433 /* TextFieldWithCorner.swift in Sources */,
+				9DD0BEA622F87B9300E55EA8 /* LeftMenuViewController.swift in Sources */,
 				9D09D7DF22F1E23800D4369F /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -352,14 +358,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		9DF533A522EEDBE10036866C /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9DF533A622EEDBE10036866C /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		9DF533AA22EEDBE30036866C /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import SideMenu
 
 
 class LoginViewController: UIViewController {
@@ -59,7 +60,7 @@ class LoginViewController: UIViewController {
         }
         RestApi().login(login: login, password: password) { (isOk, token) in
             
-        guard isOk, let token = token else {
+            guard isOk, let _ = token else {
             self.errorTextFieldPassword()
             return
         }
@@ -79,7 +80,7 @@ class LoginViewController: UIViewController {
     
     @objc func openForgotPasswordViewControll(){
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let initialViewController = storyboard.instantiateViewController(withIdentifier: "ForgotPasswordViewControll") as! ForgotPasswordViewControll
+        let initialViewController = storyboard.instantiateViewController(withIdentifier: "ViewController")
         self.navigationController?.pushViewController(initialViewController, animated: false)
     }
     

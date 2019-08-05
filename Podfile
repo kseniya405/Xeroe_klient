@@ -8,8 +8,7 @@ target 'Xeroe' do
   pod 'Alamofire'
   pod 'GoogleMaps'
   pod 'GooglePlaces'
-  pod 'SideMenu'
-
+  pod 'SideMenu', '~> 6.0'
 
   # Pods for Xeroe
 

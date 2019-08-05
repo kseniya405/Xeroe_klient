@@ -7,15 +7,8 @@
 //
 
 import UIKit
-import QuartzCore
 
 class LeftMenuViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    
-    
-    
-    
-
-
 
     @IBOutlet weak var leftMenu: UIView!
     

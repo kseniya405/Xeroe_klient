@@ -21,16 +21,24 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     
+    @IBAction func hamburgerBtnAction(_ sender: UIButton) {
+        //Make Object of HamburgerMenu Class and call this function.
+        HamburgerMenu().triggerSideMenu()
+    }
+
+    @IBOutlet weak var mapView: GMSMapView!
+    
+    @IBOutlet weak var button: UIButton!
+    // You don't need to modify the default init(nibName:bundle:) method.
+    
     @objc func login() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let initialViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
         self.navigationController?.pushViewController(initialViewController, animated: true)
     }
-
-    // You don't need to modify the default init(nibName:bundle:) method.
     
     let locationManager = CLLocationManager()
-    var mapView: GMSMapView?
+    //var mapView: GMSMapView?
     
     override func viewDidLoad() {
         
@@ -45,8 +53,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             locationManager.startUpdatingLocation()
         }
-        let lm = LeftMenuViewController()
-        self.present(lm, animated: true, completion: nil)
+        //let lm = LeftMenuViewController()
+        //self.present(lm, animated: true, completion: nil)
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -57,9 +65,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         // coordinate -33.86,151.20 at zoom level 6.
         let camera = GMSCameraPosition.camera(withLatitude: locValue.latitude, longitude: locValue.longitude, zoom: 6.0)
             mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
-        if view != nil, let map = mapView{
-            view = map
-        }
         
         // Creates a marker in the center of the map.
         let marker = GMSMarker()
