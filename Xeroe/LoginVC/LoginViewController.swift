@@ -74,7 +74,6 @@ class LoginViewController: UIViewController {
                 self.errorTextFieldPassword(passwordIsEmpty: self.passwordTextField.text == "")
             return
         }
-            userData.userData.access_token = token
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let initialViewController = storyboard.instantiateViewController(withIdentifier: "ViewController") as! ContainerViewController
             self.navigationController?.pushViewController(initialViewController, animated: false)
@@ -113,6 +112,8 @@ class LoginViewController: UIViewController {
         let allConstraints = [logoXeroTopSpace, connectWithLableTopSpace, logoFGTopSpace, lineTopLogin, loginLableTopSpace, loginTextFieldTopSpace, passwordLableTopSpace, passwordTextFieldTopSpace, forgotButtomTopSpace, signInButtomButtomSpace, donthaveAccountButtomTopSpace, heightTextField]
         
         reloadConstraints(allConstraints as! [NSLayoutConstraint], "height")
+        
+        
     }
 
 }

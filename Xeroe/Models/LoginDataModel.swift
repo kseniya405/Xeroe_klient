@@ -39,11 +39,9 @@ class RestApi {
     
     func findID(xeroeID: String, callback: @escaping (Bool, String?) -> Void) {
  
-//        var headers: HTTPHeaders = [
-//            "Authorization": "bearer \(String(describing: userData.userData.access_token))",
-//            "Accept": "application/json"
-//        ]
-        Alamofire.request("http://xeroe.kinect.pro:8091/api/client/find/\(xeroeID)", method: .get, parameters: ["xeroeID" : xeroeID], encoding: JSONEncoding.default, headers: ["Authorization" : userData.userData.access_token!]).validate().responseJSON {
+        let headers: HTTPHeaders = ["Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC94ZXJvZS5raW5lY3QucHJvOjgwOTFcL2FwaVwvYXV0aFwvbG9naW4iLCJpYXQiOjE1NjUxMDAxMTgsImV4cCI6MTU2NTE4NjUxOCwibmJmIjoxNTY1MTAwMTE4LCJqdGkiOiJWSHZ0TmZnc1dZdUszZUZGIiwic3ViIjoxLCJwcnYiOiIxM2U4ZDAyOGIzOTFmM2I3YjYzZjIxOTMzZGJhZDQ1OGZmMjEwNzJlIiwic2NvcGVzIjpbImNsaWVudCJdfQ.sAiX8TH4xgqN5zbs5D4lBemkKvbZPKBGbNleNYxNvGE"]
+        
+        Alamofire.request("http://xeroe.kinect.pro:8091/api/client/find/\(xeroeID)", method: .get, parameters: ["xeroeID" : xeroeID], encoding: JSONEncoding.default, headers: headers).responseJSON {
             response in
 
             guard response.result.isSuccess, let _ = response.result.value as? [String:Any] else{

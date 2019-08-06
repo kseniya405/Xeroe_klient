@@ -42,7 +42,7 @@
 		9D09D7DE22F1E23800D4369F /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		9D09D7E222F1E97400D4369F /* View.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = View.xib; sourceTree = "<group>"; };
 		9D23E9F222F0808B00E0E2C0 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
-		9D23E9F322F0808B00E0E2C0 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Regular.ttf"; path = "/Users/denismarkov/Documents/Learning/Kseniya/Xeroe/Xeroe/Fonts/Roboto-Regular.ttf"; sourceTree = "<absolute>"; };
+		9D23E9F322F0808B00E0E2C0 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		9D23E9F722F08AA500E0E2C0 /* FuturaDemiC.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FuturaDemiC.ttf; sourceTree = "<group>"; };
 		9D6EE92222F97E3D00F8DFA6 /* RecipientDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipientDetailViewController.swift; sourceTree = "<group>"; };
 		9D75BE6C22F033D4001E907B /* userData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userData.swift; sourceTree = "<group>"; };
