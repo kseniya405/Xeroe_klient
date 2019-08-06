@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ContainerViewController: UIViewController {
 
 
     @IBOutlet weak var tabbarContainerView: UIView!
@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     
     var initialPos: CGPoint?
     var touchPos: CGPoint?
-    let blackTransparentViewTag = 02271994
+    let blackTransparentViewTag = 04051993
     var openFlag: Bool = false
     
     //MARK: - ViewController Variables
@@ -153,7 +153,6 @@ class ViewController: UIViewController {
                     self.openFlag = true
                 }
             }
-            
         }
         
     }

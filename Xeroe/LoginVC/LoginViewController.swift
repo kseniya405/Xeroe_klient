@@ -8,7 +8,6 @@
 
 import UIKit
 import Alamofire
-import SideMenu
 
 
 class LoginViewController: UIViewController {
@@ -26,7 +25,6 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var forgotButtomTopSpace: NSLayoutConstraint!
     @IBOutlet weak var signInButtomButtomSpace: NSLayoutConstraint!
     @IBOutlet weak var donthaveAccountButtomTopSpace: NSLayoutConstraint!
-    @IBOutlet weak var fbHeight: NSLayoutConstraint!
     @IBOutlet weak var heightTextField: NSLayoutConstraint!
     
     @IBOutlet weak var enterPasswordLabel: UILabel!
@@ -43,31 +41,43 @@ class LoginViewController: UIViewController {
         }
     }
     
-    fileprivate func errorTextFieldPassword() {
-        self.wrongPaswordLabel.textColor = .red
-        self.enterPasswordLabel.textColor = .red
-        self.passwordLabel.textColor = .white
-        self.enterPasswordLabel.backgroundColor = .white
-        self.passwordTextField.layer.borderColor = UIColor(red: 1, green: 0, blue: 0, alpha: 0).cgColor
-        self.passwordTextField.layer.borderWidth = 2
+    fileprivate func errorTextFieldPassword(passwordIsEmpty: Bool) {
+        var colorWrongPassword: UIColor
+        var colorEnterPassword: UIColor
+        var colorBackgroundEnterPassword: UIColor
+        if passwordIsEmpty {
+            colorWrongPassword = .clear
+            colorEnterPassword = .red
+            colorBackgroundEnterPassword = .white
+        } else {
+            colorWrongPassword = .red
+            colorEnterPassword = .clear
+            colorBackgroundEnterPassword = .clear
+        }
         self.passwordTextField.layer.masksToBounds = true
+        self.passwordTextField.layer.borderColor = UIColor( red: 1, green: 0, blue:00, alpha: 1.0 ).cgColor
+        self.passwordTextField.layer.borderWidth = 2.0
+        self.wrongPaswordLabel.textColor = colorWrongPassword
+        self.enterPasswordLabel.textColor = colorEnterPassword
+        self.enterPasswordLabel.backgroundColor = colorBackgroundEnterPassword
     }
     
     @objc func setLogin(){
+        
         guard let login = loginTextField.text, let password = passwordTextField.text, !login.isEmpty, !password.isEmpty else{
-            self.errorTextFieldPassword()
-            return
+                self.errorTextFieldPassword(passwordIsEmpty: passwordTextField.text == "")
+                return
         }
         RestApi().login(login: login, password: password) { (isOk, token) in
             
-            guard isOk, let _ = token else {
-            self.errorTextFieldPassword()
+            guard isOk, let token = token else {
+                self.errorTextFieldPassword(passwordIsEmpty: self.passwordTextField.text == "")
             return
         }
-            
-            let mapVC = MapViewController()
-            self.navigationController?.pushViewController(mapVC, animated: false)
-            return
+            userData.userData.access_token = token
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let initialViewController = storyboard.instantiateViewController(withIdentifier: "ViewController") as! ContainerViewController
+            self.navigationController?.pushViewController(initialViewController, animated: false)
         }
         
     }
@@ -80,7 +90,7 @@ class LoginViewController: UIViewController {
     
     @objc func openForgotPasswordViewControll(){
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let initialViewController = storyboard.instantiateViewController(withIdentifier: "ViewController")
+        let initialViewController = storyboard.instantiateViewController(withIdentifier: "ForgotPasswordViewControll") as! ForgotPasswordViewControll
         self.navigationController?.pushViewController(initialViewController, animated: false)
     }
     
@@ -100,7 +110,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let allConstraints = [logoXeroTopSpace, connectWithLableTopSpace, logoFGTopSpace, lineTopLogin, loginLableTopSpace, loginTextFieldTopSpace, passwordLableTopSpace, passwordTextFieldTopSpace, forgotButtomTopSpace, signInButtomButtomSpace, donthaveAccountButtomTopSpace, fbHeight, heightTextField]
+        let allConstraints = [logoXeroTopSpace, connectWithLableTopSpace, logoFGTopSpace, lineTopLogin, loginLableTopSpace, loginTextFieldTopSpace, passwordLableTopSpace, passwordTextFieldTopSpace, forgotButtomTopSpace, signInButtomButtomSpace, donthaveAccountButtomTopSpace, heightTextField]
         
         reloadConstraints(allConstraints as! [NSLayoutConstraint], "height")
     }

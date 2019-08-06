@@ -27,9 +27,7 @@ class RegistrationViewController: UIViewController {
     @IBOutlet weak var SignUpButtom: NSLayoutConstraint!
     @IBOutlet weak var loginButtomTopSpace: NSLayoutConstraint!
     @IBOutlet weak var textFieldSpace: NSLayoutConstraint!
-    @IBOutlet weak var signUpHeight: NSLayoutConstraint!
-    @IBOutlet weak var fbHeight: NSLayoutConstraint!
-    
+    @IBOutlet weak var signUpHeight: NSLayoutConstraint!    
     @IBOutlet weak var loginTrailing: NSLayoutConstraint!
     @IBOutlet weak var haveAccountLaining: NSLayoutConstraint!
     
@@ -56,7 +54,7 @@ class RegistrationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let heightConstraints = [xeroLogoTopspace, connectWithTopSpace, facebookButtonTopSpace, lineTopSpace, usernameTopSpace, usernameTextFieldTopSpace, emailTopSpace, emailTextFieldTopSpace, phoneTopSpace, phoneTextFieldTopSpace, passwordTopSpace, passwordTextFieldTopSpace, password2TopSpace, password2TextFieldTopSpace, SignUpButtom, loginButtomTopSpace, textFieldSpace, signUpHeight, fbHeight]
+        let heightConstraints = [xeroLogoTopspace, connectWithTopSpace, facebookButtonTopSpace, lineTopSpace, usernameTopSpace, usernameTextFieldTopSpace, emailTopSpace, emailTextFieldTopSpace, phoneTopSpace, phoneTextFieldTopSpace, passwordTopSpace, passwordTextFieldTopSpace, password2TopSpace, password2TextFieldTopSpace, SignUpButtom, loginButtomTopSpace, textFieldSpace, signUpHeight]
         reloadConstraints(heightConstraints as! [NSLayoutConstraint], "height")
         
         let widthConstraints = [loginTrailing, haveAccountLaining]

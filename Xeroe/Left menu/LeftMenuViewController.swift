@@ -16,14 +16,14 @@ class LeftMenuViewController: UIViewController, UITableViewDataSource, UITableVi
     
     @IBOutlet weak var logoutButton: UIButton!{
         didSet {
-            logoutButton.addTarget(self, action: #selector(openLoginViewControll), for: .touchUpInside)
+            logoutButton.addTarget(self, action: #selector(goToLoginView), for: .touchUpInside)
         }
     }
-
-    @objc func openLoginViewControll(){
+    
+    @objc func goToLoginView() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let initialViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-        self.navigationController?.pushViewController(initialViewController, animated: false)
+        self.navigationController?.pushViewController(initialViewController, animated: true)
     }
     
     fileprivate let cellIdentifier = "LeftMenuTableViewCell"
@@ -32,10 +32,10 @@ class LeftMenuViewController: UIViewController, UITableViewDataSource, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        leftMenuTableView.dataSource = self
-//        leftMenuTableView.delegate = self
-//        leftMenuTableView.register(UINib(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
-//        leftMenuTableView.tableFooterView = UIView()
+        leftMenuTableView.dataSource = self
+        leftMenuTableView.delegate = self
+        leftMenuTableView.register(UINib(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
+        leftMenuTableView.tableFooterView = UIView()
         
         // Do any additional setup after loading the view.
         

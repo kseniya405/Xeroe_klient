@@ -10,32 +10,24 @@ import UIKit
 import GoogleMaps
 
 
-class MapViewController: UIViewController, CLLocationManagerDelegate {
+class StartViewController: UIViewController, CLLocationManagerDelegate {
 
-    @IBOutlet weak var loadMenu: UIButton!{
-        didSet {
-            loadMenu.layer.cornerRadius = 2
-            loadMenu.layer.masksToBounds = true
-            loadMenu.addTarget(self, action: #selector(login), for: .touchUpInside)
-        }
-    }
-    
-    
+
     @IBAction func hamburgerBtnAction(_ sender: UIButton) {
         //Make Object of HamburgerMenu Class and call this function.
         HamburgerMenu().triggerSideMenu()
     }
 
     @IBOutlet weak var mapView: GMSMapView!
-    
-    @IBOutlet weak var button: UIButton!
-    // You don't need to modify the default init(nibName:bundle:) method.
-    
-    @objc func login() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let initialViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-        self.navigationController?.pushViewController(initialViewController, animated: true)
+    @IBOutlet weak var inputButton: ButtonWithCornerRadius! {
+        didSet{
+            RestApi().findID(xeroeID: "8ceb") { (isOk, token) in
+                print("OK!")
+            }
+        }
     }
+    
+    
     
     let locationManager = CLLocationManager()
     //var mapView: GMSMapView?
@@ -53,13 +45,11 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             locationManager.startUpdatingLocation()
         }
-        //let lm = LeftMenuViewController()
-        //self.present(lm, animated: true, completion: nil)
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
-        print("locations = \(locValue.latitude) \(locValue.longitude)")
+        //print("locations = \(locValue.latitude) \(locValue.longitude)")
         
         // Create a GMSCameraPosition that tells the map to display the
         // coordinate -33.86,151.20 at zoom level 6.
