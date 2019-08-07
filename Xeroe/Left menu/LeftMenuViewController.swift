@@ -8,8 +8,8 @@
 
 import UIKit
 
-class LeftMenuViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
+class LeftMenuViewController: UIViewController {
+    
     @IBOutlet weak var leftMenu: UIView!
     
     @IBOutlet weak var leftMenuTableView: UITableView!
@@ -20,14 +20,9 @@ class LeftMenuViewController: UIViewController, UITableViewDataSource, UITableVi
         }
     }
     
-    @objc func goToLoginView() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let initialViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-        self.navigationController?.pushViewController(initialViewController, animated: true)
-    }
     
     fileprivate let cellIdentifier = "LeftMenuTableViewCell"
-   
+    
     let cellLeftMenuNames = ["Your deliveries", "Help", "Payments", "Free deliveries", "Settings", "Notifications"]
     
     override func viewDidLoad() {
@@ -37,11 +32,18 @@ class LeftMenuViewController: UIViewController, UITableViewDataSource, UITableVi
         leftMenuTableView.register(UINib(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
         leftMenuTableView.tableFooterView = UIView()
         
-        // Do any additional setup after loading the view.
-        
-        
     }
+    
+    @objc func goToLoginView() {
+        defaults.set(nil, forKey: "token")
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let initialViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+        self.navigationController?.pushViewController(initialViewController, animated: true)
+    }
+    
+}
 
+extension LeftMenuViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cellLeftMenuNames.count
     }
@@ -57,23 +59,24 @@ class LeftMenuViewController: UIViewController, UITableViewDataSource, UITableVi
         
         return cell
     }
+}
+
+extension LeftMenuViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
         let selectedCell: LeftMenuTableViewCell = tableView.cellForRow(at: indexPath)! as! LeftMenuTableViewCell
         selectedCell.contentView.backgroundColor = UIColor(red: 0.18, green: 0.73, blue: 0.93, alpha: 1)
         selectedCell.nameCell.textColor = .white
         let image = UIImage(named: cellLeftMenuNames[indexPath.row])!.withRenderingMode(.alwaysTemplate)
         selectedCell.iconImage.image = image
         selectedCell.iconImage.tintColor = UIColor.white
-        
-
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         let deselectedCell: LeftMenuTableViewCell = tableView.cellForRow(at: indexPath)! as! LeftMenuTableViewCell
         deselectedCell.nameCell.textColor = UIColor(red: 0.16, green: 0.16, blue: 0.16, alpha: 0.87)
         deselectedCell.iconImage.image = UIImage(named: cellLeftMenuNames[indexPath.row])
-
+        
     }
-
 }

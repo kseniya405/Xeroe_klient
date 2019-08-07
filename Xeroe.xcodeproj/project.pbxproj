@@ -7,17 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9D09D7DF22F1E23800D4369F /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D09D7DE22F1E23800D4369F /* StartViewController.swift */; };
+		9D09D7DF22F1E23800D4369F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D09D7DE22F1E23800D4369F /* HomeViewController.swift */; };
 		9D09D7E322F1E97400D4369F /* View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D09D7E222F1E97400D4369F /* View.xib */; };
 		9D23E9F422F0808C00E0E2C0 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D23E9F222F0808B00E0E2C0 /* Roboto-Bold.ttf */; };
 		9D23E9F522F0808C00E0E2C0 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D23E9F322F0808B00E0E2C0 /* Roboto-Regular.ttf */; };
 		9D23E9F822F08AA500E0E2C0 /* FuturaDemiC.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D23E9F722F08AA500E0E2C0 /* FuturaDemiC.ttf */; };
 		9D6EE92322F97E3D00F8DFA6 /* RecipientDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6EE92222F97E3D00F8DFA6 /* RecipientDetailViewController.swift */; };
-		9D75BE6D22F033D4001E907B /* userData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D75BE6C22F033D4001E907B /* userData.swift */; };
+		9D75BE6D22F033D4001E907B /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D75BE6C22F033D4001E907B /* UserData.swift */; };
 		9DACCB8022F415A400D9F433 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DACCB7F22F415A400D9F433 /* MapView.swift */; };
 		9DACCB8822F42D7200D9F433 /* ButtonWithCornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DACCB8722F42D7200D9F433 /* ButtonWithCornerRadius.swift */; };
 		9DACCB8A22F42E8600D9F433 /* TextFieldWithCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DACCB8922F42E8600D9F433 /* TextFieldWithCorner.swift */; };
-		9DACCB8E22F4473C00D9F433 /* LoginDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DACCB8D22F4473C00D9F433 /* LoginDataModel.swift */; };
+		9DACCB8E22F4473C00D9F433 /* LoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DACCB8D22F4473C00D9F433 /* LoginData.swift */; };
 		9DCF034922EF1EEE00A7F283 /* ForgotPasswordViewControll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCF034822EF1EEE00A7F283 /* ForgotPasswordViewControll.swift */; };
 		9DCF034B22EF364000A7F283 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCF034A22EF364000A7F283 /* RegistrationViewController.swift */; };
 		9DD0BE7622F8465D00E55EA8 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD0BE7522F8465D00E55EA8 /* ContainerViewController.swift */; };
@@ -39,17 +39,17 @@
 		049E9F30D17E25EF4C50520B /* Pods-Xeroe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Xeroe.release.xcconfig"; path = "Target Support Files/Pods-Xeroe/Pods-Xeroe.release.xcconfig"; sourceTree = "<group>"; };
 		462B678E837F5DDE2DEF6AA4 /* Pods-Xeroe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Xeroe.debug.xcconfig"; path = "Target Support Files/Pods-Xeroe/Pods-Xeroe.debug.xcconfig"; sourceTree = "<group>"; };
 		4FA96868B0382980D707E3E7 /* Pods_Xeroe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Xeroe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9D09D7DE22F1E23800D4369F /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		9D09D7DE22F1E23800D4369F /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		9D09D7E222F1E97400D4369F /* View.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = View.xib; sourceTree = "<group>"; };
 		9D23E9F222F0808B00E0E2C0 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		9D23E9F322F0808B00E0E2C0 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		9D23E9F722F08AA500E0E2C0 /* FuturaDemiC.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FuturaDemiC.ttf; sourceTree = "<group>"; };
 		9D6EE92222F97E3D00F8DFA6 /* RecipientDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipientDetailViewController.swift; sourceTree = "<group>"; };
-		9D75BE6C22F033D4001E907B /* userData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userData.swift; sourceTree = "<group>"; };
+		9D75BE6C22F033D4001E907B /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		9DACCB7F22F415A400D9F433 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		9DACCB8722F42D7200D9F433 /* ButtonWithCornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonWithCornerRadius.swift; sourceTree = "<group>"; };
 		9DACCB8922F42E8600D9F433 /* TextFieldWithCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithCorner.swift; sourceTree = "<group>"; };
-		9DACCB8D22F4473C00D9F433 /* LoginDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDataModel.swift; sourceTree = "<group>"; };
+		9DACCB8D22F4473C00D9F433 /* LoginData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginData.swift; sourceTree = "<group>"; };
 		9DCF034822EF1EEE00A7F283 /* ForgotPasswordViewControll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewControll.swift; sourceTree = "<group>"; };
 		9DCF034A22EF364000A7F283 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		9DD0BE5522F817FE00E55EA8 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -97,8 +97,8 @@
 		9D75BE6B22F0337C001E907B /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				9D75BE6C22F033D4001E907B /* userData.swift */,
-				9DACCB8D22F4473C00D9F433 /* LoginDataModel.swift */,
+				9D75BE6C22F033D4001E907B /* UserData.swift */,
+				9DACCB8D22F4473C00D9F433 /* LoginData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -169,7 +169,7 @@
 				9DACCB8C22F4320100D9F433 /* LoginVC */,
 				9DF533A822EEDBE30036866C /* Assets.xcassets */,
 				9DD0BE9B22F8671D00E55EA8 /* Main.storyboard */,
-				9D09D7DE22F1E23800D4369F /* StartViewController.swift */,
+				9D09D7DE22F1E23800D4369F /* HomeViewController.swift */,
 				9D6EE92222F97E3D00F8DFA6 /* RecipientDetailViewController.swift */,
 				9DD0BE5722F81DDB00E55EA8 /* Left menu */,
 				9D75BE6B22F0337C001E907B /* Models */,
@@ -341,7 +341,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9D75BE6D22F033D4001E907B /* userData.swift in Sources */,
+				9D75BE6D22F033D4001E907B /* UserData.swift in Sources */,
 				9DF533A422EEDBE10036866C /* LoginViewController.swift in Sources */,
 				9DCF034922EF1EEE00A7F283 /* ForgotPasswordViewControll.swift in Sources */,
 				9DCF034B22EF364000A7F283 /* RegistrationViewController.swift in Sources */,
@@ -352,10 +352,10 @@
 				9DD0BEA422F87B9200E55EA8 /* LeftMenuTableViewCell.swift in Sources */,
 				9DD0BE7622F8465D00E55EA8 /* ContainerViewController.swift in Sources */,
 				9DACCB8022F415A400D9F433 /* MapView.swift in Sources */,
-				9DACCB8E22F4473C00D9F433 /* LoginDataModel.swift in Sources */,
+				9DACCB8E22F4473C00D9F433 /* LoginData.swift in Sources */,
 				9DACCB8A22F42E8600D9F433 /* TextFieldWithCorner.swift in Sources */,
 				9DD0BEA622F87B9300E55EA8 /* LeftMenuViewController.swift in Sources */,
-				9D09D7DF22F1E23800D4369F /* StartViewController.swift in Sources */,
+				9D09D7DF22F1E23800D4369F /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

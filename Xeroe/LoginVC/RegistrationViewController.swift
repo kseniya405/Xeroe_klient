@@ -9,7 +9,7 @@
 import UIKit
 
 class RegistrationViewController: UIViewController {
-
+    
     @IBOutlet weak var xeroLogoTopspace: NSLayoutConstraint!
     @IBOutlet weak var connectWithTopSpace: NSLayoutConstraint!
     @IBOutlet weak var facebookButtonTopSpace: NSLayoutConstraint!
@@ -31,7 +31,6 @@ class RegistrationViewController: UIViewController {
     @IBOutlet weak var loginTrailing: NSLayoutConstraint!
     @IBOutlet weak var haveAccountLaining: NSLayoutConstraint!
     
-    
     @IBOutlet weak var fbButton: ButtonWithCornerRadius!
     @IBOutlet weak var gButton: ButtonWithCornerRadius!
     @IBOutlet weak var usernameTextField: TextFieldWithCorner!
@@ -42,14 +41,8 @@ class RegistrationViewController: UIViewController {
     @IBOutlet weak var signUpButton: ButtonWithCornerRadius!
     @IBOutlet weak var loginButton: ButtonWithCornerRadius! {
         didSet {
-            loginButton.addTarget(self, action: #selector(login), for: .touchUpInside)
+            loginButton.addTarget(self, action: #selector(loginButtonTap), for: .touchUpInside)
         }
-    }
-    
-    @objc func login() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let initialViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-        self.navigationController?.pushViewController(initialViewController, animated: true)
     }
     
     override func viewDidLoad() {
@@ -59,10 +52,14 @@ class RegistrationViewController: UIViewController {
         
         let widthConstraints = [loginTrailing, haveAccountLaining]
         reloadConstraints(widthConstraints as! [NSLayoutConstraint], "width")
-
+        
     }
     
-
-
-
+    @objc func loginButtonTap() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let initialViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+        self.navigationController?.pushViewController(initialViewController, animated: true)
+    }
+    
+    
 }

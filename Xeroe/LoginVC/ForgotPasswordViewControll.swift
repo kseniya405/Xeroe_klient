@@ -13,17 +13,10 @@ class ForgotPasswordViewControll: UIViewController {
     
     @IBOutlet weak var checkEmailButton: ButtonWithCornerRadius!{
         didSet {
-        checkEmailButton.addTarget(self, action: #selector(backToAutorizathion), for: .touchUpInside)
+            checkEmailButton.addTarget(self, action: #selector(checkEmailButtonTap), for: .touchUpInside)
         }
     }
-
-    @objc func backToAutorizathion() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let initialViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-        self.navigationController?.pushViewController(initialViewController, animated: true)
-    }
     
-
     @IBOutlet weak var xeroLogoTopSpace: NSLayoutConstraint!
     @IBOutlet weak var emailAdressTopSpace: NSLayoutConstraint!
     @IBOutlet weak var loginTextFieldTopSpace: NSLayoutConstraint!
@@ -37,10 +30,14 @@ class ForgotPasswordViewControll: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let registrationConstraints = [textViewTopSpace, checkMailButtomTopSpace, checkEmailButtonHeight, textFieldHeight, xeroLogoTopSpace, loginTextFieldTopSpace, resetPasswordButtonTopSpace, emailAdressTopSpace, resetPasswordButtomHeight]
-
+        
         reloadConstraints(registrationConstraints as! [NSLayoutConstraint], "height")
     }
-
-
-
+    
+    @objc func checkEmailButtonTap() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let initialViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+        self.navigationController?.pushViewController(initialViewController, animated: true)
+    }
+    
 }

@@ -11,7 +11,7 @@
 		<string>fontello.ttf</string>
 	</array>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>GOOGLEMAP</string>
+	<string>In order to show your location on the map and show the route from you to the goal</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -52,7 +52,10 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>LSApplicationQueriesSchemes</key>
-	<string>GOOGLEMAPS</string>
+	<string>
+Spisok skhem, kotoryye ispol&apos;zuyutsya dlya perekhoda na storonniye prilozheniya.
+71/5000
+List of schemes that are used to switch to third-party applications.</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>

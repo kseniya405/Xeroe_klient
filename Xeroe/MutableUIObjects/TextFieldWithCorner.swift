@@ -11,7 +11,7 @@ import UIKit
 class TextFieldWithCorner: UITextField {
 
     override func awakeFromNib() {
-        self.layer.cornerRadius = 2
+        self.layer.cornerRadius = 4
         self.layer.masksToBounds = true
     }
 

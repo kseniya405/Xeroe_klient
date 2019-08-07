@@ -7,12 +7,11 @@
 //
 
 import UIKit
-import Alamofire
 
 
 class LoginViewController: UIViewController {
-    
 
+    
     //mutable constraints
     @IBOutlet weak var logoXeroTopSpace: NSLayoutConstraint!
     @IBOutlet weak var connectWithLableTopSpace: NSLayoutConstraint!
@@ -27,6 +26,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var donthaveAccountButtomTopSpace: NSLayoutConstraint!
     @IBOutlet weak var heightTextField: NSLayoutConstraint!
     
+    @IBOutlet weak var enterEmailLabel: UILabel!
     @IBOutlet weak var enterPasswordLabel: UILabel!
     @IBOutlet weak var wrongPaswordLabel: UILabel!
     @IBOutlet weak var passwordLabel: UILabel!
@@ -37,85 +37,90 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var fbButton: ButtonWithCornerRadius!
     @IBOutlet weak var signInButton: ButtonWithCornerRadius! {
         didSet {
-            signInButton.addTarget(self, action: #selector(setLogin), for: .touchUpInside)
+            signInButton.addTarget(self, action: #selector(signInButtonTap), for: .touchUpInside)
+        }
+    }
+    @IBOutlet weak var forgotButton: ButtonWithCornerRadius!{
+        didSet {
+            forgotButton.addTarget(self, action: #selector(forgotButtonTap), for: .touchUpInside)
+        }
+    }
+    @IBOutlet weak var createAccountButton: ButtonWithCornerRadius! {
+        didSet {
+            createAccountButton.addTarget(self, action: #selector(createAccountButtonTap), for: .touchUpInside)
         }
     }
     
-    fileprivate func errorTextFieldPassword(passwordIsEmpty: Bool) {
-        var colorWrongPassword: UIColor
-        var colorEnterPassword: UIColor
-        var colorBackgroundEnterPassword: UIColor
-        if passwordIsEmpty {
-            colorWrongPassword = .clear
-            colorEnterPassword = .red
-            colorBackgroundEnterPassword = .white
-        } else {
-            colorWrongPassword = .red
-            colorEnterPassword = .clear
-            colorBackgroundEnterPassword = .clear
-        }
-        self.passwordTextField.layer.masksToBounds = true
-        self.passwordTextField.layer.borderColor = UIColor( red: 1, green: 0, blue:00, alpha: 1.0 ).cgColor
-        self.passwordTextField.layer.borderWidth = 2.0
-        self.wrongPaswordLabel.textColor = colorWrongPassword
-        self.enterPasswordLabel.textColor = colorEnterPassword
-        self.enterPasswordLabel.backgroundColor = colorBackgroundEnterPassword
-    }
-    
-    @objc func setLogin(){
-        
-        guard let login = loginTextField.text, let password = passwordTextField.text, !login.isEmpty, !password.isEmpty else{
-                self.errorTextFieldPassword(passwordIsEmpty: passwordTextField.text == "")
-                return
-        }
-        RestApi().login(login: login, password: password) { (isOk, token) in
-            
-            guard isOk, let token = token else {
-                self.errorTextFieldPassword(passwordIsEmpty: self.passwordTextField.text == "")
-            return
-        }
+
+    override func viewDidLoad() {
+        if defaults.string(forKey: "token") != nil {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let initialViewController = storyboard.instantiateViewController(withIdentifier: "ViewController") as! ContainerViewController
             self.navigationController?.pushViewController(initialViewController, animated: false)
         }
         
+        super.viewDidLoad()
+
+        let allConstraints = [logoXeroTopSpace, connectWithLableTopSpace, logoFGTopSpace, lineTopLogin, loginLableTopSpace, loginTextFieldTopSpace, passwordLableTopSpace, passwordTextFieldTopSpace, forgotButtomTopSpace, signInButtomButtomSpace, donthaveAccountButtomTopSpace, heightTextField]
+        
+        reloadConstraints(allConstraints as! [NSLayoutConstraint], "height")
     }
     
-    @IBOutlet weak var forgotButton: ButtonWithCornerRadius!{
-        didSet {
-            forgotButton.addTarget(self, action: #selector(openForgotPasswordViewControll), for: .touchUpInside)
+    
+    fileprivate func errorTextFieldPassword(passwordIsEmpty: Bool, emailIsEmpty: Bool) {
+        self.passwordTextField.layer.masksToBounds = true
+        self.passwordTextField.layer.borderColor = UIColor(red: 1, green: 0, blue:00, alpha: 1.0).cgColor
+        self.passwordTextField.layer.borderWidth = 2.0
+        self.wrongPaswordLabel.textColor = passwordIsEmpty ? .clear : .red
+        self.enterPasswordLabel.textColor = passwordIsEmpty ? .red : .clear
+        self.enterPasswordLabel.backgroundColor = passwordIsEmpty ? .white : .clear
+        self.enterEmailLabel.textColor = emailIsEmpty ? .red : .clear
+        self.enterEmailLabel.backgroundColor = emailIsEmpty ? .white : .clear
+        self.loginTextField.layer.masksToBounds = true
+        self.loginTextField.layer.borderWidth = 2.0
+        self.loginTextField.layer.borderColor = emailIsEmpty ? UIColor(red: 1, green: 0, blue:00, alpha: 1.0).cgColor : UIColor(red: 1, green: 0, blue:00, alpha: 0.0).cgColor
+        
+    }
+
+    
+    @objc func signInButtonTap(){
+        
+        guard let login = loginTextField.text, let password = passwordTextField.text, !login.isEmpty, !password.isEmpty else{
+            self.errorTextFieldPassword(passwordIsEmpty: passwordTextField.text == "", emailIsEmpty: loginTextField.text == "")
+            return
+        }
+        
+        
+        RestApi().login(login: login, password: password) { (isOk, token) in
+            DispatchQueue.main.async {
+                guard isOk, let token = token else {
+                    self.errorTextFieldPassword(passwordIsEmpty: self.passwordTextField.text == "", emailIsEmpty: self.loginTextField.text == "")
+                    
+                    return
+                }
+                defaults.set(token, forKey: "token")
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let initialViewController = storyboard.instantiateViewController(withIdentifier: "ViewController") as! ContainerViewController
+                self.navigationController?.pushViewController(initialViewController, animated: false)
+            
+            }
         }
     }
     
-    @objc func openForgotPasswordViewControll(){
+    @objc func forgotButtonTap(){
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let initialViewController = storyboard.instantiateViewController(withIdentifier: "ForgotPasswordViewControll") as! ForgotPasswordViewControll
         self.navigationController?.pushViewController(initialViewController, animated: false)
     }
     
-    @IBOutlet weak var createAccountButton: ButtonWithCornerRadius! {
-        didSet {
-            createAccountButton.addTarget(self, action: #selector(openRegistrationViewController), for: .touchUpInside)
-        }
-    }
-    
-    @objc func openRegistrationViewController(){
+    @objc func createAccountButtonTap(){
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let initialViewController = storyboard.instantiateViewController(withIdentifier: "RegistrationViewController") as! RegistrationViewController
         self.navigationController?.pushViewController(initialViewController, animated: false)
     }
     
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        let allConstraints = [logoXeroTopSpace, connectWithLableTopSpace, logoFGTopSpace, lineTopLogin, loginLableTopSpace, loginTextFieldTopSpace, passwordLableTopSpace, passwordTextFieldTopSpace, forgotButtomTopSpace, signInButtomButtomSpace, donthaveAccountButtomTopSpace, heightTextField]
-        
-        reloadConstraints(allConstraints as! [NSLayoutConstraint], "height")
-        
-        
-    }
-
+    
 }
 
 extension UIViewController {
@@ -145,6 +150,4 @@ extension UIViewController {
         
     }
 }
-
-
 

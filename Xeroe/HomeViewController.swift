@@ -10,16 +10,17 @@ import UIKit
 import GoogleMaps
 
 
-class StartViewController: UIViewController, CLLocationManagerDelegate {
-
-
+class HomeViewController: UIViewController, CLLocationManagerDelegate {
+    
+    
     @IBAction func hamburgerBtnAction(_ sender: UIButton) {
         //Make Object of HamburgerMenu Class and call this function.
         HamburgerMenu().triggerSideMenu()
     }
-
+    
     @IBOutlet weak var mapView: GMSMapView!
-    @IBOutlet weak var inputButton: ButtonWithCornerRadius! {
+    @IBOutlet weak var inputButton: ButtonWithCornerRadius!
+    {
         didSet{
             RestApi().findID(xeroeID: "8ceb") { (isOk, token) in
                 print("OK!")
@@ -54,7 +55,7 @@ class StartViewController: UIViewController, CLLocationManagerDelegate {
         // Create a GMSCameraPosition that tells the map to display the
         // coordinate -33.86,151.20 at zoom level 6.
         let camera = GMSCameraPosition.camera(withLatitude: locValue.latitude, longitude: locValue.longitude, zoom: 6.0)
-            mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
+        mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
         
         // Creates a marker in the center of the map.
         let marker = GMSMarker()
@@ -62,6 +63,6 @@ class StartViewController: UIViewController, CLLocationManagerDelegate {
         marker.map = mapView
         
     }
-
+    
 }
 

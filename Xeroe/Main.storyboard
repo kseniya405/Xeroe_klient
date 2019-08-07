@@ -90,7 +90,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="grZ-No-b4x" userLabel="LoginTextField" customClass="TextFieldWithCorner" customModule="Xeroe" customModuleProvider="target">
-                                <rect key="frame" x="20" y="470.5" width="376" height="32"/>
+                                <rect key="frame" x="20" y="471.5" width="376" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="PGN-YG-FDu"/>
                                 </constraints>
@@ -99,19 +99,19 @@
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="ClD-qf-EWw">
-                                <rect key="frame" x="20" y="519.5" width="57.5" height="15.5"/>
+                                <rect key="frame" x="20" y="520.5" width="57.5" height="15.5"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="13"/>
                                 <color key="textColor" red="0.56078431370000004" green="0.56078431370000004" blue="0.56078431370000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="caT-KE-O4B" userLabel="PasswordTextField" customClass="TextFieldWithCorner" customModule="Xeroe" customModuleProvider="target">
-                                <rect key="frame" x="20" y="541.5" width="376" height="32"/>
+                                <rect key="frame" x="20" y="542.5" width="376" height="32"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your password" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000001192092896" translatesAutoresizingMaskIntoConstraints="NO" id="AUu-T4-ZZe">
-                                <rect key="frame" x="30" y="534.5" width="109.5" height="14.5"/>
+                                <rect key="frame" x="30" y="535.5" width="109.5" height="14.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                 <color key="textColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -128,7 +128,7 @@
                                 <state key="normal" title="SIGN IN"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I4p-T6-j8g">
-                                <rect key="frame" x="298" y="585.5" width="98" height="28"/>
+                                <rect key="frame" x="298" y="586.5" width="98" height="28"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="13"/>
                                 <color key="tintColor" red="0.56078431370000004" green="0.56078431370000004" blue="0.56078431370000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Forgot password"/>
@@ -140,8 +140,15 @@
                                 <state key="normal" title="Don’t have account yet?"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wrong password. Try again or click Forgot password to reset it. " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000001192092896" translatesAutoresizingMaskIntoConstraints="NO" id="riK-4K-0Nn" userLabel="Wrong password">
-                                <rect key="frame" x="30" y="576.5" width="310" height="13"/>
+                                <rect key="frame" x="30" y="577.5" width="310" height="13"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="11"/>
+                                <color key="textColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter email or phone number" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000001192092896" translatesAutoresizingMaskIntoConstraints="NO" id="4qx-Kt-53H">
+                                <rect key="frame" x="30" y="464.5" width="154" height="14.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                 <color key="textColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -153,8 +160,9 @@
                             <constraint firstItem="nXi-rE-tZt" firstAttribute="top" secondItem="63u-Bl-Lqf" secondAttribute="top" constant="120" id="3IP-kl-XI5"/>
                             <constraint firstItem="caT-KE-O4B" firstAttribute="leading" secondItem="ClD-qf-EWw" secondAttribute="leading" id="3JG-kr-o6t"/>
                             <constraint firstItem="caT-KE-O4B" firstAttribute="leading" secondItem="AUu-T4-ZZe" secondAttribute="leading" constant="-10" id="4A6-cD-kvS"/>
-                            <constraint firstItem="grZ-No-b4x" firstAttribute="top" secondItem="HBA-Rd-Gge" secondAttribute="bottom" constant="6" id="4NC-dl-i3V"/>
+                            <constraint firstItem="grZ-No-b4x" firstAttribute="top" secondItem="HBA-Rd-Gge" secondAttribute="bottom" constant="7" id="4NC-dl-i3V"/>
                             <constraint firstItem="63u-Bl-Lqf" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="riK-4K-0Nn" secondAttribute="trailing" symbolic="YES" id="5Hv-k6-oQo"/>
+                            <constraint firstItem="4qx-Kt-53H" firstAttribute="centerY" secondItem="grZ-No-b4x" secondAttribute="top" id="6Is-sY-cpL"/>
                             <constraint firstItem="riK-4K-0Nn" firstAttribute="top" secondItem="caT-KE-O4B" secondAttribute="bottom" constant="3" id="7XR-IL-fJx"/>
                             <constraint firstItem="AUu-T4-ZZe" firstAttribute="centerY" secondItem="caT-KE-O4B" secondAttribute="top" id="7gF-yo-kjC"/>
                             <constraint firstItem="0oz-Ta-vsR" firstAttribute="height" secondItem="kAY-1V-jyj" secondAttribute="height" id="8xX-y0-Zwt"/>
@@ -178,6 +186,7 @@
                             <constraint firstItem="63u-Bl-Lqf" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="HBA-Rd-Gge" secondAttribute="trailing" symbolic="YES" id="X0n-B5-QZp"/>
                             <constraint firstItem="caT-KE-O4B" firstAttribute="trailing" secondItem="grZ-No-b4x" secondAttribute="trailing" id="ZIS-Na-uzb"/>
                             <constraint firstItem="nXi-rE-tZt" firstAttribute="centerX" secondItem="63u-Bl-Lqf" secondAttribute="centerX" id="ZlS-Fc-rws"/>
+                            <constraint firstItem="4qx-Kt-53H" firstAttribute="leading" secondItem="AUu-T4-ZZe" secondAttribute="leading" id="cEA-rr-hCn"/>
                             <constraint firstItem="caT-KE-O4B" firstAttribute="height" secondItem="grZ-No-b4x" secondAttribute="height" id="g40-0c-FYd"/>
                             <constraint firstItem="Qaq-my-0BS" firstAttribute="top" secondItem="kAY-1V-jyj" secondAttribute="bottom" constant="31" id="hzl-tC-11C"/>
                             <constraint firstItem="qSk-F0-b0A" firstAttribute="top" secondItem="63u-Bl-Lqf" secondAttribute="top" constant="275" id="j3B-Pl-rDq"/>
@@ -205,6 +214,7 @@
                         <outlet property="connectWithLableTopSpace" destination="j3B-Pl-rDq" id="TEK-oE-QxU"/>
                         <outlet property="createAccountButton" destination="PCA-hM-ul6" id="nmg-q5-ihU"/>
                         <outlet property="donthaveAccountButtomTopSpace" destination="lGL-A0-U99" id="qxf-FK-eIa"/>
+                        <outlet property="enterEmailLabel" destination="4qx-Kt-53H" id="tPl-jk-qIc"/>
                         <outlet property="enterPasswordLabel" destination="AUu-T4-ZZe" id="Q0Z-vs-a54"/>
                         <outlet property="fbButton" destination="kAY-1V-jyj" id="0Pc-mG-AzD"/>
                         <outlet property="forgotButtomTopSpace" destination="CNw-wu-NXm" id="YLC-OA-VNc"/>
@@ -592,7 +602,7 @@
         <!--Left Menu View Controller-->
         <scene sceneID="xVl-Gv-FgM">
             <objects>
-                <viewController storyboardIdentifier="rearVC" id="oD3-uP-NdL" customClass="LeftMenuViewController" customModule="Xeroe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="leftMenuVC" id="oD3-uP-NdL" customClass="LeftMenuViewController" customModule="Xeroe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="c2S-Qh-jFm">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -771,26 +781,10 @@
             </objects>
             <point key="canvasLocation" x="38" y="719"/>
         </scene>
-        <!--Recipient Detail View Controller-->
-        <scene sceneID="iTS-fL-dii">
-            <objects>
-                <viewController id="QEG-q8-VhK" customClass="RecipientDetailViewController" customModule="Xeroe" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="o3w-NP-mkG">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="zUc-5p-fAV"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="rIM-u4-0X4"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gHE-zN-TNC" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1877" y="719"/>
-        </scene>
-        <!--Start View Controller-->
+        <!--Home View Controller-->
         <scene sceneID="Oqq-zq-1Ub">
             <objects>
-                <viewController storyboardIdentifier="FrontTabbar" id="PiF-WU-pUw" customClass="StartViewController" customModule="Xeroe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FrontTabbar" id="PiF-WU-pUw" customClass="HomeViewController" customModule="Xeroe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="K2i-NA-Q2U" customClass="MapViewC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -819,7 +813,7 @@
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="1"/>
                                 <state key="normal" title="Button" image="menu"/>
                                 <connections>
-                                    <action selector="hamburgerBtnAction:" destination="PiF-WU-pUw" eventType="touchUpInside" id="vr3-nh-g6l"/>
+                                    <action selector="hamburgerBtnAction:" destination="PiF-WU-pUw" eventType="touchUpInside" id="1m8-Qe-mLf"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ybv-xZ-ZAh" userLabel="BackgroudImageView" customClass="ButtonWithCornerRadius" customModule="Xeroe" customModuleProvider="target">
@@ -844,7 +838,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5xI-CF-j2m" customClass="ButtonWithCornerRadius" customModule="Xeroe" customModuleProvider="target">
                                 <rect key="frame" x="331" y="112" width="48" height="48"/>
                                 <connections>
-                                    <segue destination="N3G-hC-d75" kind="push" id="m6i-YL-GsP"/>
+                                    <segue destination="N3G-hC-d75" kind="showDetail" id="9La-pS-3CX"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -871,8 +865,8 @@
                     </view>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="jHu-WC-uVE"/>
                     <connections>
-                        <outlet property="inputButton" destination="5xI-CF-j2m" id="8Zh-dn-TD2"/>
-                        <outlet property="mapView" destination="p1j-qA-TAX" id="2w7-D3-uaE"/>
+                        <outlet property="inputButton" destination="5xI-CF-j2m" id="Bla-Lj-age"/>
+                        <outlet property="mapView" destination="p1j-qA-TAX" id="sMg-sk-ech"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xhS-O5-cGz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -969,7 +963,6 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <dataDetectorType key="dataDetectorTypes" address="YES"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Available:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iGT-mG-6qf">
                                 <rect key="frame" x="74.5" y="502" width="61" height="16.5"/>
@@ -1060,25 +1053,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lXP-Qa-JSp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="805.79710144927537" y="1431.6964285714284"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="8u4-47-B5p">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JpQ-AC-vFA" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="cEj-eo-zK1"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8o4-eq-4mq">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="QEG-q8-VhK" kind="relationship" relationship="rootViewController" id="1Zi-a6-Nhc"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LpG-Vy-Bc0" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="948" y="719"/>
         </scene>
         <!--Container View Controller-->
         <scene sceneID="CeR-T2-Lii">

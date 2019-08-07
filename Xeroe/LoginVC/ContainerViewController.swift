@@ -9,8 +9,8 @@
 import UIKit
 
 class ContainerViewController: UIViewController {
-
-
+    
+    
     @IBOutlet weak var tabbarContainerView: UIView!
     @IBOutlet weak var sideMenuView: UIView!
     //MARK: - Variables
@@ -26,22 +26,17 @@ class ContainerViewController: UIViewController {
         return front
     }()
     
-    lazy var rearVC: UIViewController? = {
-        let rear = self.storyboard?.instantiateViewController(withIdentifier: "rearVC")
-        return rear
+    lazy var leftMenuViewController: UIViewController? = {
+        let leftMenu = self.storyboard?.instantiateViewController(withIdentifier: "leftMenuVC")
+        return leftMenu
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         displayTabbar()
         addShadowToView()
         setUpNotifications()
         setUpGestures()
-        
-        
-        
-        // Do any additional setup after loading the view, typically from a nib.
     }
     
     func setUpNotifications(){
@@ -64,25 +59,24 @@ class ContainerViewController: UIViewController {
     //MARK: - UISetup
     func displayTabbar(){
         // To display Tabbar in TabbarContainerView
-        if let vc = frontVC {
-            self.addChild(vc)
-            vc.didMove(toParent: self)
+        if let currentViewController = frontVC {
+            self.addChild(currentViewController)
+            currentViewController.didMove(toParent: self)
             
-            vc.view.frame = self.tabbarContainerView.bounds
-            self.tabbarContainerView.addSubview(vc.view)
-            
+            currentViewController.view.frame = self.tabbarContainerView.bounds
+            self.tabbarContainerView.addSubview(currentViewController.view)
         }
     }
     
     func displaySideMenu(){
-        // To display RearViewController in Side Menu View
-        if !self.children.contains(rearVC!){
-            if let vc = rearVC {
-                self.addChild(vc)
-                vc.didMove(toParent: self)
+        // To display LeftMenuViewController in Side Menu View
+        if !self.children.contains(leftMenuViewController!){
+            if let currentViewController = leftMenuViewController {
+                self.addChild(currentViewController)
+                currentViewController.didMove(toParent: self)
                 
-                vc.view.frame = self.sideMenuView.bounds
-                self.sideMenuView.addSubview(vc.view)
+                currentViewController.view.frame = self.sideMenuView.bounds
+                self.sideMenuView.addSubview(currentViewController.view)
                 
             }
             
@@ -95,7 +89,7 @@ class ContainerViewController: UIViewController {
         let blackView = self.tabbarContainerView.viewWithTag(blackTransparentViewTag)
         if blackView != nil{
             return blackView!
-        }else{
+        } else {
             let sView = UIView(frame: self.tabbarContainerView.bounds)
             sView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
             sView.tag = blackTransparentViewTag
@@ -126,7 +120,7 @@ class ContainerViewController: UIViewController {
     @objc func openOrCloseSideMenu(){
         //Opens or Closes Side Menu On Click of Button
         if openFlag{
-            //This closes Rear View
+            //This closes Left Menu
             let blackTransparentView = self.view.viewWithTag(self.blackTransparentViewTag)
             UIView.animate(withDuration: 0.3, animations: {
                 self.tabbarContainerView.frame = CGRect(x: 0, y: 0, width: self.tabbarContainerView.frame.size.width, height: self.tabbarContainerView.frame.size.height)
@@ -137,7 +131,7 @@ class ContainerViewController: UIViewController {
                 self.openFlag = false
             }
         }else{
-            //This opens Rear View
+            //This opens Left Menu
             UIView.animate(withDuration: 0.0, animations: {
                 self.displaySideMenu()
                 let blackTransparentView = self.addBlackTransparentView()
@@ -196,18 +190,18 @@ class ContainerViewController: UIViewController {
         
         if panGesture.state == .began{
             initialPos = touchPos
-        }else if panGesture.state == .changed{
+        } else if panGesture.state == .changed{
             let touchPosition = self.view.bounds.width * 0.8
             if (initialPos?.x)! > touchPosition && openFlag{
-                //To Close Rear View
+                //To Close Left Menu
                 if self.tabbarContainerView.frame.minX > 0{
                     self.tabbarContainerView.center = CGPoint(x: self.tabbarContainerView.center.x + translation.x, y: self.tabbarContainerView.bounds.midY)
                     panGesture.setTranslation(CGPoint.zero, in: self.view)
                     
                     blackTransparentView.alpha = self.tabbarContainerView.frame.minX/(self.view.bounds.width * 1.8)
                 }
-            }else if !openFlag{
-                //To Open Rear View
+            } else if !openFlag{
+                //To Open Left Menu
                 if translation.x > 0.0{
                     displaySideMenu()
                     
@@ -219,9 +213,9 @@ class ContainerViewController: UIViewController {
                 
             }
             
-        }else if panGesture.state == .ended{
+        } else if panGesture.state == .ended{
             if self.tabbarContainerView.frame.minX > self.view.frame.midX{
-                //Opens Rear View
+                //Opens Left Menu
                 UIView.animate(withDuration: 0.2, animations: {
                     
                     self.tabbarContainerView.frame = CGRect(x: self.view.frame.width * 0.8, y: 0, width: self.tabbarContainerView.bounds.width, height: self.tabbarContainerView.bounds.height)
@@ -229,8 +223,8 @@ class ContainerViewController: UIViewController {
                 }) { (_) in
                     self.openFlag = true
                 }
-            }else{
-                //Closes Rear View
+            } else {
+                //Closes Left Menu
                 UIView.animate(withDuration: 0.2, animations: {
                     self.tabbarContainerView.center = CGPoint(x: self.view.center.x, y: self.tabbarContainerView.bounds.midY)
                     blackTransparentView.alpha = 0
@@ -242,8 +236,6 @@ class ContainerViewController: UIViewController {
             }
         }
     }
-    
-    
     
 }
 
@@ -266,3 +258,4 @@ class HamburgerMenu{
     }
     
 }
+
