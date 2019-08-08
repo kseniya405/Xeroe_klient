@@ -6,8 +6,8 @@ target 'Xeroe' do
   use_frameworks!
 
   pod 'Alamofire'
-  pod 'GoogleMaps'
-  pod 'GooglePlaces'
+  pod 'GoogleMaps', '~> 3.3.0.0'
+  pod 'GooglePlaces', '~> 3.3.0.0'
   # Pods for Xeroe
 
 end

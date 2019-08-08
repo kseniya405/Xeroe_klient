@@ -21,14 +21,18 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var mapView: GMSMapView!
     @IBOutlet weak var inputButton: ButtonWithCornerRadius!
     {
-        didSet{
-            RestApi().findID(xeroeID: "8ceb") { (isOk, token) in
-                print("OK!")
-            }
+        didSet {
+            inputButton.addTarget(self, action: #selector(inputButtonTap), for: .touchUpInside)
         }
     }
+
     
-    
+    @objc func inputButtonTap() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let initialViewController = storyboard.instantiateViewController(withIdentifier: "RecipientDetailViewController") as! RecipientDetailViewController
+        self.navigationController?.pushViewController(initialViewController, animated: false)
+    }
+
     
     let locationManager = CLLocationManager()
     //var mapView: GMSMapView?
