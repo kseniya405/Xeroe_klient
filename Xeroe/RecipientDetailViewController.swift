@@ -48,7 +48,7 @@ class RecipientDetailViewController: UIViewController {
     
     @objc func buttonYesTap() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let initialViewController = storyboard.instantiateViewController(withIdentifier: "FlowPickUpOrDeliveryViewController") as! FlowPickUpOrDeliveryViewController
+        let initialViewController = storyboard.instantiateViewController(withIdentifier: "ShippingAgrinentViewController") as! ShippingAgrinentViewController
         self.navigationController?.pushViewController(initialViewController, animated: false)
     }
 

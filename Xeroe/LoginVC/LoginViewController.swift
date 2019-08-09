@@ -34,6 +34,13 @@ class LoginViewController: UIViewController {
     // text field login and password
     @IBOutlet weak var loginTextField: TextFieldWithCorner!
     @IBOutlet weak var passwordTextField: TextFieldWithCorner!
+    
+    @IBOutlet weak var visibilityPasswordButton: ButtonWithCornerRadius! {
+        didSet {
+            visibilityPasswordButton.addTarget(self, action: #selector(visibilityPasswordButtonTap), for: .touchUpInside)
+        }
+    }
+    
     @IBOutlet weak var fbButton: ButtonWithCornerRadius!
     @IBOutlet weak var signInButton: ButtonWithCornerRadius! {
         didSet {
@@ -119,6 +126,11 @@ class LoginViewController: UIViewController {
         self.navigationController?.pushViewController(initialViewController, animated: false)
     }
     
+    @objc func visibilityPasswordButtonTap(){
+        passwordTextField.isSecureTextEntry.toggle()
+        let imageButtonName = passwordTextField.isSecureTextEntry ? "invisible" : "visible"
+        visibilityPasswordButton.setImage(UIImage(named: imageButtonName), for: .normal)
+    }
     
     
 }

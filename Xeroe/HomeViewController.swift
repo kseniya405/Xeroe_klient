@@ -12,6 +12,7 @@ import GoogleMaps
 
 class HomeViewController: UIViewController, CLLocationManagerDelegate {
     
+    @IBOutlet weak var xeroeIDTextField: TextFieldWithCorner!
     
     @IBAction func hamburgerBtnAction(_ sender: UIButton) {
         //Make Object of HamburgerMenu Class and call this function.
@@ -20,22 +21,12 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var mapView: GMSMapView!
     @IBOutlet weak var inputButton: ButtonWithCornerRadius!
-    {
+        {
         didSet {
+            
             inputButton.addTarget(self, action: #selector(inputButtonTap), for: .touchUpInside)
         }
     }
-
-    
-    @objc func inputButtonTap() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let initialViewController = storyboard.instantiateViewController(withIdentifier: "RecipientDetailViewController") as! RecipientDetailViewController
-        self.navigationController?.pushViewController(initialViewController, animated: false)
-    }
-
-    
-    let locationManager = CLLocationManager()
-    //var mapView: GMSMapView?
     
     override func viewDidLoad() {
         
@@ -51,6 +42,31 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
             locationManager.startUpdatingLocation()
         }
     }
+    
+    @objc func inputButtonTap() {
+        guard let textID = xeroeIDTextField.text, !textID.isEmpty, textID == "8ceb" else {
+            showAlertInputButtonTap()
+            return
+        }
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let initialViewController = storyboard.instantiateViewController(withIdentifier: "RecipientDetailViewController") as! RecipientDetailViewController
+        self.navigationController?.pushViewController(initialViewController, animated: false)
+    }
+    
+    @objc func showAlertInputButtonTap(){
+        let alert = UIAlertController(title: "Invalid xeroeID", message: "This is my message.", preferredStyle: UIAlertController.Style.alert)
+        
+        // add an action (button)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    let locationManager = CLLocationManager()
+    //var mapView: GMSMapView?
+    
+    
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
