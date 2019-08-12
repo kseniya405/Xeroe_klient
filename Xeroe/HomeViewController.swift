@@ -25,6 +25,8 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         didSet {
             
             inputButton.addTarget(self, action: #selector(inputButtonTap), for: .touchUpInside)
+            inputButton.addTarget(self, action: #selector(inputButtonTap), for: .touchDragEnter)
+
         }
     }
     

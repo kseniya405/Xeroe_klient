@@ -130,7 +130,7 @@ class ContainerViewController: UIViewController {
                 blackTransparentView?.removeFromSuperview()
                 self.openFlag = false
             }
-        }else{
+        } else {
             //This opens Left Menu
             UIView.animate(withDuration: 0.0, animations: {
                 self.displaySideMenu()

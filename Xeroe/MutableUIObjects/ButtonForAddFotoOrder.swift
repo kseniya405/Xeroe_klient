@@ -10,9 +10,9 @@ import UIKit
 
 class ButtonForAddFotoOrder: UIButton {
     override func awakeFromNib() {
-        self.layer.cornerRadius = 4
-        self.layer.borderWidth = 1
-        self.layer.borderColor = UIColor(red: 0.77, green: 0.77, blue: 0.77, alpha: 1).cgColor
         self.layer.masksToBounds = true
+        self.layer.cornerRadius = 4
+        self.layer.borderWidth = 2
+        self.layer.borderColor = UIColor(red: 0.77, green: 0.77, blue: 0.77, alpha: 1).cgColor
     }
 }
