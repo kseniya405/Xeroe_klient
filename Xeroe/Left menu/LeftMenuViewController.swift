@@ -71,6 +71,7 @@ extension LeftMenuViewController: UITableViewDelegate {
         let image = UIImage(named: cellLeftMenuNames[indexPath.row])!.withRenderingMode(.alwaysTemplate)
         selectedCell.iconImage.image = image
         selectedCell.iconImage.tintColor = UIColor.white
+        
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {

@@ -25,7 +25,6 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         didSet {
             
             inputButton.addTarget(self, action: #selector(inputButtonTap), for: .touchUpInside)
-            inputButton.addTarget(self, action: #selector(inputButtonTap), for: .touchDragEnter)
 
         }
     }
@@ -51,7 +50,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
             return
         }
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let initialViewController = storyboard.instantiateViewController(withIdentifier: "RecipientDetailViewController") as! RecipientDetailViewController
+        let initialViewController = storyboard.instantiateViewController(withIdentifier: "OrderViewController") as! OrderViewController
         self.navigationController?.pushViewController(initialViewController, animated: false)
     }
     

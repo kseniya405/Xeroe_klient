@@ -20,7 +20,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="mWH-h7-cBf">
-                        <rect key="frame" x="8" y="30" width="345" height="48"/>
+                        <rect key="frame" x="8" y="30.5" width="345" height="48"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="48" id="iup-JD-qX1"/>
@@ -32,38 +32,28 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                     </collectionView>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AOO-s8-8Cp">
-                        <rect key="frame" x="8" y="78" width="345" height="0.0"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="2RZ-b7-wJe"/>
-                    </view>
-                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sIy-4d-2L3">
-                        <rect key="frame" x="8" y="78" width="345" height="649"/>
+                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pmB-M3-9tj">
+                        <rect key="frame" x="8" y="78.5" width="345" height="649"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="649" id="GiS-qz-LW7"/>
+                            <constraint firstAttribute="height" constant="649" id="4kv-Bc-6hw"/>
                         </constraints>
                     </tableView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="sIy-4d-2L3" firstAttribute="top" secondItem="mWH-h7-cBf" secondAttribute="bottom" id="2By-xh-G81"/>
-                    <constraint firstItem="AOO-s8-8Cp" firstAttribute="bottom" secondItem="viK-ga-9PW" secondAttribute="bottom" constant="-678" id="5HI-Jf-E18"/>
-                    <constraint firstItem="sIy-4d-2L3" firstAttribute="trailing" secondItem="viK-ga-9PW" secondAttribute="trailing" constant="-8" id="8XB-Bc-uIV"/>
-                    <constraint firstItem="AOO-s8-8Cp" firstAttribute="top" secondItem="mWH-h7-cBf" secondAttribute="bottom" id="B0T-h1-hLT"/>
+                    <constraint firstItem="pmB-M3-9tj" firstAttribute="leading" secondItem="mWH-h7-cBf" secondAttribute="leading" id="9gL-vK-VR0"/>
                     <constraint firstItem="mWH-h7-cBf" firstAttribute="top" secondItem="viK-ga-9PW" secondAttribute="top" constant="30" id="ICH-Lj-dK1"/>
-                    <constraint firstAttribute="trailing" secondItem="AOO-s8-8Cp" secondAttribute="trailing" constant="8" id="WRP-4U-E8W"/>
-                    <constraint firstItem="sIy-4d-2L3" firstAttribute="leading" secondItem="viK-ga-9PW" secondAttribute="leading" constant="8" id="fzu-dQ-JnJ"/>
-                    <constraint firstItem="mWH-h7-cBf" firstAttribute="bottom" secondItem="AOO-s8-8Cp" secondAttribute="bottom" id="g0q-DC-u05"/>
-                    <constraint firstAttribute="trailing" secondItem="mWH-h7-cBf" secondAttribute="trailing" constant="8" id="hMJ-p6-AvK"/>
+                    <constraint firstItem="pmB-M3-9tj" firstAttribute="trailing" secondItem="mWH-h7-cBf" secondAttribute="trailing" id="KlJ-kG-MPl"/>
+                    <constraint firstItem="mWH-h7-cBf" firstAttribute="trailing" secondItem="viK-ga-9PW" secondAttribute="trailing" constant="-8" id="hMJ-p6-AvK"/>
+                    <constraint firstItem="pmB-M3-9tj" firstAttribute="bottom" secondItem="viK-ga-9PW" secondAttribute="bottom" constant="-30" id="icL-Ax-Wp1"/>
                     <constraint firstItem="mWH-h7-cBf" firstAttribute="leading" secondItem="viK-ga-9PW" secondAttribute="leading" constant="8" id="m3J-Vq-zxw"/>
-                    <constraint firstItem="AOO-s8-8Cp" firstAttribute="centerX" secondItem="viK-ga-9PW" secondAttribute="centerX" id="rnD-3g-Byj"/>
-                    <constraint firstItem="AOO-s8-8Cp" firstAttribute="leading" secondItem="viK-ga-9PW" secondAttribute="leading" constant="8" id="uZz-b6-nJg"/>
+                    <constraint firstItem="pmB-M3-9tj" firstAttribute="top" secondItem="mWH-h7-cBf" secondAttribute="bottom" id="ouR-tX-Lze"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="uon-1U-BLY"/>
             <connections>
                 <outlet property="collectionsView" destination="mWH-h7-cBf" id="PqI-bd-kZK"/>
-                <outlet property="tableView" destination="sIy-4d-2L3" id="wP3-jH-lDE"/>
+                <outlet property="tableView" destination="pmB-M3-9tj" id="oQM-3e-xaa"/>
             </connections>
             <point key="canvasLocation" x="760" y="111"/>
         </tableViewCell>

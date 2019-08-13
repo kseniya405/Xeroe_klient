@@ -1,14 +1,14 @@
 //
-//  AddPhotoTableViewCell.swift
+//  DimensionsTableViewCell.swift
 //  Xeroe
 //
-//  Created by Денис Марков on 8/12/19.
+//  Created by Денис Марков on 8/13/19.
 //  Copyright © 2019 Денис Марков. All rights reserved.
 //
 
 import UIKit
 
-class AddPhotoTableViewCell: UITableViewCell {
+class DimensionsTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddProductCollectionViewCell: UICollectionViewCell {
+class ChooseProductCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var labelCell: UILabel!
     override func awakeFromNib() {
