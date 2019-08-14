@@ -1,5 +1,5 @@
 //
-//  SenderTableViewCell.swift
+//  RecipientTableViewCell.swift
 //  Xeroe
 //
 //  Created by Денис Марков on 8/12/19.
@@ -8,8 +8,9 @@
 
 import UIKit
 
-class SenderTableViewCell: UITableViewCell {
+class ClientAddresTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var addressLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

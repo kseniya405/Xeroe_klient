@@ -685,6 +685,13 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="anQ-2u-IVQ">
+                                                <rect key="frame" x="18" y="41" width="75" height="75"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="anQ-2u-IVQ" secondAttribute="height" multiplier="1:1" id="Mr3-qd-h9F"/>
+                                                    <constraint firstAttribute="width" constant="75" id="cAV-Fn-35R"/>
+                                                </constraints>
+                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" red="0.12156862745098039" green="0.23921568627450979" blue="0.44313725490196076" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -698,6 +705,7 @@
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="bB1-pe-SJR" secondAttribute="trailing" constant="20" symbolic="YES" id="ILm-uW-c1Y"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="aIJ-JZ-v8W" secondAttribute="trailing" constant="20" symbolic="YES" id="OIE-tl-7M9"/>
                                             <constraint firstItem="QmT-Pn-cIt" firstAttribute="firstBaseline" secondItem="xv3-31-ARB" secondAttribute="baseline" constant="16" symbolType="layoutAnchor" id="OXi-dn-ciE"/>
+                                            <constraint firstItem="anQ-2u-IVQ" firstAttribute="leading" secondItem="gWA-VW-aCs" secondAttribute="leading" constant="18" id="Rq4-DC-GvO"/>
                                             <constraint firstItem="bB1-pe-SJR" firstAttribute="centerY" secondItem="MKo-Xb-aFs" secondAttribute="centerY" id="U1A-l3-VbS"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="deA-Yb-jqq" secondAttribute="trailing" constant="20" symbolic="YES" id="XDJ-Em-a1j"/>
                                             <constraint firstItem="aIJ-JZ-v8W" firstAttribute="top" secondItem="gWA-VW-aCs" secondAttribute="top" constant="44" id="Xlh-nw-CgY"/>
@@ -708,6 +716,7 @@
                                             <constraint firstAttribute="height" constant="200" id="ipF-dw-1TT"/>
                                             <constraint firstItem="deA-Yb-jqq" firstAttribute="top" secondItem="aIJ-JZ-v8W" secondAttribute="bottom" id="jkN-bZ-SOr"/>
                                             <constraint firstItem="MKo-Xb-aFs" firstAttribute="leading" secondItem="aIJ-JZ-v8W" secondAttribute="leading" id="n12-gJ-dnr"/>
+                                            <constraint firstItem="anQ-2u-IVQ" firstAttribute="top" secondItem="aIJ-JZ-v8W" secondAttribute="top" constant="-3" id="tf7-T8-Zb2"/>
                                             <constraint firstItem="MKo-Xb-aFs" firstAttribute="top" secondItem="gWA-VW-aCs" secondAttribute="top" constant="92" id="xUg-9p-kLv"/>
                                         </constraints>
                                     </view>
@@ -777,6 +786,7 @@
                         <outlet property="leftMenu" destination="QOo-Vl-CpS" id="6sw-rD-xPd"/>
                         <outlet property="leftMenuTableView" destination="HFY-lB-efo" id="g8O-IG-Tjz"/>
                         <outlet property="logoutButton" destination="Ta9-LL-pP2" id="WmH-Iq-bUt"/>
+                        <outlet property="photoImage" destination="anQ-2u-IVQ" id="Hyp-0J-Pcm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qc8-Pi-hAe" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -900,7 +910,7 @@
                                     <constraint firstItem="2BS-LI-vZa" firstAttribute="centerY" secondItem="pfU-vs-nKe" secondAttribute="centerY" id="suj-TH-IEO"/>
                                 </constraints>
                             </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar_company" translatesAutoresizingMaskIntoConstraints="NO" id="XiP-kW-8Bz">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clientPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="XiP-kW-8Bz">
                                 <rect key="frame" x="0.0" y="100" width="414" height="235"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="235" id="KHe-mP-Krr"/>
@@ -1520,7 +1530,7 @@
     <resources>
         <image name="Auto" width="20" height="18.5"/>
         <image name="arrow_white" width="16" height="7"/>
-        <image name="avatar_company" width="360" height="227"/>
+        <image name="clientPhoto" width="360" height="227"/>
         <image name="delivery_backdround" width="360" height="341"/>
         <image name="facebook-logo" width="12" height="22"/>
         <image name="google-plus" width="32" height="32"/>
@@ -1528,6 +1538,7 @@
         <image name="marker" width="13" height="19"/>
         <image name="menu" width="24" height="24"/>
         <image name="pick_up_background" width="360" height="320"/>
+        <image name="userPhoto" width="60" height="60"/>
         <image name="warning" width="20" height="18"/>
         <image name="xero-logo" width="25" height="25"/>
         <image name="xero-logo-full" width="131" height="40"/>

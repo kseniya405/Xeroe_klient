@@ -53,56 +53,64 @@ class RestApi {
         task.resume()
     }
     
-    func findID(xeroeID: String, callback: @escaping (Bool, String?) -> Void) {
-
-        guard let url = URL(string: "http://xeroe.kinect.pro:8091/api/client/find/8ceb?") else { return }
+    func findID(xeroeID: String, callback: @escaping (Bool) -> Void) {
         
-        let token  = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC94ZXJvZS5raW5lY3QucHJvOjgwOTFcL2FwaVwvYXV0aFwvbG9naW4iLCJpYXQiOjE1NjUxMDAxMTgsImV4cCI6MTU2NTE4NjUxOCwibmJmIjoxNTY1MTAwMTE4LCJqdGkiOiJWSHZ0TmZnc1dZdUszZUZGIiwic3ViIjoxLCJwcnYiOiIxM2U4ZDAyOGIzOTFmM2I3YjYzZjIxOTMzZGJhZDQ1OGZmMjEwNzJlIiwic2NvcGVzIjpbImNsaWVudCJdfQ.sAiX8TH4xgqN5zbs5D4lBemkKvbZPKBGbNleNYxNvGE"
-    
+        guard let url = URL(string: "http://xeroe.kinect.pro:8091/api/client/find/\(xeroeID)") else { return }
+        
+        let token  = "Bearer \(defaults.string(forKey: "token") ?? ""))"
+        
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
+        request.setValue("application/json", forHTTPHeaderField: "accept")
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue("application/json", forHTTPHeaderField: "Accept")
         request.setValue(token, forHTTPHeaderField: "Authorization")
-//        request.setValue(xeroeID, forHTTPHeaderField: "xeroeID")
-
+        //        request.setValue(xeroeID, forHTTPHeaderField: "xeroeID")
+        
         //create dataTask using the session object to send data to the server
-        _ = URLSession(configuration: URLSessionConfiguration.default).dataTask(with: request as URLRequest, completionHandler: { data, response, error in
+        URLSession.shared.dataTask(with: request, completionHandler: { data, response, error in
             guard let data = data else {
                 print("Error: \(String(describing: error))")
-                callback(false, nil)
+                callback(false)
                 return
             }
+            let decoder = JSONDecoder()
+            decoder.keyDecodingStrategy = .convertFromSnakeCase
             
             do {
                 //create json object from data
-                if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
-                    
-                    print(json)
+                //                let json = try JSONDecoder().decode(ClientData.self, from: data)
+                if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [[String: Any]] {
+                    guard let _ = json[0]["avatar"] as? String else {
+                        callback(false)
+                        return
+                    }
+                    callback(true)
+                    return
                 }
+                
             } catch let error {
                 print("error JSONSerialization: \(error.localizedDescription)")
             }
         }).resume()
     }
-        
-        
-        
-        
-//        let headers: HTTPHeaders = ["Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC94ZXJvZS5raW5lY3QucHJvOjgwOTFcL2FwaVwvYXV0aFwvbG9naW4iLCJpYXQiOjE1NjUxMDAxMTgsImV4cCI6MTU2NTE4NjUxOCwibmJmIjoxNTY1MTAwMTE4LCJqdGkiOiJWSHZ0TmZnc1dZdUszZUZGIiwic3ViIjoxLCJwcnYiOiIxM2U4ZDAyOGIzOTFmM2I3YjYzZjIxOTMzZGJhZDQ1OGZmMjEwNzJlIiwic2NvcGVzIjpbImNsaWVudCJdfQ.sAiX8TH4xgqN5zbs5D4lBemkKvbZPKBGbNleNYxNvGE"]
-//        
-//        Alamofire.request("http://xeroe.kinect.pro:8091/api/client/find/\(xeroeID)", method: .get, parameters: ["xeroeID" : xeroeID], encoding: JSONEncoding.default, headers: headers).responseJSON {
-//            response in
-//            
-//            guard response.result.isSuccess, let _ = response.result.value as? [String:Any] else{
-//                print("Error: \(String(describing: response.result.error))")
-//                callback(false, nil)
-//                return
-//            }
-//            print("OK: \(String(describing: response.result.value)))")
-//            
-//        }
-//        
-//        
-//    }
+    
+    
+    
+    
+    //        let headers: HTTPHeaders = ["Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC94ZXJvZS5raW5lY3QucHJvOjgwOTFcL2FwaVwvYXV0aFwvbG9naW4iLCJpYXQiOjE1NjUxMDAxMTgsImV4cCI6MTU2NTE4NjUxOCwibmJmIjoxNTY1MTAwMTE4LCJqdGkiOiJWSHZ0TmZnc1dZdUszZUZGIiwic3ViIjoxLCJwcnYiOiIxM2U4ZDAyOGIzOTFmM2I3YjYzZjIxOTMzZGJhZDQ1OGZmMjEwNzJlIiwic2NvcGVzIjpbImNsaWVudCJdfQ.sAiX8TH4xgqN5zbs5D4lBemkKvbZPKBGbNleNYxNvGE"]
+    //
+    //        Alamofire.request("http://xeroe.kinect.pro:8091/api/client/find/\(xeroeID)", method: .get, parameters: ["xeroeID" : xeroeID], encoding: JSONEncoding.default, headers: headers).responseJSON {
+    //            response in
+    //
+    //            guard response.result.isSuccess, let _ = response.result.value as? [String:Any] else{
+    //                print("Error: \(String(describing: response.result.error))")
+    //                callback(false, nil)
+    //                return
+    //            }
+    //            print("OK: \(String(describing: response.result.value)))")
+    //
+    //        }
+    //
+    //
+    //    }
 }

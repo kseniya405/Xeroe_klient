@@ -58,7 +58,6 @@ class LoginViewController: UIViewController {
         }
     }
     
-    var defaults = UserDefaults.standard
     
  
     override func viewDidLoad() {
@@ -103,11 +102,10 @@ class LoginViewController: UIViewController {
         RestApi().login(login: login, password: password) { (isOk, token) in
             DispatchQueue.main.async {
                 guard isOk, let token = token else {
-                    self.errorTextFieldPassword(passwordIsEmpty: self.passwordTextField.text == "", emailIsEmpty: self.loginTextField.text == "")
-                    
+                    self.errorTextFieldPassword(passwordIsEmpty: false, emailIsEmpty: false)
                     return
                 }
-                self.defaults.set(token, forKey: "token")
+                defaults.set(token, forKey: "token")
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let initialViewController = storyboard.instantiateViewController(withIdentifier: "ViewController") as! ContainerViewController
                 self.navigationController?.pushViewController(initialViewController, animated: false)

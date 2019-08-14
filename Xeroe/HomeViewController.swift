@@ -45,14 +45,26 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     @objc func inputButtonTap() {
-        guard let textID = xeroeIDTextField.text, !textID.isEmpty, textID == "8ceb" else {
+        guard let textID = xeroeIDTextField.text, !textID.isEmpty else {
             showAlertInputButtonTap()
             return
         }
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let initialViewController = storyboard.instantiateViewController(withIdentifier: "OrderViewController") as! OrderViewController
-        self.navigationController?.pushViewController(initialViewController, animated: false)
+        RestApi().findID(xeroeID: textID) { (isOk) in
+            DispatchQueue.main.async {
+                guard isOk else {
+                    self.showAlertInputButtonTap()
+                    return
+                }
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let initialViewController = storyboard.instantiateViewController(withIdentifier: "RecipientDetailViewController") as! RecipientDetailViewController
+                self.navigationController?.pushViewController(initialViewController, animated: false)
+                
+            }
+        }
+
     }
+    
+    
     
     @objc func showAlertInputButtonTap(){
         let alert = UIAlertController(title: "Invalid xeroeID", message: "This is my message.", preferredStyle: UIAlertController.Style.alert)

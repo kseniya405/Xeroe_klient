@@ -128,8 +128,7 @@ extension GoodsTableViewCell: UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: "dimensions", for: indexPath) as! DimensionsTableViewCell
             return cell
         default:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "photoCollection", for: indexPath) as! AddPhotoTableViewCell
-            return cell
+            return tableView.dequeueReusableCell(withIdentifier: "dimensions", for: indexPath)
         }
 
         

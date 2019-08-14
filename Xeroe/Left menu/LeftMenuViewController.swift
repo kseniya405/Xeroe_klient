@@ -10,6 +10,12 @@ import UIKit
 
 class LeftMenuViewController: UIViewController {
     
+    @IBOutlet weak var photoImage: UIImageView!{
+        didSet{
+            photoImage.layer.cornerRadius = photoImage.frame.height / 2.0
+            photoImage.layer.masksToBounds = true
+        }
+    }
     @IBOutlet weak var leftMenu: UIView!
     
     @IBOutlet weak var leftMenuTableView: UITableView!
@@ -20,8 +26,6 @@ class LeftMenuViewController: UIViewController {
         }
     }
     
-    var defaults = UserDefaults.standard
-
     
     fileprivate let cellIdentifier = "LeftMenuTableViewCell"
     
@@ -33,7 +37,7 @@ class LeftMenuViewController: UIViewController {
         leftMenuTableView.delegate = self
         leftMenuTableView.register(UINib(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
         leftMenuTableView.tableFooterView = UIView()
-        
+
     }
     
     @objc func goToLoginView() {
@@ -72,7 +76,7 @@ extension LeftMenuViewController: UITableViewDelegate {
         selectedCell.nameCell.textColor = .white
         let image = UIImage(named: cellLeftMenuNames[indexPath.row])!.withRenderingMode(.alwaysTemplate)
         selectedCell.iconImage.image = image
-        selectedCell.iconImage.tintColor = UIColor.white
+        selectedCell.iconImage.tintColor = .white
         
     }
     

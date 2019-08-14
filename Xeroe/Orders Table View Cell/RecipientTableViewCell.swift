@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RecipientTableViewCell: UITableViewCell {
+class ClientAddresTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()

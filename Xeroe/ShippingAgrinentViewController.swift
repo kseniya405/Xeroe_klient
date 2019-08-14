@@ -12,12 +12,12 @@ class ShippingAgrinentViewController: UIViewController {
 
     @IBOutlet weak var deliveryButton: UIButton!{
         didSet {
-            deliveryButton.addTarget(self, action: #selector (orderDetailOpen), for: .touchUpInside)
+            deliveryButton.addTarget(self, action: #selector (orderDetailOpenDelivery), for: .touchUpInside)
         }
     }
     @IBOutlet weak var pickUpButton: UIButton!{
         didSet {
-            pickUpButton.addTarget(self, action: #selector (orderDetailOpen), for: .touchUpInside)
+            pickUpButton.addTarget(self, action: #selector (orderDetailOpenPickUp), for: .touchUpInside)
         }
     }
     
@@ -41,10 +41,18 @@ class ShippingAgrinentViewController: UIViewController {
     }
     
     
-    @objc func orderDetailOpen() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let initialViewController = storyboard.instantiateViewController(withIdentifier: "OrderViewController") as! OrderViewController
-        self.navigationController?.pushViewController(initialViewController, animated: false)
+    @objc func orderDetailOpenDelivery() {
+        orderDetailOpenAs(isDelivery: true)
     }
     
+    @objc func orderDetailOpenPickUp() {
+        orderDetailOpenAs(isDelivery: false)
+    }
+    
+    func orderDetailOpenAs(isDelivery: Bool) -> Void {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let initialViewController = storyboard.instantiateViewController(withIdentifier: "OrderViewController") as! OrderViewController
+        initialViewController.isDelivery = isDelivery
+        self.navigationController?.pushViewController(initialViewController, animated: false)
+    }
 }
