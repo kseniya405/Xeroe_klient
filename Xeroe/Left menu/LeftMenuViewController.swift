@@ -20,6 +20,8 @@ class LeftMenuViewController: UIViewController {
         }
     }
     
+    var defaults = UserDefaults.standard
+
     
     fileprivate let cellIdentifier = "LeftMenuTableViewCell"
     

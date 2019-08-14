@@ -58,7 +58,9 @@ class LoginViewController: UIViewController {
         }
     }
     
-
+    var defaults = UserDefaults.standard
+    
+ 
     override func viewDidLoad() {
         if defaults.string(forKey: "token") != nil {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -105,7 +107,7 @@ class LoginViewController: UIViewController {
                     
                     return
                 }
-                defaults.set(token, forKey: "token")
+                self.defaults.set(token, forKey: "token")
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let initialViewController = storyboard.instantiateViewController(withIdentifier: "ViewController") as! ContainerViewController
                 self.navigationController?.pushViewController(initialViewController, animated: false)

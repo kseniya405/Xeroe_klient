@@ -36,7 +36,6 @@
 		9D23E9F522F0808C00E0E2C0 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D23E9F322F0808B00E0E2C0 /* Roboto-Regular.ttf */; };
 		9D23E9F822F08AA500E0E2C0 /* FuturaDemiC.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D23E9F722F08AA500E0E2C0 /* FuturaDemiC.ttf */; };
 		9D6EE92322F97E3D00F8DFA6 /* RecipientDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6EE92222F97E3D00F8DFA6 /* RecipientDetailViewController.swift */; };
-		9D75BE6D22F033D4001E907B /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D75BE6C22F033D4001E907B /* UserData.swift */; };
 		9DA494162302B77700730624 /* DimensionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA494142302B77700730624 /* DimensionsTableViewCell.swift */; };
 		9DA494172302B77700730624 /* DimensionsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DA494152302B77700730624 /* DimensionsTableViewCell.xib */; };
 		9DA494192302D90500730624 /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA494182302D90500730624 /* RadioButton.swift */; };
@@ -95,7 +94,6 @@
 		9D23E9F322F0808B00E0E2C0 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		9D23E9F722F08AA500E0E2C0 /* FuturaDemiC.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FuturaDemiC.ttf; sourceTree = "<group>"; };
 		9D6EE92222F97E3D00F8DFA6 /* RecipientDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipientDetailViewController.swift; sourceTree = "<group>"; };
-		9D75BE6C22F033D4001E907B /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		9DA494142302B77700730624 /* DimensionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimensionsTableViewCell.swift; sourceTree = "<group>"; };
 		9DA494152302B77700730624 /* DimensionsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DimensionsTableViewCell.xib; sourceTree = "<group>"; };
 		9DA494182302D90500730624 /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
@@ -107,7 +105,6 @@
 		9DCF034822EF1EEE00A7F283 /* ForgotPasswordViewControll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewControll.swift; sourceTree = "<group>"; };
 		9DCF034A22EF364000A7F283 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		9DD0BE5522F817FE00E55EA8 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		9DD0BE7422F838A300E55EA8 /* Xeroe-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Xeroe-Bridging-Header.h"; sourceTree = "<group>"; };
 		9DD0BE7522F8465D00E55EA8 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		9DD0BE9B22F8671D00E55EA8 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		9DD0BE9D22F8727C00E55EA8 /* ClientDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientDetailViewController.swift; sourceTree = "<group>"; };
@@ -196,7 +193,6 @@
 		9D75BE6B22F0337C001E907B /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				9D75BE6C22F033D4001E907B /* UserData.swift */,
 				9DACCB8D22F4473C00D9F433 /* LoginData.swift */,
 				9DA4941A2302FE0F00730624 /* ConfirmOrderByCreator.swift */,
 			);
@@ -248,7 +244,6 @@
 		9DF5339522EEDBE00036866C = {
 			isa = PBXGroup;
 			children = (
-				9DD0BE7422F838A300E55EA8 /* Xeroe-Bridging-Header.h */,
 				9DF533A022EEDBE10036866C /* Xeroe */,
 				9DF5339F22EEDBE10036866C /* Products */,
 				A21E6A318FC93CD9EDD2FD6C /* Pods */,
@@ -457,7 +452,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9D75BE6D22F033D4001E907B /* UserData.swift in Sources */,
 				9D0EEC682301B46800891D7D /* AddPhotoTableViewCell.swift in Sources */,
 				9DF533A422EEDBE10036866C /* LoginViewController.swift in Sources */,
 				9D0EEC4B23014C4700891D7D /* PaymentMethodTableViewCell.swift in Sources */,
@@ -636,7 +630,6 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = kinect.pro.Xeroe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Xeroe-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -658,7 +651,6 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = kinect.pro.Xeroe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Xeroe-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
