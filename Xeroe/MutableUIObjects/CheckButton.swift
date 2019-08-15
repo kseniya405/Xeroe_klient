@@ -8,9 +8,9 @@
 
 import UIKit
 
-class RadioButton: UIButton {
+class CheckButton: UIButton {
     // Images
-    let checkedImage = UIImage(named: "checkedImage")! as UIImage
+    var checkedImage = UIImage(named: "checkedImage")! as UIImage
     let uncheckedImage = UIImage(named: "uncheckedImage")! as UIImage
     
     // Bool property

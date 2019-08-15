@@ -16,4 +16,9 @@ class ChooseProductCollectionViewCell: UICollectionViewCell {
         // Initialization code
     }
 
+    func setParameters(backgroundColor: UIColor? = nil, labelColor: UIColor? = nil, labelText: String? = nil) {
+        self.contentView.backgroundColor = backgroundColor
+        self.labelCell.textColor = labelColor
+        self.labelCell.text = labelText
+    }
 }

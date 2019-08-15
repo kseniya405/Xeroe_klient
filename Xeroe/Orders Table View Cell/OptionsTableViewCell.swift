@@ -10,9 +10,10 @@ import UIKit
 
 class OptionsTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var checkButton: CheckButton!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        checkButton.checkedImage = UIImage(named: "checkInsure")! as UIImage
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

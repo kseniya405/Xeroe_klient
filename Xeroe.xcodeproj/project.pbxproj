@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9D0875AB230592BB0085EDD9 /* OptionsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D0875AA230592BA0085EDD9 /* OptionsTableViewCell.xib */; };
 		9D09D7DF22F1E23800D4369F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D09D7DE22F1E23800D4369F /* HomeViewController.swift */; };
 		9D09D7E322F1E97400D4369F /* View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D09D7E222F1E97400D4369F /* View.xib */; };
 		9D0EEC4623014B9300891D7D /* GoodsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0EEC4423014B9300891D7D /* GoodsTableViewCell.swift */; };
@@ -15,10 +16,7 @@
 		9D0EEC4C23014C4700891D7D /* PaymentMethodTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D0EEC4A23014C4700891D7D /* PaymentMethodTableViewCell.xib */; };
 		9D0EEC4F23014C5F00891D7D /* ClientDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0EEC4D23014C5F00891D7D /* ClientDataTableViewCell.swift */; };
 		9D0EEC5023014C5F00891D7D /* ClientDataTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D0EEC4E23014C5F00891D7D /* ClientDataTableViewCell.xib */; };
-		9D0EEC5323014C7A00891D7D /* ClientAddresTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0EEC5123014C7A00891D7D /* ClientAddresTableViewCell.swift */; };
-		9D0EEC5423014C7A00891D7D /* ClientAddresTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D0EEC5223014C7A00891D7D /* ClientAddresTableViewCell.xib */; };
 		9D0EEC5723014C8E00891D7D /* OptionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0EEC5523014C8E00891D7D /* OptionsTableViewCell.swift */; };
-		9D0EEC5823014C8E00891D7D /* OptionsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D0EEC5623014C8E00891D7D /* OptionsTableViewCell.xib */; };
 		9D0EEC5B23014CA800891D7D /* DeliveryTypeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0EEC5923014CA800891D7D /* DeliveryTypeTableViewCell.swift */; };
 		9D0EEC5C23014CA800891D7D /* DeliveryTypeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D0EEC5A23014CA800891D7D /* DeliveryTypeTableViewCell.xib */; };
 		9D0EEC5F230181F100891D7D /* ChooseProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0EEC5D230181F100891D7D /* ChooseProductCollectionViewCell.swift */; };
@@ -38,7 +36,7 @@
 		9D6EE92322F97E3D00F8DFA6 /* RecipientDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6EE92222F97E3D00F8DFA6 /* RecipientDetailViewController.swift */; };
 		9DA494162302B77700730624 /* DimensionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA494142302B77700730624 /* DimensionsTableViewCell.swift */; };
 		9DA494172302B77700730624 /* DimensionsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DA494152302B77700730624 /* DimensionsTableViewCell.xib */; };
-		9DA494192302D90500730624 /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA494182302D90500730624 /* RadioButton.swift */; };
+		9DA494192302D90500730624 /* CheckButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA494182302D90500730624 /* CheckButton.swift */; };
 		9DA4941B2302FE0F00730624 /* ConfirmOrderByCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA4941A2302FE0F00730624 /* ConfirmOrderByCreator.swift */; };
 		9DACCB8022F415A400D9F433 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DACCB7F22F415A400D9F433 /* MapView.swift */; };
 		9DACCB8822F42D7200D9F433 /* ButtonWithCornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DACCB8722F42D7200D9F433 /* ButtonWithCornerRadius.swift */; };
@@ -69,6 +67,7 @@
 		049E9F30D17E25EF4C50520B /* Pods-Xeroe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Xeroe.release.xcconfig"; path = "Target Support Files/Pods-Xeroe/Pods-Xeroe.release.xcconfig"; sourceTree = "<group>"; };
 		462B678E837F5DDE2DEF6AA4 /* Pods-Xeroe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Xeroe.debug.xcconfig"; path = "Target Support Files/Pods-Xeroe/Pods-Xeroe.debug.xcconfig"; sourceTree = "<group>"; };
 		4FA96868B0382980D707E3E7 /* Pods_Xeroe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Xeroe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D0875AA230592BA0085EDD9 /* OptionsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OptionsTableViewCell.xib; sourceTree = "<group>"; };
 		9D09D7DE22F1E23800D4369F /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		9D09D7E222F1E97400D4369F /* View.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = View.xib; sourceTree = "<group>"; };
 		9D0EEC4423014B9300891D7D /* GoodsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsTableViewCell.swift; sourceTree = "<group>"; };
@@ -77,10 +76,7 @@
 		9D0EEC4A23014C4700891D7D /* PaymentMethodTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentMethodTableViewCell.xib; sourceTree = "<group>"; };
 		9D0EEC4D23014C5F00891D7D /* ClientDataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientDataTableViewCell.swift; sourceTree = "<group>"; };
 		9D0EEC4E23014C5F00891D7D /* ClientDataTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClientDataTableViewCell.xib; sourceTree = "<group>"; };
-		9D0EEC5123014C7A00891D7D /* ClientAddresTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientAddresTableViewCell.swift; sourceTree = "<group>"; };
-		9D0EEC5223014C7A00891D7D /* ClientAddresTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClientAddresTableViewCell.xib; sourceTree = "<group>"; };
 		9D0EEC5523014C8E00891D7D /* OptionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsTableViewCell.swift; sourceTree = "<group>"; };
-		9D0EEC5623014C8E00891D7D /* OptionsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OptionsTableViewCell.xib; sourceTree = "<group>"; };
 		9D0EEC5923014CA800891D7D /* DeliveryTypeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryTypeTableViewCell.swift; sourceTree = "<group>"; };
 		9D0EEC5A23014CA800891D7D /* DeliveryTypeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeliveryTypeTableViewCell.xib; sourceTree = "<group>"; };
 		9D0EEC5D230181F100891D7D /* ChooseProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseProductCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -100,7 +96,7 @@
 		9D6EE92222F97E3D00F8DFA6 /* RecipientDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipientDetailViewController.swift; sourceTree = "<group>"; };
 		9DA494142302B77700730624 /* DimensionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimensionsTableViewCell.swift; sourceTree = "<group>"; };
 		9DA494152302B77700730624 /* DimensionsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DimensionsTableViewCell.xib; sourceTree = "<group>"; };
-		9DA494182302D90500730624 /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
+		9DA494182302D90500730624 /* CheckButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckButton.swift; sourceTree = "<group>"; };
 		9DA4941A2302FE0F00730624 /* ConfirmOrderByCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmOrderByCreator.swift; sourceTree = "<group>"; };
 		9DACCB7F22F415A400D9F433 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		9DACCB8722F42D7200D9F433 /* ButtonWithCornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonWithCornerRadius.swift; sourceTree = "<group>"; };
@@ -160,10 +156,8 @@
 				9D0EEC4A23014C4700891D7D /* PaymentMethodTableViewCell.xib */,
 				9D0EEC4D23014C5F00891D7D /* ClientDataTableViewCell.swift */,
 				9D0EEC4E23014C5F00891D7D /* ClientDataTableViewCell.xib */,
-				9D0EEC5123014C7A00891D7D /* ClientAddresTableViewCell.swift */,
-				9D0EEC5223014C7A00891D7D /* ClientAddresTableViewCell.xib */,
 				9D0EEC5523014C8E00891D7D /* OptionsTableViewCell.swift */,
-				9D0EEC5623014C8E00891D7D /* OptionsTableViewCell.xib */,
+				9D0875AA230592BA0085EDD9 /* OptionsTableViewCell.xib */,
 				9D0EEC5923014CA800891D7D /* DeliveryTypeTableViewCell.swift */,
 				9D0EEC5A23014CA800891D7D /* DeliveryTypeTableViewCell.xib */,
 				9DDFD3FF2303EDC4007DDB36 /* HeaderOrderTableView.swift */,
@@ -215,7 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				9D13039522FD8C6400DC983E /* ButtonForAddFotoOrder.swift */,
-				9DA494182302D90500730624 /* RadioButton.swift */,
+				9DA494182302D90500730624 /* CheckButton.swift */,
 				9DACCB8722F42D7200D9F433 /* ButtonWithCornerRadius.swift */,
 				9DACCB8922F42E8600D9F433 /* TextFieldWithCorner.swift */,
 			);
@@ -275,9 +269,9 @@
 			isa = PBXGroup;
 			children = (
 				9DF533A122EEDBE10036866C /* AppDelegate.swift */,
-				9DACCB8C22F4320100D9F433 /* LoginVC */,
 				9DF533A822EEDBE30036866C /* Assets.xcassets */,
 				9DD0BE9B22F8671D00E55EA8 /* Main.storyboard */,
+				9DACCB8C22F4320100D9F433 /* LoginVC */,
 				9D13039122FD50AC00DC983E /* OrderViewController.swift */,
 				9D0EEC4823014B9F00891D7D /* Orders Table View Cell */,
 				9D09D7DE22F1E23800D4369F /* HomeViewController.swift */,
@@ -377,7 +371,6 @@
 				9D09D7E322F1E97400D4369F /* View.xib in Resources */,
 				9D0EEC4C23014C4700891D7D /* PaymentMethodTableViewCell.xib in Resources */,
 				9DA494172302B77700730624 /* DimensionsTableViewCell.xib in Resources */,
-				9D0EEC5823014C8E00891D7D /* OptionsTableViewCell.xib in Resources */,
 				9D0EEC4723014B9300891D7D /* GoodsTableViewCell.xib in Resources */,
 				9DD0BE9C22F8671D00E55EA8 /* Main.storyboard in Resources */,
 				9D0EEC60230181F100891D7D /* ChooseProductCollectionViewCell.xib in Resources */,
@@ -388,11 +381,11 @@
 				9DDFD4042303EEA0007DDB36 /* HeaderOrderTableView.xib in Resources */,
 				9DFFAB7B22F181D10008F325 /* fontello.ttf in Resources */,
 				9DFFAB7922F179880008F325 /* Roboto-Medium.ttf in Resources */,
-				9D0EEC5423014C7A00891D7D /* ClientAddresTableViewCell.xib in Resources */,
 				9D0EEC6D2301B64600891D7D /* PhotosCollectionViewCell.xib in Resources */,
 				9D0EEC642301AAD200891D7D /* DataDeliveryTableViewCell.xib in Resources */,
 				9DD0BEA522F87B9300E55EA8 /* LeftMenuTableViewCell.xib in Resources */,
 				9D0EEC5023014C5F00891D7D /* ClientDataTableViewCell.xib in Resources */,
+				9D0875AB230592BB0085EDD9 /* OptionsTableViewCell.xib in Resources */,
 				9D23E9F522F0808C00E0E2C0 /* Roboto-Regular.ttf in Resources */,
 				9D0EEC692301B46800891D7D /* AddPhotoTableViewCell.xib in Resources */,
 				9D23E9F422F0808C00E0E2C0 /* Roboto-Bold.ttf in Resources */,
@@ -490,12 +483,11 @@
 				9DD0BE7622F8465D00E55EA8 /* ContainerViewController.swift in Sources */,
 				9DACCB8022F415A400D9F433 /* MapView.swift in Sources */,
 				9DA494162302B77700730624 /* DimensionsTableViewCell.swift in Sources */,
-				9D0EEC5323014C7A00891D7D /* ClientAddresTableViewCell.swift in Sources */,
 				9D0EEC5B23014CA800891D7D /* DeliveryTypeTableViewCell.swift in Sources */,
 				9DDFD4082304215D007DDB36 /* UserData.swift in Sources */,
 				9DACCB8E22F4473C00D9F433 /* LoginData.swift in Sources */,
 				9DACCB8A22F42E8600D9F433 /* TextFieldWithCorner.swift in Sources */,
-				9DA494192302D90500730624 /* RadioButton.swift in Sources */,
+				9DA494192302D90500730624 /* CheckButton.swift in Sources */,
 				9DD0BEA622F87B9300E55EA8 /* LeftMenuViewController.swift in Sources */,
 				9D09D7DF22F1E23800D4369F /* HomeViewController.swift in Sources */,
 			);

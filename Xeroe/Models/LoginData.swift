@@ -39,7 +39,7 @@ class RestApi {
             do {
                 //create json object from data
                 if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
-                    
+                    print(json)
                     if let token = json["access_token"] as? String {
                         callback(true, token)
                     } else {
@@ -73,14 +73,13 @@ class RestApi {
                 callback(false)
                 return
             }
-            let decoder = JSONDecoder()
-            decoder.keyDecodingStrategy = .convertFromSnakeCase
             
             do {
                 //create json object from data
                 //                let json = try JSONDecoder().decode(ClientData.self, from: data)
                 if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [[String: Any]] {
                     guard let _ = json[0]["avatar"] as? String else {
+                        
                         callback(false)
                         return
                     }

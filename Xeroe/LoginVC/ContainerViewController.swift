@@ -119,7 +119,7 @@ class ContainerViewController: UIViewController {
     //MARK: - Selector Methods
     @objc func openOrCloseSideMenu(){
         //Opens or Closes Side Menu On Click of Button
-        if openFlag{
+        if openFlag {
             //This closes Left Menu
             let blackTransparentView = self.view.viewWithTag(self.blackTransparentViewTag)
             UIView.animate(withDuration: 0.3, animations: {

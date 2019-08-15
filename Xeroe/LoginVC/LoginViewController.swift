@@ -76,18 +76,11 @@ class LoginViewController: UIViewController {
     
     
     fileprivate func errorTextFieldPassword(passwordIsEmpty: Bool, emailIsEmpty: Bool) {
-        self.passwordTextField.layer.masksToBounds = true
-        self.passwordTextField.layer.borderColor = UIColor(red: 1, green: 0, blue:00, alpha: 1.0).cgColor
-        self.passwordTextField.layer.borderWidth = 2.0
-        self.wrongPaswordLabel.textColor = passwordIsEmpty ? .clear : .red
-        self.enterPasswordLabel.textColor = passwordIsEmpty ? .red : .clear
-        self.enterPasswordLabel.backgroundColor = passwordIsEmpty ? .white : .clear
-        self.enterEmailLabel.textColor = emailIsEmpty ? .red : .clear
-        self.enterEmailLabel.backgroundColor = emailIsEmpty ? .white : .clear
-        self.loginTextField.layer.masksToBounds = true
-        self.loginTextField.layer.borderWidth = 2.0
-        self.loginTextField.layer.borderColor = emailIsEmpty ? UIColor(red: 1, green: 0, blue:00, alpha: 1.0).cgColor : UIColor(red: 1, green: 0, blue:00, alpha: 0.0).cgColor
-        
+        self.passwordTextField.errorInput(isError: true)
+        self.loginTextField.errorInput(isError: emailIsEmpty)
+        self.wrongPaswordLabel.isHidden = passwordIsEmpty
+        self.enterPasswordLabel.isHidden = !passwordIsEmpty
+        self.enterEmailLabel.isHidden = !emailIsEmpty
     }
 
     
@@ -103,9 +96,13 @@ class LoginViewController: UIViewController {
             DispatchQueue.main.async {
                 guard isOk, let token = token else {
                     self.errorTextFieldPassword(passwordIsEmpty: false, emailIsEmpty: false)
+    
                     return
                 }
                 defaults.set(token, forKey: "token")
+                defaults.set(login, forKey: "login")
+                defaults.set(password, forKey: "password")
+
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let initialViewController = storyboard.instantiateViewController(withIdentifier: "ViewController") as! ContainerViewController
                 self.navigationController?.pushViewController(initialViewController, animated: false)

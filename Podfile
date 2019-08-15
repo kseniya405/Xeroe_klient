@@ -8,6 +8,7 @@ target 'Xeroe' do
   pod 'Alamofire'
   pod 'GoogleMaps', '~> 3.3.0.0'
   pod 'GooglePlaces', '~> 3.3.0.0'
+  pod 'IQKeyboardManagerSwift'
   # Pods for Xeroe
 
 end

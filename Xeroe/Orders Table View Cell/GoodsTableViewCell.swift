@@ -61,21 +61,18 @@ extension GoodsTableViewCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "product", for: indexPath) as! ChooseProductCollectionViewCell
-        cell.labelCell.text = products[indexPath.row]
-
         if indexPath.row == 0 {
-            cell.contentView.backgroundColor = selectCellColorBackground
-            cell.labelCell.textColor = .white
+            cell.setParameters(backgroundColor: selectCellColorBackground, labelColor: .white, labelText: products[indexPath.row])
             return cell
         }
-        cell.labelCell.textColor =  deselectCellColorText
-        cell.backgroundColor = deselectCellColorBackground
+        cell.setParameters(backgroundColor: deselectCellColorBackground, labelColor: deselectCellColorText, labelText: products[indexPath.row])
         return cell
     }
 }
 
 extension GoodsTableViewCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+
         if indexPath.row == products.count - 1 {
             return thumbnailSizeAdd
         }
@@ -89,16 +86,14 @@ extension GoodsTableViewCell: UICollectionViewDelegateFlowLayout {
 
 extension GoodsTableViewCell: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
         let selectCell = collectionsView.cellForItem(at: indexPath)  as! ChooseProductCollectionViewCell
-        selectCell.contentView.backgroundColor = selectCellColorBackground
-        selectCell.labelCell.textColor = .white
+        selectCell.setParameters(backgroundColor: selectCellColorBackground, labelColor: .white)
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         let deselectCell = collectionsView.cellForItem(at: indexPath)  as! ChooseProductCollectionViewCell
-        deselectCell.labelCell.textColor = deselectCellColorText
-        deselectCell.contentView.backgroundColor = deselectCellColorBackground
+        deselectCell.setParameters(backgroundColor: deselectCellColorBackground, labelColor: deselectCellColorText)
+
     }
 }
 
@@ -113,13 +108,9 @@ extension GoodsTableViewCell: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.row {
-        case 0:
+        case 0, 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "data", for: indexPath) as! DataDeliveryTableViewCell
-            cell.questionsLabel.text = questionsWithTextField[0]
-            return cell
-        case 1:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "data", for: indexPath) as! DataDeliveryTableViewCell
-            cell.questionsLabel.text = questionsWithTextField[1]
+            cell.setParameters(questionsLabel: questionsWithTextField[indexPath.row])
             return cell
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "photoCollection", for: indexPath) as! AddPhotoTableViewCell

@@ -20,8 +20,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     @IBOutlet weak var mapView: GMSMapView!
-    @IBOutlet weak var inputButton: ButtonWithCornerRadius!
-        {
+    @IBOutlet weak var inputButton: ButtonWithCornerRadius! {
         didSet {
             
             inputButton.addTarget(self, action: #selector(inputButtonTap), for: .touchUpInside)

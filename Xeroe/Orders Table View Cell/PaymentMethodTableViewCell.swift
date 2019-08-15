@@ -10,7 +10,9 @@ import UIKit
 
 class PaymentMethodTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var buttonImage: RadioButton!
+    @IBOutlet weak var buttonImage: CheckButton!
+    @IBOutlet weak var getInsuredLabel: UILabel!
+    @IBOutlet weak var inputTextLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

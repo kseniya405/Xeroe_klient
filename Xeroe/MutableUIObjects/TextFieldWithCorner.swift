@@ -14,6 +14,11 @@ class TextFieldWithCorner: UITextField {
         self.layer.cornerRadius = 4
         self.layer.masksToBounds = true
     }
-
+    
+    func errorInput(isError: Bool) {
+        self.layer.masksToBounds = true
+        self.layer.borderWidth = isError ? 2.0 : 0.0
+        self.layer.borderColor = UIColor(red: 1, green: 0, blue:00, alpha: 1.0).cgColor
+    }
 
 }

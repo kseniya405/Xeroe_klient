@@ -18,9 +18,21 @@ class OrderViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    struct cellData {
+        let section: String
+        let typeOfNib: String
+        let identifier: String
+    }
     
-    let sections = ["GOODS", "PAYMENT METHOD", "clientData", "RECIPIENT", "Options", "Delivery type"]
-    let typeOfNib = ["GoodsTableViewCell", "PaymentMethodTableViewCell", "ClientDataTableViewCell", "ClientAddresTableViewCell", "OptionsTableViewCell", "DeliveryTypeTableViewCell"]
+    let cells = [
+        cellData(section: "GOODS", typeOfNib: "GoodsTableViewCell", identifier: "GOODS"),
+        cellData(section: "PAYMENT METHOD", typeOfNib: "PaymentMethodTableViewCell", identifier: "PAYMENT METHOD"),
+        cellData(section: "SENDER", typeOfNib: "ClientDataTableViewCell", identifier: "clientData"),
+        cellData(section: "RECIPIENT", typeOfNib: "ClientDataTableViewCell", identifier: "clientData"),
+        cellData(section: "Options", typeOfNib: "OptionsTableViewCell", identifier: "Options"),
+        cellData(section: "Delivery type", typeOfNib: "DeliveryTypeTableViewCell", identifier: "Delivery type")
+        ]
+    
     fileprivate let sectionInsets = UIEdgeInsets(top: 0, left: 20.0, bottom: 0, right: 0.0)
     
     var isDelivery: Bool = false
@@ -30,8 +42,8 @@ class OrderViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        for item in 0...sections.count-1 {
-            tableView.register(UINib(nibName: typeOfNib[item], bundle: nil), forCellReuseIdentifier: sections[item])
+        for item in 0...cells.count-1 {
+            tableView.register(UINib(nibName: cells[item].typeOfNib, bundle: nil), forCellReuseIdentifier: cells[item].identifier)
         }
         tableView.register(UINib.init(nibName: "HeaderOrderTableView", bundle: Bundle.main), forHeaderFooterViewReuseIdentifier: "header")
         // Do any additional setup after loading the view.
@@ -56,7 +68,7 @@ extension OrderViewController: UITableViewDelegate, UITableViewDataSource {
         headerView.namesLabel.isHidden = sectionNumberIsZero
         headerView.noteLabel.isHidden = !sectionNumberIsZero
 
-        headerView.namesLabel.text = sections[section]
+        headerView.namesLabel.text = cells[section].section
         
         headerView.viewBackgdround.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.13).cgColor
         headerView.viewBackgdround.layer.shadowOpacity = 1
@@ -75,7 +87,7 @@ extension OrderViewController: UITableViewDelegate, UITableViewDataSource {
     
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return sections.count
+        return cells.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -85,37 +97,27 @@ extension OrderViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
             case 0:
-                let cell = tableView.dequeueReusableCell(withIdentifier: sections[indexPath.section], for: indexPath) as! GoodsTableViewCell
+                let cell = tableView.dequeueReusableCell(withIdentifier: cells[indexPath.section].identifier, for: indexPath) as! GoodsTableViewCell
             
                 return cell
             case 1:
-                let cell = tableView.dequeueReusableCell(withIdentifier: sections[indexPath.section], for: indexPath) as! PaymentMethodTableViewCell
+                let cell = tableView.dequeueReusableCell(withIdentifier: cells[indexPath.section].identifier, for: indexPath) as! PaymentMethodTableViewCell
                 return cell
             case 2, 3:
-                let cell = tableView.dequeueReusableCell(withIdentifier: "clientData", for: indexPath) as! ClientDataTableViewCell
-                var isSender = indexPath.section == 2
-                if !isDelivery {
-                    isSender = !isSender
-                }
+                let cell = tableView.dequeueReusableCell(withIdentifier: cells[indexPath.section].identifier, for: indexPath) as! ClientDataTableViewCell
                 
-                //!!!register in class ClientDataTableViewCell!!!!!
-                cell.IDLabel.text = isSender ? "ID: # RD 27B86" : "ID: # CM 14C12"
-                cell.nameLabel.text = isSender ? "Sandra Lee" : "Andy McMillian"
-                cell.phoneLabel.text = isSender ? "+44 888 88 88" : "+44 555 55 55"
-                cell.addressLabel.text = isSender ? "27 Old Gloucester Street, London WC1N" : "11 - 59 Hight Rd, East Finchley, London N2 8AW"
-                let nameImage = isSender ? "userPhoto" : "clientPhoto"
-                cell.photoImage.image = UIImage(named: nameImage)
-                
+                let isSender = isDelivery ? indexPath.section == 2 : indexPath.section == 3
+                cell.setParameters(isSender: isSender)
                 return cell
 
             case 4:
-                let cell = tableView.dequeueReusableCell(withIdentifier: sections[indexPath.section], for: indexPath) as! OptionsTableViewCell
+                let cell = tableView.dequeueReusableCell(withIdentifier: cells[indexPath.section].identifier, for: indexPath) as! OptionsTableViewCell
                 return cell
             case 5:
-                let cell = tableView.dequeueReusableCell(withIdentifier: sections[indexPath.section], for: indexPath) as! DeliveryTypeTableViewCell
+                let cell = tableView.dequeueReusableCell(withIdentifier: cells[indexPath.section].identifier, for: indexPath) as! DeliveryTypeTableViewCell
                 return cell
             default:
-                return tableView.dequeueReusableCell(withIdentifier: sections[0], for: indexPath)
+                return tableView.dequeueReusableCell(withIdentifier: cells[0].identifier, for: indexPath)
         }
     }
     
