@@ -11,6 +11,8 @@ import UIKit
 class ChooseProductCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var labelCell: UILabel!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,5 +22,10 @@ class ChooseProductCollectionViewCell: UICollectionViewCell {
         self.contentView.backgroundColor = backgroundColor
         self.labelCell.textColor = labelColor
         self.labelCell.text = labelText
+    }
+    
+    func defoltParameters(){
+        self.contentView.backgroundColor = .black
+        self.labelCell.textColor = .white
     }
 }

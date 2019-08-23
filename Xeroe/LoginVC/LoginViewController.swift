@@ -85,7 +85,7 @@ class LoginViewController: UIViewController {
 
     
     @objc func signInButtonTap(){
-        
+        self.showActivityIndicatory(uiView: self.view)
         guard let login = loginTextField.text, let password = passwordTextField.text, !login.isEmpty, !password.isEmpty else{
             self.errorTextFieldPassword(passwordIsEmpty: passwordTextField.text == "", emailIsEmpty: loginTextField.text == "")
             return
@@ -157,6 +157,17 @@ extension UIViewController {
             i+=1
         }
         
+    }
+    
+    func showActivityIndicatory(uiView: UIView) {
+        let activityIndicatory: UIActivityIndicatorView = UIActivityIndicatorView()
+        activityIndicatory.frame = CGRect(x: 0.0, y: 0.0, width: 80, height: 80);
+        activityIndicatory.center = uiView.center
+        activityIndicatory.hidesWhenStopped = true
+        activityIndicatory.style = UIActivityIndicatorView.Style.whiteLarge
+        activityIndicatory.color = UIColor(red: 0.12, green: 0.24, blue: 0.44, alpha: 1)
+        uiView.addSubview(activityIndicatory)
+        activityIndicatory.startAnimating()
     }
 }
 

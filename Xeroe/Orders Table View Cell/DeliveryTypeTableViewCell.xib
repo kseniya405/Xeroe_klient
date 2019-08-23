@@ -9,17 +9,72 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Medium.ttf">
+            <string>Roboto-Medium</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Delivery type" id="KGk-i7-Jjw" customClass="DeliveryTypeTableViewCell" customModule="Xeroe" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Delivery type" rowHeight="344" id="KGk-i7-Jjw" customClass="DeliveryTypeTableViewCell" customModule="Xeroe" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="328" height="344"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="328" height="343.5"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="jaq-TQ-Id8">
+                        <rect key="frame" x="19" y="30" width="291" height="136"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="136" id="kqe-YX-eTn"/>
+                        </constraints>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="469-9l-Yat">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                    </collectionView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nb9-qf-rlT">
+                        <rect key="frame" x="20" y="192" width="289" height="1"/>
+                        <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="5Os-el-xoD"/>
+                        </constraints>
+                    </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dc9-FI-8iI" customClass="ButtonWithCornerRadius" customModule="Xeroe" customModuleProvider="target">
+                        <rect key="frame" x="94" y="223" width="153" height="29"/>
+                        <color key="backgroundColor" red="0.12156862745098039" green="0.23921568627450979" blue="0.44313725490196076" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="dc9-FI-8iI" secondAttribute="height" multiplier="190:36" id="S8a-ku-kJu"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="14"/>
+                        <state key="normal" title="CONFIRM">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="dc9-FI-8iI" firstAttribute="top" secondItem="Nb9-qf-rlT" secondAttribute="bottom" constant="30" id="Evu-AK-Lbd"/>
+                    <constraint firstItem="jaq-TQ-Id8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="19" id="G3f-Z2-Ec6"/>
+                    <constraint firstAttribute="trailing" secondItem="jaq-TQ-Id8" secondAttribute="trailing" constant="18" id="JAx-qM-XuD"/>
+                    <constraint firstItem="jaq-TQ-Id8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="30" id="MOa-IP-QCE"/>
+                    <constraint firstAttribute="trailing" secondItem="Nb9-qf-rlT" secondAttribute="trailing" constant="19" id="OBu-ah-Ymn"/>
+                    <constraint firstItem="dc9-FI-8iI" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="Sxo-tW-QBB"/>
+                    <constraint firstItem="jaq-TQ-Id8" firstAttribute="bottom" secondItem="Nb9-qf-rlT" secondAttribute="top" constant="-26" id="aib-VJ-dvO"/>
+                    <constraint firstAttribute="trailing" secondItem="dc9-FI-8iI" secondAttribute="trailing" constant="81" id="dqz-aR-Cxh"/>
+                    <constraint firstItem="Nb9-qf-rlT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="g8r-hi-9bq"/>
+                    <constraint firstAttribute="bottom" secondItem="dc9-FI-8iI" secondAttribute="bottom" constant="48" id="wp9-xh-rRu"/>
+                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="collectionView" destination="jaq-TQ-Id8" id="kzf-U1-PP3"/>
+                <outlet property="confirmButton" destination="dc9-FI-8iI" id="tAy-jX-B3t"/>
+            </connections>
+            <point key="canvasLocation" x="97.101449275362327" y="79.017857142857139"/>
         </tableViewCell>
     </objects>
 </document>

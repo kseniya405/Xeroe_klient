@@ -14,6 +14,7 @@ class OptionsTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         checkButton.checkedImage = UIImage(named: "checkInsure")! as UIImage
+        checkButton.uncheckedImage = UIImage(named: "uncheckInsure")! as UIImage
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -8,10 +8,18 @@
 
 import UIKit
 
+protocol AddPhotoTableViewCellDelegate {
+    func addImageCall(cell: PhotosCollectionViewCell)
+}
+
 class AddPhotoTableViewCell: UITableViewCell {
 
     @IBOutlet weak var addPhotosLable: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    var imagePicker: ImagePicker!
+    
+    var delegate: AddPhotoTableViewCellDelegate?
     
     fileprivate let thumbnailSize = CGSize(width: 94.0, height: 94.0)
     fileprivate let sectionInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
@@ -21,12 +29,6 @@ class AddPhotoTableViewCell: UITableViewCell {
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.register(UINib(nibName: "PhotosCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "photo")
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
 }
@@ -51,7 +53,12 @@ extension AddPhotoTableViewCell: UICollectionViewDataSource {
 }
 
 extension AddPhotoTableViewCell: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let selectCell = collectionView.cellForItem(at: indexPath)  as! PhotosCollectionViewCell
+        delegate?.addImageCall(cell: selectCell)
+        
+    }
 }
 
 extension AddPhotoTableViewCell: UICollectionViewDelegateFlowLayout {
@@ -64,3 +71,8 @@ extension AddPhotoTableViewCell: UICollectionViewDelegateFlowLayout {
         return sectionInsets
     }
 }
+
+
+
+
+

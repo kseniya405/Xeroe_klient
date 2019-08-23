@@ -26,7 +26,7 @@ class ContainerViewController: UIViewController {
         return front
     }()
     
-    lazy var leftMenuViewController: UIViewController? = {
+    lazy var leftMenuVC: UIViewController? = {
         let leftMenu = self.storyboard?.instantiateViewController(withIdentifier: "leftMenuVC")
         return leftMenu
     }()
@@ -70,8 +70,8 @@ class ContainerViewController: UIViewController {
     
     func displaySideMenu(){
         // To display LeftMenuViewController in Side Menu View
-        if !self.children.contains(leftMenuViewController!){
-            if let currentViewController = leftMenuViewController {
+        if !self.children.contains(leftMenuVC!){
+            if let currentViewController = leftMenuVC {
                 self.addChild(currentViewController)
                 currentViewController.didMove(toParent: self)
                 

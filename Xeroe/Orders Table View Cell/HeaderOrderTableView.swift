@@ -9,7 +9,7 @@
 import UIKit
 
 class HeaderOrderTableView: UITableViewHeaderFooterView {
-    @IBOutlet weak var viewBackgdround: UIView!
+    @IBOutlet weak var viewBackground: UIView!
     @IBOutlet weak var goodsLabel: UILabel!
     @IBOutlet weak var namesLabel: UILabel!
     @IBOutlet weak var noteLabel: UILabel!

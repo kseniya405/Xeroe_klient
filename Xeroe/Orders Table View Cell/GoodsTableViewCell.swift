@@ -13,6 +13,8 @@ class GoodsTableViewCell: UITableViewCell {
     
     @IBOutlet weak var tableView: UITableView!
     
+    var addPhotoDelegate: AddPhotoTableViewCellDelegate?
+    
     
     fileprivate var products = ["PRODUCT 1", "ADD +"]
     fileprivate let thumbnailSizeProduct = CGSize(width: 108.0, height: 48.0)
@@ -61,38 +63,50 @@ extension GoodsTableViewCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "product", for: indexPath) as! ChooseProductCollectionViewCell
-        if indexPath.row == 0 {
-            cell.setParameters(backgroundColor: selectCellColorBackground, labelColor: .white, labelText: products[indexPath.row])
-            return cell
+        if indexPath.row == numProduct {
+            cell.isSelected = true
         }
-        cell.setParameters(backgroundColor: deselectCellColorBackground, labelColor: deselectCellColorText, labelText: products[indexPath.row])
+        if cell.isSelected {
+            cell.setParameters(backgroundColor: selectCellColorBackground, labelColor: .white, labelText: products[indexPath.row])
+        } else {
+            cell.setParameters(backgroundColor: deselectCellColorBackground, labelColor: deselectCellColorText, labelText: products[indexPath.row])
+        }
         return cell
     }
 }
 
-extension GoodsTableViewCell: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    extension GoodsTableViewCell: UICollectionViewDelegateFlowLayout {
+        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
-        if indexPath.row == products.count - 1 {
-            return thumbnailSizeAdd
+            if indexPath.row == products.count - 1 {
+                return thumbnailSizeAdd
+            }
+            return thumbnailSizeProduct
         }
-        return thumbnailSizeProduct
+        
+        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+            return sectionInsets
+        }
     }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return sectionInsets
-    }
-}
 
 extension GoodsTableViewCell: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        if (indexPath.row == products.count - 1) {
+            products.insert("PRODUCT \(products.count)", at: products.count - 1)
+            collectionView.reloadData()
+            return
+        }
+        numProduct = indexPath.row
         let selectCell = collectionsView.cellForItem(at: indexPath)  as! ChooseProductCollectionViewCell
-        selectCell.setParameters(backgroundColor: selectCellColorBackground, labelColor: .white)
+        selectCell.setParameters(backgroundColor: selectCellColorBackground, labelColor: .white, labelText: products[indexPath.row])
+        
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         let deselectCell = collectionsView.cellForItem(at: indexPath)  as! ChooseProductCollectionViewCell
-        deselectCell.setParameters(backgroundColor: deselectCellColorBackground, labelColor: deselectCellColorText)
+        deselectCell.setParameters(backgroundColor: deselectCellColorBackground, labelColor: deselectCellColorText, labelText: products[indexPath.row])
 
     }
 }
@@ -108,12 +122,20 @@ extension GoodsTableViewCell: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.row {
-        case 0, 1:
+        case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "data", for: indexPath) as! DataDeliveryTableViewCell
             cell.setParameters(questionsLabel: questionsWithTextField[indexPath.row])
+            orderData.products[numProduct].name = cell.answerTextField.text
+            return cell
+        case 1:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "data", for: indexPath) as! DataDeliveryTableViewCell
+            cell.setParameters(questionsLabel: questionsWithTextField[indexPath.row])
+            orderData.products[numProduct].description = cell.answerTextField.text
             return cell
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "photoCollection", for: indexPath) as! AddPhotoTableViewCell
+            
+            cell.delegate = addPhotoDelegate
             return cell
         case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: "dimensions", for: indexPath) as! DimensionsTableViewCell

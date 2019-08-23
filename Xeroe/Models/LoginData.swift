@@ -78,7 +78,7 @@ class RestApi {
                 //create json object from data
                 //                let json = try JSONDecoder().decode(ClientData.self, from: data)
                 if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [[String: Any]] {
-                    guard let _ = json[0]["avatar"] as? String else {
+                    guard json.count > 0, let _ = json[0]["avatar"] as? String else {
                         
                         callback(false)
                         return

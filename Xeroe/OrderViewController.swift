@@ -8,7 +8,7 @@
 
 import UIKit
 
-class OrderViewController: UIViewController {
+class OrderViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var backButton: UIButton! {
         didSet {
@@ -17,6 +17,11 @@ class OrderViewController: UIViewController {
     }
     
     @IBOutlet weak var tableView: UITableView!
+    
+    
+    var imagePicker: ImagePicker!
+    var imagePickCell: PhotosCollectionViewCell?
+    
     
     struct cellData {
         let section: String
@@ -46,7 +51,10 @@ class OrderViewController: UIViewController {
             tableView.register(UINib(nibName: cells[item].typeOfNib, bundle: nil), forCellReuseIdentifier: cells[item].identifier)
         }
         tableView.register(UINib.init(nibName: "HeaderOrderTableView", bundle: Bundle.main), forHeaderFooterViewReuseIdentifier: "header")
-        // Do any additional setup after loading the view.
+        
+        self.imagePicker = ImagePicker(presentationController: self, delegate: self)
+
+
     }
     
     @objc func backButtonTap() {
@@ -67,13 +75,12 @@ extension OrderViewController: UITableViewDelegate, UITableViewDataSource {
         headerView.goodsLabel.isHidden = !sectionNumberIsZero
         headerView.namesLabel.isHidden = sectionNumberIsZero
         headerView.noteLabel.isHidden = !sectionNumberIsZero
-
         headerView.namesLabel.text = cells[section].section
         
-        headerView.viewBackgdround.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.13).cgColor
-        headerView.viewBackgdround.layer.shadowOpacity = 1
-        headerView.viewBackgdround.layer.shadowRadius = 2
-        headerView.viewBackgdround.layer.shadowOffset = CGSize(width: 0, height: 2)
+        headerView.viewBackground.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.13).cgColor
+        headerView.viewBackground.layer.shadowOpacity = 1
+        headerView.viewBackground.layer.shadowRadius = 2
+        headerView.viewBackground.layer.shadowOffset = CGSize(width: 0, height: 2)
         return headerView
     }
     
@@ -98,7 +105,7 @@ extension OrderViewController: UITableViewDelegate, UITableViewDataSource {
         switch indexPath.section {
             case 0:
                 let cell = tableView.dequeueReusableCell(withIdentifier: cells[indexPath.section].identifier, for: indexPath) as! GoodsTableViewCell
-            
+                cell.addPhotoDelegate = self
                 return cell
             case 1:
                 let cell = tableView.dequeueReusableCell(withIdentifier: cells[indexPath.section].identifier, for: indexPath) as! PaymentMethodTableViewCell
@@ -123,4 +130,18 @@ extension OrderViewController: UITableViewDelegate, UITableViewDataSource {
     
     
     
+}
+
+extension OrderViewController: ImagePickerDelegate {
+    
+    func didSelect(image: UIImage?) {
+        imagePickCell?.photoImage.image = image
+    }
+}
+
+extension OrderViewController: AddPhotoTableViewCellDelegate {
+    func addImageCall(cell: PhotosCollectionViewCell) {
+        imagePickCell = cell
+        self.imagePicker.present(from: cell)
+    }
 }

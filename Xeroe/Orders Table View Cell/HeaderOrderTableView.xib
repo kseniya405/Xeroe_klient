@@ -31,20 +31,20 @@
                         <rect key="frame" x="2" y="0.0" width="318" height="66.5"/>
                         <color key="backgroundColor" red="0.97254901959999995" green="0.98039215690000003" blue="0.98823529409999999" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NAMES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K0r-8h-ACh">
-                        <rect key="frame" x="20" y="22.5" width="62" height="22"/>
+                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NAMES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K0r-8h-ACh">
+                        <rect key="frame" x="20" y="23" width="62" height="21"/>
                         <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="18"/>
                         <color key="textColor" red="0.12156862745098039" green="0.23921568627450979" blue="0.44313725490196076" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GOODS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GFC-G5-52x">
-                        <rect key="frame" x="20" y="18" width="60" height="22"/>
+                        <rect key="frame" x="20" y="18" width="60" height="21"/>
                         <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="18"/>
                         <color key="textColor" red="0.1215686275" green="0.23921568630000001" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*Note: goods must be less than 30kg" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Gb-Ia-XD5">
-                        <rect key="frame" x="19" y="46" width="164" height="12"/>
+                        <rect key="frame" x="19" y="45" width="164" height="12"/>
                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="10"/>
                         <color key="textColor" red="0.56078431370000004" green="0.56078431370000004" blue="0.56078431370000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -64,15 +64,14 @@
                     <constraint firstItem="5Gb-Ia-XD5" firstAttribute="top" secondItem="GFC-G5-52x" secondAttribute="bottom" constant="6" id="lxw-Fp-LXl"/>
                 </constraints>
             </tableViewCellContentView>
-            <color key="backgroundColor" red="0.97254901959999995" green="0.98039215690000003" blue="0.98823529409999999" alpha="1" colorSpace="calibratedRGB"/>
             <viewLayoutGuide key="safeArea" id="7Sr-bF-RVj"/>
             <connections>
                 <outlet property="goodsLabel" destination="GFC-G5-52x" id="vEE-Z1-iyn"/>
                 <outlet property="namesLabel" destination="K0r-8h-ACh" id="2vt-MV-Qgy"/>
                 <outlet property="noteLabel" destination="5Gb-Ia-XD5" id="21L-Yy-kDr"/>
-                <outlet property="viewBackgdround" destination="dnQ-P3-5x3" id="lnY-E6-N1s"/>
+                <outlet property="viewBackground" destination="dnQ-P3-5x3" id="lnY-E6-N1s"/>
             </connections>
-            <point key="canvasLocation" x="37.681159420289859" y="42.522321428571423"/>
+            <point key="canvasLocation" x="37.681159420289859" y="41.852678571428569"/>
         </tableViewCell>
     </objects>
 </document>

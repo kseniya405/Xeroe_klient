@@ -44,6 +44,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     @objc func inputButtonTap() {
+        self.showActivityIndicatory(uiView: self.view)
         guard let textID = xeroeIDTextField.text, !textID.isEmpty else {
             showAlertInputButtonTap()
             return
@@ -63,8 +64,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
 
     }
     
-    
-    
+
     @objc func showAlertInputButtonTap(){
         let alert = UIAlertController(title: "Invalid xeroeID", message: "This is my message.", preferredStyle: UIAlertController.Style.alert)
         
