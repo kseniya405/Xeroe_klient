@@ -17,11 +17,12 @@ class RecipientDetailViewController: UIViewController {
     }
     @IBOutlet weak var idRecipient: UILabel!
     @IBOutlet weak var nameRecipient: UILabel!
-    @IBOutlet weak var addressRecipient: UITextView!
+    @IBOutlet weak var addressRecipient: UILabel!
     @IBOutlet weak var available: UILabel!
     @IBOutlet weak var buttonNo: ButtonWithCornerRadius! {
         didSet {
             buttonNo.layer.borderColor = UIColor(red: 0.12, green: 0.24, blue: 0.44, alpha: 1).cgColor
+            buttonNo.layer.borderWidth = 1
             buttonNo.addTarget(self, action: #selector(buttonNoTap), for: .touchUpInside)
         }
     }

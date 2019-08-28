@@ -8,18 +8,18 @@
 
 import Foundation
 
-var numProduct = 0
-
-var orderData = ConfirmOrderByCreator(products: [Product()])
-
-struct ConfirmOrderByCreator {
+class ConfirmOrderByCreator {
+    var numProduct = 0
+    
+    static var orderData = ConfirmOrderByCreator()
+    
     let payment_method: String? = nil
     let delivery_type: Int? = 0
     let cost: Int? = 0
-    var products: [Product]
+    var products = [Product()]
 }
 
-struct Product {
+class Product {
     var id: Int? = 0
     var name: String? = nil
     var description: String? = nil

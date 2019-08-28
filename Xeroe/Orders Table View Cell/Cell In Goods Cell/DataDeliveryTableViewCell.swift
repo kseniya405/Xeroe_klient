@@ -16,7 +16,8 @@ class DataDeliveryTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+        answerTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
+
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -28,4 +29,10 @@ class DataDeliveryTableViewCell: UITableViewCell {
     func setParameters(questionsLabel: String) {
         self.questionsLabel.text = questionsLabel
     }
+    
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        ConfirmOrderByCreator.orderData.products[ConfirmOrderByCreator.orderData.numProduct].name = textField.text
+    }
 }
+
+

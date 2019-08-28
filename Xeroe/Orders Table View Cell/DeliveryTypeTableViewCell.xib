@@ -17,7 +17,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Delivery type" rowHeight="344" id="KGk-i7-Jjw" customClass="DeliveryTypeTableViewCell" customModule="Xeroe" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Delivery type" id="KGk-i7-Jjw" customClass="DeliveryTypeTableViewCell" customModule="Xeroe" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="328" height="344"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -25,7 +25,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="jaq-TQ-Id8">
-                        <rect key="frame" x="19" y="30" width="291" height="136"/>
+                        <rect key="frame" x="0.0" y="30" width="328" height="136"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="136" id="kqe-YX-eTn"/>
@@ -45,10 +45,11 @@
                         </constraints>
                     </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dc9-FI-8iI" customClass="ButtonWithCornerRadius" customModule="Xeroe" customModuleProvider="target">
-                        <rect key="frame" x="94" y="223" width="153" height="29"/>
+                        <rect key="frame" x="87.5" y="223" width="153" height="29"/>
                         <color key="backgroundColor" red="0.12156862745098039" green="0.23921568627450979" blue="0.44313725490196076" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="dc9-FI-8iI" secondAttribute="height" multiplier="190:36" id="S8a-ku-kJu"/>
+                            <constraint firstAttribute="width" constant="190" id="geQ-eI-kT5"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="14"/>
                         <state key="normal" title="CONFIRM">
@@ -57,16 +58,15 @@
                     </button>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="bottom" secondItem="dc9-FI-8iI" secondAttribute="bottom" constant="48" id="6N3-Y1-YDh"/>
                     <constraint firstItem="dc9-FI-8iI" firstAttribute="top" secondItem="Nb9-qf-rlT" secondAttribute="bottom" constant="30" id="Evu-AK-Lbd"/>
-                    <constraint firstItem="jaq-TQ-Id8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="19" id="G3f-Z2-Ec6"/>
-                    <constraint firstAttribute="trailing" secondItem="jaq-TQ-Id8" secondAttribute="trailing" constant="18" id="JAx-qM-XuD"/>
+                    <constraint firstItem="jaq-TQ-Id8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="G3f-Z2-Ec6"/>
+                    <constraint firstAttribute="trailing" secondItem="jaq-TQ-Id8" secondAttribute="trailing" id="JAx-qM-XuD"/>
                     <constraint firstItem="jaq-TQ-Id8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="30" id="MOa-IP-QCE"/>
                     <constraint firstAttribute="trailing" secondItem="Nb9-qf-rlT" secondAttribute="trailing" constant="19" id="OBu-ah-Ymn"/>
                     <constraint firstItem="dc9-FI-8iI" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="Sxo-tW-QBB"/>
                     <constraint firstItem="jaq-TQ-Id8" firstAttribute="bottom" secondItem="Nb9-qf-rlT" secondAttribute="top" constant="-26" id="aib-VJ-dvO"/>
-                    <constraint firstAttribute="trailing" secondItem="dc9-FI-8iI" secondAttribute="trailing" constant="81" id="dqz-aR-Cxh"/>
                     <constraint firstItem="Nb9-qf-rlT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="g8r-hi-9bq"/>
-                    <constraint firstAttribute="bottom" secondItem="dc9-FI-8iI" secondAttribute="bottom" constant="48" id="wp9-xh-rRu"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

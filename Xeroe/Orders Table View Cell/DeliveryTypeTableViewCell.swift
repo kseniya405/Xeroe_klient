@@ -11,14 +11,15 @@ import UIKit
 class DeliveryTypeTableViewCell: UITableViewCell {
     
     @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var confirmButton: ButtonWithCornerRadius!
+    @IBOutlet weak var confirmButton: ButtonWithCornerRadius! {
+        didSet {
+            confirmButton.addTarget(self, action: #selector(confirmButtonTap), for: .touchUpInside)
+        }
+    }
     
     fileprivate var thumbnailSizeAdd = CGSize(width: 76.0, height: 136)
-    private let sectionInsets = UIEdgeInsets(top: 0,
-                                             left: 20,
-                                             bottom: 0,
-                                             right: 17)
-
+    private let sectionInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -26,11 +27,18 @@ class DeliveryTypeTableViewCell: UITableViewCell {
         collectionView.delegate = self
         collectionView.register(UINib(nibName: "DeliveryTypeCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "deliveryCell")
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
+    }
+    
+    @objc func confirmButtonTap() {
+        for i in 0...ConfirmOrderByCreator.orderData.products.count - 1 {
+            print(ConfirmOrderByCreator.orderData.products[i].name as Any)
+            
+        }
     }
     
 }
@@ -50,7 +58,7 @@ extension DeliveryTypeTableViewCell: UICollectionViewDataSource {
 
 extension DeliveryTypeTableViewCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {        
-        let width = collectionView.frame.width/3 - sectionInsets.left
+        let width = collectionView.frame.width/3 - sectionInsets.left * 3
         thumbnailSizeAdd.width = width
         return thumbnailSizeAdd
     }
@@ -71,7 +79,7 @@ extension DeliveryTypeTableViewCell: UICollectionViewDelegate {
         selectCell.logoDeliveryType.backgroundColor = UIColor(red: 0.18, green: 0.73, blue: 0.93, alpha: 1)
         selectCell.logoDeliveryType.layer.borderColor = UIColor(red: 0.18, green: 0.73, blue: 0.93, alpha: 1).cgColor
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         let deselectCell = collectionView.cellForItem(at: indexPath)  as! DeliveryTypeCollectionViewCell
         deselectCell.defaultParameters(type: indexPath.row)
