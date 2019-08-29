@@ -25,16 +25,16 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add photo(s) of good(s) you want to deliver" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G0l-tM-GXy">
-                        <rect key="frame" x="8" y="28" width="270" height="19.5"/>
+                        <rect key="frame" x="8" y="28" width="270" height="17.5"/>
                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                         <color key="textColor" red="0.1647058824" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="R17-UM-4m9">
-                        <rect key="frame" x="0.0" y="60.5" width="442" height="94"/>
+                        <rect key="frame" x="0.0" y="58.5" width="442" height="96"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="94" id="2nc-HW-c3l"/>
+                            <constraint firstAttribute="height" constant="96" id="2nc-HW-c3l"/>
                         </constraints>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="V5T-6E-EEl">
                             <size key="itemSize" width="50" height="50"/>

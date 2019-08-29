@@ -28,10 +28,22 @@ class DataDeliveryTableViewCell: UITableViewCell {
     
     func setParameters(questionsLabel: String) {
         self.questionsLabel.text = questionsLabel
+        if questionsLabel == "Name what you want to deliver" {
+            answerTextField.text = ConfirmOrderByCreator.orderData.products[ConfirmOrderByCreator.orderData.numProduct].name
+        } else {
+            answerTextField.text = ConfirmOrderByCreator.orderData.products[ConfirmOrderByCreator.orderData.numProduct].description
+        }
     }
     
+    
     @objc func textFieldDidChange(_ textField: UITextField) {
-        ConfirmOrderByCreator.orderData.products[ConfirmOrderByCreator.orderData.numProduct].name = textField.text
+        
+        if questionsLabel.text == "Name what you want to deliver" {
+            ConfirmOrderByCreator.orderData.products[ConfirmOrderByCreator.orderData.numProduct].name = textField.text
+        } else {
+            ConfirmOrderByCreator.orderData.products[ConfirmOrderByCreator.orderData.numProduct].description = textField.text
+        }
+        
     }
 }
 

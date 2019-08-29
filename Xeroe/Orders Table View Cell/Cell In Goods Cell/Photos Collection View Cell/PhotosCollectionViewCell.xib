@@ -20,15 +20,15 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rIW-H1-hT9">
-                        <rect key="frame" x="0.0" y="1.5" width="156" height="156"/>
+                        <rect key="frame" x="31" y="32.5" width="94" height="94"/>
                         <constraints>
+                            <constraint firstAttribute="width" constant="94" id="U9M-ys-JZs"/>
                             <constraint firstAttribute="width" secondItem="rIW-H1-hT9" secondAttribute="height" multiplier="1:1" id="YZz-dx-Kao"/>
                         </constraints>
                     </imageView>
                 </subviews>
             </view>
             <constraints>
-                <constraint firstItem="rIW-H1-hT9" firstAttribute="width" secondItem="ZTg-uK-7eu" secondAttribute="width" id="1bh-mr-6h7"/>
                 <constraint firstItem="rIW-H1-hT9" firstAttribute="centerY" secondItem="ZTg-uK-7eu" secondAttribute="centerY" id="WwM-Rv-RAB"/>
                 <constraint firstItem="rIW-H1-hT9" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="bIg-dq-kob"/>
             </constraints>

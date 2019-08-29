@@ -58,6 +58,7 @@ class OrderViewController: UIViewController, UIImagePickerControllerDelegate, UI
     }
     
     @objc func backButtonTap() {
+        ConfirmOrderByCreator.orderData = ConfirmOrderByCreator()
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let initialViewController = storyboard.instantiateViewController(withIdentifier: "ShippingAgrinentViewController") as! ShippingAgrinentViewController
         self.navigationController?.pushViewController(initialViewController, animated: false)
@@ -109,6 +110,9 @@ extension OrderViewController: UITableViewDelegate, UITableViewDataSource {
                 return cell
             case 1:
                 let cell = tableView.dequeueReusableCell(withIdentifier: cells[indexPath.section].identifier, for: indexPath) as! PaymentMethodTableViewCell
+                if cell.buttonImage.isChecked {
+                    ConfirmOrderByCreator.orderData.payment_method = "credit_card"
+                }
                 return cell
             case 2, 3:
                 let cell = tableView.dequeueReusableCell(withIdentifier: cells[indexPath.section].identifier, for: indexPath) as! ClientDataTableViewCell
@@ -122,13 +126,14 @@ extension OrderViewController: UITableViewDelegate, UITableViewDataSource {
                 return cell
             case 5:
                 let cell = tableView.dequeueReusableCell(withIdentifier: cells[indexPath.section].identifier, for: indexPath) as! DeliveryTypeTableViewCell
+                
                 return cell
             default:
                 return tableView.dequeueReusableCell(withIdentifier: cells[0].identifier, for: indexPath)
         }
     }
     
-    
+
     
 }
 

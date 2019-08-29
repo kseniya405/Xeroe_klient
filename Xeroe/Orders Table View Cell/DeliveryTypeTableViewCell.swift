@@ -35,10 +35,21 @@ class DeliveryTypeTableViewCell: UITableViewCell {
     }
     
     @objc func confirmButtonTap() {
-        for i in 0...ConfirmOrderByCreator.orderData.products.count - 1 {
-            print(ConfirmOrderByCreator.orderData.products[i].name as Any)
-            
-        }
+//        let data = ConfirmOrderByCreator.orderData
+//   !!!!   add dictionary
+//        print(ConfirmOrderByCreator.orderData.asDictionary as Any)
+
+        
+    }
+    
+    func showAlert(_ message: String) {
+        let alert = UIAlertController(title: "Incomplete order data", message: "Please select a payment method.", preferredStyle: UIAlertController.Style.alert)
+        
+        // add an action (button)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        
+        // show the alert
+        self.superview?.parentContainerViewController()?.present(alert, animated: true, completion: nil)
     }
     
 }
@@ -78,6 +89,8 @@ extension DeliveryTypeTableViewCell: UICollectionViewDelegate {
         selectCell.logoDeliveryType.tintColor = .white
         selectCell.logoDeliveryType.backgroundColor = UIColor(red: 0.18, green: 0.73, blue: 0.93, alpha: 1)
         selectCell.logoDeliveryType.layer.borderColor = UIColor(red: 0.18, green: 0.73, blue: 0.93, alpha: 1).cgColor
+        
+        ConfirmOrderByCreator.orderData.delivery_type = indexPath.row + 1
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {

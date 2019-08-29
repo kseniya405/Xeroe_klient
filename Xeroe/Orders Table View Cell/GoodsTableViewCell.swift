@@ -41,7 +41,7 @@ class GoodsTableViewCell: UITableViewCell {
         tableView.layer.borderWidth = 1
         tableView.layer.borderColor = UIColor(red: 0.18, green: 0.73, blue: 0.93, alpha: 1).cgColor
         tableView.layer.masksToBounds = true
-        //tableView.allowsSelection = false
+        tableView.allowsSelection = false
         
     }
     
@@ -102,14 +102,14 @@ extension GoodsTableViewCell: UICollectionViewDelegate {
         selectCell.setParameters(backgroundColor: selectCellColorBackground, labelColor: .white, labelText: products[indexPath.row])
         collectionView.reloadData()
         selectCell.isSelected = true
-        
-        
+
+        tableView.reloadData()
+
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         let deselectCell = collectionsView.cellForItem(at: indexPath)  as! ChooseProductCollectionViewCell
         deselectCell.setParameters(backgroundColor: deselectCellColorBackground, labelColor: deselectCellColorText, labelText: products[indexPath.row])
-        
     }
 }
 
@@ -124,20 +124,18 @@ extension GoodsTableViewCell: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.row {
-        case 0:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "data", for: indexPath) as! DataDeliveryTableViewCell
-            cell.setParameters(questionsLabel: questionsWithTextField[indexPath.row])
-            return cell
-        case 1:
+        case 0, 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "data", for: indexPath) as! DataDeliveryTableViewCell
             cell.setParameters(questionsLabel: questionsWithTextField[indexPath.row])
             return cell
         case 2:
             let cell = tableView.dequeueReusableCell(withIdentifier: "photoCollection", for: indexPath) as! AddPhotoTableViewCell
             cell.delegate = addPhotoDelegate
+            
             return cell
         case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: "dimensions", for: indexPath) as! DimensionsTableViewCell
+            cell.setParameters()
             return cell
         default:
             return tableView.dequeueReusableCell(withIdentifier: "dimensions", for: indexPath)
