@@ -26,16 +26,15 @@ class OrderViewController: UIViewController, UIImagePickerControllerDelegate, UI
     struct cellData {
         let section: String
         let typeOfNib: String
-        let identifier: String
     }
     
     let cells = [
-        cellData(section: "GOODS", typeOfNib: "GoodsTableViewCell", identifier: "GOODS"),
-        cellData(section: "PAYMENT METHOD", typeOfNib: "PaymentMethodTableViewCell", identifier: "PAYMENT METHOD"),
-        cellData(section: "SENDER", typeOfNib: "ClientDataTableViewCell", identifier: "clientData"),
-        cellData(section: "RECIPIENT", typeOfNib: "ClientDataTableViewCell", identifier: "clientData"),
-        cellData(section: "Options", typeOfNib: "OptionsTableViewCell", identifier: "Options"),
-        cellData(section: "Delivery type", typeOfNib: "DeliveryTypeTableViewCell", identifier: "Delivery type")
+        cellData(section: "GOODS", typeOfNib: "GoodsTableViewCell"),
+        cellData(section: "PAYMENT METHOD", typeOfNib: "PaymentMethodTableViewCell"),
+        cellData(section: "SENDER", typeOfNib: "ClientDataTableViewCell"),
+        cellData(section: "RECIPIENT", typeOfNib: "ClientDataTableViewCell"),
+        cellData(section: "Options", typeOfNib: "OptionsTableViewCell"),
+        cellData(section: "Delivery type", typeOfNib: "DeliveryTypeTableViewCell")
         ]
     
     fileprivate let sectionInsets = UIEdgeInsets(top: 0, left: 20.0, bottom: 0, right: 0.0)
@@ -48,7 +47,7 @@ class OrderViewController: UIViewController, UIImagePickerControllerDelegate, UI
         tableView.dataSource = self
         
         for item in 0...cells.count-1 {
-            tableView.register(UINib(nibName: cells[item].typeOfNib, bundle: nil), forCellReuseIdentifier: cells[item].identifier)
+            tableView.register(UINib(nibName: cells[item].typeOfNib, bundle: nil), forCellReuseIdentifier: cells[item].typeOfNib)
         }
         tableView.register(UINib.init(nibName: "HeaderOrderTableView", bundle: Bundle.main), forHeaderFooterViewReuseIdentifier: "header")
         
@@ -105,31 +104,31 @@ extension OrderViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
             case 0:
-                let cell = tableView.dequeueReusableCell(withIdentifier: cells[indexPath.section].identifier, for: indexPath) as! GoodsTableViewCell
+                let cell = tableView.dequeueReusableCell(withIdentifier: cells[indexPath.section].typeOfNib, for: indexPath) as! GoodsTableViewCell
                 cell.addPhotoDelegate = self
                 return cell
             case 1:
-                let cell = tableView.dequeueReusableCell(withIdentifier: cells[indexPath.section].identifier, for: indexPath) as! PaymentMethodTableViewCell
+                let cell = tableView.dequeueReusableCell(withIdentifier: cells[indexPath.section].typeOfNib, for: indexPath) as! PaymentMethodTableViewCell
                 if cell.buttonImage.isChecked {
                     ConfirmOrderByCreator.orderData.payment_method = "credit_card"
                 }
                 return cell
             case 2, 3:
-                let cell = tableView.dequeueReusableCell(withIdentifier: cells[indexPath.section].identifier, for: indexPath) as! ClientDataTableViewCell
+                let cell = tableView.dequeueReusableCell(withIdentifier: cells[indexPath.section].typeOfNib, for: indexPath) as! ClientDataTableViewCell
                 
                 let isSender = isDelivery ? indexPath.section == 2 : indexPath.section == 3
                 cell.setParameters(isSender: isSender)
                 return cell
 
             case 4:
-                let cell = tableView.dequeueReusableCell(withIdentifier: cells[indexPath.section].identifier, for: indexPath) as! OptionsTableViewCell
+                let cell = tableView.dequeueReusableCell(withIdentifier: cells[indexPath.section].typeOfNib, for: indexPath) as! OptionsTableViewCell
                 return cell
             case 5:
-                let cell = tableView.dequeueReusableCell(withIdentifier: cells[indexPath.section].identifier, for: indexPath) as! DeliveryTypeTableViewCell
+                let cell = tableView.dequeueReusableCell(withIdentifier: cells[indexPath.section].typeOfNib, for: indexPath) as! DeliveryTypeTableViewCell
                 
                 return cell
             default:
-                return tableView.dequeueReusableCell(withIdentifier: cells[0].identifier, for: indexPath)
+                return tableView.dequeueReusableCell(withIdentifier: cells[0].typeOfNib, for: indexPath)
         }
     }
     

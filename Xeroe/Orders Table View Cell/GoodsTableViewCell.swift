@@ -8,6 +8,11 @@
 
 import UIKit
 
+fileprivate var chooseProductIdentifier = "ChooseProductCollectionViewCell"
+fileprivate var dataDeliveryIdentifier = "DataDeliveryTableViewCell"
+fileprivate var addPhotoIdentifier = "AddPhotoTableViewCell"
+fileprivate var dimensionsIdentifier = "DimensionsTableViewCell"
+
 class GoodsTableViewCell: UITableViewCell {
     @IBOutlet weak var collectionsView: UICollectionView!
     
@@ -32,12 +37,12 @@ class GoodsTableViewCell: UITableViewCell {
         super.awakeFromNib()
         collectionsView.dataSource = self
         collectionsView.delegate = self
-        collectionsView.register(UINib(nibName: "ChooseProductCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "product")
+        collectionsView.register(UINib(nibName: chooseProductIdentifier, bundle: nil), forCellWithReuseIdentifier: chooseProductIdentifier)
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(UINib(nibName: "DataDeliveryTableViewCell", bundle: nil), forCellReuseIdentifier: "data")
-        tableView.register(UINib(nibName: "AddPhotoTableViewCell", bundle: nil), forCellReuseIdentifier: "photoCollection")
-        tableView.register(UINib(nibName: "DimensionsTableViewCell", bundle: nil), forCellReuseIdentifier: "dimensions")
+        tableView.register(UINib(nibName: dataDeliveryIdentifier, bundle: nil), forCellReuseIdentifier: dataDeliveryIdentifier)
+        tableView.register(UINib(nibName: addPhotoIdentifier, bundle: nil), forCellReuseIdentifier: addPhotoIdentifier)
+        tableView.register(UINib(nibName: dimensionsIdentifier, bundle: nil), forCellReuseIdentifier: dimensionsIdentifier)
         tableView.layer.borderWidth = 1
         tableView.layer.borderColor = UIColor(red: 0.18, green: 0.73, blue: 0.93, alpha: 1).cgColor
         tableView.layer.masksToBounds = true
@@ -61,7 +66,7 @@ extension GoodsTableViewCell: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "product", for: indexPath) as! ChooseProductCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: chooseProductIdentifier, for: indexPath) as! ChooseProductCollectionViewCell
         if indexPath.row == ConfirmOrderByCreator.orderData.numProduct {
             cell.isSelected = true
         }
@@ -125,20 +130,20 @@ extension GoodsTableViewCell: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.row {
         case 0, 1:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "data", for: indexPath) as! DataDeliveryTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: dataDeliveryIdentifier, for: indexPath) as! DataDeliveryTableViewCell
             cell.setParameters(questionsLabel: questionsWithTextField[indexPath.row])
             return cell
         case 2:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "photoCollection", for: indexPath) as! AddPhotoTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: addPhotoIdentifier, for: indexPath) as! AddPhotoTableViewCell
             cell.delegate = addPhotoDelegate
             
             return cell
         case 3:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "dimensions", for: indexPath) as! DimensionsTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: dimensionsIdentifier, for: indexPath) as! DimensionsTableViewCell
             cell.setParameters()
             return cell
         default:
-            return tableView.dequeueReusableCell(withIdentifier: "dimensions", for: indexPath)
+            return tableView.dequeueReusableCell(withIdentifier: dimensionsIdentifier, for: indexPath)
         }
         
         

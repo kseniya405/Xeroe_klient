@@ -24,7 +24,7 @@ class ChooseProductCollectionViewCell: UICollectionViewCell {
         self.labelCell.text = labelText
     }
     
-    func defoltParameters(){
+    func defaultParameters(){
         self.contentView.backgroundColor = .black
         self.labelCell.textColor = .white
     }

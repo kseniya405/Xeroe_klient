@@ -66,7 +66,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     
 
     @objc func showAlertInputButtonTap(){
-        let alert = UIAlertController(title: "Invalid xeroeID", message: "This is my message.", preferredStyle: UIAlertController.Style.alert)
+        let alert = UIAlertController(title: invalidXeroeID, message: userNotFound, preferredStyle: UIAlertController.Style.alert)
         
         // add an action (button)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))

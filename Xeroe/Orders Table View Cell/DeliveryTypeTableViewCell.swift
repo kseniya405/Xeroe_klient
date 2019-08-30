@@ -8,6 +8,8 @@
 
 import UIKit
 
+var deliveryTypeIdentifier = "DeliveryTypeCollectionViewCell"
+
 class DeliveryTypeTableViewCell: UITableViewCell {
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -25,7 +27,7 @@ class DeliveryTypeTableViewCell: UITableViewCell {
         
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.register(UINib(nibName: "DeliveryTypeCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "deliveryCell")
+        collectionView.register(UINib(nibName: deliveryTypeIdentifier, bundle: nil), forCellWithReuseIdentifier: deliveryTypeIdentifier)
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

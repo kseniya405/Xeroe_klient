@@ -30,6 +30,12 @@
 		9D13039222FD50AC00DC983E /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D13039122FD50AC00DC983E /* OrderViewController.swift */; };
 		9D13039422FD514D00DC983E /* ShippingAgrinentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D13039322FD514D00DC983E /* ShippingAgrinentViewController.swift */; };
 		9D13039622FD8C6400DC983E /* ButtonForAddFotoOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D13039522FD8C6400DC983E /* ButtonForAddFotoOrder.swift */; };
+		9D136473231918B60074FE60 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D136472231918B60074FE60 /* Strings.swift */; };
+		9D1364762319445A0074FE60 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1364752319445A0074FE60 /* LoginViewModel.swift */; };
+		9D1364792319682E0074FE60 /* RegistrationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1364772319682E0074FE60 /* RegistrationCollectionViewCell.swift */; };
+		9D13647A2319682E0074FE60 /* RegistrationCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D1364782319682E0074FE60 /* RegistrationCollectionViewCell.xib */; };
+		9D13647D2319695D0074FE60 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D13647C2319695D0074FE60 /* Color.swift */; };
+		9D13647F23196E9A0074FE60 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D13647E23196E9A0074FE60 /* Fonts.swift */; };
 		9D23E9F422F0808C00E0E2C0 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D23E9F222F0808B00E0E2C0 /* Roboto-Bold.ttf */; };
 		9D23E9F522F0808C00E0E2C0 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D23E9F322F0808B00E0E2C0 /* Roboto-Regular.ttf */; };
 		9D23E9F822F08AA500E0E2C0 /* FuturaDemiC.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D23E9F722F08AA500E0E2C0 /* FuturaDemiC.ttf */; };
@@ -93,6 +99,12 @@
 		9D13039122FD50AC00DC983E /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
 		9D13039322FD514D00DC983E /* ShippingAgrinentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingAgrinentViewController.swift; sourceTree = "<group>"; };
 		9D13039522FD8C6400DC983E /* ButtonForAddFotoOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonForAddFotoOrder.swift; sourceTree = "<group>"; };
+		9D136472231918B60074FE60 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		9D1364752319445A0074FE60 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		9D1364772319682E0074FE60 /* RegistrationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationCollectionViewCell.swift; sourceTree = "<group>"; };
+		9D1364782319682E0074FE60 /* RegistrationCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegistrationCollectionViewCell.xib; sourceTree = "<group>"; };
+		9D13647C2319695D0074FE60 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		9D13647E23196E9A0074FE60 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		9D23E9F222F0808B00E0E2C0 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		9D23E9F322F0808B00E0E2C0 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		9D23E9F722F08AA500E0E2C0 /* FuturaDemiC.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FuturaDemiC.ttf; sourceTree = "<group>"; };
@@ -189,6 +201,26 @@
 			path = "Cell In Goods Cell";
 			sourceTree = "<group>";
 		};
+		9D136474231918CD0074FE60 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				9D136472231918B60074FE60 /* Strings.swift */,
+				9D13647C2319695D0074FE60 /* Color.swift */,
+				9D13647E23196E9A0074FE60 /* Fonts.swift */,
+				9D23E9F622F08A6E00E0E2C0 /* Fonts */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		9D13647B231968390074FE60 /* Registration Cell */ = {
+			isa = PBXGroup;
+			children = (
+				9D1364772319682E0074FE60 /* RegistrationCollectionViewCell.swift */,
+				9D1364782319682E0074FE60 /* RegistrationCollectionViewCell.xib */,
+			);
+			path = "Registration Cell";
+			sourceTree = "<group>";
+		};
 		9D23E9F622F08A6E00E0E2C0 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -237,8 +269,10 @@
 			isa = PBXGroup;
 			children = (
 				9DF533A322EEDBE10036866C /* LoginViewController.swift */,
+				9D1364752319445A0074FE60 /* LoginViewModel.swift */,
 				9DCF034822EF1EEE00A7F283 /* ForgotPasswordViewControll.swift */,
 				9DCF034A22EF364000A7F283 /* RegistrationViewController.swift */,
+				9D13647B231968390074FE60 /* Registration Cell */,
 			);
 			path = LoginVC;
 			sourceTree = "<group>";
@@ -299,8 +333,8 @@
 				9DACCB8B22F431BF00D9F433 /* MutableUIObjects */,
 				9DF533AA22EEDBE30036866C /* LaunchScreen.storyboard */,
 				9DF533AD22EEDBE30036866C /* Info.plist */,
+				9D136474231918CD0074FE60 /* Resource */,
 				9DD0BE5622F8182F00E55EA8 /* draft */,
-				9D23E9F622F08A6E00E0E2C0 /* Fonts */,
 			);
 			path = Xeroe;
 			sourceTree = "<group>";
@@ -403,6 +437,7 @@
 				9DD0BEA522F87B9300E55EA8 /* LeftMenuTableViewCell.xib in Resources */,
 				9D0EEC5023014C5F00891D7D /* ClientDataTableViewCell.xib in Resources */,
 				9D0875AB230592BB0085EDD9 /* OptionsTableViewCell.xib in Resources */,
+				9D13647A2319682E0074FE60 /* RegistrationCollectionViewCell.xib in Resources */,
 				9DA30B4B230FE56C0054D1ED /* DeliveryTypeCollectionViewCell.xib in Resources */,
 				9D23E9F522F0808C00E0E2C0 /* Roboto-Regular.ttf in Resources */,
 				9D0EEC692301B46800891D7D /* AddPhotoTableViewCell.xib in Resources */,
@@ -484,13 +519,17 @@
 				9D0EEC4F23014C5F00891D7D /* ClientDataTableViewCell.swift in Sources */,
 				9DCF034922EF1EEE00A7F283 /* ForgotPasswordViewControll.swift in Sources */,
 				9D0EEC6C2301B64600891D7D /* PhotosCollectionViewCell.swift in Sources */,
+				9D1364762319445A0074FE60 /* LoginViewModel.swift in Sources */,
 				9DCF034B22EF364000A7F283 /* RegistrationViewController.swift in Sources */,
 				9D13039422FD514D00DC983E /* ShippingAgrinentViewController.swift in Sources */,
+				9D13647D2319695D0074FE60 /* Color.swift in Sources */,
 				9DD0BE9E22F8727C00E55EA8 /* ClientDetailViewController.swift in Sources */,
 				9DA4941B2302FE0F00730624 /* ConfirmOrderByCreator.swift in Sources */,
 				9DDFD4002303EDC4007DDB36 /* HeaderOrderTableView.swift in Sources */,
+				9D136473231918B60074FE60 /* Strings.swift in Sources */,
 				9D13039622FD8C6400DC983E /* ButtonForAddFotoOrder.swift in Sources */,
 				9DF533A222EEDBE10036866C /* AppDelegate.swift in Sources */,
+				9D1364792319682E0074FE60 /* RegistrationCollectionViewCell.swift in Sources */,
 				9D0EEC632301AAD200891D7D /* DataDeliveryTableViewCell.swift in Sources */,
 				9D0EEC4623014B9300891D7D /* GoodsTableViewCell.swift in Sources */,
 				9DA30B4A230FE56C0054D1ED /* DeliveryTypeCollectionViewCell.swift in Sources */,
@@ -500,6 +539,7 @@
 				9DDFD40623041A9B007DDB36 /* ClientData.swift in Sources */,
 				9D0EEC5723014C8E00891D7D /* OptionsTableViewCell.swift in Sources */,
 				9DD0BEA422F87B9200E55EA8 /* LeftMenuTableViewCell.swift in Sources */,
+				9D13647F23196E9A0074FE60 /* Fonts.swift in Sources */,
 				9DD0BE7622F8465D00E55EA8 /* ContainerViewController.swift in Sources */,
 				9DACCB8022F415A400D9F433 /* MapView.swift in Sources */,
 				9DA494162302B77700730624 /* DimensionsTableViewCell.swift in Sources */,

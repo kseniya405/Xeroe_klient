@@ -41,7 +41,7 @@ class LeftMenuViewController: UIViewController {
     }
     
     @objc func goToLoginView() {
-        defaults.set(nil, forKey: "token")
+        UserDefaults.standard.set(nil, forKey: "token")
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let initialViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
         self.navigationController?.pushViewController(initialViewController, animated: true)

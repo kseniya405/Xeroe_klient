@@ -8,6 +8,8 @@
 
 import UIKit
 
+fileprivate let identifierCell = "PhotosCollectionViewCell"
+
 protocol AddPhotoTableViewCellDelegate {
     func addImageCall(cell: PhotosCollectionViewCell)
 }
@@ -28,7 +30,7 @@ class AddPhotoTableViewCell: UITableViewCell {
         super.awakeFromNib()
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.register(UINib(nibName: "PhotosCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "photo")
+        collectionView.register(UINib(nibName: identifierCell, bundle: nil), forCellWithReuseIdentifier: identifierCell)
     }
     
 }
