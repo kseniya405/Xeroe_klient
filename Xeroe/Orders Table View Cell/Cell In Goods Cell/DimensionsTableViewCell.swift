@@ -10,10 +10,10 @@ import UIKit
 
 class DimensionsTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var widthTextField: UITextField!
-    @IBOutlet weak var lengthTextField: UITextField!
-    @IBOutlet weak var heightTextField: UITextField!
-    @IBOutlet weak var weightTextField: UITextField!
+    @IBOutlet weak var widthTextField: TextFieldWithCorner!
+    @IBOutlet weak var lengthTextField: TextFieldWithCorner!
+    @IBOutlet weak var heightTextField: TextFieldWithCorner!
+    @IBOutlet weak var weightTextField: TextFieldWithCorner!
     
     
     override func awakeFromNib() {

@@ -11,7 +11,7 @@ import Foundation
 class RestApi {
     
     func login(login: String, password: String, callback: @escaping (Bool, String?) -> Void) {
-        
+        print("login" , login, " password", password)
         let jsonUrlString = "http://xeroe.kinect.pro:8091/api/auth/login"
         guard let url = URL(string: jsonUrlString) else { return }
         var request = URLRequest(url: url)

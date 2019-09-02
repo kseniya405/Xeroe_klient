@@ -11,7 +11,7 @@ import UIKit
 class DataDeliveryTableViewCell: UITableViewCell {
 
     @IBOutlet weak var questionsLabel: UILabel!
-    @IBOutlet weak var answerTextField: UITextField!
+    @IBOutlet weak var answerTextField: TextFieldWithCorner!
     
     
     override func awakeFromNib() {

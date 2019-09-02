@@ -13,7 +13,7 @@ let or = "or"
 let emailOrPhone = "Email or phone number"
 let password = "Password"
 let confirmPassword = "Confirm password"
-let enterEmail = "enterEmail"
+let enterEmail = "Enter your email or phone number"
 let enterPassword = "Enter your password"
 let wrongPassword = "Wrong password. Try again or click Forgot password to reset it. "
 

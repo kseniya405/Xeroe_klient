@@ -10,44 +10,41 @@ import UIKit
 
 class RecipientDetailViewController: UIViewController {
 
-    @IBOutlet weak var buttonBack: UIButton!{
+    @IBOutlet weak var backButton: UIButton!{
         didSet {
-            buttonBack.addTarget(self, action: #selector(buttonNoTap), for: .touchUpInside)
+            backButton.addTarget(self, action: #selector(noButtonTap), for: .touchUpInside)
         }
     }
     @IBOutlet weak var idRecipient: UILabel!
     @IBOutlet weak var nameRecipient: UILabel!
     @IBOutlet weak var addressRecipient: UILabel!
     @IBOutlet weak var available: UILabel!
-    @IBOutlet weak var buttonNo: ButtonWithCornerRadius! {
+    @IBOutlet weak var noButton: ButtonWithCornerRadius! {
         didSet {
-            buttonNo.layer.borderColor = UIColor(red: 0.12, green: 0.24, blue: 0.44, alpha: 1).cgColor
-            buttonNo.layer.borderWidth = 1
-            buttonNo.addTarget(self, action: #selector(buttonNoTap), for: .touchUpInside)
+            noButton.layer.borderColor = basicBlueColor.cgColor
+            noButton.layer.borderWidth = 1
+            noButton.addTarget(self, action: #selector(noButtonTap), for: .touchUpInside)
         }
     }
-    @IBOutlet weak var buttonYes: ButtonWithCornerRadius!{
+    @IBOutlet weak var yesButton: ButtonWithCornerRadius!{
         didSet {
-            buttonYes.layer.borderColor = UIColor(red: 0.12, green: 0.24, blue: 0.44, alpha: 1).cgColor
-            buttonYes.addTarget(self, action: #selector(buttonYesTap), for: .touchUpInside)
+            yesButton.layer.borderColor = basicBlueColor.cgColor
+            yesButton.addTarget(self, action: #selector(yesButtonTap), for: .touchUpInside)
         }
     }
-    
-    
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
     
-    @objc func buttonNoTap() {
+    @objc func noButtonTap() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let initialViewController = storyboard.instantiateViewController(withIdentifier: "ViewController") as! ContainerViewController
         self.navigationController?.pushViewController(initialViewController, animated: false)
     }
     
-    @objc func buttonYesTap() {
+    @objc func yesButtonTap() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let initialViewController = storyboard.instantiateViewController(withIdentifier: "ShippingAgrinentViewController") as! ShippingAgrinentViewController
         self.navigationController?.pushViewController(initialViewController, animated: false)

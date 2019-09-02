@@ -8,6 +8,8 @@
 
 import UIKit
 
+fileprivate let cellIdentifier = "LeftMenuTableViewCell"
+
 class LeftMenuViewController: UIViewController {
     
     @IBOutlet weak var photoImage: UIImageView!{
@@ -26,10 +28,9 @@ class LeftMenuViewController: UIViewController {
         }
     }
     
+    let cellLeftMenuNames = [yourDeliveries, help, payments, freeDeliveries, setting, notifications]
     
-    fileprivate let cellIdentifier = "LeftMenuTableViewCell"
-    
-    let cellLeftMenuNames = ["Your deliveries", "Help", "Payments", "Free deliveries", "Settings", "Notifications"]
+    var selectedIndexPath : IndexPath?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,11 +38,11 @@ class LeftMenuViewController: UIViewController {
         leftMenuTableView.delegate = self
         leftMenuTableView.register(UINib(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
         leftMenuTableView.tableFooterView = UIView()
-
+        
     }
     
     @objc func goToLoginView() {
-        UserDefaults.standard.set(nil, forKey: "token")
+        UserDefaults.standard.set(nil, forKey: DefaultsKeys.token.rawValue)
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let initialViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
         self.navigationController?.pushViewController(initialViewController, animated: true)
@@ -56,13 +57,9 @@ extension LeftMenuViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! LeftMenuTableViewCell
-        let nameCell = cellLeftMenuNames[indexPath.row]
-        
-        cell.nameCell.text = nameCell
-        cell.iconImage.image = UIImage(named: nameCell)
-        cell.iconImage.layer.cornerRadius = 2
-        cell.iconImage.layer.masksToBounds = true
-        
+        if indexPath.row < cellLeftMenuNames.count {
+            cell.setData(nameCell: cellLeftMenuNames[indexPath.row], selected: selectedIndexPath == indexPath)
+        }
         return cell
     }
 }
@@ -70,20 +67,19 @@ extension LeftMenuViewController: UITableViewDataSource {
 extension LeftMenuViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
-        let selectedCell: LeftMenuTableViewCell = tableView.cellForRow(at: indexPath)! as! LeftMenuTableViewCell
-        selectedCell.contentView.backgroundColor = UIColor(red: 0.18, green: 0.73, blue: 0.93, alpha: 1)
-        selectedCell.nameCell.textColor = .white
-        let image = UIImage(named: cellLeftMenuNames[indexPath.row])!.withRenderingMode(.alwaysTemplate)
-        selectedCell.iconImage.image = image
-        selectedCell.iconImage.tintColor = .white
+        if let previousIndex = selectedIndexPath {
+            selectedIndexPath = indexPath
+            tableView.reloadRows(at: [previousIndex], with: .none)
+        }
+        selectedIndexPath = indexPath
+        tableView.reloadRows(at: [indexPath], with: .none)
         
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        let deselectedCell: LeftMenuTableViewCell = tableView.cellForRow(at: indexPath)! as! LeftMenuTableViewCell
-        deselectedCell.nameCell.textColor = UIColor(red: 0.16, green: 0.16, blue: 0.16, alpha: 0.87)
-        deselectedCell.iconImage.image = UIImage(named: cellLeftMenuNames[indexPath.row])
+        selectedIndexPath = nil
+        tableView.reloadRows(at: [indexPath], with: .none)
+        
         
     }
 }

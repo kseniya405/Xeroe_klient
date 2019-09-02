@@ -21,9 +21,9 @@ class ShippingAgrinentViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak var buttonBack: UIButton!{
+    @IBOutlet weak var backButton: UIButton!{
         didSet {
-            buttonBack.addTarget(self, action: #selector (buttonBackTap), for: .touchUpInside)
+            backButton.addTarget(self, action: #selector (backButtonTap), for: .touchUpInside)
         }
     }
     
@@ -34,7 +34,7 @@ class ShippingAgrinentViewController: UIViewController {
     }
     
     
-    @objc func buttonBackTap() {
+    @objc func backButtonTap() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let initialViewController = storyboard.instantiateViewController(withIdentifier: "RecipientDetailViewController") as! RecipientDetailViewController
         self.navigationController?.pushViewController(initialViewController, animated: false)
@@ -52,7 +52,10 @@ class ShippingAgrinentViewController: UIViewController {
     func orderDetailOpenAs(isDelivery: Bool) -> Void {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let initialViewController = storyboard.instantiateViewController(withIdentifier: "OrderViewController") as! OrderViewController
+        
+        // isDelivery - shows whether it is delivery or receipt
         initialViewController.isDelivery = isDelivery
+        
         self.navigationController?.pushViewController(initialViewController, animated: false)
     }
 }

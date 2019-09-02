@@ -21,14 +21,14 @@ class GoodsTableViewCell: UITableViewCell {
     var addPhotoDelegate: AddPhotoTableViewCellDelegate?
     
     
-    fileprivate var products = ["PRODUCT 1", "ADD +"]
-    fileprivate let thumbnailSizeProduct = CGSize(width: 108.0, height: 48.0)
-    fileprivate let thumbnailSizeAdd = CGSize(width: 75.0, height: 48.0)
-    fileprivate let sectionInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 2)
+    var products = ["PRODUCT 1", "ADD +"]
+    let thumbnailSizeProduct = CGSize(width: 108.0, height: 48.0)
+    let thumbnailSizeAdd = CGSize(width: 75.0, height: 48.0)
+    let sectionInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 2)
     
-    fileprivate let selectCellColorBackground = UIColor(red: 0.18, green: 0.73, blue: 0.93, alpha: 1)
-    fileprivate let deselectCellColorBackground = UIColor(red: 0.93, green: 0.94, blue: 0.94, alpha: 1)
-    fileprivate let deselectCellColorText = UIColor(red: 0.59, green: 0.59, blue: 0.59, alpha: 1)
+    let selectCellColorBackground = UIColor(red: 0.18, green: 0.73, blue: 0.93, alpha: 1)
+    let deselectCellColorBackground = UIColor(red: 0.93, green: 0.94, blue: 0.94, alpha: 1)
+    let deselectCellColorText = UIColor(red: 0.59, green: 0.59, blue: 0.59, alpha: 1)
     
     let questionsWithTextField = ["Name what you want to deliver", "Describe what you want to deliver"]
     

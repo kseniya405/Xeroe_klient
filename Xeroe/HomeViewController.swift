@@ -44,13 +44,15 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     @objc func inputButtonTap() {
-        self.showActivityIndicatory(uiView: self.view)
+        let activityIndicatory = self.view.showActivityIndicator()
+        
         guard let textID = xeroeIDTextField.text, !textID.isEmpty else {
             showAlertInputButtonTap()
             return
         }
         RestApi().findID(xeroeID: textID) { (isOk) in
             DispatchQueue.main.async {
+                activityIndicatory.stopAnimating()
                 guard isOk else {
                     self.showAlertInputButtonTap()
                     return
@@ -58,10 +60,8 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let initialViewController = storyboard.instantiateViewController(withIdentifier: "RecipientDetailViewController") as! RecipientDetailViewController
                 self.navigationController?.pushViewController(initialViewController, animated: false)
-                
             }
         }
-
     }
     
 
