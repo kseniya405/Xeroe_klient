@@ -14,18 +14,18 @@ class RegistrationTableViewCell: UITableViewCell {
     
     @IBOutlet weak var answerTextField: TextFieldWithCorner!
     
-    @IBOutlet weak var backgroundViewForHeight: UIView!
-    
-    @IBOutlet weak var heightCell: NSLayoutConstraint!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
     }
 
-    func setParameters(height: CGFloat, textNamesLabel: String) {
-        heightCell.constant = height
+    func setParameters(textNamesLabel: String) {
         namesLabel.text = textNamesLabel
     }
     
+    override func prepareForReuse() {
+        namesLabel.text = ""
+        answerTextField.text = ""
+    }
 }

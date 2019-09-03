@@ -57,13 +57,14 @@ class RestApi {
         
         guard let url = URL(string: "http://xeroe.kinect.pro:8091/api/client/find/\(xeroeID)") else { return }
         
-        let token  = "Bearer \(UserDefaults.standard.string(forKey: "token") ?? ""))"
+        let token  = "Bearer \(UserDefaults.standard.string(forKey: DefaultsKeys.token.rawValue) ?? ""))"
         
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         request.setValue("application/json", forHTTPHeaderField: "accept")
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue(token, forHTTPHeaderField: "Authorization")
+        request.timeoutInterval = 20
         //        request.setValue(xeroeID, forHTTPHeaderField: "xeroeID")
         
         //create dataTask using the session object to send data to the server

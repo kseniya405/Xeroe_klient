@@ -14,7 +14,7 @@ class LoginViewModel: NSObject {
     
     var goToHomeScreen: (() -> ())?
     
-    func validateTextFields(loginFormView: loginFormView) -> Bool {
+    func validateTextFields(loginFormView: LoginFormView) -> Bool {
         
         let loginTextField = loginFormView.loginTextField
         let passwordTextField = loginFormView.passwordTextField
@@ -30,7 +30,7 @@ class LoginViewModel: NSObject {
         return true
     }
     
-    func login(loginFormView: loginFormView) {
+    func login(loginFormView: LoginFormView) {
         
         let login = loginFormView.loginTextField.text ?? UserDefaults.standard.string(forKey: DefaultsKeys.login.rawValue)
         let password = loginFormView.passwordTextField.text ?? UserDefaults.standard.string(forKey: DefaultsKeys.password.rawValue)

@@ -10,6 +10,10 @@ import UIKit
 
 var deliveryTypeIdentifier = "DeliveryTypeCollectionViewCell"
 
+protocol DeliveryTypeTableViewCellDelegate {
+    func setDeliveryType(type: Int?)
+}
+
 class DeliveryTypeTableViewCell: UITableViewCell {
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -19,8 +23,9 @@ class DeliveryTypeTableViewCell: UITableViewCell {
         }
     }
     
-    fileprivate var thumbnailSizeAdd = CGSize(width: 76.0, height: 136)
-    private let sectionInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+    var thumbnailSizeAdd = CGSize(width: 76.0, height: 136)
+    let sectionInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+    var delegate: DeliveryTypeTableViewCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -48,7 +53,7 @@ class DeliveryTypeTableViewCell: UITableViewCell {
         let alert = UIAlertController(title: "Incomplete order data", message: "Please select a payment method.", preferredStyle: UIAlertController.Style.alert)
         
         // add an action (button)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        alert.addAction(UIAlertAction(title: ok, style: UIAlertAction.Style.default, handler: nil))
         
         // show the alert
         self.superview?.parentContainerViewController()?.present(alert, animated: true, completion: nil)
@@ -63,7 +68,7 @@ extension DeliveryTypeTableViewCell: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "deliveryCell", for: indexPath) as! DeliveryTypeCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DeliveryTypeCollectionViewCell", for: indexPath) as! DeliveryTypeCollectionViewCell
         cell.defaultParameters(type: indexPath.row)
         return cell
     }
@@ -92,7 +97,7 @@ extension DeliveryTypeTableViewCell: UICollectionViewDelegate {
         selectCell.logoDeliveryType.backgroundColor = UIColor(red: 0.18, green: 0.73, blue: 0.93, alpha: 1)
         selectCell.logoDeliveryType.layer.borderColor = UIColor(red: 0.18, green: 0.73, blue: 0.93, alpha: 1).cgColor
         
-        ConfirmOrderByCreator.orderData.delivery_type = indexPath.row + 1
+        delegate?.setDeliveryType(type: indexPath.row + 1)
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {

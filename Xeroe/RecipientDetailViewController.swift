@@ -40,7 +40,7 @@ class RecipientDetailViewController: UIViewController {
     
     @objc func noButtonTap() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let initialViewController = storyboard.instantiateViewController(withIdentifier: "ViewController") as! ContainerViewController
+        let initialViewController = storyboard.instantiateViewController(withIdentifier: "ContainerViewController") as! ContainerViewController
         self.navigationController?.pushViewController(initialViewController, animated: false)
     }
     

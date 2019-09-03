@@ -8,23 +8,34 @@
 
 import UIKit
 
+fileprivate let identifierLoginVC = "LoginViewController"
 
 class ForgotPasswordViewControll: UIViewController {
     
-    @IBOutlet weak var checkEmailButton: ButtonWithCornerRadius!{
+    @IBOutlet weak var backButton: UIButton!{
         didSet {
-            checkEmailButton.addTarget(self, action: #selector(checkEmailButtonTap), for: .touchUpInside)
+            backButton.addTarget(self, action: #selector(backButtonTap), for: .touchUpInside)
         }
     }
+    @IBOutlet weak var emailAddressLabel: UILabel!
+    @IBOutlet weak var emailTextField: TextFieldWithCorner!
+    @IBOutlet weak var resetPasswordButton: ButtonWithCornerRadius!
     
+    @IBOutlet weak var messageForUsersTextView: UITextView!
+    
+    @IBOutlet weak var checkEmailButton: ButtonWithCornerRadius!{
+        didSet {
+            checkEmailButton.addTarget(self, action: #selector(backButtonTap), for: .touchUpInside)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    @objc func checkEmailButtonTap() {
+    @objc func backButtonTap() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let initialViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+        let initialViewController = storyboard.instantiateViewController(withIdentifier: identifierLoginVC) as! LoginViewController
         self.navigationController?.pushViewController(initialViewController, animated: true)
     }
     

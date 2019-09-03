@@ -8,12 +8,8 @@
 
 import Foundation
 
-class ConfirmOrderByCreator {
-    
-    var numProduct = 0
-    
-    static var orderData = ConfirmOrderByCreator()
-    
+class ConfirmOrderByCreator: Codable {
+
     var payment_method: String? = nil
     var delivery_type: Int? = 0
     var cost: Int? = 0

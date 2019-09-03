@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  ContainerViewController.swift
 //  Xeroe
 //
 //  Created by Денис Марков on 8/5/19.
@@ -105,17 +105,14 @@ class ContainerViewController: UIViewController {
     
     func addShadowToView(){
         //Gives Illusion that main view is above the side menu
-        self.tabbarContainerView.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3).cgColor
+        self.tabbarContainerView.layer.shadowColor = shadowColor.cgColor
         self.tabbarContainerView.layer.shadowOffset = CGSize(width: -1, height: 1)
         self.tabbarContainerView.layer.shadowRadius = 1
         self.tabbarContainerView.layer.shadowOpacity = 1
         self.tabbarContainerView.layer.borderColor = UIColor.lightGray.cgColor
         self.tabbarContainerView.layer.borderWidth = 0.2
     }
-    
-    
-    
-    
+
     //MARK: - Selector Methods
     @objc func openOrCloseSideMenu(){
         //Opens or Closes Side Menu On Click of Button
@@ -162,7 +159,6 @@ class ContainerViewController: UIViewController {
             blackTransparentView?.removeFromSuperview()
             self.openFlag = false
         }
-        
     }
     
     @objc func closeWithoutAnimation(){
@@ -187,17 +183,17 @@ class ContainerViewController: UIViewController {
         let blackTransparentView = self.addBlackTransparentView()
         self.tabbarContainerView.addSubview(blackTransparentView)
         
-        
-        if panGesture.state == .began{
+        switch panGesture.state {
+        case .began:
             initialPos = touchPos
-        } else if panGesture.state == .changed{
+            break
+        case .changed:
             let touchPosition = self.view.bounds.width * 0.8
             if (initialPos?.x)! > touchPosition && openFlag{
                 //To Close Left Menu
                 if self.tabbarContainerView.frame.minX > 0{
                     self.tabbarContainerView.center = CGPoint(x: self.tabbarContainerView.center.x + translation.x, y: self.tabbarContainerView.bounds.midY)
                     panGesture.setTranslation(CGPoint.zero, in: self.view)
-                    
                     blackTransparentView.alpha = self.tabbarContainerView.frame.minX/(self.view.bounds.width * 1.8)
                 }
             } else if !openFlag{
@@ -205,19 +201,19 @@ class ContainerViewController: UIViewController {
                 if translation.x > 0.0{
                     displaySideMenu()
                     
-                    self.tabbarContainerView.center = CGPoint(x: translation.x + self.tabbarContainerView.center.x, y: self.tabbarContainerView.bounds.midY)
+                    self.tabbarContainerView.center = CGPoint(x: self.tabbarContainerView.center.x + translation.x, y: self.tabbarContainerView.bounds.midY)
                     panGesture.setTranslation(CGPoint.zero, in: self.view)
-                    
                     blackTransparentView.alpha = self.tabbarContainerView.frame.minX/(self.view.bounds.width * 1.8)
                 }
                 
             }
+            break
+        case .ended:
+            let isOpen = self.tabbarContainerView.frame.minX > self.view.frame.midX
             
-        } else if panGesture.state == .ended{
-            if self.tabbarContainerView.frame.minX > self.view.frame.midX{
+            if isOpen {
                 //Opens Left Menu
-                UIView.animate(withDuration: 0.2, animations: {
-                    
+                UIView.animate(withDuration: 0.3, animations: {
                     self.tabbarContainerView.frame = CGRect(x: self.view.frame.width * 0.8, y: 0, width: self.tabbarContainerView.bounds.width, height: self.tabbarContainerView.bounds.height)
                     blackTransparentView.alpha = self.tabbarContainerView.frame.minX/(self.view.bounds.width * 1.8)
                 }) { (_) in
@@ -225,22 +221,23 @@ class ContainerViewController: UIViewController {
                 }
             } else {
                 //Closes Left Menu
-                UIView.animate(withDuration: 0.2, animations: {
+                UIView.animate(withDuration: 0.3, animations: {
                     self.tabbarContainerView.center = CGPoint(x: self.view.center.x, y: self.tabbarContainerView.bounds.midY)
                     blackTransparentView.alpha = 0
                 }) { (_) in
                     blackTransparentView.removeFromSuperview()
                     self.openFlag = false
-                    
                 }
             }
+            break
+        default: break
         }
     }
     
 }
 
 class HamburgerMenu{
-    //Class To Implement Easy Functions To Open Or Close RearView
+    //Class To Implement Easy Functions To Open Or Close LeftVC
     //Make object of this class and call functions
     func triggerSideMenu(){
         let notificationOpenOrCloseSideMenu = Notification.Name("notificationOpenOrCloseSideMenu")

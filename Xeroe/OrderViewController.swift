@@ -8,6 +8,19 @@
 
 import UIKit
 
+fileprivate let identifierGoodsCell = "GoodsTableViewCell"
+fileprivate let identifierPaymentMethodCell = "PaymentMethodTableViewCell"
+fileprivate let identifierClientDataCell = "ClientDataTableViewCell"
+fileprivate let identifierOptionsCell = "OptionsTableViewCell"
+fileprivate let identifierDeliveryTypeCell = "DeliveryTypeTableViewCell"
+fileprivate let identifierHeader = "HeaderOrderTableView"
+
+fileprivate let identifierGoToBack = "ShippingAgrinentViewController"
+
+protocol OrderViewControllerDelegate {
+    func getOrderDataDelivery(confirmOrderByCreator: ConfirmOrderByCreator) -> ConfirmOrderByCreator 
+}
+
 class OrderViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var backButton: UIButton! {
@@ -21,7 +34,12 @@ class OrderViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     var imagePicker: ImagePicker!
     var imagePickCell: PhotosCollectionViewCell?
+   
+    var thisOrderData = ConfirmOrderByCreator()
     
+    
+    var isDelivery: Bool = false
+
     
     struct sectionData {
         let section: String
@@ -29,17 +47,16 @@ class OrderViewController: UIViewController, UIImagePickerControllerDelegate, UI
     }
     
     let sections = [
-        sectionData(section: "GOODS", typeOfNib: "GoodsTableViewCell"),
-        sectionData(section: "PAYMENT METHOD", typeOfNib: "PaymentMethodTableViewCell"),
-        sectionData(section: "SENDER", typeOfNib: "ClientDataTableViewCell"),
-        sectionData(section: "RECIPIENT", typeOfNib: "ClientDataTableViewCell"),
-        sectionData(section: "Options", typeOfNib: "OptionsTableViewCell"),
-        sectionData(section: "Delivery type", typeOfNib: "DeliveryTypeTableViewCell")
+        sectionData(section: sectionGoods, typeOfNib: identifierGoodsCell),
+        sectionData(section: sectionPaymentMethod, typeOfNib: identifierPaymentMethodCell),
+        sectionData(section: sectionSenderData, typeOfNib: identifierClientDataCell),
+        sectionData(section: sectionRecipientData, typeOfNib: identifierClientDataCell),
+        sectionData(section: sectionOptions, typeOfNib: identifierOptionsCell),
+        sectionData(section: sectionDeliveryType, typeOfNib: identifierDeliveryTypeCell)
         ]
     
-    fileprivate let sectionInsets = UIEdgeInsets(top: 0, left: 20.0, bottom: 0, right: 0.0)
+    let sectionInsets = UIEdgeInsets(top: 0, left: 20.0, bottom: 0, right: 0.0)
     
-    var isDelivery: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,7 +66,7 @@ class OrderViewController: UIViewController, UIImagePickerControllerDelegate, UI
         for section in sections {
             tableView.register(UINib(nibName: section.typeOfNib, bundle: nil), forCellReuseIdentifier: section.typeOfNib)
         }
-        tableView.register(UINib.init(nibName: "HeaderOrderTableView", bundle: Bundle.main), forHeaderFooterViewReuseIdentifier: "header")
+        tableView.register(UINib.init(nibName: identifierHeader, bundle: Bundle.main), forHeaderFooterViewReuseIdentifier: identifierHeader)
         
         self.imagePicker = ImagePicker(presentationController: self, delegate: self)
 
@@ -57,19 +74,17 @@ class OrderViewController: UIViewController, UIImagePickerControllerDelegate, UI
     }
     
     @objc func backButtonTap() {
-        ConfirmOrderByCreator.orderData = ConfirmOrderByCreator()
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let initialViewController = storyboard.instantiateViewController(withIdentifier: "ShippingAgrinentViewController") as! ShippingAgrinentViewController
+        let initialViewController = storyboard.instantiateViewController(withIdentifier: identifierGoToBack) as! ShippingAgrinentViewController
         self.navigationController?.pushViewController(initialViewController, animated: false)
     }
     
 }
 
 extension OrderViewController: UITableViewDelegate, UITableViewDataSource {
-    
-    
+
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "header") as! HeaderOrderTableView
+        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: identifierHeader) as! HeaderOrderTableView
         
         let sectionNumberIsZero = section == 0
         headerView.goodsLabel.isHidden = !sectionNumberIsZero
@@ -77,7 +92,7 @@ extension OrderViewController: UITableViewDelegate, UITableViewDataSource {
         headerView.noteLabel.isHidden = !sectionNumberIsZero
         headerView.namesLabel.text = sections[section].section
         
-        headerView.viewBackground.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.13).cgColor
+        headerView.viewBackground.layer.shadowColor = shadowColor.cgColor
         headerView.viewBackground.layer.shadowOpacity = 1
         headerView.viewBackground.layer.shadowRadius = 2
         headerView.viewBackground.layer.shadowOffset = CGSize(width: 0, height: 2)
@@ -85,13 +100,8 @@ extension OrderViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if section == 0 {
-            return 69
-        }
-        return 52
+        return section == 0 ? 69 : 52
     }
-    
-    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return sections.count
@@ -106,12 +116,12 @@ extension OrderViewController: UITableViewDelegate, UITableViewDataSource {
             case 0:
                 let cell = tableView.dequeueReusableCell(withIdentifier: sections[indexPath.section].typeOfNib, for: indexPath) as! GoodsTableViewCell
                 cell.addPhotoDelegate = self
+                cell.goodsCellDelegate = self
+                
                 return cell
             case 1:
                 let cell = tableView.dequeueReusableCell(withIdentifier: sections[indexPath.section].typeOfNib, for: indexPath) as! PaymentMethodTableViewCell
-                if cell.buttonImage.isChecked {
-                    ConfirmOrderByCreator.orderData.payment_method = "credit_card"
-                }
+                cell.delegate = self
                 return cell
             case 2, 3:
                 let cell = tableView.dequeueReusableCell(withIdentifier: sections[indexPath.section].typeOfNib, for: indexPath) as! ClientDataTableViewCell
@@ -125,7 +135,7 @@ extension OrderViewController: UITableViewDelegate, UITableViewDataSource {
                 return cell
             case 5:
                 let cell = tableView.dequeueReusableCell(withIdentifier: sections[indexPath.section].typeOfNib, for: indexPath) as! DeliveryTypeTableViewCell
-                
+                cell.delegate = self
                 return cell
             default:
                 return tableView.dequeueReusableCell(withIdentifier: sections[0].typeOfNib, for: indexPath)
@@ -137,7 +147,6 @@ extension OrderViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension OrderViewController: ImagePickerDelegate {
-    
     func didSelect(image: UIImage?) {
         imagePickCell?.photoImage.image = image
     }
@@ -148,4 +157,46 @@ extension OrderViewController: AddPhotoTableViewCellDelegate {
         imagePickCell = cell
         self.imagePicker.present(from: cell)
     }
+}
+
+extension OrderViewController: GoodsCellDelegate, PaymentMethodTableViewCellDelegate, DeliveryTypeTableViewCellDelegate {
+    func setDeliveryType(type: Int?) {
+        thisOrderData.delivery_type = type
+    }
+    
+    func setPaymentMethod(isCreditCard: Bool) {
+        if isCreditCard {
+            thisOrderData.payment_method = "credit_card"
+        }
+    }
+    
+   
+    func addProduct(){
+        thisOrderData.products.append(Product())
+    }
+    
+    func setNameDeliver(nameDeliver: String, numProduct: Int) {
+        thisOrderData.products[numProduct].name = nameDeliver
+    }
+    
+    func setDescribeDeliver(describeDeliver: String, numProduct: Int) {
+        thisOrderData.products[numProduct].description = describeDeliver
+    }
+    
+    func setWidthDeliver(width: Int?, numProduct: Int) {
+        thisOrderData.products[numProduct].width = width ?? 1
+    }
+    
+    func setLengthDeliver(length: Int?, numProduct: Int) {
+        thisOrderData.products[numProduct].length = length ?? 1
+    }
+    
+    func setHeightDeliver(height: Int?, numProduct: Int) {
+        thisOrderData.products[numProduct].height = height ?? 1
+    }
+    
+    func setWeightDeliver(weight: Int?, numProduct: Int) {
+        thisOrderData.products[numProduct].weight = weight ?? 1
+    }
+  
 }

@@ -39,7 +39,7 @@ class DeliveryTypeCollectionViewCell: UICollectionViewCell {
             return
         }
         logoDeliveryType.image = UIImage(named: arrayDelivery[type].logoName)
-        logoDeliveryType.layer.borderColor = UIColor(red: 0.56, green: 0.56, blue: 0.56, alpha: 1).cgColor
+        logoDeliveryType.layer.borderColor = greyTextColor.cgColor
         logoDeliveryType.backgroundColor = .white
 
         deliveryType.text = arrayDelivery[type].nameDelivery

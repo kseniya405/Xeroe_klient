@@ -8,11 +8,17 @@
 
 import UIKit
 
+protocol DataDeliveryTableViewCellDelegate {
+    func setDataDeliveryName(name: String)
+    func setDataDeliveryDescription(description: String)
+}
+
 class DataDeliveryTableViewCell: UITableViewCell {
 
     @IBOutlet weak var questionsLabel: UILabel!
     @IBOutlet weak var answerTextField: TextFieldWithCorner!
     
+    var delegate: DataDeliveryTableViewCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,24 +32,17 @@ class DataDeliveryTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setParameters(questionsLabel: String) {
+    func setParameters(questionsLabel: String, answerText: String) {
         self.questionsLabel.text = questionsLabel
-        if questionsLabel == "Name what you want to deliver" {
-            answerTextField.text = ConfirmOrderByCreator.orderData.products[ConfirmOrderByCreator.orderData.numProduct].name
-        } else {
-            answerTextField.text = ConfirmOrderByCreator.orderData.products[ConfirmOrderByCreator.orderData.numProduct].description
-        }
+        self.answerTextField.text = answerText
     }
-    
-    
+        
     @objc func textFieldDidChange(_ textField: UITextField) {
-        
-        if questionsLabel.text == "Name what you want to deliver" {
-            ConfirmOrderByCreator.orderData.products[ConfirmOrderByCreator.orderData.numProduct].name = textField.text
+        if questionsLabel.text == nameDeliver {
+            delegate?.setDataDeliveryName(name: textField.text ?? "")
         } else {
-            ConfirmOrderByCreator.orderData.products[ConfirmOrderByCreator.orderData.numProduct].description = textField.text
+            delegate?.setDataDeliveryDescription(description: textField.text ?? "")
         }
-        
     }
 }
 

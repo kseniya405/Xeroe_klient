@@ -42,7 +42,7 @@ extension AddPhotoTableViewCell: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "photo", for: indexPath) as! PhotosCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifierCell, for: indexPath) as! PhotosCollectionViewCell
         cell.photoImage.image = indexPath.row == 0 ? UIImage(named: "default_photo") : UIImage(named: "add_photo")
         return cell
         

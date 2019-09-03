@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  LoginViewController.swift
 //  Xeroe
 //
 //  Created by Денис Марков on 7/29/19.
@@ -8,11 +8,15 @@
 
 import UIKit
 
+fileprivate let identifierForgotPasswordVC = "ForgotPasswordViewController"
+fileprivate let identifierRegistrationVC = "RegistrationViewController"
+fileprivate let identifierContainerVC = "ContainerViewController"
+
 
 class LoginViewController: UIViewController {
     
     
-    @IBOutlet weak var loginFormView: loginFormView!
+    @IBOutlet weak var loginFormView: LoginFormView!
     @IBOutlet weak var fbButton: ButtonWithCornerRadius!
     @IBOutlet weak var signInButton: ButtonWithCornerRadius! {
         didSet {
@@ -55,7 +59,6 @@ class LoginViewController: UIViewController {
         }
     }
     
-    
     @objc func signInButtonTap(){
         let activityIndicator = self.view.showActivityIndicator()
         if viewModel.validateTextFields(loginFormView: loginFormView) {
@@ -63,22 +66,22 @@ class LoginViewController: UIViewController {
         }
         activityIndicator.stopAnimating()
     }
-    
-    func goToHomeScreen() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let initialViewController = storyboard.instantiateViewController(withIdentifier: "ViewController") as! ContainerViewController
-        self.navigationController?.pushViewController(initialViewController, animated: false)
-    }
-    
+
     @objc func forgotButtonTap(){
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let initialViewController = storyboard.instantiateViewController(withIdentifier: "ForgotPasswordViewControll") as! ForgotPasswordViewControll
+        let initialViewController = storyboard.instantiateViewController(withIdentifier: identifierForgotPasswordVC) as! ForgotPasswordViewControll
         self.navigationController?.pushViewController(initialViewController, animated: false)
     }
     
     @objc func createAccountButtonTap(){
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let initialViewController = storyboard.instantiateViewController(withIdentifier: "RegistrationViewController") as! RegistrationViewController
+        let initialViewController = storyboard.instantiateViewController(withIdentifier: identifierRegistrationVC) as! RegistrationViewController
+        self.navigationController?.pushViewController(initialViewController, animated: false)
+    }
+    
+    func goToHomeScreen() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let initialViewController = storyboard.instantiateViewController(withIdentifier: identifierContainerVC) as! ContainerViewController
         self.navigationController?.pushViewController(initialViewController, animated: false)
     }
 }

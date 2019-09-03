@@ -42,7 +42,19 @@ let doMoreWithYourAccount: String = "Do more with your account"
 let insertXeroeID: String = "    ·   Insert xeroe ID address"
 let invalidXeroeID: String = "Invalid xeroe ID"
 let userNotFound: String = "User not found"
+let ok: String = "OK"
 
+let sectionGoods = "GOODS"
+let sectionPaymentMethod = "PAYMENT METHOD"
+let sectionSenderData = "SENDER"
+let sectionRecipientData = "RECIPIENT"
+let sectionOptions = "Options"
+let sectionDeliveryType = "Delivery type"
+
+let nameDeliver = "Name what you want to deliver"
+let describeDeliver = "Describe what you want to deliver"
+
+let addProduct = "ADD +"
 //var insertXeroeID: String = "    ·   Insert xeroe ID address"
 
 
