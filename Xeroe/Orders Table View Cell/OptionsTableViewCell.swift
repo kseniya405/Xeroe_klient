@@ -11,15 +11,14 @@ import UIKit
 class OptionsTableViewCell: UITableViewCell {
 
     @IBOutlet weak var checkButton: CheckButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        checkButton.checkedImage = UIImage(named: "checkInsure")! as UIImage
-        checkButton.uncheckedImage = UIImage(named: "uncheckInsure")! as UIImage
+        checkButton.setParametersImage(checkedImage: UIImage(named: "checkInsure"), uncheckedImage: UIImage(named: "uncheckInsure"))
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
     

@@ -54,7 +54,7 @@
 		9DACCB8022F415A400D9F433 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DACCB7F22F415A400D9F433 /* MapView.swift */; };
 		9DACCB8822F42D7200D9F433 /* ButtonWithCornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DACCB8722F42D7200D9F433 /* ButtonWithCornerRadius.swift */; };
 		9DACCB8A22F42E8600D9F433 /* TextFieldWithCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DACCB8922F42E8600D9F433 /* TextFieldWithCorner.swift */; };
-		9DACCB8E22F4473C00D9F433 /* LoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DACCB8D22F4473C00D9F433 /* LoginData.swift */; };
+		9DACCB8E22F4473C00D9F433 /* RestApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DACCB8D22F4473C00D9F433 /* RestApi.swift */; };
 		9DCF034922EF1EEE00A7F283 /* ForgotPasswordViewControll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCF034822EF1EEE00A7F283 /* ForgotPasswordViewControll.swift */; };
 		9DCF034B22EF364000A7F283 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCF034A22EF364000A7F283 /* RegistrationViewController.swift */; };
 		9DD0BE7622F8465D00E55EA8 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD0BE7522F8465D00E55EA8 /* ContainerViewController.swift */; };
@@ -127,7 +127,7 @@
 		9DACCB7F22F415A400D9F433 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		9DACCB8722F42D7200D9F433 /* ButtonWithCornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonWithCornerRadius.swift; sourceTree = "<group>"; };
 		9DACCB8922F42E8600D9F433 /* TextFieldWithCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithCorner.swift; sourceTree = "<group>"; };
-		9DACCB8D22F4473C00D9F433 /* LoginData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginData.swift; sourceTree = "<group>"; };
+		9DACCB8D22F4473C00D9F433 /* RestApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestApi.swift; sourceTree = "<group>"; };
 		9DCF034822EF1EEE00A7F283 /* ForgotPasswordViewControll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewControll.swift; sourceTree = "<group>"; };
 		9DCF034A22EF364000A7F283 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		9DD0BE5522F817FE00E55EA8 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -252,7 +252,7 @@
 		9D75BE6B22F0337C001E907B /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				9DACCB8D22F4473C00D9F433 /* LoginData.swift */,
+				9DACCB8D22F4473C00D9F433 /* RestApi.swift */,
 				9DDFD4072304215D007DDB36 /* UserData.swift */,
 				9DDFD40523041A9B007DDB36 /* ClientData.swift */,
 				9DA4941A2302FE0F00730624 /* ConfirmOrderByCreator.swift */,
@@ -568,7 +568,7 @@
 				9DA494162302B77700730624 /* DimensionsTableViewCell.swift in Sources */,
 				9D0EEC5B23014CA800891D7D /* DeliveryTypeTableViewCell.swift in Sources */,
 				9DDFD4082304215D007DDB36 /* UserData.swift in Sources */,
-				9DACCB8E22F4473C00D9F433 /* LoginData.swift in Sources */,
+				9DACCB8E22F4473C00D9F433 /* RestApi.swift in Sources */,
 				9DACCB8A22F42E8600D9F433 /* TextFieldWithCorner.swift in Sources */,
 				9DA494192302D90500730624 /* CheckButton.swift in Sources */,
 				9DD0BEA622F87B9300E55EA8 /* LeftMenuViewController.swift in Sources */,

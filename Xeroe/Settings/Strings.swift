@@ -54,7 +54,7 @@ let sectionDeliveryType = "Delivery type"
 let nameDeliver = "Name what you want to deliver"
 let describeDeliver = "Describe what you want to deliver"
 
-let addProduct = "ADD +"
+let addProductElement = "ADD +"
 //var insertXeroeID: String = "    ·   Insert xeroe ID address"
 
 

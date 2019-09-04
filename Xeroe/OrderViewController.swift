@@ -17,10 +17,6 @@ fileprivate let identifierHeader = "HeaderOrderTableView"
 
 fileprivate let identifierGoToBack = "ShippingAgrinentViewController"
 
-protocol OrderViewControllerDelegate {
-    func getOrderDataDelivery(confirmOrderByCreator: ConfirmOrderByCreator) -> ConfirmOrderByCreator 
-}
-
 class OrderViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var backButton: UIButton! {
@@ -34,13 +30,14 @@ class OrderViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     var imagePicker: ImagePicker!
     var imagePickCell: PhotosCollectionViewCell?
-   
+
     var thisOrderData = ConfirmOrderByCreator()
-    
+    var currentProductNum: Int = 0
     
     var isDelivery: Bool = false
-
     
+    var productCellsArray: [String] = ["PRODUCT 1", addProductElement]
+
     struct sectionData {
         let section: String
         let typeOfNib: String
@@ -53,7 +50,7 @@ class OrderViewController: UIViewController, UIImagePickerControllerDelegate, UI
         sectionData(section: sectionRecipientData, typeOfNib: identifierClientDataCell),
         sectionData(section: sectionOptions, typeOfNib: identifierOptionsCell),
         sectionData(section: sectionDeliveryType, typeOfNib: identifierDeliveryTypeCell)
-        ]
+    ]
     
     let sectionInsets = UIEdgeInsets(top: 0, left: 20.0, bottom: 0, right: 0.0)
     
@@ -62,15 +59,14 @@ class OrderViewController: UIViewController, UIImagePickerControllerDelegate, UI
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        
         for section in sections {
             tableView.register(UINib(nibName: section.typeOfNib, bundle: nil), forCellReuseIdentifier: section.typeOfNib)
         }
         tableView.register(UINib.init(nibName: identifierHeader, bundle: Bundle.main), forHeaderFooterViewReuseIdentifier: identifierHeader)
         
         self.imagePicker = ImagePicker(presentationController: self, delegate: self)
-
-
+        
+        
     }
     
     @objc func backButtonTap() {
@@ -82,7 +78,7 @@ class OrderViewController: UIViewController, UIImagePickerControllerDelegate, UI
 }
 
 extension OrderViewController: UITableViewDelegate, UITableViewDataSource {
-
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: identifierHeader) as! HeaderOrderTableView
         
@@ -113,36 +109,37 @@ extension OrderViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
-            case 0:
-                let cell = tableView.dequeueReusableCell(withIdentifier: sections[indexPath.section].typeOfNib, for: indexPath) as! GoodsTableViewCell
-                cell.addPhotoDelegate = self
-                cell.goodsCellDelegate = self
-                
-                return cell
-            case 1:
-                let cell = tableView.dequeueReusableCell(withIdentifier: sections[indexPath.section].typeOfNib, for: indexPath) as! PaymentMethodTableViewCell
-                cell.delegate = self
-                return cell
-            case 2, 3:
-                let cell = tableView.dequeueReusableCell(withIdentifier: sections[indexPath.section].typeOfNib, for: indexPath) as! ClientDataTableViewCell
-                
-                let isSender = isDelivery ? indexPath.section == 2 : indexPath.section == 3
-                cell.setParameters(isSender: isSender)
-                return cell
+        case 0:
+            let cell = tableView.dequeueReusableCell(withIdentifier: sections[indexPath.section].typeOfNib, for: indexPath) as! GoodsTableViewCell
+            cell.addPhotoDelegate = self
+            cell.goodsCellDelegate = self
+            cell.setDataCell(currentProduct: thisOrderData.products[currentProductNum], arrayCellsProduct: productCellsArray)
 
-            case 4:
-                let cell = tableView.dequeueReusableCell(withIdentifier: sections[indexPath.section].typeOfNib, for: indexPath) as! OptionsTableViewCell
-                return cell
-            case 5:
-                let cell = tableView.dequeueReusableCell(withIdentifier: sections[indexPath.section].typeOfNib, for: indexPath) as! DeliveryTypeTableViewCell
-                cell.delegate = self
-                return cell
-            default:
-                return tableView.dequeueReusableCell(withIdentifier: sections[0].typeOfNib, for: indexPath)
+            return cell
+        case 1:
+            let cell = tableView.dequeueReusableCell(withIdentifier: sections[indexPath.section].typeOfNib, for: indexPath) as! PaymentMethodTableViewCell
+            cell.delegate = self
+            return cell
+        case 2, 3:
+            let cell = tableView.dequeueReusableCell(withIdentifier: sections[indexPath.section].typeOfNib, for: indexPath) as! ClientDataTableViewCell
+            
+            let isSender = isDelivery ? indexPath.section == 2 : indexPath.section == 3
+            cell.setParameters(isSender: isSender)
+            return cell
+            
+        case 4:
+            let cell = tableView.dequeueReusableCell(withIdentifier: sections[indexPath.section].typeOfNib, for: indexPath) as! OptionsTableViewCell
+            return cell
+        case 5:
+            let cell = tableView.dequeueReusableCell(withIdentifier: sections[indexPath.section].typeOfNib, for: indexPath) as! DeliveryTypeTableViewCell
+            cell.delegate = self
+            return cell
+        default:
+            return tableView.dequeueReusableCell(withIdentifier: sections[0].typeOfNib, for: indexPath)
         }
     }
     
-
+    
     
 }
 
@@ -160,6 +157,16 @@ extension OrderViewController: AddPhotoTableViewCellDelegate {
 }
 
 extension OrderViewController: GoodsCellDelegate, PaymentMethodTableViewCellDelegate, DeliveryTypeTableViewCellDelegate {
+
+    
+    func confirmButtonTap() {
+        RestApi().createOrder(_string: ""){ (isOk) in
+            DispatchQueue.main.async {
+                print(isOk)
+            }
+        }
+    }
+    
     func setDeliveryType(type: Int?) {
         thisOrderData.delivery_type = type
     }
@@ -170,33 +177,47 @@ extension OrderViewController: GoodsCellDelegate, PaymentMethodTableViewCellDele
         }
     }
     
-   
+    func setNumProduct(numProduct: Int) {
+        currentProductNum = numProduct
+        thisOrderData.products[currentProductNum].id = numProduct + 1
+    }
+    
+    func setArrayProductCells(array: [String]) {
+        productCellsArray = array
+    }
+    
+    func addProductCell() {
+        productCellsArray.insert("PRODUCT \(productCellsArray.count)", at: productCellsArray.count - 1)
+        print(productCellsArray)
+        tableView.reloadSections(IndexSet(integer: 0), with: .none)
+    }
+    
     func addProduct(){
         thisOrderData.products.append(Product())
     }
     
-    func setNameDeliver(nameDeliver: String, numProduct: Int) {
-        thisOrderData.products[numProduct].name = nameDeliver
+    func setNameDeliver(nameDeliver: String) {
+        thisOrderData.products[currentProductNum].name = nameDeliver
     }
     
-    func setDescribeDeliver(describeDeliver: String, numProduct: Int) {
-        thisOrderData.products[numProduct].description = describeDeliver
+    func setDescribeDeliver(describeDeliver: String) {
+        thisOrderData.products[currentProductNum].description = describeDeliver
     }
     
-    func setWidthDeliver(width: Int?, numProduct: Int) {
-        thisOrderData.products[numProduct].width = width ?? 1
+    func setWidthDeliver(width: Int?) {
+        thisOrderData.products[currentProductNum].width = width ?? 1
     }
     
-    func setLengthDeliver(length: Int?, numProduct: Int) {
-        thisOrderData.products[numProduct].length = length ?? 1
+    func setLengthDeliver(length: Int?) {
+        thisOrderData.products[currentProductNum].length = length ?? 1
     }
     
-    func setHeightDeliver(height: Int?, numProduct: Int) {
-        thisOrderData.products[numProduct].height = height ?? 1
+    func setHeightDeliver(height: Int?) {
+        thisOrderData.products[currentProductNum].height = height ?? 1
     }
     
-    func setWeightDeliver(weight: Int?, numProduct: Int) {
-        thisOrderData.products[numProduct].weight = weight ?? 1
+    func setWeightDeliver(weight: Int?) {
+        thisOrderData.products[currentProductNum].weight = weight ?? 1
     }
-  
+    
 }

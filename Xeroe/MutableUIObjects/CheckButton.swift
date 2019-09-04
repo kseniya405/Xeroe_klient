@@ -10,8 +10,8 @@ import UIKit
 
 class CheckButton: UIButton {
     // Images
-    var checkedImage = UIImage(named: "checkedImage")! as UIImage
-    var uncheckedImage = UIImage(named: "uncheckedImage")! as UIImage
+    var checkedImage: UIImage?
+    var uncheckedImage: UIImage?
     
     // Bool property
     var isChecked = true {
@@ -22,13 +22,20 @@ class CheckButton: UIButton {
     }
     
     override func awakeFromNib() {
-        self.addTarget(self, action:#selector(buttonClicked(sender:)), for: UIControl.Event.touchUpInside)
-        self.isChecked = false
+        // Now the button is always selected. you need to enable the selection option - uncomment:
+//        self.addTarget(self, action:#selector(buttonClicked(sender:)), for: UIControl.Event.touchUpInside)
+        self.isChecked = true
     }
     
     @objc func buttonClicked(sender: UIButton) {
         if sender == self {
             isChecked = !isChecked
         }
+    }
+    
+    func setParametersImage(checkedImage: UIImage?, uncheckedImage: UIImage?) {
+        self.checkedImage = checkedImage
+        self.uncheckedImage = uncheckedImage
+        self.reloadInputViews()
     }
 }

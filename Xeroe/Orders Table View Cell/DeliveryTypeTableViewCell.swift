@@ -12,6 +12,7 @@ var deliveryTypeIdentifier = "DeliveryTypeCollectionViewCell"
 
 protocol DeliveryTypeTableViewCellDelegate {
     func setDeliveryType(type: Int?)
+    func confirmButtonTap()
 }
 
 class DeliveryTypeTableViewCell: UITableViewCell {
@@ -42,22 +43,10 @@ class DeliveryTypeTableViewCell: UITableViewCell {
     }
     
     @objc func confirmButtonTap() {
-//        let data = ConfirmOrderByCreator.orderData
-//   !!!!   add dictionary
-//        print(ConfirmOrderByCreator.orderData.asDictionary as Any)
-
-        
+        delegate?.confirmButtonTap()
     }
     
-    func showAlert(_ message: String) {
-        let alert = UIAlertController(title: "Incomplete order data", message: "Please select a payment method.", preferredStyle: UIAlertController.Style.alert)
-        
-        // add an action (button)
-        alert.addAction(UIAlertAction(title: ok, style: UIAlertAction.Style.default, handler: nil))
-        
-        // show the alert
-        self.superview?.parentContainerViewController()?.present(alert, animated: true, completion: nil)
-    }
+
     
 }
 
@@ -68,7 +57,7 @@ extension DeliveryTypeTableViewCell: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DeliveryTypeCollectionViewCell", for: indexPath) as! DeliveryTypeCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: deliveryTypeIdentifier, for: indexPath) as! DeliveryTypeCollectionViewCell
         cell.defaultParameters(type: indexPath.row)
         return cell
     }

@@ -19,13 +19,18 @@ fileprivate let heightCollectionCell = 48.0
 
 protocol GoodsCellDelegate {
     func addProduct()
-    func setNameDeliver(nameDeliver: String, numProduct: Int)
-    func setDescribeDeliver(describeDeliver: String, numProduct: Int)
-    func setWidthDeliver(width: Int?, numProduct: Int)
-    func setLengthDeliver(length: Int?, numProduct: Int)
-    func setHeightDeliver(height: Int?, numProduct: Int)
-    func setWeightDeliver(weight: Int?, numProduct: Int)
+    func setNumProduct(numProduct: Int)
+    func setNameDeliver(nameDeliver: String)
+    func setDescribeDeliver(describeDeliver: String)
+    func setWidthDeliver(width: Int?)
+    func setLengthDeliver(length: Int?)
+    func setHeightDeliver(height: Int?)
+    func setWeightDeliver(weight: Int?)
+    
+    func setArrayProductCells(array: [String])
+    func addProductCell()
 }
+
 
 class GoodsTableViewCell: UITableViewCell{
 
@@ -35,22 +40,17 @@ class GoodsTableViewCell: UITableViewCell{
     
     var addPhotoDelegate: AddPhotoTableViewCellDelegate?
     var goodsCellDelegate: GoodsCellDelegate?
-    var numProduct: Int = 0
-    var productDataArray = [Product()]
     
-    var products = ["PRODUCT 1", addProduct]
+    var numSelectProduct = 0
+    var productCells = ["PRODUCT 1", addProductElement]
+    
     let thumbnailSizeProduct = CGSize(width: widthCollectionCellProduct, height: heightCollectionCell)
     let thumbnailSizeAdd = CGSize(width: widthCollectionCellProduct, height: heightCollectionCell)
     let sectionInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 2)
     
     let questionsWithTextField = [nameDeliver, describeDeliver]
     
-    var currentName: String = ""
-    var currentDescribe: String = ""
-    var currentWidth: Int = 1
-    var currentLength: Int = 1
-    var currentHeight: Int = 1
-    var currentWeight: Int = 1
+    var currentProduct: Product = Product()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -72,14 +72,11 @@ class GoodsTableViewCell: UITableViewCell{
         super.setSelected(selected, animated: animated)        
     }
     
-    func setInputData(currentName: String?, currentDescribe: String?, currentWidth: Int?, currentLength: Int?, currentHeight: Int?, currentWeight: Int?) {
-        self.currentName = currentName ?? ""
-        self.currentDescribe = currentDescribe ?? ""
-        self.currentWidth = currentWidth ?? 1
-        self.currentLength = currentLength ?? 1
-        self.currentHeight = currentHeight ?? 1
-        self.currentWeight = currentWeight ?? 1
+    func setDataCell(currentProduct: Product, arrayCellsProduct: [String]) {
+        self.currentProduct = currentProduct
+        self.productCells = arrayCellsProduct
     }
+    
     
 }
 
@@ -87,18 +84,18 @@ class GoodsTableViewCell: UITableViewCell{
 extension GoodsTableViewCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return products.count
+        return productCells.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: chooseProductIdentifier, for: indexPath) as! ChooseProductCollectionViewCell
-        if indexPath.row == numProduct {
-            cell.isSelected = true
-        }
+        
+        cell.isSelected = indexPath.row == numSelectProduct
+        
         let backgroundColor = cell.isSelected ? backgroundChooseCellColor : productCellOrderTableBackgroundColor
         let labelColor = cell.isSelected ? .white : productCellOrderTableTextColor
         
-        cell.setParameters(backgroundColor: backgroundColor, labelColor: labelColor, labelText: products[indexPath.row])
+        cell.setParameters(backgroundColor: backgroundColor, labelColor: labelColor, labelText: productCells[indexPath.row])
         
         return cell
     }
@@ -106,7 +103,7 @@ extension GoodsTableViewCell: UICollectionViewDataSource {
 
 extension GoodsTableViewCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return indexPath.row == products.count - 1 ? thumbnailSizeAdd : thumbnailSizeProduct
+        return indexPath.row == productCells.count - 1 ? thumbnailSizeAdd : thumbnailSizeProduct
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -117,18 +114,19 @@ extension GoodsTableViewCell: UICollectionViewDelegateFlowLayout {
 extension GoodsTableViewCell: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        if (indexPath.row == products.count - 1) {
-            products.insert("PRODUCT \(products.count)", at: products.count - 1)
+        if (indexPath.row == productCells.count - 1) {
+            productCells.insert("PRODUCT \(productCells.count)", at: productCells.count - 1)
             goodsCellDelegate?.addProduct()
-            productDataArray.append(Product())
             collectionView.reloadData()
             return
         }
-        numProduct = indexPath.row
-
+        
+        numSelectProduct = indexPath.row
+        goodsCellDelegate?.setNumProduct(numProduct: indexPath.row)
+        
         let selectCell = collectionsView.cellForItem(at: indexPath)  as! ChooseProductCollectionViewCell
         
-        selectCell.setParameters(backgroundColor: backgroundChooseCellColor, labelColor: .white, labelText: products[indexPath.row])
+        selectCell.setParameters(backgroundColor: backgroundChooseCellColor, labelColor: .white, labelText: productCells[indexPath.row])
         collectionView.reloadData()
         selectCell.isSelected = true
 
@@ -137,7 +135,7 @@ extension GoodsTableViewCell: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         let deselectCell = collectionsView.cellForItem(at: indexPath)  as! ChooseProductCollectionViewCell
-        deselectCell.setParameters(backgroundColor: productCellOrderTableBackgroundColor, labelColor: productCellOrderTableTextColor, labelText: products[indexPath.row]) 
+        deselectCell.setParameters(backgroundColor: productCellOrderTableBackgroundColor, labelColor: productCellOrderTableTextColor, labelText: productCells[indexPath.row]) 
     }
 }
 
@@ -151,7 +149,7 @@ extension GoodsTableViewCell: UITableViewDataSource {
         case 0, 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: dataDeliveryIdentifier, for: indexPath) as! DataDeliveryTableViewCell
             cell.delegate = self
-            let inputAnswer = indexPath.row == 0 ? productDataArray[numProduct].name : productDataArray[numProduct].description
+            let inputAnswer = indexPath.row == 0 ? currentProduct.name : currentProduct.description
             cell.setParameters(questionsLabel: questionsWithTextField[indexPath.row], answerText: inputAnswer ?? "")
             return cell
         case 2:
@@ -160,7 +158,7 @@ extension GoodsTableViewCell: UITableViewDataSource {
             return cell
         case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: dimensionsIdentifier, for: indexPath) as! DimensionsTableViewCell
-            cell.setParameters(width: String(productDataArray[numProduct].width), length: String(productDataArray[numProduct].length), height: String(productDataArray[numProduct].height), weight: String(productDataArray[numProduct].weight))
+            cell.setParameters(width: String(currentProduct.width), length: String(currentProduct.length), height: String(currentProduct.height), weight: String(currentProduct.weight))
             cell.delegate = self
             return cell
         default:
@@ -169,40 +167,29 @@ extension GoodsTableViewCell: UITableViewDataSource {
     }
 }
 
-extension GoodsTableViewCell: DimensionsTableViewCellDelegate, DataDeliveryTableViewCellDelegate, OrderViewControllerDelegate {
-
-    func getOrderDataDelivery(confirmOrderByCreator: ConfirmOrderByCreator) -> ConfirmOrderByCreator {
-        return confirmOrderByCreator
-    }
+extension GoodsTableViewCell: DimensionsTableViewCellDelegate, DataDeliveryTableViewCellDelegate {
     
     func setWidthDeliver(width: Int?) {
-        goodsCellDelegate?.setWidthDeliver(width: width, numProduct: numProduct)
-        productDataArray[numProduct].width = width ?? 1
+        goodsCellDelegate?.setWidthDeliver(width: width)
     }
     
     func setLengthDeliver(length: Int?) {
-        goodsCellDelegate?.setLengthDeliver(length: length, numProduct: numProduct)
-        productDataArray[numProduct].length = length ?? 1
+        goodsCellDelegate?.setLengthDeliver(length: length)
     }
     
     func setHeightDeliver(height: Int?) {
-        goodsCellDelegate?.setHeightDeliver(height: height, numProduct: numProduct)
-        productDataArray[numProduct].height = height ?? 1
+        goodsCellDelegate?.setHeightDeliver(height: height)
     }
     
     func setWeightDeliver(weight: Int?) {
-        goodsCellDelegate?.setWeightDeliver(weight: weight, numProduct: numProduct)
-        productDataArray[numProduct].weight = weight ?? 1
+        goodsCellDelegate?.setWeightDeliver(weight: weight)
     }
     
     func setDataDeliveryName(name: String) {
-        goodsCellDelegate?.setNameDeliver(nameDeliver: name, numProduct: numProduct)
-        productDataArray[numProduct].name = name
-
+        goodsCellDelegate?.setNameDeliver(nameDeliver: name)
     }
     
     func setDataDeliveryDescription(description: String) {
-        goodsCellDelegate?.setDescribeDeliver(describeDeliver: description, numProduct: numProduct)
-        productDataArray[numProduct].description = description
+        goodsCellDelegate?.setDescribeDeliver(describeDeliver: description)
     }
 }

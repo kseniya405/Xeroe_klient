@@ -17,7 +17,7 @@ class ConfirmOrderByCreator: Codable {
 }
 
 class Product: Codable {
-    var id: Int? = 0
+    var id: Int = 0
     var name: String? = nil
     var description: String? = nil
     var width: Int = 1

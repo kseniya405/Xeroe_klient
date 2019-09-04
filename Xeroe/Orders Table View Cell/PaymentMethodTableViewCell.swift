@@ -22,6 +22,7 @@ class PaymentMethodTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        buttonImage.setParametersImage(checkedImage: UIImage(named: "checkedImage"), uncheckedImage: UIImage(named: "uncheckedImage"))
         delegate?.setPaymentMethod(isCreditCard: buttonImage.isChecked)
     }
 
