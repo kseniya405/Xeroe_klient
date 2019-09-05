@@ -36,7 +36,7 @@ class ShippingAgrinentViewController: UIViewController {
     
     @objc func backButtonTap() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let initialViewController = storyboard.instantiateViewController(withIdentifier: "RecipientDetailViewController") as! RecipientDetailViewController
+        let initialViewController = storyboard.instantiateViewController(withIdentifier: "FoundUserDetailViewController") as! FoundUserDetailViewController
         self.navigationController?.pushViewController(initialViewController, animated: false)
     }
     

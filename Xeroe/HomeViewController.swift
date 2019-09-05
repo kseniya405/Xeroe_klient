@@ -9,7 +9,7 @@
 import UIKit
 import GoogleMaps
 
-fileprivate let recipientVCIdentifier = "RecipientDetailViewController"
+fileprivate let recipientVCIdentifier = "FoundUserDetailViewController"
 
 class HomeViewController: UIViewController, CLLocationManagerDelegate {
     
@@ -27,6 +27,9 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
     
+    
+    var dictionaryClientData: [String : Any]?
+    
     let locationManager = CLLocationManager()
     let viewModel = HomeViewModel()
 
@@ -41,16 +44,19 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
             locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             locationManager.startUpdatingLocation()
         }
-        viewModel.goToNextScreen = { [weak self] in
+        viewModel.goToNextScreen = { [weak self] dict in
             DispatchQueue.main.async {
-                self?.goToNextScreen()
+                self?.goToNextScreen(dictionary: dict)
             }
         }
+        
         viewModel.showAlertInputButtonTap = { [weak self] in
             DispatchQueue.main.async {
                 self?.showAlertInputButtonTap()
             }
         }
+
+        
         
     }
     
@@ -69,12 +75,13 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         alert.addAction(UIAlertAction(title: ok, style: UIAlertAction.Style.default, handler: nil))
         
         // show the alert
-        self.present(alert, animated: true, completion: nil)
+        self.present(alert, animated: false, completion: nil)
     }
     
-    func goToNextScreen() {
+    func goToNextScreen(dictionary: [String : Any]) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let initialViewController = storyboard.instantiateViewController(withIdentifier: recipientVCIdentifier) as! RecipientDetailViewController
+        let initialViewController = storyboard.instantiateViewController(withIdentifier: recipientVCIdentifier) as! FoundUserDetailViewController
+        initialViewController.clientDataDictionary = dictionary
         self.navigationController?.pushViewController(initialViewController, animated: false)
     }
 

@@ -41,3 +41,14 @@ extension UILabel {
         self.textColor = colorLabel
     }
 }
+
+extension UIImageView {
+    
+    //uploads a picture from the link and assigns it to UIImageView
+    func getImageFromUrl(url: String){
+        guard let imgURL: NSURL = NSURL(string: url), let imgData: NSData = NSData(contentsOf: imgURL as URL) else {
+            return
+        }
+        self.image = UIImage(data: imgData as Data)
+    }
+}

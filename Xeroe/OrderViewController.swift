@@ -158,9 +158,10 @@ extension OrderViewController: AddPhotoTableViewCellDelegate {
 
 extension OrderViewController: GoodsCellDelegate, PaymentMethodTableViewCellDelegate, DeliveryTypeTableViewCellDelegate {
 
-    
     func confirmButtonTap() {
-        RestApi().createOrder(_string: ""){ (isOk) in
+        guard let id = UserProfile.shared.userableId else {  return }
+        print(id)
+        RestApi().createOrder(idClient: id){ (isOk) in
             DispatchQueue.main.async {
                 print(isOk)
             }

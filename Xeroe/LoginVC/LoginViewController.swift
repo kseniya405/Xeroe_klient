@@ -40,26 +40,8 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         
-        RestApi().clientData() { (isOk, xeroeid)  in
-            DispatchQueue.main.async {
-                guard isOk, let userXeroeID = xeroeid else {
-                    return
-                }
-                print("it's Ok")
-                
-                RestApi().findID(xeroeID: userXeroeID) { (isOk, dictionaryClientData)  in
-                    DispatchQueue.main.async {
-                        guard isOk else {
-                            return
-                        }
-                        print(dictionaryClientData)
-                    }
-                }
-            }
-        }
-        
-        if UserDefaults.standard.string(forKey: DefaultsKeys.token.rawValue) != nil {
-            goToHomeScreen()
+        if UserProfile.shared.login != nil {
+            viewModel.tokenValidation()
         }
         
         super.viewDidLoad()

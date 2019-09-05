@@ -13,6 +13,15 @@ enum DefaultsKeys: String {
     case token = "token"
     case login = "login"
     case password = "password"
+    case id = "id"
+    case xeroeId = "xeroeid"
+    case defaultAddressId = "default_address_id"
+    case email = "email"
+    case phone = "phone"
+    case state = "state"
+    case avatar = "avatar"
+    case userableType = "userable_type"
+    case userableId = "userable_id"
 }
 
 

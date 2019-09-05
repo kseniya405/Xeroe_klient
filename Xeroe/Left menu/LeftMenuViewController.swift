@@ -10,6 +10,7 @@ import UIKit
 
 fileprivate let cellIdentifier = "LeftMenuTableViewCell"
 
+
 class LeftMenuViewController: UIViewController {
     
     @IBOutlet weak var photoImage: UIImageView!{
@@ -18,6 +19,9 @@ class LeftMenuViewController: UIViewController {
             photoImage.layer.masksToBounds = true
         }
     }
+    @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet weak var userIDXeroeLabel: UILabel!
+    
     @IBOutlet weak var leftMenu: UIView!
     
     @IBOutlet weak var leftMenuTableView: UITableView!
@@ -39,13 +43,18 @@ class LeftMenuViewController: UIViewController {
         leftMenuTableView.register(UINib(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
         leftMenuTableView.tableFooterView = UIView()
         
+        userNameLabel.text = UserProfile.shared.email
+        userIDXeroeLabel.text = UserProfile.shared.xeroeId
+        
+        guard let urlAvatar: String = UserProfile.shared.avatar else { return }
+        photoImage.getImageFromUrl(url: "http://xeroe.kinect.pro:8091/\(urlAvatar)")
     }
     
     @objc func goToLoginView() {
-        UserDefaults.standard.set(nil, forKey: DefaultsKeys.token.rawValue)
+        UserProfile.shared.clear()
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let initialViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
-        self.navigationController?.pushViewController(initialViewController, animated: true)
+        self.navigationController?.pushViewController(initialViewController, animated: false)
     }
     
 }

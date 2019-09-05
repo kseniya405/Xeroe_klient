@@ -30,7 +30,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="LoginViewController" id="BYZ-38-t0r" userLabel="Login View Controller" customClass="LoginViewController" customModule="Xeroe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" userLabel="Login View Controller" customClass="LoginViewController" customModule="Xeroe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="S5p-Zp-hjs">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -505,6 +505,7 @@
         <!--Navigation Controller-->
         <scene sceneID="hXr-sk-sP2">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9kJ-5u-MOh" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="StartNC" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="mo6-ee-L1f" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" hidden="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="arq-Ud-51P">
@@ -515,7 +516,6 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="j6W-Fd-ueY"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9kJ-5u-MOh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="37.681159420289859" y="18.75"/>
         </scene>
@@ -539,8 +539,17 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ID: # RD 27B86" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="MKo-Xb-aFs">
-                                                <rect key="frame" x="109.5" y="92" width="94.5" height="20"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ID: # " lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000001192092896" translatesAutoresizingMaskIntoConstraints="NO" id="3WF-UP-QXp">
+                                                <rect key="frame" x="109.5" y="92" width="32.5" height="20"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="20" id="Fau-4c-Is1"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="14"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RD 27B86" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="MKo-Xb-aFs">
+                                                <rect key="frame" x="142" y="92" width="62.5" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="gBs-Gi-D5U"/>
                                                 </constraints>
@@ -567,7 +576,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bB1-pe-SJR">
-                                                <rect key="frame" x="204" y="94.5" width="20.5" height="15"/>
+                                                <rect key="frame" x="204.5" y="94.5" width="20.5" height="15"/>
                                                 <fontDescription key="fontDescription" name="fontello" family="fontello" pointSize="15"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -598,7 +607,9 @@
                                         </subviews>
                                         <color key="backgroundColor" red="0.12156862745098039" green="0.23921568627450979" blue="0.44313725490196076" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
+                                            <constraint firstItem="3WF-UP-QXp" firstAttribute="leading" secondItem="deA-Yb-jqq" secondAttribute="leading" id="0Vk-5a-8Cz"/>
                                             <constraint firstItem="aIJ-JZ-v8W" firstAttribute="leading" secondItem="gWA-VW-aCs" secondAttribute="leading" constant="109.67" id="0w9-A3-GqZ"/>
+                                            <constraint firstItem="MKo-Xb-aFs" firstAttribute="leading" secondItem="3WF-UP-QXp" secondAttribute="trailing" id="1L3-9c-FNM"/>
                                             <constraint firstItem="2Ye-Ct-I18" firstAttribute="width" secondItem="gWA-VW-aCs" secondAttribute="width" id="3Jj-eb-Oa3"/>
                                             <constraint firstItem="xv3-31-ARB" firstAttribute="leading" secondItem="gWA-VW-aCs" secondAttribute="leading" constant="18" id="5ly-fG-SFd"/>
                                             <constraint firstItem="QmT-Pn-cIt" firstAttribute="leading" secondItem="xv3-31-ARB" secondAttribute="leading" id="6DB-cG-bnG"/>
@@ -616,9 +627,9 @@
                                             <constraint firstItem="xv3-31-ARB" firstAttribute="top" secondItem="gWA-VW-aCs" secondAttribute="top" constant="148" id="bto-Pf-qm8"/>
                                             <constraint firstItem="aIJ-JZ-v8W" firstAttribute="leading" secondItem="deA-Yb-jqq" secondAttribute="leading" id="cIi-Q5-m1d"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="xv3-31-ARB" secondAttribute="trailing" constant="20" symbolic="YES" id="cz0-MR-Rra"/>
+                                            <constraint firstItem="3WF-UP-QXp" firstAttribute="top" secondItem="MKo-Xb-aFs" secondAttribute="top" id="iIL-Rb-hOs"/>
                                             <constraint firstAttribute="height" constant="200" id="ipF-dw-1TT"/>
                                             <constraint firstItem="deA-Yb-jqq" firstAttribute="top" secondItem="aIJ-JZ-v8W" secondAttribute="bottom" id="jkN-bZ-SOr"/>
-                                            <constraint firstItem="MKo-Xb-aFs" firstAttribute="leading" secondItem="aIJ-JZ-v8W" secondAttribute="leading" id="n12-gJ-dnr"/>
                                             <constraint firstItem="anQ-2u-IVQ" firstAttribute="top" secondItem="aIJ-JZ-v8W" secondAttribute="top" constant="-3" id="tf7-T8-Zb2"/>
                                             <constraint firstItem="MKo-Xb-aFs" firstAttribute="top" secondItem="gWA-VW-aCs" secondAttribute="top" constant="92" id="xUg-9p-kLv"/>
                                         </constraints>
@@ -694,6 +705,8 @@
                         <outlet property="leftMenuTableView" destination="HFY-lB-efo" id="g8O-IG-Tjz"/>
                         <outlet property="logoutButton" destination="Ta9-LL-pP2" id="WmH-Iq-bUt"/>
                         <outlet property="photoImage" destination="anQ-2u-IVQ" id="Hyp-0J-Pcm"/>
+                        <outlet property="userIDXeroeLabel" destination="MKo-Xb-aFs" id="CAI-gG-u34"/>
+                        <outlet property="userNameLabel" destination="aIJ-JZ-v8W" id="RHp-M8-a1y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qc8-Pi-hAe" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -788,10 +801,10 @@
             </objects>
             <point key="canvasLocation" x="786.95652173913049" y="718.52678571428567"/>
         </scene>
-        <!--Recipient Detail View Controller-->
+        <!--Found User Detail View Controller-->
         <scene sceneID="Suh-4H-Q5f">
             <objects>
-                <viewController storyboardIdentifier="RecipientDetailViewController" id="N3G-hC-d75" customClass="RecipientDetailViewController" customModule="Xeroe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FoundUserDetailViewController" id="N3G-hC-d75" customClass="FoundUserDetailViewController" customModule="Xeroe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Vye-e5-OQs">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -831,7 +844,7 @@
                                     <constraint firstItem="2BS-LI-vZa" firstAttribute="centerY" secondItem="pfU-vs-nKe" secondAttribute="centerY" id="suj-TH-IEO"/>
                                 </constraints>
                             </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clientPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="XiP-kW-8Bz">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clientPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="XiP-kW-8Bz">
                                 <rect key="frame" x="0.0" y="110" width="414" height="266.5"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ebl-Ad-c5W" userLabel="ViewID">
@@ -1012,6 +1025,7 @@
                         <outlet property="addressRecipient" destination="2b4-f5-zpj" id="9Xc-8o-Bgs"/>
                         <outlet property="available" destination="Vcs-k2-ad2" id="XXV-gl-aUl"/>
                         <outlet property="backButton" destination="2BS-LI-vZa" id="NGy-DX-Chc"/>
+                        <outlet property="foundUserPhotoImage" destination="XiP-kW-8Bz" id="sfN-N9-l4T"/>
                         <outlet property="idRecipient" destination="z8r-d8-J8f" id="KRz-mz-tqs"/>
                         <outlet property="nameRecipient" destination="MUr-EG-UWZ" id="n6D-JH-Bf3"/>
                         <outlet property="noButton" destination="Iuw-qj-q5k" id="YvX-bp-KuD"/>

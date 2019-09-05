@@ -42,7 +42,7 @@ class RegistrationViewController: UIViewController {
     @objc func loginButtonTap() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let initialViewController = storyboard.instantiateViewController(withIdentifier: identifierLoginVC) as! LoginViewController
-        self.navigationController?.pushViewController(initialViewController, animated: true)
+        self.navigationController?.pushViewController(initialViewController, animated: false)
     }
 
 }
