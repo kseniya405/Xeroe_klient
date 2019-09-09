@@ -308,8 +308,8 @@
 			isa = PBXGroup;
 			children = (
 				9DD0BEA322F87B9200E55EA8 /* LeftMenuViewController.swift */,
-				9DD0BE7522F8465D00E55EA8 /* ContainerViewController.swift */,
 				9DD0BEA122F87B9200E55EA8 /* LeftMenuTableViewCell.swift */,
+				9DD0BE7522F8465D00E55EA8 /* ContainerViewController.swift */,
 				9DD0BEA222F87B9200E55EA8 /* LeftMenuTableViewCell.xib */,
 			);
 			path = "Left menu";

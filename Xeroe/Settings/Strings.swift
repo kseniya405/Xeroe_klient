@@ -39,7 +39,7 @@ let notifications = "Notifications"
 let logout = "Logout"
 
 let doMoreWithYourAccount: String = "Do more with your account"
-let insertXeroeID: String = "    ·   Insert xeroe ID address"
+let insertXeroeID: String = "Insert xeroe ID address"
 let invalidXeroeID: String = "Invalid xeroe ID"
 let userNotFound: String = "User not found"
 let ok: String = "OK"

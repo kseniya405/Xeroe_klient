@@ -46,7 +46,9 @@ class LeftMenuViewController: UIViewController {
         userNameLabel.text = UserProfile.shared.email
         userIDXeroeLabel.text = UserProfile.shared.xeroeId
         
-        guard let urlAvatar: String = UserProfile.shared.avatar else { return }
+        guard let urlAvatar: String = UserProfile.shared.avatar else {
+            print("error avatar")
+            return }
         photoImage.getImageFromUrl(url: "http://xeroe.kinect.pro:8091/\(urlAvatar)")
     }
     

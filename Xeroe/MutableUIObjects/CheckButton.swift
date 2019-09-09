@@ -22,8 +22,7 @@ class CheckButton: UIButton {
     }
     
     override func awakeFromNib() {
-        // Now the button is always selected. you need to enable the selection option - uncomment:
-//        self.addTarget(self, action:#selector(buttonClicked(sender:)), for: UIControl.Event.touchUpInside)
+        self.addTarget(self, action:#selector(buttonClicked(sender:)), for: UIControl.Event.touchUpInside)
         self.isChecked = true
     }
     

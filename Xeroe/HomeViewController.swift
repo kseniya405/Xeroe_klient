@@ -10,10 +10,18 @@ import UIKit
 import GoogleMaps
 
 fileprivate let recipientVCIdentifier = "FoundUserDetailViewController"
+fileprivate let xeroeIDTextFieldFontSize = 18
 
 class HomeViewController: UIViewController, CLLocationManagerDelegate {
     
-    @IBOutlet weak var xeroeIDTextField: TextFieldWithCorner!
+    @IBOutlet weak var xeroeIDTextField: TextFieldWithCorner! {
+        didSet {
+            xeroeIDTextField.fontSize = xeroeIDTextFieldFontSize
+            xeroeIDTextField.placeholder = insertXeroeID
+            xeroeIDTextField.leftInsets = xeroeIDTextField.frame.width * 0.10
+            xeroeIDTextField.addTarget(self, action: #selector(xeroeIDTextFieldDidChange(_:)), for: UIControl.Event.editingChanged)
+        }
+    }
     
     @IBOutlet weak var openLeftMenuButton: UIButton! {
         didSet {
@@ -27,6 +35,11 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
     
+    @IBOutlet weak var pointLabel: UILabel! {
+        didSet {
+            pointLabel.textColor = borderTextFieldColor
+        }
+    }
     
     var dictionaryClientData: [String : Any]?
     
@@ -56,8 +69,6 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
             }
         }
 
-        
-        
     }
     
     @objc func inputButtonTap() {
@@ -67,6 +78,21 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     
     @objc func openLeftMenuButtonTap() {
         HamburgerMenu().triggerSideMenu()
+    }
+    
+    @objc func xeroeIDTextFieldDidChange(_ textField: UITextField) {
+        guard let xeroeIDText = textField.text, xeroeIDText != "" else {
+            pointLabel.textColor = borderTextFieldColor
+            return
+        }
+        pointLabel.textColor = blackTextColor
+        let sharp = "#"
+        if xeroeIDText == sharp {
+            textField.text = ""
+            pointLabel.textColor = borderTextFieldColor
+        } else if (!textField.text!.hasPrefix(sharp)) {
+            textField.text = sharp + textField.text!
+        }
     }
     
     func showAlertInputButtonTap(){

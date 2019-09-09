@@ -51,13 +51,11 @@ class DimensionsTableViewCell: UITableViewCell {
     }
     
     @objc func heightTextFieldDidChange(_ textField: UITextField) {
-        
         let data = Int(sanitizeText(sourceText: textField.text) ?? "1")
         delegate?.setHeightDeliver(height: data)
     }
     
     @objc func weightTextFieldDidChange(_ textField: UITextField) {
-        
         let data = Int(sanitizeText(sourceText: textField.text) ?? "1")
         delegate?.setWeightDeliver(weight: data)
     }

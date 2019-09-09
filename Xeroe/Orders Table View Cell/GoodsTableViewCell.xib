@@ -19,7 +19,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="361" height="756.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="mWH-h7-cBf">
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" alwaysBounceHorizontal="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="mWH-h7-cBf">
                         <rect key="frame" x="8" y="30.5" width="345" height="48"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -45,6 +45,7 @@
                     <constraint firstItem="mWH-h7-cBf" firstAttribute="top" secondItem="viK-ga-9PW" secondAttribute="top" constant="30" id="ICH-Lj-dK1"/>
                     <constraint firstItem="pmB-M3-9tj" firstAttribute="trailing" secondItem="mWH-h7-cBf" secondAttribute="trailing" id="KlJ-kG-MPl"/>
                     <constraint firstItem="mWH-h7-cBf" firstAttribute="trailing" secondItem="viK-ga-9PW" secondAttribute="trailing" constant="-8" id="hMJ-p6-AvK"/>
+                    <constraint firstItem="mWH-h7-cBf" firstAttribute="centerX" secondItem="viK-ga-9PW" secondAttribute="centerX" id="htP-v1-hPb"/>
                     <constraint firstItem="pmB-M3-9tj" firstAttribute="bottom" secondItem="viK-ga-9PW" secondAttribute="bottom" constant="-30" id="icL-Ax-Wp1"/>
                     <constraint firstItem="mWH-h7-cBf" firstAttribute="leading" secondItem="viK-ga-9PW" secondAttribute="leading" constant="8" id="m3J-Vq-zxw"/>
                     <constraint firstItem="pmB-M3-9tj" firstAttribute="top" secondItem="mWH-h7-cBf" secondAttribute="bottom" id="ouR-tX-Lze"/>

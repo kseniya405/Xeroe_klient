@@ -25,13 +25,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add photo(s) of good(s) you want to deliver" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G0l-tM-GXy">
-                        <rect key="frame" x="8" y="28" width="270" height="17.5"/>
+                        <rect key="frame" x="8" y="28" width="270" height="21.5"/>
                         <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                         <color key="textColor" red="0.1647058824" green="0.1647058824" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="R17-UM-4m9">
-                        <rect key="frame" x="0.0" y="58.5" width="442" height="96"/>
+                        <rect key="frame" x="0.0" y="62.5" width="442" height="96"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="96" id="2nc-HW-c3l"/>
@@ -50,7 +50,7 @@
                     <constraint firstItem="R17-UM-4m9" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="HQo-u8-UA4"/>
                     <constraint firstItem="G0l-tM-GXy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="Iwq-rP-IFm"/>
                     <constraint firstItem="R17-UM-4m9" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" id="Pm1-Bu-OMn"/>
-                    <constraint firstItem="R17-UM-4m9" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottom" constant="-4" id="dE9-WV-EHr"/>
+                    <constraint firstItem="R17-UM-4m9" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottom" id="dE9-WV-EHr"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
