@@ -36,16 +36,16 @@ class LoginViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var viewFront: UIView!
     let viewModel = LoginViewModel()
     
     override func viewDidLoad() {
-        
         if UserProfile.shared.login != nil {
             viewModel.tokenValidation()
         }
-        
+        self.viewFront.isHidden = true
         super.viewDidLoad()
-        
+
         viewModel.setError = { [weak self] (passwordIsEmpty, emailIsEmpty) in
             DispatchQueue.main.async {
                 self?.loginFormView.errorTextField(passwordIsEmpty: passwordIsEmpty, emailIsEmpty: emailIsEmpty)

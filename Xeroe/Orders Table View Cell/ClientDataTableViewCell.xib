@@ -47,7 +47,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mRN-2T-Qhn">
-                        <rect key="frame" x="368" y="33" width="30" height="15"/>
+                        <rect key="frame" x="300" y="33" width="98" height="15"/>
                         <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="12"/>
                         <color key="textColor" red="0.56078431370000004" green="0.56078431370000004" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -80,6 +80,7 @@
                     <constraint firstItem="z9e-KI-O6r" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="21" id="Idz-G5-eH6"/>
                     <constraint firstItem="bQ6-EI-ZQd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="101" id="LhZ-Mc-A9W"/>
                     <constraint firstItem="mRN-2T-Qhn" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="iil-C9-xcM" secondAttribute="trailing" constant="10" id="MRy-BH-ZIR"/>
+                    <constraint firstItem="mRN-2T-Qhn" firstAttribute="width" relation="greaterThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.235" id="On2-UX-Pt8"/>
                     <constraint firstItem="41o-hR-Z2r" firstAttribute="leading" secondItem="h57-Gz-Ec7" secondAttribute="trailing" constant="21" id="PIY-G3-XfD"/>
                     <constraint firstAttribute="trailing" secondItem="mRN-2T-Qhn" secondAttribute="trailing" constant="19" id="Qo9-RA-wmE"/>
                     <constraint firstItem="iil-C9-xcM" firstAttribute="leading" secondItem="z9e-KI-O6r" secondAttribute="trailing" constant="19" id="VP0-qL-dOs"/>

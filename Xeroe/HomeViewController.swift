@@ -81,11 +81,15 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     @objc func xeroeIDTextFieldDidChange(_ textField: UITextField) {
+        
+        //changes color point before the text you
         guard let xeroeIDText = textField.text, xeroeIDText != "" else {
             pointLabel.textColor = borderTextFieldColor
             return
         }
         pointLabel.textColor = blackTextColor
+        
+        //adds a sharp before the entered IDXeroe
         let sharp = "#"
         if xeroeIDText == sharp {
             textField.text = ""

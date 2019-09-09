@@ -58,11 +58,11 @@
 		9DCF034922EF1EEE00A7F283 /* ForgotPasswordViewControll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCF034822EF1EEE00A7F283 /* ForgotPasswordViewControll.swift */; };
 		9DCF034B22EF364000A7F283 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCF034A22EF364000A7F283 /* RegistrationViewController.swift */; };
 		9DD0BE7622F8465D00E55EA8 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD0BE7522F8465D00E55EA8 /* ContainerViewController.swift */; };
-		9DD0BE9C22F8671D00E55EA8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DD0BE9B22F8671D00E55EA8 /* Main.storyboard */; };
 		9DD0BE9E22F8727C00E55EA8 /* ClientDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD0BE9D22F8727C00E55EA8 /* ClientDetailViewController.swift */; };
 		9DD0BEA422F87B9200E55EA8 /* LeftMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD0BEA122F87B9200E55EA8 /* LeftMenuTableViewCell.swift */; };
 		9DD0BEA522F87B9300E55EA8 /* LeftMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DD0BEA222F87B9200E55EA8 /* LeftMenuTableViewCell.xib */; };
 		9DD0BEA622F87B9300E55EA8 /* LeftMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD0BEA322F87B9200E55EA8 /* LeftMenuViewController.swift */; };
+		9DD884632326460B00305AFC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DD884622326460B00305AFC /* Main.storyboard */; };
 		9DDFD4002303EDC4007DDB36 /* HeaderOrderTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDFD3FF2303EDC4007DDB36 /* HeaderOrderTableView.swift */; };
 		9DDFD4042303EEA0007DDB36 /* HeaderOrderTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DDFD4022303EEA0007DDB36 /* HeaderOrderTableView.xib */; };
 		9DDFD40623041A9B007DDB36 /* ClientData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDFD40523041A9B007DDB36 /* ClientData.swift */; };
@@ -132,11 +132,11 @@
 		9DCF034A22EF364000A7F283 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		9DD0BE5522F817FE00E55EA8 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		9DD0BE7522F8465D00E55EA8 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
-		9DD0BE9B22F8671D00E55EA8 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		9DD0BE9D22F8727C00E55EA8 /* ClientDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientDetailViewController.swift; sourceTree = "<group>"; };
 		9DD0BEA122F87B9200E55EA8 /* LeftMenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuTableViewCell.swift; sourceTree = "<group>"; };
 		9DD0BEA222F87B9200E55EA8 /* LeftMenuTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeftMenuTableViewCell.xib; sourceTree = "<group>"; };
 		9DD0BEA322F87B9200E55EA8 /* LeftMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuViewController.swift; sourceTree = "<group>"; };
+		9DD884622326460B00305AFC /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		9DDFD3FF2303EDC4007DDB36 /* HeaderOrderTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderOrderTableView.swift; sourceTree = "<group>"; };
 		9DDFD4022303EEA0007DDB36 /* HeaderOrderTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderOrderTableView.xib; sourceTree = "<group>"; };
 		9DDFD40523041A9B007DDB36 /* ClientData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientData.swift; sourceTree = "<group>"; };
@@ -338,15 +338,15 @@
 			children = (
 				9DF533A122EEDBE10036866C /* AppDelegate.swift */,
 				9DF533A822EEDBE30036866C /* Assets.xcassets */,
-				9DD0BE9B22F8671D00E55EA8 /* Main.storyboard */,
+				9DD884622326460B00305AFC /* Main.storyboard */,
 				9DACCB8C22F4320100D9F433 /* LoginVC */,
+				9DD0BE5722F81DDB00E55EA8 /* Left menu */,
 				9D09D7DE22F1E23800D4369F /* HomeViewController.swift */,
 				9D1BFB10231E511E005E8024 /* HomeViewModel.swift */,
-				9DD0BE5722F81DDB00E55EA8 /* Left menu */,
-				9D13039122FD50AC00DC983E /* OrderViewController.swift */,
-				9D0EEC4823014B9F00891D7D /* Orders Table View Cell */,
 				9D6EE92222F97E3D00F8DFA6 /* FoundUserDetailViewController.swift */,
 				9D13039322FD514D00DC983E /* ShippingAgrinentViewController.swift */,
+				9D13039122FD50AC00DC983E /* OrderViewController.swift */,
+				9D0EEC4823014B9F00891D7D /* Orders Table View Cell */,
 				9D75BE6B22F0337C001E907B /* Models */,
 				9DACCB8B22F431BF00D9F433 /* MutableUIObjects */,
 				9D0B6D34231D62C200E3A8F8 /* Utilits */,
@@ -443,11 +443,11 @@
 				9D0EEC4C23014C4700891D7D /* PaymentMethodTableViewCell.xib in Resources */,
 				9DA494172302B77700730624 /* DimensionsTableViewCell.xib in Resources */,
 				9D0EEC4723014B9300891D7D /* GoodsTableViewCell.xib in Resources */,
-				9DD0BE9C22F8671D00E55EA8 /* Main.storyboard in Resources */,
 				9D0EEC60230181F100891D7D /* ChooseProductCollectionViewCell.xib in Resources */,
 				9D23E9F822F08AA500E0E2C0 /* FuturaDemiC.ttf in Resources */,
 				9DF533AC22EEDBE30036866C /* LaunchScreen.storyboard in Resources */,
 				9D0EEC5C23014CA800891D7D /* DeliveryTypeTableViewCell.xib in Resources */,
+				9DD884632326460B00305AFC /* Main.storyboard in Resources */,
 				9DF533A922EEDBE30036866C /* Assets.xcassets in Resources */,
 				9DDFD4042303EEA0007DDB36 /* HeaderOrderTableView.xib in Resources */,
 				9DFFAB7B22F181D10008F325 /* fontello.ttf in Resources */,

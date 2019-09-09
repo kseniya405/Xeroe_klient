@@ -84,13 +84,11 @@ extension LeftMenuViewController: UITableViewDelegate {
         }
         selectedIndexPath = indexPath
         tableView.reloadRows(at: [indexPath], with: .none)
-        
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         selectedIndexPath = nil
         tableView.reloadRows(at: [indexPath], with: .none)
-        
         
     }
 }

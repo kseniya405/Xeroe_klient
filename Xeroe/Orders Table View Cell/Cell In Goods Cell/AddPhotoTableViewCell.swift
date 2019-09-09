@@ -24,7 +24,7 @@ class AddPhotoTableViewCell: UITableViewCell {
     var delegate: AddPhotoTableViewCellDelegate?
     
     fileprivate var thumbnailSize = CGSize(width: 94.0, height: 94.0)
-    fileprivate var sectionInsets = UIEdgeInsets(top: 0, left: 7, bottom: 0, right: 7)
+    fileprivate var sectionInsets = UIEdgeInsets(top: 0, left: 7, bottom: 0, right:7)
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -64,7 +64,7 @@ extension AddPhotoTableViewCell: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         thumbnailSize.width = (UIScreen.main.bounds.width - 16) * 0.279
-        thumbnailSize.height = thumbnailSize.width
+        thumbnailSize.height = thumbnailSize.width < thumbnailSize.height ? thumbnailSize.width : thumbnailSize.height
         return thumbnailSize
     }
 

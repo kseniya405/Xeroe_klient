@@ -15,8 +15,10 @@ import IQKeyboardManagerSwift
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var navController: UINavigationController?
 
     let googleMapsApiKey = "AIzaSyD-3NH9jL5_2qI0kR2FQaNm_3f2GOaYIT0"
+
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         

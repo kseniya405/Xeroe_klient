@@ -34,6 +34,7 @@ class OrderViewController: UIViewController, UIImagePickerControllerDelegate, UI
     var thisOrderData = ConfirmOrderByCreator()
     var currentProductNum: Int = 0
     
+    var clientDataDictionary: [String: Any] = [:]
     var isDelivery: Bool = false
     
     var productCellsArray: [String] = ["PRODUCT 1", addProductElement]
@@ -72,6 +73,7 @@ class OrderViewController: UIViewController, UIImagePickerControllerDelegate, UI
     @objc func backButtonTap() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let initialViewController = storyboard.instantiateViewController(withIdentifier: identifierGoToBack) as! ShippingAgrinentViewController
+        initialViewController.clientDataDictionary = clientDataDictionary
         self.navigationController?.pushViewController(initialViewController, animated: false)
     }
     
@@ -124,7 +126,21 @@ extension OrderViewController: UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: sections[indexPath.section].typeOfNib, for: indexPath) as! ClientDataTableViewCell
             
             let isSender = isDelivery ? indexPath.section == 2 : indexPath.section == 3
-            cell.setParameters(isSender: isSender)
+            let id = (isSender ? UserProfile.shared.xeroeId : clientDataDictionary["xeroeid"] as? String) ?? "Wrong data"
+            let nameUser = (isSender ? UserProfile.shared.email : clientDataDictionary["email"] as? String) ?? "Wrong data"
+            let phone = (isSender ? UserProfile.shared.phone : clientDataDictionary["phone"] as? String) ?? "Wrong data"
+            let address = isSender ? "27 Old Gloucester Street, London WC1N" : "11 - 59 Hight Rd, East Finchley, London N2 8AW"
+            
+            let urlAvatar: String
+            if isSender {
+                guard let avatar = UserProfile.shared.avatar else { return cell }
+                urlAvatar = avatar
+            } else {
+                guard let avatar = clientDataDictionary["avatar"] as? String else { return cell }
+                urlAvatar = avatar
+            }
+            
+            cell.setParameters(id: id, name: nameUser, phone: phone, address: address, avatar: urlAvatar)
             return cell
             
         case 4:

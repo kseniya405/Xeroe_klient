@@ -63,6 +63,7 @@ class FoundUserDetailViewController: UIViewController {
     @objc func yesButtonTap() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let initialViewController = storyboard.instantiateViewController(withIdentifier: identifierNextScreen) as! ShippingAgrinentViewController
+        initialViewController.clientDataDictionary = clientDataDictionary
         self.navigationController?.pushViewController(initialViewController, animated: false)
     }
 

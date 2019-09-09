@@ -28,7 +28,7 @@ class LeftMenuTableViewCell: UITableViewCell {
     // change the contents of the cell and its color depending on whether the cell is selected
     func setData(nameCell: String, selected: Bool) {
         self.nameCell.text = nameCell
-        iconImage.image = UIImage(named: nameCell)?.withRenderingMode(.alwaysTemplate)
+        self.iconImage.image = UIImage(named: nameCell)?.withRenderingMode(.alwaysTemplate)
         
         let backgroundColor = selected ? backgroundChooseCellColor : .white
         let fillingColor = selected ? .white : blackTextColor
@@ -38,15 +38,15 @@ class LeftMenuTableViewCell: UITableViewCell {
     
     func chooseColors(_ nameCell: String, backgroundColor: UIColor, fillingColor: UIColor) {
         self.backgroundColor = backgroundColor
-        iconImage.image = UIImage(named: nameCell)?.withRenderingMode(.alwaysTemplate)
-        iconImage.tintColor = fillingColor
-        iconImage.backgroundColor = backgroundColor
+        self.iconImage.tintColor = fillingColor
+        self.iconImage.backgroundColor = backgroundColor
         self.nameCell.textColor = fillingColor
     }
     
     override func prepareForReuse() {
         self.nameCell.text = ""
         iconImage.image = nil
+        
     }
     
 }

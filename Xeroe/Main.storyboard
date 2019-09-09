@@ -35,12 +35,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xero-logo-full" translatesAutoresizingMaskIntoConstraints="NO" id="nXi-rE-tZt">
-                                <rect key="frame" x="132" y="159" width="150" height="46"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="nXi-rE-tZt" secondAttribute="height" multiplier="1:0.305" id="aCN-CU-uPt"/>
-                                </constraints>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Connect with" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="qSk-F0-b0A">
                                 <rect key="frame" x="154.5" y="336.5" width="105" height="21.5"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="18"/>
@@ -121,7 +115,7 @@
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                     <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gcF-2F-YiN" userLabel="ButtonVisible" customClass="ButtonWithCornerRadius" customModule="Xeroe" customModuleProvider="target">
-                                        <rect key="frame" x="364" y="160.5" width="22" height="22"/>
+                                        <rect key="frame" x="362" y="159.5" width="24" height="24"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="gcF-2F-YiN" secondAttribute="height" multiplier="1:1" id="pUb-uS-bxK"/>
                                         </constraints>
@@ -195,13 +189,27 @@
                                 <color key="tintColor" red="0.56078431370000004" green="0.56078431370000004" blue="0.56078431370000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Don’t have account yet?"/>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b9d-eU-Qlr">
+                                <rect key="frame" x="0.0" y="5" width="414" height="896"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xero-logo-full" translatesAutoresizingMaskIntoConstraints="NO" id="nXi-rE-tZt">
+                                <rect key="frame" x="132" y="159" width="150" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="nXi-rE-tZt" secondAttribute="height" multiplier="1:0.305" id="aCN-CU-uPt"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="b9d-eU-Qlr" firstAttribute="width" secondItem="S5p-Zp-hjs" secondAttribute="width" id="1lz-tt-34R"/>
+                            <constraint firstItem="b9d-eU-Qlr" firstAttribute="centerX" secondItem="63u-Bl-Lqf" secondAttribute="centerX" id="27q-bU-aRc"/>
                             <constraint firstItem="nXi-rE-tZt" firstAttribute="centerY" secondItem="63u-Bl-Lqf" secondAttribute="centerY" multiplier="0.402" id="39s-Ni-gaE"/>
+                            <constraint firstItem="b9d-eU-Qlr" firstAttribute="centerY" secondItem="63u-Bl-Lqf" secondAttribute="centerY" id="4n7-XV-vEn"/>
                             <constraint firstItem="V9r-bC-rhj" firstAttribute="top" secondItem="MQQ-8R-FzK" secondAttribute="bottom" id="8bc-2t-FiY"/>
                             <constraint firstItem="0oz-Ta-vsR" firstAttribute="height" secondItem="kAY-1V-jyj" secondAttribute="height" id="8xX-y0-Zwt"/>
                             <constraint firstItem="VI8-Pg-wMc" firstAttribute="trailing" secondItem="MQQ-8R-FzK" secondAttribute="leading" constant="-10" id="Aln-Er-pxc"/>
+                            <constraint firstItem="b9d-eU-Qlr" firstAttribute="height" secondItem="S5p-Zp-hjs" secondAttribute="height" id="BaM-hM-Isa"/>
                             <constraint firstItem="63u-Bl-Lqf" firstAttribute="trailing" secondItem="V9r-bC-rhj" secondAttribute="trailing" id="EHd-7G-74V"/>
                             <constraint firstItem="Sab-xf-iZL" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="kAY-1V-jyj" secondAttribute="trailing" constant="8" symbolic="YES" id="FpU-qf-mbP"/>
                             <constraint firstItem="63u-Bl-Lqf" firstAttribute="trailing" secondItem="Sab-xf-iZL" secondAttribute="trailing" constant="18" id="Juz-7R-HS3"/>
@@ -245,6 +253,7 @@
                         <outlet property="forgotButton" destination="I4p-T6-j8g" id="aKH-PG-wMB"/>
                         <outlet property="loginFormView" destination="V9r-bC-rhj" id="V1q-XE-WzP"/>
                         <outlet property="signInButton" destination="0oz-Ta-vsR" id="HLR-JH-zAm"/>
+                        <outlet property="viewFront" destination="b9d-eU-Qlr" id="AbC-p0-niC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -505,6 +514,7 @@
         <!--Navigation Controller-->
         <scene sceneID="hXr-sk-sP2">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9kJ-5u-MOh" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="StartNC" automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="mo6-ee-L1f" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" hidden="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="arq-Ud-51P">
@@ -515,7 +525,6 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="j6W-Fd-ueY"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9kJ-5u-MOh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="37.681159420289859" y="18.75"/>
         </scene>

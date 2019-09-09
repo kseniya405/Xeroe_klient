@@ -27,6 +27,8 @@ class ShippingAgrinentViewController: UIViewController {
         }
     }
     
+    var clientDataDictionary: [String: Any] = [:]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -37,6 +39,7 @@ class ShippingAgrinentViewController: UIViewController {
     @objc func backButtonTap() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let initialViewController = storyboard.instantiateViewController(withIdentifier: "FoundUserDetailViewController") as! FoundUserDetailViewController
+        initialViewController.clientDataDictionary = clientDataDictionary
         self.navigationController?.pushViewController(initialViewController, animated: false)
     }
     
@@ -55,7 +58,7 @@ class ShippingAgrinentViewController: UIViewController {
         
         // isDelivery - shows whether it is delivery or receipt
         initialViewController.isDelivery = isDelivery
-        
+        initialViewController.clientDataDictionary = clientDataDictionary
         self.navigationController?.pushViewController(initialViewController, animated: false)
     }
 }
