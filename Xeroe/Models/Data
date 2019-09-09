@@ -1,0 +1,1 @@
+[{"id":5,"xeroeid":"8ceb81c9","default_address_id":10,"email":"macie.kozey@simonis.net","phone":"380990000005","password":"$2y$10$DvHCLreHhnmA5gaOqX1sDes3.HP\/MX2vBnIgLJS\/v\/nqmjgrU2I7W","state":"new","avatar":"images\/DefaultAvatar.png","userable_type":"App\\Models\\Auth\\Client","userable_id":5,"created_at":"2019-05-07 06:15:04","updated_at":"2019-05-07 06:15:04"}]
