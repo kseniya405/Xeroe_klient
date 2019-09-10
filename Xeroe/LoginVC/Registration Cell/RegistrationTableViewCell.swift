@@ -11,9 +11,7 @@ import UIKit
 class RegistrationTableViewCell: UITableViewCell {
 
     @IBOutlet weak var namesLabel: UILabel!
-    
-    @IBOutlet weak var answerTextField: TextFieldWithCorner!
-    
+    @IBOutlet weak var answerTextField: TextFieldWithCorner!    
     
     override func awakeFromNib() {
         super.awakeFromNib()

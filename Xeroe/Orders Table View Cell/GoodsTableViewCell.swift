@@ -125,7 +125,6 @@ extension GoodsTableViewCell: UICollectionViewDelegate {
         goodsCellDelegate?.setNumProduct(numProduct: indexPath.row)
         
         let selectCell = collectionsView.cellForItem(at: indexPath)  as! ChooseProductCollectionViewCell
-        
         selectCell.setParameters(backgroundColor: backgroundChooseCellColor, labelColor: .white, labelText: productCells[indexPath.row])
         collectionView.reloadData()
         selectCell.isSelected = true

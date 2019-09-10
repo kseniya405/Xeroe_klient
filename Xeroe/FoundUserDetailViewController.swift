@@ -46,18 +46,15 @@ class FoundUserDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let foundUserData = ClientData(dictionary: clientDataDictionary)
         idRecipient.text = "# \(clientDataDictionary["xeroeid"] as? String ?? "")"
-        nameRecipient.text = foundUserData.email
+        nameRecipient.text = clientDataDictionary["email"] as? String
         
         guard let urlAvatar: String = clientDataDictionary["avatar"] as? String else { return }
-        foundUserPhotoImage.getImageFromUrl(url: "http://xeroe.kinect.pro:8091/\(urlAvatar)")
+        foundUserPhotoImage.getImageFromUrl(urlAvatar: urlAvatar)
     }
     
     @objc func noButtonTap() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let initialViewController = storyboard.instantiateViewController(withIdentifier: identifierBackScreen) as! ContainerViewController
-        self.navigationController?.pushViewController(initialViewController, animated: false)
+        self.dismiss()
     }
     
     @objc func yesButtonTap() {

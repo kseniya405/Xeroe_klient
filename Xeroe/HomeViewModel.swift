@@ -13,19 +13,17 @@ class HomeViewModel: NSObject {
     var goToNextScreen: (([String : Any]) -> ())?
     var showAlertInputButtonTap: (() -> ())?
     
-    func findUser (xeroeIDTextField: TextFieldWithCorner, activityIndicator: UIActivityIndicatorView) {
+    func findUser (xeroeIDTextField: TextFieldWithCorner) {
         
     
         guard var textID = xeroeIDTextField.text, !textID.isEmpty, !textID.contains(" ") else {
             showAlertInputButtonTap?()
-            activityIndicator.stopAnimating()
             return
         }
 
         textID.remove(at: textID.startIndex)
         RestApi().findID(xeroeID: textID) { (isOk, dictionaryClientData)  in
             DispatchQueue.main.async {
-                activityIndicator.stopAnimating()
                 guard isOk else {
                     self.showAlertInputButtonTap?()
                     return 

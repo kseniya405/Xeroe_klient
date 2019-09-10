@@ -30,6 +30,9 @@
 		9D0EEC692301B46800891D7D /* AddPhotoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D0EEC672301B46800891D7D /* AddPhotoTableViewCell.xib */; };
 		9D0EEC6C2301B64600891D7D /* PhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0EEC6A2301B64600891D7D /* PhotosCollectionViewCell.swift */; };
 		9D0EEC6D2301B64600891D7D /* PhotosCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D0EEC6B2301B64600891D7D /* PhotosCollectionViewCell.xib */; };
+		9D113C212327888C00BE8D22 /* OrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D113C202327888C00BE8D22 /* OrderViewModel.swift */; };
+		9D113C232327C80B00BE8D22 /* AgreementTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D113C222327C80B00BE8D22 /* AgreementTimerViewController.swift */; };
+		9D113C252327D68F00BE8D22 /* ResultAgreementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D113C242327D68F00BE8D22 /* ResultAgreementViewController.swift */; };
 		9D13039222FD50AC00DC983E /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D13039122FD50AC00DC983E /* OrderViewController.swift */; };
 		9D13039422FD514D00DC983E /* ShippingAgrinentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D13039322FD514D00DC983E /* ShippingAgrinentViewController.swift */; };
 		9D13039622FD8C6400DC983E /* ButtonForAddFotoOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D13039522FD8C6400DC983E /* ButtonForAddFotoOrder.swift */; };
@@ -103,6 +106,9 @@
 		9D0EEC672301B46800891D7D /* AddPhotoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddPhotoTableViewCell.xib; sourceTree = "<group>"; };
 		9D0EEC6A2301B64600891D7D /* PhotosCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewCell.swift; sourceTree = "<group>"; };
 		9D0EEC6B2301B64600891D7D /* PhotosCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotosCollectionViewCell.xib; sourceTree = "<group>"; };
+		9D113C202327888C00BE8D22 /* OrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewModel.swift; sourceTree = "<group>"; };
+		9D113C222327C80B00BE8D22 /* AgreementTimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgreementTimerViewController.swift; sourceTree = "<group>"; };
+		9D113C242327D68F00BE8D22 /* ResultAgreementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultAgreementViewController.swift; sourceTree = "<group>"; };
 		9D13039122FD50AC00DC983E /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
 		9D13039322FD514D00DC983E /* ShippingAgrinentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShippingAgrinentViewController.swift; sourceTree = "<group>"; };
 		9D13039522FD8C6400DC983E /* ButtonForAddFotoOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonForAddFotoOrder.swift; sourceTree = "<group>"; };
@@ -346,7 +352,10 @@
 				9D6EE92222F97E3D00F8DFA6 /* FoundUserDetailViewController.swift */,
 				9D13039322FD514D00DC983E /* ShippingAgrinentViewController.swift */,
 				9D13039122FD50AC00DC983E /* OrderViewController.swift */,
+				9D113C202327888C00BE8D22 /* OrderViewModel.swift */,
 				9D0EEC4823014B9F00891D7D /* Orders Table View Cell */,
+				9D113C222327C80B00BE8D22 /* AgreementTimerViewController.swift */,
+				9D113C242327D68F00BE8D22 /* ResultAgreementViewController.swift */,
 				9D75BE6B22F0337C001E907B /* Models */,
 				9DACCB8B22F431BF00D9F433 /* MutableUIObjects */,
 				9D0B6D34231D62C200E3A8F8 /* Utilits */,
@@ -554,6 +563,7 @@
 				9D0EEC632301AAD200891D7D /* DataDeliveryTableViewCell.swift in Sources */,
 				9D0EEC4623014B9300891D7D /* GoodsTableViewCell.swift in Sources */,
 				9D0B6D33231D62B300E3A8F8 /* Extencions.swift in Sources */,
+				9D113C212327888C00BE8D22 /* OrderViewModel.swift in Sources */,
 				9DA30B4A230FE56C0054D1ED /* DeliveryTypeCollectionViewCell.swift in Sources */,
 				9D6EE92322F97E3D00F8DFA6 /* FoundUserDetailViewController.swift in Sources */,
 				9D1737F7231CFC68009EEDF6 /* RegistrationTableViewCell.swift in Sources */,
@@ -562,6 +572,7 @@
 				9DDFD40623041A9B007DDB36 /* ClientData.swift in Sources */,
 				9D0EEC5723014C8E00891D7D /* OptionsTableViewCell.swift in Sources */,
 				9DD0BEA422F87B9200E55EA8 /* LeftMenuTableViewCell.swift in Sources */,
+				9D113C252327D68F00BE8D22 /* ResultAgreementViewController.swift in Sources */,
 				9D13647F23196E9A0074FE60 /* Fonts.swift in Sources */,
 				9DD0BE7622F8465D00E55EA8 /* ContainerViewController.swift in Sources */,
 				9DACCB8022F415A400D9F433 /* MapView.swift in Sources */,
@@ -572,6 +583,7 @@
 				9DACCB8A22F42E8600D9F433 /* TextFieldWithCorner.swift in Sources */,
 				9DA494192302D90500730624 /* CheckButton.swift in Sources */,
 				9DD0BEA622F87B9300E55EA8 /* LeftMenuViewController.swift in Sources */,
+				9D113C232327C80B00BE8D22 /* AgreementTimerViewController.swift in Sources */,
 				9D0B6D2E231D3F3700E3A8F8 /* LoginFormView.temp_caseinsensitive_rename.swift in Sources */,
 				9D09D7DF22F1E23800D4369F /* HomeViewController.swift in Sources */,
 			);

@@ -15,31 +15,31 @@ class LoginFormView: UIView {
     
     @IBOutlet weak var enterEmailOrPhoneLabel: UILabel! {
         didSet {
-            enterEmailOrPhoneLabel.labelStyle(emailOrPhone, UIFont(name: robotoRegular, size: 13), greyTextColor)
+            enterEmailOrPhoneLabel.setLabelStyle(emailOrPhone, UIFont(name: robotoRegular, size: 13), greyTextColor)
         }
     }
     
     @IBOutlet weak var passwordLabel: UILabel! {
         didSet {
-            passwordLabel.labelStyle(password, UIFont(name: robotoRegular, size: 13), greyTextColor)
+            passwordLabel.setLabelStyle(password, UIFont(name: robotoRegular, size: 13), greyTextColor)
         }
     }
     
     @IBOutlet weak var enterEmailLabel: UILabel! {
         didSet {
-            enterEmailLabel.labelStyle(enterEmail, UIFont(name: robotoRegular, size: 12), .red)
+            enterEmailLabel.setLabelStyle(enterEmail, UIFont(name: robotoRegular, size: 12), .red)
         }
     }
     
     @IBOutlet weak var enterPasswordLabel: UILabel! {
         didSet {
-            enterPasswordLabel.labelStyle(enterPassword, UIFont(name: robotoRegular, size: 12), .red)
+            enterPasswordLabel.setLabelStyle(enterPassword, UIFont(name: robotoRegular, size: 12), .red)
         }
     }
     
     @IBOutlet weak var wrongPaswordLabel: UILabel!{
         didSet {
-            wrongPaswordLabel.labelStyle(wrongPassword, UIFont(name: robotoRegular, size: 11), .red)
+            wrongPaswordLabel.setLabelStyle(wrongPassword, UIFont(name: robotoRegular, size: 11), .red)
         }
     }
     

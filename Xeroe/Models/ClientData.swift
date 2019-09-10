@@ -8,9 +8,9 @@
 
 import Foundation
 
-struct ArrayClientData: Codable {
-    let arrayClient: [ClientData]
-}
+//struct ArrayClientData: Codable {
+//    let arrayClient: [ClientData]
+//}
 
 struct ClientData: Codable {
     let id: Int
@@ -41,18 +41,18 @@ struct ClientData: Codable {
         case updatedAt
     }
     
-    init(dictionary: [String : Any]?) {
-        id = dictionary?["id"] as? Int ?? 0
-        xeroeId = dictionary?["xeroeid"] as? String ?? ""
-        defaultAddressId = dictionary?["default_address_id"] as? Int ?? 0
-        email = dictionary?["email"] as? String ?? ""
-        phone = dictionary?["phone"] as? String ?? ""
-        password = dictionary?["password"] as? String ?? ""
-        state = dictionary?["state"] as? String ?? ""
-        avatar = dictionary?["avatar"] as? String ?? ""
-        userableType = dictionary?["userable_type"] as? String ?? ""
-        userableId = dictionary?["userable_id"] as? Int ?? 0
-        createdAt = dictionary?["created_at"] as? String ?? ""
-        updatedAt = dictionary?["updated_at"] as? String ?? ""
-    }
+//    init(dictionary: [String : Any]?) {
+//        id = dictionary?["id"] as? Int ?? 0
+//        xeroeId = dictionary?["xeroeid"] as? String ?? ""
+//        defaultAddressId = dictionary?["default_address_id"] as? Int ?? 0
+//        email = dictionary?["email"] as? String ?? ""
+//        phone = dictionary?["phone"] as? String ?? ""
+//        password = dictionary?["password"] as? String ?? ""
+//        state = dictionary?["state"] as? String ?? ""
+//        avatar = dictionary?["avatar"] as? String ?? ""
+//        userableType = dictionary?["userable_type"] as? String ?? ""
+//        userableId = dictionary?["userable_id"] as? Int ?? 0
+//        createdAt = dictionary?["created_at"] as? String ?? ""
+//        updatedAt = dictionary?["updated_at"] as? String ?? ""
+//    }
 }

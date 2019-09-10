@@ -34,9 +34,7 @@ class ForgotPasswordViewControll: UIViewController {
     }
     
     @objc func backButtonTap() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let initialViewController = storyboard.instantiateViewController(withIdentifier: identifierLoginVC) as! LoginViewController
-        self.navigationController?.pushViewController(initialViewController, animated: false)
+        self.dismiss()
     }
     
 }

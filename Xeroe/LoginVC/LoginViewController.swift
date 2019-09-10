@@ -36,24 +36,26 @@ class LoginViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak var viewFront: UIView!
     let viewModel = LoginViewModel()
+    var activityIndicator: UIActivityIndicatorView?
     
     override func viewDidLoad() {
         if UserProfile.shared.login != nil {
             viewModel.tokenValidation()
         }
-        self.viewFront.isHidden = true
         super.viewDidLoad()
 
         viewModel.setError = { [weak self] (passwordIsEmpty, emailIsEmpty) in
             DispatchQueue.main.async {
+                self?.activityIndicator?.stopAnimating()
                 self?.loginFormView.errorTextField(passwordIsEmpty: passwordIsEmpty, emailIsEmpty: emailIsEmpty)
             }
             
         }
+        
         viewModel.goToHomeScreen = { [weak self] in
             DispatchQueue.main.async {
+                self?.activityIndicator?.stopAnimating()
                 self?.goToHomeScreen()
             }
             
@@ -61,11 +63,8 @@ class LoginViewController: UIViewController {
     }
     
     @objc func signInButtonTap(){
-        let activityIndicator = self.view.showActivityIndicator()
-        if viewModel.validateTextFields(loginFormView: loginFormView) {
-            viewModel.login(loginFormView: loginFormView)
-        }
-        activityIndicator.stopAnimating()
+        activityIndicator = self.view.showActivityIndicator()
+        viewModel.login(loginFormView: loginFormView)
     }
 
     @objc func forgotButtonTap(){

@@ -45,9 +45,10 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     
     let locationManager = CLLocationManager()
     let viewModel = HomeViewModel()
+    var activityIndicator: UIActivityIndicatorView?
 
     override func viewDidLoad() {
-        
+
         // Ask for Authorisation from the User.
         self.locationManager.requestAlwaysAuthorization()
         // For use in foreground
@@ -58,12 +59,14 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
             locationManager.startUpdatingLocation()
         }
         viewModel.goToNextScreen = { [weak self] dict in
+            self?.activityIndicator?.stopAnimating()
             DispatchQueue.main.async {
                 self?.goToNextScreen(dictionary: dict)
             }
         }
         
         viewModel.showAlertInputButtonTap = { [weak self] in
+            self?.activityIndicator?.stopAnimating()
             DispatchQueue.main.async {
                 self?.showAlertInputButtonTap()
             }
@@ -72,8 +75,8 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     @objc func inputButtonTap() {
-        let activityIndicator = self.view.showActivityIndicator()
-        viewModel.findUser(xeroeIDTextField: xeroeIDTextField, activityIndicator: activityIndicator)
+        activityIndicator = self.view.showActivityIndicator()
+        viewModel.findUser(xeroeIDTextField: xeroeIDTextField)
     }
     
     @objc func openLeftMenuButtonTap() {
@@ -117,7 +120,6 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
-        //print("locations = \(locValue.latitude) \(locValue.longitude)")
         
         // Create a GMSCameraPosition that tells the map to display the
         // coordinate -33.86,151.20 at zoom level 6.

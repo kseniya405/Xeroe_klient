@@ -33,7 +33,7 @@ class ClientDataTableViewCell: UITableViewCell {
         self.nameLabel.text = name
         self.phoneLabel.text = phone
         self.addressLabel.text = address
-        self.photoImage.getImageFromUrl(url: "http://xeroe.kinect.pro:8091/\(avatar)")
+        self.photoImage.getImageFromUrl(urlAvatar: avatar)
     }
 
 

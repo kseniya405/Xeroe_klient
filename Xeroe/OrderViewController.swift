@@ -66,15 +66,11 @@ class OrderViewController: UIViewController, UIImagePickerControllerDelegate, UI
         tableView.register(UINib.init(nibName: identifierHeader, bundle: Bundle.main), forHeaderFooterViewReuseIdentifier: identifierHeader)
         
         self.imagePicker = ImagePicker(presentationController: self, delegate: self)
-        
-        
+
     }
     
     @objc func backButtonTap() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let initialViewController = storyboard.instantiateViewController(withIdentifier: identifierGoToBack) as! ShippingAgrinentViewController
-        initialViewController.clientDataDictionary = clientDataDictionary
-        self.navigationController?.pushViewController(initialViewController, animated: false)
+        self.dismiss()
     }
     
 }
@@ -116,6 +112,7 @@ extension OrderViewController: UITableViewDelegate, UITableViewDataSource {
             cell.addPhotoDelegate = self
             cell.goodsCellDelegate = self
             cell.setDataCell(currentProduct: thisOrderData.products[currentProductNum], arrayCellsProduct: productCellsArray)
+            print(currentProductNum, " ", productCellsArray)
 
             return cell
         case 1:
@@ -182,6 +179,10 @@ extension OrderViewController: GoodsCellDelegate, PaymentMethodTableViewCellDele
                 print(isOk)
             }
         }
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let initialViewController = storyboard.instantiateViewController(withIdentifier: "AgreementTimerViewController") as! AgreementTimerViewController
+        initialViewController.orderViewController = self
+        self.navigationController?.pushViewController(initialViewController, animated: false)
     }
     
     func setDeliveryType(type: Int?) {
@@ -197,6 +198,7 @@ extension OrderViewController: GoodsCellDelegate, PaymentMethodTableViewCellDele
     func setNumProduct(numProduct: Int) {
         currentProductNum = numProduct
         thisOrderData.products[currentProductNum].id = numProduct + 1
+        tableView.reloadSections(IndexSet(integer: 0), with: .none)
     }
     
     func setArrayProductCells(array: [String]) {
@@ -206,7 +208,7 @@ extension OrderViewController: GoodsCellDelegate, PaymentMethodTableViewCellDele
     func addProductCell() {
         productCellsArray.insert("PRODUCT \(productCellsArray.count)", at: productCellsArray.count - 1)
         print(productCellsArray)
-        tableView.reloadSections(IndexSet(integer: 0), with: .none)
+        tableView.reloadData()
     }
     
     func addProduct(){

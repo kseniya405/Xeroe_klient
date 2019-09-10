@@ -9,6 +9,7 @@
 import UIKit
 
 fileprivate let cellIdentifier = "LeftMenuTableViewCell"
+fileprivate let loginViewControllerIdentifier = "LoginViewController"
 
 
 class LeftMenuViewController: UIViewController {
@@ -21,11 +22,8 @@ class LeftMenuViewController: UIViewController {
     }
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var userIDXeroeLabel: UILabel!
-    
     @IBOutlet weak var leftMenu: UIView!
-    
     @IBOutlet weak var leftMenuTableView: UITableView!
-    
     @IBOutlet weak var logoutButton: UIButton!{
         didSet {
             logoutButton.addTarget(self, action: #selector(goToLoginView), for: .touchUpInside)
@@ -48,14 +46,15 @@ class LeftMenuViewController: UIViewController {
         
         guard let urlAvatar: String = UserProfile.shared.avatar else {
             print("error avatar")
-            return }
-        photoImage.getImageFromUrl(url: "http://xeroe.kinect.pro:8091/\(urlAvatar)")
+            return
+        }
+        photoImage.getImageFromUrl(urlAvatar: urlAvatar)
     }
     
     @objc func goToLoginView() {
         UserProfile.shared.clear()
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let initialViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+        let initialViewController = storyboard.instantiateViewController(withIdentifier: loginViewControllerIdentifier) as! LoginViewController
         self.navigationController?.pushViewController(initialViewController, animated: false)
     }
     
@@ -69,7 +68,7 @@ extension LeftMenuViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! LeftMenuTableViewCell
         if indexPath.row < cellLeftMenuNames.count {
-            cell.setData(nameCell: cellLeftMenuNames[indexPath.row], selected: selectedIndexPath == indexPath)
+            cell.setData(nameCell: cellLeftMenuNames[indexPath.row], isSelected: selectedIndexPath == indexPath)
         }
         return cell
     }
@@ -78,17 +77,12 @@ extension LeftMenuViewController: UITableViewDataSource {
 extension LeftMenuViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let previousIndex = selectedIndexPath {
+        if let previosSelectCell = selectedIndexPath {
             selectedIndexPath = indexPath
-            tableView.reloadRows(at: [previousIndex], with: .none)
+            tableView.reloadRows(at: [previosSelectCell], with: .none)
         }
         selectedIndexPath = indexPath
         tableView.reloadRows(at: [indexPath], with: .none)
     }
     
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        selectedIndexPath = nil
-        tableView.reloadRows(at: [indexPath], with: .none)
-        
-    }
 }

@@ -34,8 +34,10 @@ extension UIView {
 
 extension UILabel {
     
-    //sets label parameters and style
-    func labelStyle(_ textLabel: String, _ fontLabel: UIFont?, _ colorLabel: UIColor) {
+    /**
+     sets label parameters and style
+     */
+    func setLabelStyle(_ textLabel: String, _ fontLabel: UIFont?, _ colorLabel: UIColor) {
         self.text = textLabel
         self.font = fontLabel
         self.textColor = colorLabel
@@ -45,10 +47,23 @@ extension UILabel {
 extension UIImageView {
     
     //uploads a picture from the link and assigns it to UIImageView
-    func getImageFromUrl(url: String){
+    func getImageFromUrl(urlAvatar: String){
+        let url = linkApiStart + urlAvatar
         guard let imgURL: NSURL = NSURL(string: url), let imgData: NSData = NSData(contentsOf: imgURL as URL) else {
+            self.image = UIImage(named: "defaultAvatar")
             return
         }
         self.image = UIImage(data: imgData as Data)
+    }
+}
+
+extension UIViewController {
+    func dismiss() {
+        let vcs = self.navigationController?.viewControllers
+        if ((vcs?.contains(self)) != nil) {
+            self.navigationController?.popViewController(animated: false)
+        } else {
+            self.dismiss(animated: false, completion: nil)
+        }
     }
 }

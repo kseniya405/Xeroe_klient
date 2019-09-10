@@ -15,10 +15,11 @@ class LoginViewModel: NSObject {
     var goToHomeScreen: (() -> ())?
     
     /**
-     Checks if login and password are entered.
-     If not, notifies the user of this and returns false.
+     Accepts the View with the Username and password textField And authorizes with the entered data.
+        If successful - opens HomeViewController
+        If failure - informs the user about it
      */
-    func validateTextFields(loginFormView: LoginFormView) -> Bool {
+    func login(loginFormView: LoginFormView) {
         
         let loginTextField = loginFormView.loginTextField
         let passwordTextField = loginFormView.passwordTextField
@@ -29,20 +30,6 @@ class LoginViewModel: NSObject {
             let emailIsEmpty = loginTextField?.text?.isEmpty ?? true
             
             setError?(passwordIsEmpty, emailIsEmpty)
-            return false
-        }
-        return true
-    }
-    
-    /**
-     Accepts the View with the Username and password textField And authorizes with the entered data.
-        If successful - opens HomeViewController
-        If failure - informs the user about it
-     */
-    func login(loginFormView: LoginFormView) {
-        
-        guard let login = loginFormView.loginTextField.text, let password = loginFormView.passwordTextField.text else {
-            self.setError?(loginFormView.loginTextField.text?.isEmpty ?? true, loginFormView.passwordTextField.text?.isEmpty ?? true)
             return
         }
         
@@ -130,7 +117,6 @@ class LoginViewModel: NSObject {
      fills UserProfile.share
      */
     func setUserProfile(_ dictionary: [String: Any]) {
-        
         UserProfile.shared.id = dictionary[DefaultsKeys.id.rawValue] as? Int
         UserProfile.shared.xeroeId  = dictionary[DefaultsKeys.xeroeId.rawValue] as? String
         UserProfile.shared.defaultAddressId = dictionary[DefaultsKeys.defaultAddressId.rawValue] as? Int

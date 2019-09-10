@@ -55,9 +55,15 @@ let nameDeliver = "Name what you want to deliver"
 let describeDeliver = "Describe what you want to deliver"
 
 let addProductElement = "ADD +"
-//var insertXeroeID: String = "    ·   Insert xeroe ID address"
 
+let linkApiStart = "http://xeroe.kinect.pro:8091/"
 
+let agreement = "Agreement"
+
+let waitingForAccept = "Waiting for recipient to accept\nthe delivery agreement"
+let recipientDeniedDelivery = "Sorry, the recipient denied your\ndelivery. Please try again later"
+let recipientAccepted = "Recipient accepted"
+let recipientAcceptedYouDelivery = "Recipient accepted your delivery."
 
 
 
