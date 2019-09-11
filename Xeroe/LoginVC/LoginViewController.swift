@@ -82,6 +82,7 @@ class LoginViewController: UIViewController {
     func goToHomeScreen() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let initialViewController = storyboard.instantiateViewController(withIdentifier: identifierContainerVC) as! ContainerViewController
+        tabbar = "FrontTabbar"
         self.navigationController?.pushViewController(initialViewController, animated: false)
     }
 }

@@ -8,6 +8,8 @@
 
 import UIKit
 
+fileprivate let nextViewControllerIdentifier = "ContainerViewController"
+
 class ResultAgreementViewController: UIViewController {
 
     
@@ -33,7 +35,10 @@ class ResultAgreementViewController: UIViewController {
     
     @objc func okButtonTapIfDenied() {
         if isAgreementSuccesful ?? false {
-            self.navigationController?.popToViewController(orderViewController!, animated: false)
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let initialViewController = storyboard.instantiateViewController(withIdentifier: nextViewControllerIdentifier) as! ContainerViewController
+            tabbar = "SearchDriverViewController"
+            self.navigationController?.pushViewController(initialViewController, animated: false)
         } else {
             self.navigationController?.popToViewController(orderViewController!, animated: false)
         }

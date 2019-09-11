@@ -22,7 +22,7 @@ class ContainerViewController: UIViewController {
     
     //MARK: - ViewController Variables
     lazy var frontVC: UIViewController? = {
-        let front = self.storyboard?.instantiateViewController(withIdentifier: "FrontTabbar")
+        let front = self.storyboard?.instantiateViewController(withIdentifier: tabbar)
         return front
     }()
     

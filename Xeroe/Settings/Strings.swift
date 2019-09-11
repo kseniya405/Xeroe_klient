@@ -66,4 +66,6 @@ let recipientAccepted = "Recipient accepted"
 let recipientAcceptedYouDelivery = "Recipient accepted your delivery."
 
 
+var tabbar = "FrontTabbar"
+
 

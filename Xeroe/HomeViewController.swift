@@ -130,7 +130,6 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         let marker = GMSMarker()
         marker.position = CLLocationCoordinate2D(latitude: locValue.latitude, longitude: locValue.longitude)
         marker.map = mapView
-        
     }
     
 }
