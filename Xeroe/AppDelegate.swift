@@ -15,7 +15,7 @@ import IQKeyboardManagerSwift
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var navController: UINavigationController?
+    var navigationController: UINavigationController?
 
     let googleMapsApiKey = "AIzaSyD-3NH9jL5_2qI0kR2FQaNm_3f2GOaYIT0"
 
@@ -27,6 +27,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GMSPlacesClient.provideAPIKey(googleMapsApiKey)
         
         IQKeyboardManager.shared.enable = true
+
+        window = UIWindow()
+        let startViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+        navigationController = UINavigationController(rootViewController: startViewController)
+        navigationController?.navigationBar.isHidden = true
+        window?.rootViewController = navigationController
+        window?.makeKeyAndVisible()
         
         return true
     }

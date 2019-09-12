@@ -18,6 +18,8 @@ class ResultAgreementViewController: UIViewController {
     @IBOutlet weak var resultImage: UIImageView!
     @IBOutlet weak var resultLabel: UILabel!
     
+    
+    
     @IBOutlet weak var okButton: ButtonWithCornerRadius!{
         didSet {
             okButton.layer.borderColor = basicBlueColor.cgColor

@@ -126,7 +126,7 @@ extension OrderViewController: UITableViewDelegate, UITableViewDataSource {
             let id = (isSender ? UserProfile.shared.xeroeId : clientDataDictionary["xeroeid"] as? String) ?? "Wrong data"
             let nameUser = (isSender ? UserProfile.shared.email : clientDataDictionary["email"] as? String) ?? "Wrong data"
             let phone = (isSender ? UserProfile.shared.phone : clientDataDictionary["phone"] as? String) ?? "Wrong data"
-            let address = isSender ? "27 Old Gloucester Street, London WC1N" : "11 - 59 Hight Rd, East Finchley, London N2 8AW"
+            let address = isSender ? userAddress : clientAddress
             
             let urlAvatar: String
             if isSender {

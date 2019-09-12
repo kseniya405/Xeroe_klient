@@ -9,6 +9,10 @@
 import Foundation
 import UIKit
 
+class Extencions: NSObject {
+    
+}
+
 extension UIView {
     
     // launch Activity Indicator
@@ -68,4 +72,47 @@ extension UIViewController {
     }
 }
 
-
+extension UIView {
+    
+    public enum Animation {
+        case down
+        case up
+        case none
+    }
+    
+    func slideIn(from edge: Animation = .none, x: CGFloat = 0, y: CGFloat = 0, durations: TimeInterval = 0, delay: TimeInterval = 0, completion: ((Bool) -> Void)? = nil) -> UIView {
+        
+        let offset = offcetFor(edge: edge)
+        transform = CGAffineTransform(translationX: offset.x + x, y: offset.y + y)
+        UIView.animate(withDuration: durations, delay: delay, usingSpringWithDamping: 1, initialSpringVelocity: 2, options: .curveEaseIn, animations: {{
+            <#code#>
+            }}, completion: <#T##((Bool) -> Void)?##((Bool) -> Void)?##(Bool) -> Void#>)
+        
+        return self
+    }
+    
+    func slideOut(from edge: Animation = .none, x: CGFloat = 0, y: CGFloat = 0, durations: TimeInterval = 0, delay: TimeInterval = 0, completion: ((Bool) -> Void)? = nil) -> UIView {
+        
+        
+        
+        return self
+    }
+    
+    
+    private func offcetFor(edge: Animation) -> CGPoint {
+        
+        if let size = self.superview?.frame.size {
+            
+            switch edge {
+            case .none :
+                return .zero
+            case .down:
+                return CGPoint(x: 0, y: -frame.maxY)
+            case .up:
+                return CGPoint(x: 0, y: size.height - frame.minY)
+            }
+        }
+        
+        return .zero
+    }
+}

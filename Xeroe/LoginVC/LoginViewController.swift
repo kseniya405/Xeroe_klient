@@ -82,7 +82,7 @@ class LoginViewController: UIViewController {
     func goToHomeScreen() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let initialViewController = storyboard.instantiateViewController(withIdentifier: identifierContainerVC) as! ContainerViewController
-        tabbar = "FrontTabbar"
+        tabbar = "SearchDriverViewController"
         self.navigationController?.pushViewController(initialViewController, animated: false)
     }
 }

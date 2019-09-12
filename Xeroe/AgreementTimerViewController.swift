@@ -27,12 +27,22 @@ class AgreementTimerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        startTimer()
+        
+        // Do any additional setup after loading the view.
+    }
+    
+    @objc func noButtonTap() {
+        self.dismiss()
+    }
+    
+    func startTimer() {
         var minLeft: Int = 5
         var secLeft: Int = 0
         var timerCount: Int = 299
-//        let confirmationTime = Int.random(in: 0 ..< 290)
+        //        let confirmationTime = Int.random(in: 0 ..< 290)
         let confirmationTime = 290
-
+        
         Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
             minLeft = timerCount / 60
             secLeft = timerCount % 60
@@ -48,15 +58,7 @@ class AgreementTimerViewController: UIViewController {
                 self.navigationController?.pushViewController(initialViewController, animated: false)
             }
         }
-        
-        // Do any additional setup after loading the view.
     }
-    
-    @objc func noButtonTap() {
-        self.dismiss()
-    }
-    
-
 
 }
 

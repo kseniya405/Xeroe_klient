@@ -68,4 +68,5 @@ let recipientAcceptedYouDelivery = "Recipient accepted your delivery."
 
 var tabbar = "FrontTabbar"
 
-
+var clientAddress = "11 - 59 Hight Rd, East Finchley, London N2 8AW"
+var userAddress = "27 Old Gloucester Street, London WC1N"
