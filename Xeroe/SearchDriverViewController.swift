@@ -46,6 +46,7 @@ class SearchDriverViewController: UIViewController, CLLocationManagerDelegate, M
         let renderer = MKPolylineRenderer(overlay: overlay)
         renderer.strokeColor = UIColor(red: 0.12, green: 0.24, blue: 0.44, alpha: 1)
         renderer.lineWidth = 2.0
+        
         return renderer
     }
     
@@ -73,8 +74,28 @@ class SearchDriverViewController: UIViewController, CLLocationManagerDelegate, M
                         }
                         return
                     }
-                    print(response)
+                    print("responce", response)
                     let route = response.routes[0]
+                    
+                    let polyline = route.polyline
+                    let mapPoints = polyline.points()
+                    var locationAnnotation = MKPointAnnotation()
+                    for point in 0...polyline.pointCount - 1
+                    {
+                        Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { timer in
+                            
+                            
+                            let location = mapPoints[point].coordinate
+                            let locationPlacemark = MKPlacemark(coordinate: location, addressDictionary: nil)
+                            
+                            locationAnnotation = MKPointAnnotation()
+                            if let location = locationPlacemark.location {
+                                locationAnnotation.coordinate = location.coordinate
+                            }
+//                            self.mapView.showp
+                            print(location)
+                        }
+                    }
                     
                     let latitudeCenterLocation = (sourceLocationBack!.latitude  + destinationLocationBack!.latitude) / 2 * 0.9995
                     let longitudeCenterLocation = (sourceLocationBack!.longitude  + destinationLocationBack!.longitude) / 2
@@ -116,18 +137,8 @@ class SearchDriverViewController: UIViewController, CLLocationManagerDelegate, M
     func startSearhDriver() {
         Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false) { timer in
             self.visibleView()
-            StackView.transform = CGAffineTransform(scaleX: 0.0, y: 0.0)
-
-            // These values depends on the positioning of your element
-            let left = CGAffineTransform(translationX: -300, y: 0)
-            let right = CGAffineTransform(translationX: 300, y: 0)
-            let top = CGAffineTransform(translationX: 0, y: -300)
-            
-            UIView.animate(withDuration: 0.4, delay: 0.0, options: [], animations: {
-                // Add the transformation in this block
-                // self.container is your view that you want to animate
-                self.driverDataView.transform = top
-            }, completion: nil)
+            self.driverDataView.slideOut(from: .down)
+            self.driverDataView.slideIn(from: .up)
         }
     }
 
@@ -142,6 +153,8 @@ class SearchDriverViewController: UIViewController, CLLocationManagerDelegate, M
         self.leftMenuButton.isHidden = !self.leftMenuButton.isHidden
         self.driverDataView.isHidden = !self.driverDataView.isHidden
     }
+    
+
 }
 
 

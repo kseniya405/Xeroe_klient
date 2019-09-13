@@ -80,22 +80,39 @@ extension UIView {
         case none
     }
     
-    func slideIn(from edge: Animation = .none, x: CGFloat = 0, y: CGFloat = 0, durations: TimeInterval = 0, delay: TimeInterval = 0, completion: ((Bool) -> Void)? = nil) -> UIView {
+    func slideIn(from edge: Animation = .none, x: CGFloat = 0, y: CGFloat = 0, durations: TimeInterval = 1, delay: TimeInterval = 0, completion: ((Bool) -> Void)? = nil) -> Void {
         
         let offset = offcetFor(edge: edge)
         transform = CGAffineTransform(translationX: offset.x + x, y: offset.y + y)
-        UIView.animate(withDuration: durations, delay: delay, usingSpringWithDamping: 1, initialSpringVelocity: 2, options: .curveEaseIn, animations: {{
-            <#code#>
-            }}, completion: <#T##((Bool) -> Void)?##((Bool) -> Void)?##(Bool) -> Void#>)
         
-        return self
+        isHidden = false
+        
+        UIView.animate(withDuration: durations, delay: delay, usingSpringWithDamping: 1, initialSpringVelocity: 2, options: .curveEaseIn, animations: {
+            
+            self.transform = .identity
+            self.alpha = 1
+            
+            
+            }, completion: completion)
+        
+        
+        
     }
     
-    func slideOut(from edge: Animation = .none, x: CGFloat = 0, y: CGFloat = 0, durations: TimeInterval = 0, delay: TimeInterval = 0, completion: ((Bool) -> Void)? = nil) -> UIView {
+    func slideOut(from edge: Animation = .none, x: CGFloat = 0, y: CGFloat = 0, durations: TimeInterval = 1, delay: TimeInterval = 0, completion: ((Bool) -> Void)? = nil) -> Void {
+        
+        let offset = offcetFor(edge: edge)
+        let endtransform = CGAffineTransform(translationX: offset.x + x, y: offset.y + y)
+        
+        UIView.animate(withDuration: durations, delay: delay, usingSpringWithDamping: 1, initialSpringVelocity: 2, options: .curveEaseOut, animations: {
+            
+            self.transform = endtransform
+            self.alpha = 1
+            
+            
+        }, completion: completion)
         
         
-        
-        return self
     }
     
     
