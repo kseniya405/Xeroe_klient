@@ -13,6 +13,7 @@ import CoreLocation
 fileprivate let defaultCoordinations = CLLocationCoordinate2D(latitude: 39.799372, longitude: -89.644458)
 
 class SearchDriverViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
+    
     @IBOutlet weak var searhDriverView: UIView!
     @IBOutlet weak var searchDriverLabel: UILabel!
     @IBOutlet weak var driverDataView: UIView!
@@ -33,8 +34,16 @@ class SearchDriverViewController: UIViewController, CLLocationManagerDelegate, M
     
     let locationManager = CLLocationManager()
     
+    var locationStart: CLLocationCoordinate2D = defaultCoordinations
+    var locationFinish: CLLocationCoordinate2D = defaultCoordinations
+    
+    var prevLocation: CLLocationCoordinate2D = defaultCoordinations
+    var curLocation: CLLocationCoordinate2D = defaultCoordinations
+    var radians: CGFloat = 0
+    
     override func viewDidLoad() {
         mapView.delegate = self
+        self.showDriverData()
         getDirections()
     }
 
@@ -50,12 +59,16 @@ class SearchDriverViewController: UIViewController, CLLocationManagerDelegate, M
         return renderer
     }
     
+    
     fileprivate func getDirections() {
-        getLocation(from: userAddress) { sourceLocationBack in
-            self.getLocation(from: clientAddress) { destinationLocationBack in
+        convertAddressToCoordinate(from: userAddress) { sourceLocationBack in
+            self.convertAddressToCoordinate(from: clientAddress) { destinationLocationBack in
 
+                self.locationStart = sourceLocationBack ?? defaultCoordinations
                 let sourceMapItem = self.setMapItem(location: sourceLocationBack ?? defaultCoordinations)
+                
                 let destinationMapItem = self.setMapItem(location: destinationLocationBack ?? defaultCoordinations)
+                self.locationFinish = destinationLocationBack ?? defaultCoordinations
                 
                 let directionRequest = MKDirections.Request()
                 directionRequest.source = sourceMapItem
@@ -77,42 +90,22 @@ class SearchDriverViewController: UIViewController, CLLocationManagerDelegate, M
                     print("responce", response)
                     let route = response.routes[0]
                     
-                    let polyline = route.polyline
-                    let mapPoints = polyline.points()
-                    var locationAnnotation = MKPointAnnotation()
-                    for point in 0...polyline.pointCount - 1
-                    {
-                        Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { timer in
-                            
-                            
-                            let location = mapPoints[point].coordinate
-                            let locationPlacemark = MKPlacemark(coordinate: location, addressDictionary: nil)
-                            
-                            locationAnnotation = MKPointAnnotation()
-                            if let location = locationPlacemark.location {
-                                locationAnnotation.coordinate = location.coordinate
-                            }
-//                            self.mapView.showp
-                            print(location)
-                        }
-                    }
+//                    self.getRoutPoints(route)
                     
                     let latitudeCenterLocation = (sourceLocationBack!.latitude  + destinationLocationBack!.latitude) / 2 * 0.9995
                     let longitudeCenterLocation = (sourceLocationBack!.longitude  + destinationLocationBack!.longitude) / 2
                     let location = CLLocationCoordinate2D(latitude: latitudeCenterLocation, longitude: longitudeCenterLocation)
                     let region = MKCoordinateRegion(center: location , latitudinalMeters: CLLocationDistance(exactly: 10000)!, longitudinalMeters: CLLocationDistance(exactly: 10000)!)
 
-
                     self.mapView.setRegion(self.mapView.regionThatFits(region), animated: true)
                     self.mapView.addOverlay((route.polyline), level: MKOverlayLevel.aboveRoads)
-                    self.startSearhDriver()
                 }
             }
         }
 
     }
     
-    func getLocation(from address: String, completion: @escaping (_ location: CLLocationCoordinate2D?)-> Void) {
+    func convertAddressToCoordinate(from address: String, completion: @escaping (_ location: CLLocationCoordinate2D?)-> Void) {
         let geocoder = CLGeocoder()
         geocoder.geocodeAddressString(address) { (placemarks, error) in
             guard let placemarks = placemarks,
@@ -134,7 +127,7 @@ class SearchDriverViewController: UIViewController, CLLocationManagerDelegate, M
         return locationMapItem
     }
     
-    func startSearhDriver() {
+    func showDriverData() {
         Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false) { timer in
             self.visibleView()
             self.driverDataView.slideOut(from: .down)
@@ -144,8 +137,7 @@ class SearchDriverViewController: UIViewController, CLLocationManagerDelegate, M
 
     @objc func cancelButtonTap() {
         visibleView()
-        startSearhDriver()
-    
+        showDriverData()
     }
     
     func visibleView() {
@@ -154,7 +146,88 @@ class SearchDriverViewController: UIViewController, CLLocationManagerDelegate, M
         self.driverDataView.isHidden = !self.driverDataView.isHidden
     }
     
+    
+    func getRoutPoints(_ route: MKRoute) {
+        let polyline = route.polyline
+        let mapPoints = polyline.points()
+        
+        var prevAnnotation = MKPointAnnotation()
 
+        var point = 0
+        
+        let interval = 15 * 60 / polyline.pointCount
+        Timer.scheduledTimer(withTimeInterval: TimeInterval(interval), repeats: true) { timer in
+                        
+            self.radians = CGFloat(self.cornerTurningMarks(prevCoordinate: mapPoints[point].coordinate, curCoordinate: mapPoints[point+1].coordinate))
+
+            let location = mapPoints[point].coordinate
+            self.curLocation = location
+
+            print("location ", location)
+            let currentAnnotation = MKPointAnnotation()
+            currentAnnotation.coordinate = location
+            currentAnnotation.subtitle = "Driver"
+            
+            self.mapView.addAnnotation(currentAnnotation)
+            self.mapView.removeAnnotations([prevAnnotation])
+            self.mapView.addAnnotation(currentAnnotation)
+
+            prevAnnotation = currentAnnotation
+            point += 1
+            self.prevLocation = location
+
+            if point == polyline.pointCount - 1 {
+                timer.invalidate()
+            }
+        }
+    }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        if !(annotation is MKPointAnnotation) {
+            return nil
+        }
+        
+        let annotationIdentifier = "AnnotationIdentifier"
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: annotationIdentifier)
+        
+        if annotationView == nil {
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: annotationIdentifier)
+            annotationView?.canShowCallout = true
+        } else {
+            annotationView?.annotation = annotation
+        }
+        
+        if annotation.coordinate.latitude != locationStart.latitude, annotation.coordinate.longitude != locationStart.longitude,
+            annotation.coordinate.latitude != locationFinish.latitude, annotation.coordinate.longitude != locationFinish.longitude {
+            print(curLocation)
+            let pinImage = UIImage(named: "annotation")
+            
+            annotationView?.image = pinImage?.rotate(radians: CGFloat(radians))
+            print("set image", radians)
+        } else {
+            let pinImage = UIImage(named: "mark")
+            annotationView?.image = pinImage
+        }
+
+        return annotationView
+    }
+    
+    func cornerTurningMarks(prevCoordinate: CLLocationCoordinate2D, curCoordinate: CLLocationCoordinate2D) -> Double {
+        
+        let differrenceLatitudeIsPositive = (curCoordinate.latitude - prevCoordinate.latitude) >= 0
+
+        let xOffcetVectorA = curCoordinate.latitude - prevCoordinate.latitude
+        let yOffcetVectorA = curCoordinate.longitude - prevCoordinate.longitude
+        let yOffcetVectorB = curCoordinate.longitude
+        
+        let step1 = yOffcetVectorA * yOffcetVectorB
+        let step2 = sqrt(xOffcetVectorA * xOffcetVectorA + yOffcetVectorA * yOffcetVectorA) * sqrt(yOffcetVectorB * yOffcetVectorB)
+        let cosAB = step1/step2
+        let radiusAB  = acos(cosAB)
+        
+        
+        return differrenceLatitudeIsPositive ? radiusAB : -radiusAB
+    }
 }
-
 
