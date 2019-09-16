@@ -90,7 +90,7 @@ class SearchDriverViewController: UIViewController, CLLocationManagerDelegate, M
                     print("responce", response)
                     let route = response.routes[0]
                     
-//                    self.getRoutPoints(route)
+                    self.getRoutPoints(route)
                     
                     let latitudeCenterLocation = (sourceLocationBack!.latitude  + destinationLocationBack!.latitude) / 2 * 0.9995
                     let longitudeCenterLocation = (sourceLocationBack!.longitude  + destinationLocationBack!.longitude) / 2
@@ -146,6 +146,7 @@ class SearchDriverViewController: UIViewController, CLLocationManagerDelegate, M
         self.driverDataView.isHidden = !self.driverDataView.isHidden
     }
     
+
     
     func getRoutPoints(_ route: MKRoute) {
         let polyline = route.polyline
@@ -170,7 +171,6 @@ class SearchDriverViewController: UIViewController, CLLocationManagerDelegate, M
             
             self.mapView.addAnnotation(currentAnnotation)
             self.mapView.removeAnnotations([prevAnnotation])
-            self.mapView.addAnnotation(currentAnnotation)
 
             prevAnnotation = currentAnnotation
             point += 1
