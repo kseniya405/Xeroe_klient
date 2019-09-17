@@ -29,7 +29,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.enable = true
 
         window = UIWindow()
-        let startViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+
+        //if there is no token - opens LoginViewController, if there is - HomeViewController
+        let startViewController = UserProfile.shared.login == nil ? UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController : UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ContainerViewController") as! ContainerViewController
+        
+        tabbar = "SearchDriverViewController"
+
         navigationController = UINavigationController(rootViewController: startViewController)
         navigationController?.navigationBar.isHidden = true
         window?.rootViewController = navigationController

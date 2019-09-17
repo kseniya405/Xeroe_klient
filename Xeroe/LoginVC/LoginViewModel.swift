@@ -75,44 +75,6 @@ class LoginViewModel: NSObject {
         }
     }
     
-    
-    /** Checks the relevance of the token.
-             - If relevant - opens the HomeViewController.
-             - If not relevant: re-authorized with previously entered username and password.
-     Successfully - opens the HomeViewController.
-     Not successful - leaves the user on LoginViewController and clear UserProfile.shared
-     */
-    func tokenValidation() {
-        
-        RestApi().clientData() { (isOk, xeroeid)  in
-            DispatchQueue.main.async {
-                guard isOk, let _ = xeroeid else {
-                    print("Token is not relevant. isOk: \(isOk), xeroeid: \(String(describing: xeroeid)). Re-authorized ...")
-                    
-                    guard let login = UserProfile.shared.login, let password = UserProfile.shared.password else {
-                        print("Login or password does not exist. Login: \(String(describing: UserProfile.shared.login)), password: \(String(describing: UserProfile.shared.password))")
-                        return
-                    }
-                    
-                    RestApi().login(login: login, password: password) { (isOk, token) in
-                        DispatchQueue.main.async {
-                            guard isOk, let token = token else {
-                                print("Wrong current login or password. Login: \(login), password: \(String(describing: password))")
-                                UserProfile.shared.clear()
-                                return
-                            }
-                            UserProfile.shared.token = token
-                            self.goToHomeScreen?()
-                        }
-                    }
-                    return
-                }
-                self.goToHomeScreen?()
-            }
-        }
-    }
-    
-    
     /**
      fills UserProfile.share
      */

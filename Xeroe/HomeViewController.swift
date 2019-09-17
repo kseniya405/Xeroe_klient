@@ -10,6 +10,8 @@ import UIKit
 import GoogleMaps
 
 fileprivate let recipientVCIdentifier = "FoundUserDetailViewController"
+fileprivate let loginVCIdentifier = "LoginViewController"
+
 fileprivate let xeroeIDTextFieldFontSize = 18
 
 class HomeViewController: UIViewController, CLLocationManagerDelegate {
@@ -71,6 +73,13 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
                 self?.showAlertInputButtonTap()
             }
         }
+        
+        viewModel.goToLoginScreen = { [weak self] in
+            DispatchQueue.main.async {
+                self?.activityIndicator?.stopAnimating()
+                self?.goToLoginScreen()
+            }
+        }
 
     }
     
@@ -115,6 +124,12 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let initialViewController = storyboard.instantiateViewController(withIdentifier: recipientVCIdentifier) as! FoundUserDetailViewController
         initialViewController.clientDataDictionary = dictionary
+        self.navigationController?.pushViewController(initialViewController, animated: false)
+    }
+    
+    func goToLoginScreen() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let initialViewController = storyboard.instantiateViewController(withIdentifier: loginVCIdentifier) as! LoginViewController
         self.navigationController?.pushViewController(initialViewController, animated: false)
     }
 

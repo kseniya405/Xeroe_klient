@@ -37,12 +37,13 @@ extension UIView {
 }
 
 extension UILabel {
-    
     /**
      sets label parameters and style
      */
-    func setLabelStyle(_ textLabel: String, _ fontLabel: UIFont?, _ colorLabel: UIColor) {
-        self.text = textLabel
+    func setLabelStyle(textLabel: String? = nil, fontLabel: UIFont?, colorLabel: UIColor?) {
+        if let textLabel = textLabel {
+            self.text = textLabel
+        }
         self.font = fontLabel
         self.textColor = colorLabel
     }

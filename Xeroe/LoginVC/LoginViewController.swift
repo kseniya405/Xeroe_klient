@@ -40,9 +40,7 @@ class LoginViewController: UIViewController {
     var activityIndicator: UIActivityIndicatorView?
     
     override func viewDidLoad() {
-        if UserProfile.shared.login != nil {
-            viewModel.tokenValidation()
-        }
+
         super.viewDidLoad()
 
         viewModel.setError = { [weak self] (passwordIsEmpty, emailIsEmpty) in

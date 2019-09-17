@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		9D02F5A32328CC530045ED8C /* SearchDriverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D02F5A22328CC530045ED8C /* SearchDriverViewController.swift */; };
 		9D0875AB230592BB0085EDD9 /* OptionsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D0875AA230592BA0085EDD9 /* OptionsTableViewCell.xib */; };
+		9D09B35B2330E80100389491 /* DriverWayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D09B35A2330E80100389491 /* DriverWayViewController.swift */; };
+		9D09B35D2330ED2000389491 /* MapWithDriverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D09B35C2330ED2000389491 /* MapWithDriverViewController.swift */; };
 		9D09D7DF22F1E23800D4369F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D09D7DE22F1E23800D4369F /* HomeViewController.swift */; };
 		9D09D7E322F1E97400D4369F /* View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D09D7E222F1E97400D4369F /* View.xib */; };
 		9D0B6D2E231D3F3700E3A8F8 /* LoginFormView.temp_caseinsensitive_rename.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0B6D2D231D3F3700E3A8F8 /* LoginFormView.temp_caseinsensitive_rename.swift */; };
@@ -86,6 +88,8 @@
 		4FA96868B0382980D707E3E7 /* Pods_Xeroe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Xeroe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D02F5A22328CC530045ED8C /* SearchDriverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchDriverViewController.swift; path = /Users/denismarkov/Documents/Learning/Kseniya/Xeroe/Xeroe/SearchDriverViewController.swift; sourceTree = "<absolute>"; };
 		9D0875AA230592BA0085EDD9 /* OptionsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OptionsTableViewCell.xib; sourceTree = "<group>"; };
+		9D09B35A2330E80100389491 /* DriverWayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverWayViewController.swift; sourceTree = "<group>"; };
+		9D09B35C2330ED2000389491 /* MapWithDriverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapWithDriverViewController.swift; sourceTree = "<group>"; };
 		9D09D7DE22F1E23800D4369F /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		9D09D7E222F1E97400D4369F /* View.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = View.xib; sourceTree = "<group>"; };
 		9D0B6D2D231D3F3700E3A8F8 /* LoginFormView.temp_caseinsensitive_rename.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFormView.temp_caseinsensitive_rename.swift; sourceTree = "<group>"; };
@@ -358,7 +362,9 @@
 				9D0EEC4823014B9F00891D7D /* Orders Table View Cell */,
 				9D113C222327C80B00BE8D22 /* AgreementTimerViewController.swift */,
 				9D113C242327D68F00BE8D22 /* ResultAgreementViewController.swift */,
+				9D09B35C2330ED2000389491 /* MapWithDriverViewController.swift */,
 				9D02F5A22328CC530045ED8C /* SearchDriverViewController.swift */,
+				9D09B35A2330E80100389491 /* DriverWayViewController.swift */,
 				9D75BE6B22F0337C001E907B /* Models */,
 				9DACCB8B22F431BF00D9F433 /* MutableUIObjects */,
 				9D0B6D34231D62C200E3A8F8 /* Utilits */,
@@ -547,6 +553,7 @@
 				9DF533A422EEDBE10036866C /* LoginViewController.swift in Sources */,
 				9D0EEC4B23014C4700891D7D /* PaymentMethodTableViewCell.swift in Sources */,
 				9D1BFB11231E511E005E8024 /* HomeViewModel.swift in Sources */,
+				9D09B35B2330E80100389491 /* DriverWayViewController.swift in Sources */,
 				9DA30B4D2310126C0054D1ED /* ImagePicker.swift in Sources */,
 				9D0EEC5F230181F100891D7D /* ChooseProductCollectionViewCell.swift in Sources */,
 				9D02F5A32328CC530045ED8C /* SearchDriverViewController.swift in Sources */,
@@ -571,6 +578,7 @@
 				9DA30B4A230FE56C0054D1ED /* DeliveryTypeCollectionViewCell.swift in Sources */,
 				9D6EE92322F97E3D00F8DFA6 /* FoundUserDetailViewController.swift in Sources */,
 				9D1737F7231CFC68009EEDF6 /* RegistrationTableViewCell.swift in Sources */,
+				9D09B35D2330ED2000389491 /* MapWithDriverViewController.swift in Sources */,
 				9DACCB8822F42D7200D9F433 /* ButtonWithCornerRadius.swift in Sources */,
 				9D13039222FD50AC00DC983E /* OrderViewController.swift in Sources */,
 				9DDFD40623041A9B007DDB36 /* ClientData.swift in Sources */,

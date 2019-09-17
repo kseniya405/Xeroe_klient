@@ -15,31 +15,31 @@ class LoginFormView: UIView {
     
     @IBOutlet weak var enterEmailOrPhoneLabel: UILabel! {
         didSet {
-            enterEmailOrPhoneLabel.setLabelStyle(emailOrPhone, UIFont(name: robotoRegular, size: 13), greyTextColor)
+            enterEmailOrPhoneLabel.setLabelStyle(textLabel: emailOrPhone, fontLabel: UIFont(name: robotoRegular, size: 13), colorLabel: greyTextColor)
         }
     }
     
     @IBOutlet weak var passwordLabel: UILabel! {
         didSet {
-            passwordLabel.setLabelStyle(password, UIFont(name: robotoRegular, size: 13), greyTextColor)
+            passwordLabel.setLabelStyle(textLabel: password, fontLabel: UIFont(name: robotoRegular, size: 13), colorLabel: greyTextColor)
         }
     }
     
     @IBOutlet weak var enterEmailLabel: UILabel! {
         didSet {
-            enterEmailLabel.setLabelStyle(enterEmail, UIFont(name: robotoRegular, size: 12), .red)
+            enterEmailLabel.setLabelStyle(textLabel: enterEmail, fontLabel: UIFont(name: robotoRegular, size: 12), colorLabel: .red)
         }
     }
     
     @IBOutlet weak var enterPasswordLabel: UILabel! {
         didSet {
-            enterPasswordLabel.setLabelStyle(enterPassword, UIFont(name: robotoRegular, size: 12), .red)
+            enterPasswordLabel.setLabelStyle(textLabel: enterPassword, fontLabel: UIFont(name: robotoRegular, size: 12), colorLabel: .red)
         }
     }
     
     @IBOutlet weak var wrongPaswordLabel: UILabel!{
         didSet {
-            wrongPaswordLabel.setLabelStyle(wrongPassword, UIFont(name: robotoRegular, size: 11), .red)
+            wrongPaswordLabel.setLabelStyle(textLabel: wrongPassword, fontLabel: UIFont(name: robotoRegular, size: 11), colorLabel: .red)
         }
     }
     
