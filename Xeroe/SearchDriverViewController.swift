@@ -55,8 +55,8 @@ class SearchDriverViewController: MapWithDriverViewController {
     
     @objc func confirmButtonTap() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        tabbar = "DriverWayViewController"
         let initialViewController = storyboard.instantiateViewController(withIdentifier: "ContainerViewController") as! ContainerViewController
+        initialViewController.identifier = "DriverWayViewController"
         self.navigationController?.pushViewController(initialViewController, animated: false)
     }
     

@@ -18,34 +18,64 @@ class DriverWayViewController: MapWithDriverViewController {
     @IBOutlet weak var statusView: UIView!
     @IBOutlet weak var statusValue: UILabel!
     @IBOutlet weak var infoAboutTimer: UILabel!
-    @IBOutlet weak var timerImage: UIImageView!
+    @IBOutlet weak var timerImage: UIImageView! {
+        didSet {
+            timerImage.image = UIImage(named: "timer")
+        }
+    }
     @IBOutlet weak var timerValue: UILabel!
     @IBOutlet weak var infoWithTimer: UIStackView!
+    @IBOutlet weak var waitingRecipientConfirm: UILabel! {
+        didSet {
+            waitingRecipientConfirm.text = "Waiting for recipient to confirm the delivery"
+        }
+    }
+    @IBOutlet weak var showQRButton: UIButton! {
+        didSet {
+            showQRButton.addTarget(self, action: #selector(showQRButtonTap), for: .touchUpInside)
+        }
+    }
     
     var finalRoute = MKRoute()
+    
     override func viewDidLoad() {
         mapView.delegate = self
         self.showDriverData()
         self.getRoute { (route) in
             self.finalRoute = route
-            self.statusValue.text = "Delivery status: on the way"
+            self.statusValue.text = "Delivery status: collected"
         }
         runDriverWaitingTimer(valueTimer: 3) { (isOk) in
             self.statusValue.text = "Delivery status: at collection point"
             self.timerValue.text = "15:00"
             self.infoAboutTimer.text = "Goods should be delivered in"
 
-            self.getRoutPoints(self.finalRoute)
+            self.getRoutPoints(route: self.finalRoute) { (isOk) in
+                self.statusValue.text = "Delivery status: on the way"
+            }
 
             self.runDriverWaitingTimer(valueTimer: 15) { (isOk) in
                 self.statusValue.text = "Delivery status: arrived at destination"
                 self.infoAboutTimer.text = "Driver: waiting"
                 self.timerValue.text = "0:00"
                 self.runDriverWaitingStopwatch(callback: { (isOk) in
-                    <#code#>
+                    self.statusValue.text = "Delivery status: delivered"
+                    self.infoWithTimer.isHidden = true
+
+                    if userIsSender ?? false {
+                        self.waitingRecipientConfirm.isHidden = false
+                    } else {
+                        self.showQRButton.isHidden = false
+                    }
                 })
             }
         }
+    }
+    
+    @objc func showQRButtonTap() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let initialViewController = storyboard.instantiateViewController(withIdentifier: "QRCodeViewController") as! QRCodeViewController
+        self.navigationController?.pushViewController(initialViewController, animated: false)
     }
     
      func getRoute(callback: @escaping (MKRoute) -> Void) {
@@ -76,7 +106,6 @@ class DriverWayViewController: MapWithDriverViewController {
                         callback(MKRoute())
                         return
                     }
-                    print("responce", response)
                     let finalRoute = response.routes[0]
 
                     let latitudeCenterLocation = (sourceLocationBack!.latitude  + destinationLocationBack!.latitude) / 2 * 0.9995
@@ -110,7 +139,7 @@ class DriverWayViewController: MapWithDriverViewController {
         Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
             minLeft = timerCount / 60
             secLeft = timerCount % 60
-            self.timerValue.text = secLeft < 10 ? "\(minLeft):0\(secLeft) min" : "\(minLeft):\(secLeft)"
+            self.timerValue.text = secLeft < 10 ? "\(minLeft):0\(secLeft)" : "\(minLeft):\(secLeft)"
             timerCount -= 1
             
             if timerCount == confirmationTime {
@@ -126,12 +155,12 @@ class DriverWayViewController: MapWithDriverViewController {
         var secLeft: Int = 1
         var timerCount: Int = 0
         //        let confirmationTime = Int.random(in: 0 ..< valueTimer * 60 - 10)
-        let confirmationTime = 15
+        let confirmationTime = 8
         
         Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
             minLeft = timerCount / 60
             secLeft = timerCount % 60
-            self.timerValue.text = secLeft < 10 ? "\(minLeft):0\(secLeft) min" : "\(minLeft):\(secLeft)"
+            self.timerValue.text = secLeft < 10 ? "\(minLeft):0\(secLeft)" : "\(minLeft):\(secLeft)"
             timerCount += 1
             
             if timerCount == confirmationTime {
@@ -140,6 +169,9 @@ class DriverWayViewController: MapWithDriverViewController {
             }
         }
     }
+    
+    
+    
 
 }
 

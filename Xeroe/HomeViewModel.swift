@@ -59,8 +59,9 @@ class HomeViewModel: NSObject {
                         DispatchQueue.main.async {
                             guard isOk, let token = token else {
                                 print("Wrong current login or password. Login: \(login), password: \(String(describing: password))")
-                                UserProfile.shared.clear()
-                                self.goToLoginScreen?()
+                                UserProfile.shared.clear(callback: { (isOk) in
+                                    self.goToLoginScreen?()
+                                })
                                 return
                             }
                             UserProfile.shared.token = token

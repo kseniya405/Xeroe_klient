@@ -420,7 +420,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Xeroe/ResultAgreementViewController.swift"
-            timestampString = "590408769.119507"
+            timestampString = "590512215.242377"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "17"
@@ -544,7 +544,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Xeroe/SearchDriverViewController.swift"
-            timestampString = "590424262.698386"
+            timestampString = "590512215.242537"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "15"
@@ -560,7 +560,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Xeroe/Left menu/ContainerViewController.swift"
-            timestampString = "589907359.36766"
+            timestampString = "590512215.242623"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "20"
@@ -623,7 +623,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Xeroe/Left menu/ContainerViewController.swift"
-            timestampString = "589907359.3677419"
+            timestampString = "590512215.242708"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "21"
@@ -731,27 +731,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Xeroe/Left menu/ContainerViewController.swift"
-            timestampString = "589907359.367818"
+            timestampString = "590512215.242782"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Xeroe/Left menu/ContainerViewController.swift"
-            timestampString = "589907359.3678941"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
             landmarkName = "setUpNotifications()"
             landmarkType = "7">
          </BreakpointContent>
@@ -763,11 +747,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Xeroe/Left menu/ContainerViewController.swift"
-            timestampString = "589907359.367969"
+            timestampString = "590512215.242852"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
             landmarkName = "setUpGestures()"
             landmarkType = "7">
          </BreakpointContent>
@@ -779,11 +763,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Xeroe/Left menu/ContainerViewController.swift"
-            timestampString = "589907359.3680429"
+            timestampString = "590512215.24292"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
             landmarkName = "displayTabbar()"
             landmarkType = "7">
          </BreakpointContent>
@@ -795,11 +779,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Xeroe/Left menu/ContainerViewController.swift"
-            timestampString = "589907359.368118"
+            timestampString = "590512215.242986"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
             landmarkName = "displaySideMenu()"
             landmarkType = "7">
          </BreakpointContent>
@@ -811,11 +795,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Xeroe/Left menu/ContainerViewController.swift"
-            timestampString = "589907359.368191"
+            timestampString = "590512215.2430511"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
             landmarkName = "addBlackTransparentView()"
             landmarkType = "7">
          </BreakpointContent>
@@ -827,11 +811,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Xeroe/Left menu/ContainerViewController.swift"
-            timestampString = "589907359.368266"
+            timestampString = "590512215.243116"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
             landmarkName = "addShadowToView()"
             landmarkType = "7">
          </BreakpointContent>
@@ -843,11 +827,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Xeroe/Left menu/ContainerViewController.swift"
-            timestampString = "589907359.36834"
+            timestampString = "590512215.243181"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "119"
-            endingLineNumber = "119"
+            startingLineNumber = "114"
+            endingLineNumber = "114"
             landmarkName = "openOrCloseSideMenu()"
             landmarkType = "7">
          </BreakpointContent>
@@ -859,11 +843,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Xeroe/Left menu/ContainerViewController.swift"
-            timestampString = "589907359.368414"
+            timestampString = "590512215.243246"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "153"
-            endingLineNumber = "153"
+            startingLineNumber = "148"
+            endingLineNumber = "148"
             landmarkName = "closeSideMenu()"
             landmarkType = "7">
          </BreakpointContent>
@@ -875,11 +859,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Xeroe/Left menu/ContainerViewController.swift"
-            timestampString = "589907359.368488"
+            timestampString = "590512215.24331"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "179"
-            endingLineNumber = "179"
+            startingLineNumber = "174"
+            endingLineNumber = "174"
             landmarkName = "handlePanGesture(panGesture:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -891,11 +875,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Xeroe/Left menu/ContainerViewController.swift"
-            timestampString = "589907359.368565"
+            timestampString = "590512215.243373"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "166"
-            endingLineNumber = "166"
+            startingLineNumber = "161"
+            endingLineNumber = "161"
             landmarkName = "closeWithoutAnimation()"
             landmarkType = "7">
          </BreakpointContent>
@@ -907,11 +891,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Xeroe/Left menu/ContainerViewController.swift"
-            timestampString = "589907359.368636"
+            timestampString = "590512215.243436"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "248"
-            endingLineNumber = "248"
+            startingLineNumber = "243"
+            endingLineNumber = "243"
             landmarkName = "closeSideMenu()"
             landmarkType = "7">
          </BreakpointContent>
@@ -923,11 +907,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Xeroe/Left menu/ContainerViewController.swift"
-            timestampString = "589907359.368709"
+            timestampString = "590512215.243499"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "253"
-            endingLineNumber = "253"
+            startingLineNumber = "248"
+            endingLineNumber = "248"
             landmarkName = "closeSideMenuWithoutAnimation()"
             landmarkType = "7">
          </BreakpointContent>
@@ -939,11 +923,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Xeroe/Left menu/ContainerViewController.swift"
-            timestampString = "589907359.368781"
+            timestampString = "590512215.243566"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -955,11 +939,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Xeroe/Left menu/ContainerViewController.swift"
-            timestampString = "589907359.368844"
+            timestampString = "590512215.2436301"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "118"
-            endingLineNumber = "118"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
             landmarkName = "openOrCloseSideMenu()"
             landmarkType = "7">
          </BreakpointContent>
@@ -971,13 +955,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Xeroe/DriverWayViewController.swift"
-            timestampString = "590424262.698983"
+            timestampString = "590512215.243701"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
-            landmarkName = "DriverWayViewController"
-            landmarkType = "3">
+            startingLineNumber = "73"
+            endingLineNumber = "73"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
             <Locations>
                <Location
                   shouldBeEnabled = "No"
@@ -1019,11 +1003,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Xeroe/DriverWayViewController.swift"
-            timestampString = "590424262.699505"
+            timestampString = "590512215.243799"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
             <Locations>

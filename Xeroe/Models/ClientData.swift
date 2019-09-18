@@ -12,6 +12,9 @@ import Foundation
 //    let arrayClient: [ClientData]
 //}
 
+var userIsSender: Bool?
+
+
 struct ClientData: Codable {
     let id: Int
     let xeroeId: String

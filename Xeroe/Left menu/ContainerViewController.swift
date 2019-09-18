@@ -19,20 +19,16 @@ class ContainerViewController: UIViewController {
     var touchPos: CGPoint?
     let blackTransparentViewTag = 04051993
     var openFlag: Bool = false
+    var identifier: String?
+
     
-    //MARK: - ViewController Variables
-    lazy var frontVC: UIViewController? = {
-        let front = self.storyboard?.instantiateViewController(withIdentifier: tabbar)
-        return front
-    }()
-    
-    lazy var leftMenuVC: UIViewController? = {
-        let leftMenu = self.storyboard?.instantiateViewController(withIdentifier: "leftMenuVC")
-        return leftMenu
-    }()
+    var frontVC: UIViewController?
+    var leftMenuVC: UIViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        frontVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: identifier ?? "HomeViewController")
+        leftMenuVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "leftMenuVC")
         displayTabbar()
         addShadowToView()
         setUpNotifications()
@@ -54,7 +50,6 @@ class ContainerViewController: UIViewController {
         let panGestureContainerView = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture(panGesture:)))
         self.view.addGestureRecognizer(panGestureContainerView)
     }
-    
     
     //MARK: - UISetup
     func displayTabbar(){

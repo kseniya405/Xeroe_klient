@@ -168,17 +168,26 @@ class UserProfile {
             return nil
         }
     }
-       
-    func clear() {
-        UserDefaults.standard.dictionaryRepresentation().keys.forEach { UserDefaults.standard.removeObject(forKey: $0) }
-        UserDefaults.standard.synchronize()
+
+    func clear(callback: @escaping (Bool) -> Void) {
+
+        login = nil
+        token = nil
+        id = nil
+        xeroeId = nil
+        defaultAddressId = nil
+        email = nil
+        phone = nil
+        password = nil
+        state = nil
+        avatar = nil
+        userableType = nil
+        userableId = nil
+        
+        callback(true)
     }
     
     func printProfile(){
-//        UserDefaults.standard.dictionaryRepresentation().keys.forEach {
-//            print(UserDefaults.standard.string(forKey: $0) as Any)
-//
-//        }
         print("token: \(String(describing: token))\n login: \(String(describing: login))\n password: \(String(describing: password))\n id: \(String(describing: id))\n xeroeId: \(String(describing: xeroeId)) defaultAddressId: \(String(describing: defaultAddressId))\n email: \(String(describing: email))\n phone: \(String(describing: phone))\n state: \(String(describing: state))\n avatar: \(String(describing: avatar))\n userableType: \(String(describing: userableType))\n userableId: \(String(describing: userableId))")
     }
     

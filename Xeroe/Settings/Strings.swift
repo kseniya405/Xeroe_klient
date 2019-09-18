@@ -66,8 +66,6 @@ let recipientAccepted = "Recipient accepted"
 let recipientAcceptedYouDelivery = "Recipient accepted your delivery."
 
 
-var tabbar = "FrontTabbar"
-
 var clientAddress = "11 - 59 Hight Rd, East Finchley, London N2 8AW"
 var userAddress = "27 Old Gloucester Street, London WC1N"
 
@@ -75,3 +73,6 @@ let driverName = "Driver Name"
 let estimateTimeForTrip = "Estimate time for the trip:"
 let car = "Car"
 let timeToArrive = "Time to arrive"
+
+
+let driverArrived = "Driver has arrived"

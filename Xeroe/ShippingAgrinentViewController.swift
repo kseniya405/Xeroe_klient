@@ -58,6 +58,7 @@ class ShippingAgrinentViewController: UIViewController {
         let initialViewController = storyboard.instantiateViewController(withIdentifier: "OrderViewController") as! OrderViewController
         
         // isDelivery - shows whether it is delivery or receipt
+        userIsSender = isDelivery
         initialViewController.isDelivery = isDelivery
         initialViewController.clientDataDictionary = clientDataDictionary
         self.navigationController?.pushViewController(initialViewController, animated: false)
