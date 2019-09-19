@@ -29,7 +29,7 @@ class LeftMenuTableViewCell: UITableViewCell {
         self.nameCell.text = nameCell
         self.iconImage.image = UIImage(named: nameCell)?.withRenderingMode(.alwaysTemplate)
         
-        let backgroundColor = isSelected ? backgroundChooseCellColor : .white
+        let backgroundColor = isSelected ? cianColor : .white
         let fillingColor = isSelected ? .white : blackTextColor
         chooseColors(nameCell, backgroundColor: backgroundColor, fillingColor: fillingColor)
     }

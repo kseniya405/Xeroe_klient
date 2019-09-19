@@ -106,7 +106,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Xeroe/Orders Table View Cell/GoodsTableViewCell.swift"
-            timestampString = "589819661.504174"
+            timestampString = "590593728.677371"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "49"
@@ -169,7 +169,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Xeroe/Orders Table View Cell/GoodsTableViewCell.swift"
-            timestampString = "589819661.504239"
+            timestampString = "590593728.677457"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "106"
@@ -185,7 +185,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Xeroe/Orders Table View Cell/GoodsTableViewCell.swift"
-            timestampString = "589819661.504298"
+            timestampString = "590593728.677523"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "110"
@@ -201,7 +201,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Xeroe/Orders Table View Cell/GoodsTableViewCell.swift"
-            timestampString = "589819661.504355"
+            timestampString = "590593728.677586"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "146"
@@ -544,7 +544,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Xeroe/SearchDriverViewController.swift"
-            timestampString = "590512215.242537"
+            timestampString = "590576266.943163"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "15"
@@ -946,102 +946,6 @@
             endingLineNumber = "113"
             landmarkName = "openOrCloseSideMenu()"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Xeroe/DriverWayViewController.swift"
-            timestampString = "590512215.243701"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;__C.CLLocationCoordinate2D&gt;) -&gt; () in Xeroe.DriverWayViewController.getRoute() -&gt; __C.MKRoute"
-                  moduleName = "Xeroe"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/denismarkov/Documents/Learning/Kseniya/Xeroe/Xeroe/DriverWayViewController.swift"
-                  timestampString = "590417864.078382"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "34"
-                  endingLineNumber = "34"
-                  offsetFromSymbolStart = "51">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;__C.CLLocationCoordinate2D&gt;) -&gt; () in closure #1 (Swift.Optional&lt;__C.CLLocationCoordinate2D&gt;) -&gt; () in Xeroe.DriverWayViewController.getRoute() -&gt; __C.MKRoute"
-                  moduleName = "Xeroe"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/denismarkov/Documents/Learning/Kseniya/Xeroe/Xeroe/DriverWayViewController.swift"
-                  timestampString = "590417864.082104"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "36"
-                  endingLineNumber = "36"
-                  offsetFromSymbolStart = "256">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Xeroe/DriverWayViewController.swift"
-            timestampString = "590512215.243799"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Xeroe.DriverWayViewController.getRoute() -&gt; __C.MKRoute"
-                  moduleName = "Xeroe"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/denismarkov/Documents/Learning/Kseniya/Xeroe/Xeroe/DriverWayViewController.swift"
-                  timestampString = "590417954.6796449"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "33"
-                  endingLineNumber = "33"
-                  offsetFromSymbolStart = "25">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;__C.CLLocationCoordinate2D&gt;) -&gt; () in Xeroe.DriverWayViewController.getRoute() -&gt; __C.MKRoute"
-                  moduleName = "Xeroe"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/denismarkov/Documents/Learning/Kseniya/Xeroe/Xeroe/DriverWayViewController.swift"
-                  timestampString = "590417954.682972"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "34"
-                  endingLineNumber = "34"
-                  offsetFromSymbolStart = "51">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

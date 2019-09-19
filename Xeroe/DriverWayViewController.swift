@@ -35,6 +35,7 @@ class DriverWayViewController: MapWithDriverViewController {
             showQRButton.addTarget(self, action: #selector(showQRButtonTap), for: .touchUpInside)
         }
     }
+    @IBOutlet weak var driverRateView: UIView!
     
     var finalRoute = MKRoute()
     
@@ -75,6 +76,7 @@ class DriverWayViewController: MapWithDriverViewController {
     @objc func showQRButtonTap() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let initialViewController = storyboard.instantiateViewController(withIdentifier: "QRCodeViewController") as! QRCodeViewController
+        initialViewController.delegate = self 
         self.navigationController?.pushViewController(initialViewController, animated: false)
     }
     
@@ -123,9 +125,7 @@ class DriverWayViewController: MapWithDriverViewController {
     }
     
     func showDriverData() {
-        self.driverDataView.slideOut(from: .down)
         self.driverDataView.slideIn(from: .up)
-        self.statusView.slideOut(from: .down)
         self.statusView.slideIn(from: .up)
     }
     
@@ -169,10 +169,14 @@ class DriverWayViewController: MapWithDriverViewController {
             }
         }
     }
-    
-    
-    
 
 }
 
-
+extension DriverWayViewController: QRCodeViewControllerDelegate {
+    func changView() {
+        self.driverDataView.isHidden = true
+        self.statusView.isHidden = true
+        self.driverRateView.isHidden = false
+        self.driverRateView.slideIn(from: .up)
+    }
+}

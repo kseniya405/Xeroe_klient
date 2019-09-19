@@ -8,7 +8,8 @@ target 'Xeroe' do
   pod 'GoogleMaps', '~> 3.4.0.0'
   pod 'GooglePlaces', '3.4.0.0'
   pod 'IQKeyboardManagerSwift'
-
+  pod 'Cosmos', '~> 19.0'
+  
   # Pods for Xeroe
 
 end

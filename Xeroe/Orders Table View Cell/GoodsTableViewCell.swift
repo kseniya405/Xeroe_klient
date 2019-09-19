@@ -62,7 +62,7 @@ class GoodsTableViewCell: UITableViewCell{
         tableView.register(UINib(nibName: addPhotoIdentifier, bundle: nil), forCellReuseIdentifier: addPhotoIdentifier)
         tableView.register(UINib(nibName: dimensionsIdentifier, bundle: nil), forCellReuseIdentifier: dimensionsIdentifier)
         tableView.layer.borderWidth = 1
-        tableView.layer.borderColor = backgroundChooseCellColor.cgColor
+        tableView.layer.borderColor = cianColor.cgColor
         tableView.layer.masksToBounds = true
         tableView.allowsSelection = false
         
@@ -92,7 +92,7 @@ extension GoodsTableViewCell: UICollectionViewDataSource {
         
         cell.isSelected = indexPath.row == numSelectProduct
         
-        let backgroundColor = cell.isSelected ? backgroundChooseCellColor : productCellOrderTableBackgroundColor
+        let backgroundColor = cell.isSelected ? cianColor : productCellOrderTableBackgroundColor
         let labelColor = cell.isSelected ? .white : productCellOrderTableTextColor
         
         cell.setParameters(backgroundColor: backgroundColor, labelColor: labelColor, labelText: productCells[indexPath.row])
@@ -125,7 +125,7 @@ extension GoodsTableViewCell: UICollectionViewDelegate {
         goodsCellDelegate?.setNumProduct(numProduct: indexPath.row)
         
         let selectCell = collectionsView.cellForItem(at: indexPath)  as! ChooseProductCollectionViewCell
-        selectCell.setParameters(backgroundColor: backgroundChooseCellColor, labelColor: .white, labelText: productCells[indexPath.row])
+        selectCell.setParameters(backgroundColor: cianColor, labelColor: .white, labelText: productCells[indexPath.row])
         collectionView.reloadData()
         selectCell.isSelected = true
 

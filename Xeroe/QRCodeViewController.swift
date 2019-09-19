@@ -8,6 +8,11 @@
 
 import UIKit
 
+
+protocol QRCodeViewControllerDelegate {
+    func changView()
+}
+
 class QRCodeViewController: UIViewController {
     
     
@@ -33,18 +38,28 @@ class QRCodeViewController: UIViewController {
             uniqudeCodeValue.layer.masksToBounds = true
             uniqudeCodeValue.layer.cornerRadius = 4
             uniqudeCodeValue.layer.borderWidth = 2
-            uniqudeCodeValue.layer.borderColor = UIColor(red: 0.77, green: 0.77, blue: 0.77, alpha: 1).cgColor
+            uniqudeCodeValue.layer.borderColor = cianColor.cgColor
         }
     }
-    @IBOutlet weak var nextButton: ButtonWithCornerRadius!
     
+    @IBOutlet weak var nextButton: ButtonWithCornerRadius! {
+        didSet {
+            nextButton.addTarget(self, action: #selector(nextButtonTap), for: .touchUpInside)
+        }
+    }
     
+    var delegate: QRCodeViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     @objc func backButtonTap() {
+        self.dismiss()
+    }
+    
+    @objc func nextButtonTap() {
+        delegate?.changView()
         self.dismiss()
     }
 

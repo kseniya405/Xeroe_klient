@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/denismarkov/Documents/Learning/Kseniya/Xeroe/Xeroe/SearchDriverViewController.swift">
-   </FileRef>
-   <FileRef
       location = "group:Xeroe.xcodeproj">
    </FileRef>
    <FileRef

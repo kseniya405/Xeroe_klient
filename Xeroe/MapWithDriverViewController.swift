@@ -65,6 +65,11 @@ class MapWithDriverViewController: UIViewController, CLLocationManagerDelegate, 
             carValue.setLabelStyle(fontLabel: UIFont(name: robotoRegular, size: 16), colorLabel: blackTextColor)
         }
     }
+    @IBOutlet weak var reportButton: UIButton! {
+        didSet {
+            reportButton.addTarget(self, action: #selector(leftMenuButtonTap), for: .touchUpInside)
+        }
+    }
     
    
     
