@@ -37,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         } else {
             let startViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ContainerViewController") as! ContainerViewController
-            startViewController.identifier = "SearchDriverViewController"
+            startViewController.identifier = "HomeViewController"
             navigationController = UINavigationController(rootViewController: startViewController)
         }
 
