@@ -11,11 +11,12 @@ import Foundation
 // Sets / gets / keeps all client data in UserDefaults
 class UserProfile {
     
-    static let shared = UserProfile()
+    static var shared = UserProfile()
     
     var token : String?  {
         set {
             UserDefaults.standard.set(newValue, forKey: DefaultsKeys.token.rawValue)
+            print("set token")
             UserDefaults.standard.synchronize()
         }
         get {
@@ -183,7 +184,7 @@ class UserProfile {
         avatar = nil
         userableType = nil
         userableId = nil
-        
+        UserDefaults.standard.synchronize()
         callback(true)
     }
     

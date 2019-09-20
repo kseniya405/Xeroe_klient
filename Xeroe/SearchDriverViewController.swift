@@ -50,6 +50,7 @@ class SearchDriverViewController: MapWithDriverViewController {
     
     @objc func cancelButtonTap() {
         visibleView()
+        self.timeToArriveView.alpha = 0
         showDriverData()
     }
     
@@ -113,20 +114,23 @@ class SearchDriverViewController: MapWithDriverViewController {
     }
     
     func showDriverData() {
-        Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false) { timer in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
             self.visibleView()
             self.driverDataView.slideOut(from: .down)
             self.driverDataView.slideIn(from: .up)
-            self.timeToArriveView.slideOut(from: .down)
-            self.timeToArriveView.slideIn(from: .up)
+            
+            
+            UIView.animate(withDuration: 1.5, animations: {
+                self.timeToArriveView.alpha = 1.0
+            })
         }
+
     }
 
     func visibleView() {
         self.searhDriverView.isHidden = !self.searhDriverView.isHidden
         self.leftMenuButton.isHidden = !self.leftMenuButton.isHidden
         self.driverDataView.isHidden = !self.driverDataView.isHidden
-        self.timeToArriveView.isHidden = !self.timeToArriveView.isHidden
     }
     
 }

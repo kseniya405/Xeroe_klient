@@ -705,7 +705,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p1j-qA-TAX" customClass="GMSMapView">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <textField contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Insert xeroe ID address" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="TOa-3F-EY2" customClass="TextFieldWithCorner" customModule="Xeroe" customModuleProvider="target">
@@ -764,7 +764,7 @@
                             <constraint firstItem="TOa-3F-EY2" firstAttribute="width" secondItem="p1j-qA-TAX" secondAttribute="width" multiplier="0.82" id="BA9-0F-awC"/>
                             <constraint firstItem="TOa-3F-EY2" firstAttribute="top" secondItem="EhM-ol-x5c" secondAttribute="bottom" constant="16" id="C2w-8V-fEJ"/>
                             <constraint firstItem="5xI-CF-j2m" firstAttribute="top" secondItem="Ybv-xZ-ZAh" secondAttribute="firstBaseline" constant="2" id="CWB-me-rHa"/>
-                            <constraint firstItem="p1j-qA-TAX" firstAttribute="bottom" secondItem="vg3-aC-Nzj" secondAttribute="bottom" id="Cws-Z1-tVO"/>
+                            <constraint firstItem="p1j-qA-TAX" firstAttribute="bottom" secondItem="K2i-NA-Q2U" secondAttribute="bottom" id="Cws-Z1-tVO"/>
                             <constraint firstItem="p1j-qA-TAX" firstAttribute="leading" secondItem="vg3-aC-Nzj" secondAttribute="leading" id="MNa-vH-UWd"/>
                             <constraint firstItem="EhM-ol-x5c" firstAttribute="width" secondItem="TOa-3F-EY2" secondAttribute="width" multiplier="0.116" id="MOW-iH-Tmp"/>
                             <constraint firstItem="EhM-ol-x5c" firstAttribute="leading" secondItem="TOa-3F-EY2" secondAttribute="leading" constant="1" id="PmC-Eh-Rff"/>
@@ -1500,7 +1500,7 @@
                                     <constraint firstItem="aVq-yh-pPd" firstAttribute="centerX" secondItem="aTA-7Z-1fl" secondAttribute="centerX" id="SZH-Sq-ZId"/>
                                 </constraints>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p1T-TD-vls">
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p1T-TD-vls">
                                 <rect key="frame" x="24" y="256.5" width="99" height="57.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3:00 min" textAlignment="center" lineBreakMode="tailTruncation" minimumScaleFactor="1" translatesAutoresizingMaskIntoConstraints="NO" id="tkp-6F-cI9">

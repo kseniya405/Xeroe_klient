@@ -22,6 +22,10 @@ class HomeViewModel: NSObject {
             showAlertInputButtonTap?()
             return
         }
+        
+        if textID.count < 3 {
+            
+        }
 
         textID.remove(at: textID.startIndex)
         RestApi().findID(xeroeID: textID) { (isOk, dictionaryClientData)  in

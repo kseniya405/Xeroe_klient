@@ -31,6 +31,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow()
         
         //if there is no token - opens LoginViewController, if there is - HomeViewController
+        
+        print(UserProfile.shared.token)
         if UserProfile.shared.token == nil || UserProfile.shared.token == "" {
             let startViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
             navigationController = UINavigationController(rootViewController: startViewController)

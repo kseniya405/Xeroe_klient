@@ -70,7 +70,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         viewModel.showAlertInputButtonTap = { [weak self] in
             self?.activityIndicator?.stopAnimating()
             DispatchQueue.main.async {
-                self?.showAlertInputButtonTap()
+//                self?.showAlertInputButtonTap()   add message
             }
         }
         
@@ -111,8 +111,8 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
     
-    func showAlertInputButtonTap(){
-        let alert = UIAlertController(title: invalidXeroeID, message: userNotFound, preferredStyle: UIAlertController.Style.alert)
+    func showAlertInputButtonTap(message: String){
+        let alert = UIAlertController(title: invalidXeroeID, message: (message), preferredStyle: UIAlertController.Style.alert)
         // add an action (button)
         alert.addAction(UIAlertAction(title: ok, style: UIAlertAction.Style.default, handler: nil))
         
