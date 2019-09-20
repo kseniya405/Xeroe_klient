@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="74" id="KGk-i7-Jjw" customClass="ProblemHeaderTableViewCell" customModule="Xeroe" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="387" height="74"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="387" height="73.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Package is wrong" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ecu-Xc-UiF">
+                        <rect key="frame" x="19" y="17" width="136" height="30.5"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="header" translatesAutoresizingMaskIntoConstraints="NO" id="0Gw-dn-dpo">
+                        <rect key="frame" x="360" y="30" width="8" height="5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="0Gw-dn-dpo" secondAttribute="height" multiplier="8:5" id="0wP-ML-r2j"/>
+                            <constraint firstAttribute="width" constant="8" id="TUZ-TV-T5e"/>
+                        </constraints>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zh1-p1-8ho">
+                        <rect key="frame" x="0.0" y="64.5" width="387" height="2"/>
+                        <color key="backgroundColor" red="0.1843137255" green="0.72549019609999998" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="2" id="U0U-Mk-7hF"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
+                <constraints>
+                    <constraint firstItem="zh1-p1-8ho" firstAttribute="top" secondItem="ecu-Xc-UiF" secondAttribute="bottom" constant="17" id="0tl-mS-GLm"/>
+                    <constraint firstItem="0Gw-dn-dpo" firstAttribute="centerY" secondItem="ecu-Xc-UiF" secondAttribute="centerY" id="2LO-7f-4t7"/>
+                    <constraint firstItem="ecu-Xc-UiF" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="19" id="7dk-g7-GzM"/>
+                    <constraint firstItem="ecu-Xc-UiF" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="17" id="Fdm-Su-XTI"/>
+                    <constraint firstItem="zh1-p1-8ho" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="bLz-2x-Lyy"/>
+                    <constraint firstAttribute="bottom" secondItem="zh1-p1-8ho" secondAttribute="bottom" constant="7" id="gRc-i0-QkP"/>
+                    <constraint firstItem="zh1-p1-8ho" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" id="hoT-Xb-0lz"/>
+                    <constraint firstAttribute="trailing" secondItem="0Gw-dn-dpo" secondAttribute="trailing" constant="19" id="iqv-ST-dQF"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="arrowImage" destination="0Gw-dn-dpo" id="URX-KR-Vmv"/>
+                <outlet property="problemValue" destination="ecu-Xc-UiF" id="r34-9F-VDT"/>
+                <outlet property="underlineView" destination="zh1-p1-8ho" id="kXy-C4-Zxe"/>
+            </connections>
+            <point key="canvasLocation" x="86.231884057971016" y="44.196428571428569"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="header" width="8" height="5"/>
+    </resources>
+</document>

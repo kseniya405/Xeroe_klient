@@ -2389,7 +2389,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="14"/>
                                 <color key="tintColor" red="0.1215686275" green="0.23921568630000001" blue="0.4431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="NEXT">
+                                <state key="normal" title="SUBMIT">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
@@ -2419,10 +2419,14 @@
                     </view>
                     <navigationItem key="navigationItem" id="D2m-bm-rO8"/>
                     <connections>
-                        <outlet property="backButton" destination="azC-vL-Ngs" id="mvz-fz-jTi"/>
+                        <outlet property="backButton" destination="azC-vL-Ngs" id="iyu-Vw-epc"/>
                         <outlet property="nextButton" destination="DtS-dh-t4X" id="YyA-cM-F5R"/>
                         <outlet property="showQRLabel" destination="WjR-OI-Kya" id="c28-pK-m5O"/>
-                        <outlet property="topBarLabel" destination="e6b-Jb-oQJ" id="S3X-8d-fjj"/>
+                        <outlet property="submitButton" destination="DtS-dh-t4X" id="tDB-YW-lOU"/>
+                        <outlet property="tableView" destination="aUe-9w-Plo" id="MlN-mr-Fli"/>
+                        <outlet property="topBarLabel" destination="e6b-Jb-oQJ" id="OTg-eo-EpB"/>
+                        <outlet property="topBarView" destination="bhX-RG-fHq" id="UjH-vJ-yka"/>
+                        <outlet property="typeOfProblemTitle" destination="WjR-OI-Kya" id="17Y-I3-l57"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A4M-cX-7Zh" userLabel="First Responder" sceneMemberID="firstResponder"/>

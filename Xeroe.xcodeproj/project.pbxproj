@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9D02F5A32328CC530045ED8C /* SearchDriverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D02F5A22328CC530045ED8C /* SearchDriverViewController.swift */; };
 		9D0875AB230592BB0085EDD9 /* OptionsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D0875AA230592BA0085EDD9 /* OptionsTableViewCell.xib */; };
 		9D09B35B2330E80100389491 /* DriverWayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D09B35A2330E80100389491 /* DriverWayViewController.swift */; };
 		9D09B35D2330ED2000389491 /* MapWithDriverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D09B35C2330ED2000389491 /* MapWithDriverViewController.swift */; };
@@ -51,6 +50,11 @@
 		9D23E9F422F0808C00E0E2C0 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D23E9F222F0808B00E0E2C0 /* Roboto-Bold.ttf */; };
 		9D23E9F522F0808C00E0E2C0 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D23E9F322F0808B00E0E2C0 /* Roboto-Regular.ttf */; };
 		9D23E9F822F08AA500E0E2C0 /* FuturaDemiC.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D23E9F722F08AA500E0E2C0 /* FuturaDemiC.ttf */; };
+		9D3E3DD82334BDF900A44ED8 /* SearchDriverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3E3DD72334BDF900A44ED8 /* SearchDriverViewController.swift */; };
+		9D3E3DDB2334C08B00A44ED8 /* ProblemHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3E3DD92334C08B00A44ED8 /* ProblemHeaderTableViewCell.swift */; };
+		9D3E3DDC2334C08B00A44ED8 /* ProblemHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D3E3DDA2334C08B00A44ED8 /* ProblemHeaderTableViewCell.xib */; };
+		9D3E3DE02334C2FF00A44ED8 /* ProblemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3E3DDE2334C2FF00A44ED8 /* ProblemTableViewCell.swift */; };
+		9D3E3DE12334C2FF00A44ED8 /* ProblemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D3E3DDF2334C2FF00A44ED8 /* ProblemTableViewCell.xib */; };
 		9D6EE92322F97E3D00F8DFA6 /* FoundUserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6EE92222F97E3D00F8DFA6 /* FoundUserDetailViewController.swift */; };
 		9DA30B4A230FE56C0054D1ED /* DeliveryTypeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA30B48230FE56C0054D1ED /* DeliveryTypeCollectionViewCell.swift */; };
 		9DA30B4B230FE56C0054D1ED /* DeliveryTypeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DA30B49230FE56C0054D1ED /* DeliveryTypeCollectionViewCell.xib */; };
@@ -88,7 +92,6 @@
 		049E9F30D17E25EF4C50520B /* Pods-Xeroe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Xeroe.release.xcconfig"; path = "Target Support Files/Pods-Xeroe/Pods-Xeroe.release.xcconfig"; sourceTree = "<group>"; };
 		462B678E837F5DDE2DEF6AA4 /* Pods-Xeroe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Xeroe.debug.xcconfig"; path = "Target Support Files/Pods-Xeroe/Pods-Xeroe.debug.xcconfig"; sourceTree = "<group>"; };
 		4FA96868B0382980D707E3E7 /* Pods_Xeroe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Xeroe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9D02F5A22328CC530045ED8C /* SearchDriverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchDriverViewController.swift; path = /Users/denismarkov/Documents/Learning/Kseniya/Xeroe/Xeroe/SearchDriverViewController.swift; sourceTree = "<absolute>"; };
 		9D0875AA230592BA0085EDD9 /* OptionsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OptionsTableViewCell.xib; sourceTree = "<group>"; };
 		9D09B35A2330E80100389491 /* DriverWayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverWayViewController.swift; sourceTree = "<group>"; };
 		9D09B35C2330ED2000389491 /* MapWithDriverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapWithDriverViewController.swift; sourceTree = "<group>"; };
@@ -132,6 +135,11 @@
 		9D23E9F222F0808B00E0E2C0 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		9D23E9F322F0808B00E0E2C0 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		9D23E9F722F08AA500E0E2C0 /* FuturaDemiC.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FuturaDemiC.ttf; sourceTree = "<group>"; };
+		9D3E3DD72334BDF900A44ED8 /* SearchDriverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchDriverViewController.swift; sourceTree = "<group>"; };
+		9D3E3DD92334C08B00A44ED8 /* ProblemHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProblemHeaderTableViewCell.swift; sourceTree = "<group>"; };
+		9D3E3DDA2334C08B00A44ED8 /* ProblemHeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProblemHeaderTableViewCell.xib; sourceTree = "<group>"; };
+		9D3E3DDE2334C2FF00A44ED8 /* ProblemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProblemTableViewCell.swift; sourceTree = "<group>"; };
+		9D3E3DDF2334C2FF00A44ED8 /* ProblemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProblemTableViewCell.xib; sourceTree = "<group>"; };
 		9D6EE92222F97E3D00F8DFA6 /* FoundUserDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundUserDetailViewController.swift; sourceTree = "<group>"; };
 		9DA30B48230FE56C0054D1ED /* DeliveryTypeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryTypeCollectionViewCell.swift; sourceTree = "<group>"; };
 		9DA30B49230FE56C0054D1ED /* DeliveryTypeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeliveryTypeCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -265,6 +273,17 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		9D3E3DDD2334C09200A44ED8 /* ProblemTable */ = {
+			isa = PBXGroup;
+			children = (
+				9D3E3DD92334C08B00A44ED8 /* ProblemHeaderTableViewCell.swift */,
+				9D3E3DDA2334C08B00A44ED8 /* ProblemHeaderTableViewCell.xib */,
+				9D3E3DDE2334C2FF00A44ED8 /* ProblemTableViewCell.swift */,
+				9D3E3DDF2334C2FF00A44ED8 /* ProblemTableViewCell.xib */,
+			);
+			name = ProblemTable;
+			sourceTree = "<group>";
+		};
 		9D75BE6B22F0337C001E907B /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -367,10 +386,11 @@
 				9D113C222327C80B00BE8D22 /* AgreementTimerViewController.swift */,
 				9D113C242327D68F00BE8D22 /* ResultAgreementViewController.swift */,
 				9D09B35C2330ED2000389491 /* MapWithDriverViewController.swift */,
-				9D02F5A22328CC530045ED8C /* SearchDriverViewController.swift */,
+				9D3E3DD72334BDF900A44ED8 /* SearchDriverViewController.swift */,
 				9D09B35A2330E80100389491 /* DriverWayViewController.swift */,
 				9D0C0C382332779D000688D5 /* QRCodeViewController.swift */,
 				9D0C78332333CF9400F82675 /* ReportViewController.swift */,
+				9D3E3DDD2334C09200A44ED8 /* ProblemTable */,
 				9D75BE6B22F0337C001E907B /* Models */,
 				9DACCB8B22F431BF00D9F433 /* MutableUIObjects */,
 				9D0B6D34231D62C200E3A8F8 /* Utilits */,
@@ -475,6 +495,7 @@
 				9DF533A922EEDBE30036866C /* Assets.xcassets in Resources */,
 				9DDFD4042303EEA0007DDB36 /* HeaderOrderTableView.xib in Resources */,
 				9DFFAB7B22F181D10008F325 /* fontello.ttf in Resources */,
+				9D3E3DDC2334C08B00A44ED8 /* ProblemHeaderTableViewCell.xib in Resources */,
 				9DFFAB7922F179880008F325 /* Roboto-Medium.ttf in Resources */,
 				9D0EEC6D2301B64600891D7D /* PhotosCollectionViewCell.xib in Resources */,
 				9D0EEC642301AAD200891D7D /* DataDeliveryTableViewCell.xib in Resources */,
@@ -482,6 +503,7 @@
 				9D0EEC5023014C5F00891D7D /* ClientDataTableViewCell.xib in Resources */,
 				9D0875AB230592BB0085EDD9 /* OptionsTableViewCell.xib in Resources */,
 				9D1737F8231CFC68009EEDF6 /* RegistrationTableViewCell.xib in Resources */,
+				9D3E3DE12334C2FF00A44ED8 /* ProblemTableViewCell.xib in Resources */,
 				9DA30B4B230FE56C0054D1ED /* DeliveryTypeCollectionViewCell.xib in Resources */,
 				9D23E9F522F0808C00E0E2C0 /* Roboto-Regular.ttf in Resources */,
 				9D0EEC692301B46800891D7D /* AddPhotoTableViewCell.xib in Resources */,
@@ -563,7 +585,6 @@
 				9D09B35B2330E80100389491 /* DriverWayViewController.swift in Sources */,
 				9DA30B4D2310126C0054D1ED /* ImagePicker.swift in Sources */,
 				9D0EEC5F230181F100891D7D /* ChooseProductCollectionViewCell.swift in Sources */,
-				9D02F5A32328CC530045ED8C /* SearchDriverViewController.swift in Sources */,
 				9D0EEC4F23014C5F00891D7D /* ClientDataTableViewCell.swift in Sources */,
 				9DCF034922EF1EEE00A7F283 /* ForgotPasswordViewControll.swift in Sources */,
 				9D0EEC6C2301B64600891D7D /* PhotosCollectionViewCell.swift in Sources */,
@@ -576,8 +597,10 @@
 				9DA4941B2302FE0F00730624 /* ConfirmOrderByCreator.swift in Sources */,
 				9DDFD4002303EDC4007DDB36 /* HeaderOrderTableView.swift in Sources */,
 				9D136473231918B60074FE60 /* Strings.swift in Sources */,
+				9D3E3DDB2334C08B00A44ED8 /* ProblemHeaderTableViewCell.swift in Sources */,
 				9D13039622FD8C6400DC983E /* ButtonForAddFotoOrder.swift in Sources */,
 				9DF533A222EEDBE10036866C /* AppDelegate.swift in Sources */,
+				9D3E3DD82334BDF900A44ED8 /* SearchDriverViewController.swift in Sources */,
 				9D0EEC632301AAD200891D7D /* DataDeliveryTableViewCell.swift in Sources */,
 				9D0EEC4623014B9300891D7D /* GoodsTableViewCell.swift in Sources */,
 				9D0B6D33231D62B300E3A8F8 /* Extencions.swift in Sources */,
@@ -605,6 +628,7 @@
 				9DD0BEA622F87B9300E55EA8 /* LeftMenuViewController.swift in Sources */,
 				9D113C232327C80B00BE8D22 /* AgreementTimerViewController.swift in Sources */,
 				9D0B6D2E231D3F3700E3A8F8 /* LoginFormView.temp_caseinsensitive_rename.swift in Sources */,
+				9D3E3DE02334C2FF00A44ED8 /* ProblemTableViewCell.swift in Sources */,
 				9D09D7DF22F1E23800D4369F /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
