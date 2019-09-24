@@ -76,3 +76,9 @@ let timeToArrive = "Time to arrive"
 
 
 let driverArrived = "Driver has arrived"
+
+
+let problemPackageIsWrong = "Package is wrong"
+let problemPickUpPersonDidntAnswerCall = "Pick up person did’n answer the call"
+let problemDropOffPersonDidntAnswerCall = "Drop off person did’n answer the call"
+let problemPackageIsDamaged = "Package is damaged"

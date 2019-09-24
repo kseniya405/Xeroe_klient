@@ -23,7 +23,7 @@ class DeliveryTypeCollectionViewCell: UICollectionViewCell {
     let arrayDelivery = [
         deliveryData(logoName: "bicycle", nameDelivery: "Bicycle", priceDelivery: "£ 1.80"),
         deliveryData(logoName: "car", nameDelivery: "Car", priceDelivery: "£ 3.80"),
-        deliveryData(logoName: "van", nameDelivery: "Van", priceDelivery: "£ 1.80"),
+        deliveryData(logoName: "van", nameDelivery: "Van", priceDelivery: "£ 1.80")
     ]
     
     override func awakeFromNib() {

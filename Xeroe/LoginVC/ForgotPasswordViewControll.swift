@@ -29,10 +29,6 @@ class ForgotPasswordViewControll: UIViewController {
         }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
     @objc func backButtonTap() {
         self.dismiss()
     }

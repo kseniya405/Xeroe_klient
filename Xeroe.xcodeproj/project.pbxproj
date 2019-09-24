@@ -14,7 +14,7 @@
 		9D09D7E322F1E97400D4369F /* View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D09D7E222F1E97400D4369F /* View.xib */; };
 		9D0B6D2E231D3F3700E3A8F8 /* LoginFormView.temp_caseinsensitive_rename.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0B6D2D231D3F3700E3A8F8 /* LoginFormView.temp_caseinsensitive_rename.swift */; };
 		9D0B6D30231D594A00E3A8F8 /* DefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0B6D2F231D594A00E3A8F8 /* DefaultsKeys.swift */; };
-		9D0B6D33231D62B300E3A8F8 /* Extencions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0B6D32231D62B300E3A8F8 /* Extencions.swift */; };
+		9D0B6D33231D62B300E3A8F8 /* Image+rotate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0B6D32231D62B300E3A8F8 /* Image+rotate.swift */; };
 		9D0C0C392332779D000688D5 /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0C0C382332779D000688D5 /* QRCodeViewController.swift */; };
 		9D0C78342333CF9400F82675 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0C78332333CF9400F82675 /* ReportViewController.swift */; };
 		9D0EEC4623014B9300891D7D /* GoodsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0EEC4423014B9300891D7D /* GoodsTableViewCell.swift */; };
@@ -56,6 +56,12 @@
 		9D3E3DE02334C2FF00A44ED8 /* ProblemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3E3DDE2334C2FF00A44ED8 /* ProblemTableViewCell.swift */; };
 		9D3E3DE12334C2FF00A44ED8 /* ProblemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D3E3DDF2334C2FF00A44ED8 /* ProblemTableViewCell.xib */; };
 		9D6EE92322F97E3D00F8DFA6 /* FoundUserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6EE92222F97E3D00F8DFA6 /* FoundUserDetailViewController.swift */; };
+		9D75F5F0233A3BC000394F20 /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D75F5EF233A3BC000394F20 /* NotificationName.swift */; };
+		9D75F5F2233A404A00394F20 /* View+ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D75F5F1233A404A00394F20 /* View+ActivityIndicator.swift */; };
+		9D75F5F4233A40EE00394F20 /* Label+LabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D75F5F3233A40EE00394F20 /* Label+LabelStyle.swift */; };
+		9D75F5F6233A413600394F20 /* View+slideAnimating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D75F5F5233A413600394F20 /* View+slideAnimating.swift */; };
+		9D75F5F8233A41D200394F20 /* ImageView+loadUrlImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D75F5F7233A41D200394F20 /* ImageView+loadUrlImage.swift */; };
+		9D75F5FA233A420800394F20 /* ViewController+dismiss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D75F5F9233A420800394F20 /* ViewController+dismiss.swift */; };
 		9DA30B4A230FE56C0054D1ED /* DeliveryTypeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA30B48230FE56C0054D1ED /* DeliveryTypeCollectionViewCell.swift */; };
 		9DA30B4B230FE56C0054D1ED /* DeliveryTypeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DA30B49230FE56C0054D1ED /* DeliveryTypeCollectionViewCell.xib */; };
 		9DA30B4D2310126C0054D1ED /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA30B4C2310126C0054D1ED /* ImagePicker.swift */; };
@@ -99,7 +105,7 @@
 		9D09D7E222F1E97400D4369F /* View.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = View.xib; sourceTree = "<group>"; };
 		9D0B6D2D231D3F3700E3A8F8 /* LoginFormView.temp_caseinsensitive_rename.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFormView.temp_caseinsensitive_rename.swift; sourceTree = "<group>"; };
 		9D0B6D2F231D594A00E3A8F8 /* DefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsKeys.swift; sourceTree = "<group>"; };
-		9D0B6D32231D62B300E3A8F8 /* Extencions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extencions.swift; sourceTree = "<group>"; };
+		9D0B6D32231D62B300E3A8F8 /* Image+rotate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+rotate.swift"; sourceTree = "<group>"; };
 		9D0C0C382332779D000688D5 /* QRCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
 		9D0C78332333CF9400F82675 /* ReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
 		9D0EEC4423014B9300891D7D /* GoodsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsTableViewCell.swift; sourceTree = "<group>"; };
@@ -141,6 +147,12 @@
 		9D3E3DDE2334C2FF00A44ED8 /* ProblemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProblemTableViewCell.swift; sourceTree = "<group>"; };
 		9D3E3DDF2334C2FF00A44ED8 /* ProblemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProblemTableViewCell.xib; sourceTree = "<group>"; };
 		9D6EE92222F97E3D00F8DFA6 /* FoundUserDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundUserDetailViewController.swift; sourceTree = "<group>"; };
+		9D75F5EF233A3BC000394F20 /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
+		9D75F5F1233A404A00394F20 /* View+ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+ActivityIndicator.swift"; sourceTree = "<group>"; };
+		9D75F5F3233A40EE00394F20 /* Label+LabelStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Label+LabelStyle.swift"; sourceTree = "<group>"; };
+		9D75F5F5233A413600394F20 /* View+slideAnimating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+slideAnimating.swift"; sourceTree = "<group>"; };
+		9D75F5F7233A41D200394F20 /* ImageView+loadUrlImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageView+loadUrlImage.swift"; sourceTree = "<group>"; };
+		9D75F5F9233A420800394F20 /* ViewController+dismiss.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+dismiss.swift"; sourceTree = "<group>"; };
 		9DA30B48230FE56C0054D1ED /* DeliveryTypeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryTypeCollectionViewCell.swift; sourceTree = "<group>"; };
 		9DA30B49230FE56C0054D1ED /* DeliveryTypeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeliveryTypeCollectionViewCell.xib; sourceTree = "<group>"; };
 		9DA30B4C2310126C0054D1ED /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
@@ -203,6 +215,7 @@
 				9D13647C2319695D0074FE60 /* Color.swift */,
 				9D13647E23196E9A0074FE60 /* Fonts.swift */,
 				9D0B6D2F231D594A00E3A8F8 /* DefaultsKeys.swift */,
+				9D75F5EF233A3BC000394F20 /* NotificationName.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -210,7 +223,12 @@
 		9D0B6D34231D62C200E3A8F8 /* Utilits */ = {
 			isa = PBXGroup;
 			children = (
-				9D0B6D32231D62B300E3A8F8 /* Extencions.swift */,
+				9D75F5F9233A420800394F20 /* ViewController+dismiss.swift */,
+				9D75F5F1233A404A00394F20 /* View+ActivityIndicator.swift */,
+				9D75F5F5233A413600394F20 /* View+slideAnimating.swift */,
+				9D75F5F7233A41D200394F20 /* ImageView+loadUrlImage.swift */,
+				9D0B6D32231D62B300E3A8F8 /* Image+rotate.swift */,
+				9D75F5F3233A40EE00394F20 /* Label+LabelStyle.swift */,
 			);
 			path = Utilits;
 			sourceTree = "<group>";
@@ -329,6 +347,18 @@
 			path = LoginVC;
 			sourceTree = "<group>";
 		};
+		9DAD9E66233917CF0034DCC0 /* CREATE ORDER */ = {
+			isa = PBXGroup;
+			children = (
+				9D6EE92222F97E3D00F8DFA6 /* FoundUserDetailViewController.swift */,
+				9D13039322FD514D00DC983E /* ShippingAgrinentViewController.swift */,
+				9D13039122FD50AC00DC983E /* OrderViewController.swift */,
+				9D113C202327888C00BE8D22 /* OrderViewModel.swift */,
+				9D0EEC4823014B9F00891D7D /* Orders Table View Cell */,
+			);
+			path = "CREATE ORDER";
+			sourceTree = "<group>";
+		};
 		9DD0BE5622F8182F00E55EA8 /* draft */ = {
 			isa = PBXGroup;
 			children = (
@@ -378,11 +408,7 @@
 				9DD0BE7522F8465D00E55EA8 /* ContainerViewController.swift */,
 				9D09D7DE22F1E23800D4369F /* HomeViewController.swift */,
 				9D1BFB10231E511E005E8024 /* HomeViewModel.swift */,
-				9D6EE92222F97E3D00F8DFA6 /* FoundUserDetailViewController.swift */,
-				9D13039322FD514D00DC983E /* ShippingAgrinentViewController.swift */,
-				9D13039122FD50AC00DC983E /* OrderViewController.swift */,
-				9D113C202327888C00BE8D22 /* OrderViewModel.swift */,
-				9D0EEC4823014B9F00891D7D /* Orders Table View Cell */,
+				9DAD9E66233917CF0034DCC0 /* CREATE ORDER */,
 				9D113C222327C80B00BE8D22 /* AgreementTimerViewController.swift */,
 				9D113C242327D68F00BE8D22 /* ResultAgreementViewController.swift */,
 				9D09B35C2330ED2000389491 /* MapWithDriverViewController.swift */,
@@ -433,7 +459,6 @@
 				9DF5339B22EEDBE10036866C /* Frameworks */,
 				9DF5339C22EEDBE10036866C /* Resources */,
 				DE9D1F9A8CA2102E8884F350 /* [CP] Embed Pods Frameworks */,
-				B33A1C71758DF9FD4C7EC470 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -536,23 +561,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B33A1C71758DF9FD4C7EC470 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Xeroe/Pods-Xeroe-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Xeroe/Pods-Xeroe-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Xeroe/Pods-Xeroe-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		DE9D1F9A8CA2102E8884F350 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -584,6 +592,7 @@
 				9D0C0C392332779D000688D5 /* QRCodeViewController.swift in Sources */,
 				9D09B35B2330E80100389491 /* DriverWayViewController.swift in Sources */,
 				9DA30B4D2310126C0054D1ED /* ImagePicker.swift in Sources */,
+				9D75F5F0233A3BC000394F20 /* NotificationName.swift in Sources */,
 				9D0EEC5F230181F100891D7D /* ChooseProductCollectionViewCell.swift in Sources */,
 				9D0EEC4F23014C5F00891D7D /* ClientDataTableViewCell.swift in Sources */,
 				9DCF034922EF1EEE00A7F283 /* ForgotPasswordViewControll.swift in Sources */,
@@ -597,15 +606,18 @@
 				9DA4941B2302FE0F00730624 /* ConfirmOrderByCreator.swift in Sources */,
 				9DDFD4002303EDC4007DDB36 /* HeaderOrderTableView.swift in Sources */,
 				9D136473231918B60074FE60 /* Strings.swift in Sources */,
+				9D75F5FA233A420800394F20 /* ViewController+dismiss.swift in Sources */,
 				9D3E3DDB2334C08B00A44ED8 /* ProblemHeaderTableViewCell.swift in Sources */,
+				9D75F5F8233A41D200394F20 /* ImageView+loadUrlImage.swift in Sources */,
 				9D13039622FD8C6400DC983E /* ButtonForAddFotoOrder.swift in Sources */,
 				9DF533A222EEDBE10036866C /* AppDelegate.swift in Sources */,
 				9D3E3DD82334BDF900A44ED8 /* SearchDriverViewController.swift in Sources */,
 				9D0EEC632301AAD200891D7D /* DataDeliveryTableViewCell.swift in Sources */,
 				9D0EEC4623014B9300891D7D /* GoodsTableViewCell.swift in Sources */,
-				9D0B6D33231D62B300E3A8F8 /* Extencions.swift in Sources */,
+				9D0B6D33231D62B300E3A8F8 /* Image+rotate.swift in Sources */,
 				9D113C212327888C00BE8D22 /* OrderViewModel.swift in Sources */,
 				9DA30B4A230FE56C0054D1ED /* DeliveryTypeCollectionViewCell.swift in Sources */,
+				9D75F5F4233A40EE00394F20 /* Label+LabelStyle.swift in Sources */,
 				9D6EE92322F97E3D00F8DFA6 /* FoundUserDetailViewController.swift in Sources */,
 				9D1737F7231CFC68009EEDF6 /* RegistrationTableViewCell.swift in Sources */,
 				9D09B35D2330ED2000389491 /* MapWithDriverViewController.swift in Sources */,
@@ -622,11 +634,13 @@
 				9D0C78342333CF9400F82675 /* ReportViewController.swift in Sources */,
 				9D0EEC5B23014CA800891D7D /* DeliveryTypeTableViewCell.swift in Sources */,
 				9DDFD4082304215D007DDB36 /* UserProfile.swift in Sources */,
+				9D75F5F2233A404A00394F20 /* View+ActivityIndicator.swift in Sources */,
 				9DACCB8E22F4473C00D9F433 /* RestApi.swift in Sources */,
 				9DACCB8A22F42E8600D9F433 /* TextFieldWithCorner.swift in Sources */,
 				9DA494192302D90500730624 /* CheckButton.swift in Sources */,
 				9DD0BEA622F87B9300E55EA8 /* LeftMenuViewController.swift in Sources */,
 				9D113C232327C80B00BE8D22 /* AgreementTimerViewController.swift in Sources */,
+				9D75F5F6233A413600394F20 /* View+slideAnimating.swift in Sources */,
 				9D0B6D2E231D3F3700E3A8F8 /* LoginFormView.temp_caseinsensitive_rename.swift in Sources */,
 				9D3E3DE02334C2FF00A44ED8 /* ProblemTableViewCell.swift in Sources */,
 				9D09D7DF22F1E23800D4369F /* HomeViewController.swift in Sources */,
@@ -772,6 +786,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Xeroe/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -793,6 +808,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Xeroe/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

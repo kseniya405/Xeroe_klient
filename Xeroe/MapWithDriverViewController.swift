@@ -8,7 +8,6 @@
 
 import UIKit
 import MapKit
-import GoogleMaps
 import CoreLocation
 
 fileprivate let defaultCoordinations = CLLocationCoordinate2D(latitude: 39.799372, longitude: -89.644458)
@@ -67,7 +66,7 @@ class MapWithDriverViewController: UIViewController, CLLocationManagerDelegate, 
     }
     @IBOutlet weak var reportButton: UIButton! {
         didSet {
-            reportButton.addTarget(self, action: #selector(leftMenuButtonTap), for: .touchUpInside)
+            reportButton.addTarget(self, action: #selector(reportButtonTap), for: .touchUpInside)
         }
     }
     
@@ -91,11 +90,16 @@ class MapWithDriverViewController: UIViewController, CLLocationManagerDelegate, 
         HamburgerMenu().triggerSideMenu()
     }
     
+    @objc func reportButtonTap() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let initialViewController = storyboard.instantiateViewController(withIdentifier: "ReportViewController") as! ReportViewController
+        self.navigationController?.pushViewController(initialViewController, animated: false)
+    }
+    
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         let renderer = MKPolylineRenderer(overlay: overlay)
         renderer.strokeColor = UIColor(red: 0.12, green: 0.24, blue: 0.44, alpha: 1)
         renderer.lineWidth = 2.0
-        
         return renderer
     }
     

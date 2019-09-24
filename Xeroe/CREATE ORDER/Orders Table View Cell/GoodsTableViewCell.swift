@@ -54,9 +54,7 @@ class GoodsTableViewCell: UITableViewCell{
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        collectionsView.dataSource = self
-        collectionsView.delegate = self
-        collectionsView.register(UINib(nibName: chooseProductIdentifier, bundle: nil), forCellWithReuseIdentifier: chooseProductIdentifier)
+
         tableView.dataSource = self
         tableView.register(UINib(nibName: dataDeliveryIdentifier, bundle: nil), forCellReuseIdentifier: dataDeliveryIdentifier)
         tableView.register(UINib(nibName: addPhotoIdentifier, bundle: nil), forCellReuseIdentifier: addPhotoIdentifier)
@@ -68,13 +66,12 @@ class GoodsTableViewCell: UITableViewCell{
         
     }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)        
-    }
-    
     func setDataCell(currentProduct: Product, arrayCellsProduct: [String]) {
         self.currentProduct = currentProduct
         self.productCells = arrayCellsProduct
+        collectionsView.dataSource = self
+        collectionsView.delegate = self
+        collectionsView.register(UINib(nibName: chooseProductIdentifier, bundle: nil), forCellWithReuseIdentifier: chooseProductIdentifier)
     }
     
     
@@ -121,15 +118,15 @@ extension GoodsTableViewCell: UICollectionViewDelegate {
             return
         }
         
+        collectionView.reloadSections([0, numSelectProduct])
         numSelectProduct = indexPath.row
         goodsCellDelegate?.setNumProduct(numProduct: indexPath.row)
-        
+
         let selectCell = collectionsView.cellForItem(at: indexPath)  as! ChooseProductCollectionViewCell
         selectCell.setParameters(backgroundColor: cianColor, labelColor: .white, labelText: productCells[indexPath.row])
-        collectionView.reloadData()
         selectCell.isSelected = true
 
-        tableView.reloadData()
+//        tableView.reloadData()
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {

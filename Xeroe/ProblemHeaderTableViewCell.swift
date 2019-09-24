@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProblemHeaderTableViewCell: UITableViewCell {
+class ProblemHeaderTableViewCell: UITableViewHeaderFooterView {
 
     @IBOutlet weak var problemValue: UILabel!
     @IBOutlet weak var arrowImage: UIImageView!
@@ -18,10 +18,5 @@ class ProblemHeaderTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        arrowImage.image = arrowImage.image?.rotate(radians: .pi)
-    }
-    
+
 }

@@ -10,12 +10,22 @@ import UIKit
 
 class LoginFormView: UIView {
     
-    @IBOutlet weak var loginTextField: TextFieldWithCorner!
-    @IBOutlet weak var passwordTextField: TextFieldWithCorner!
+    @IBOutlet weak var loginTextField: TextFieldWithCorner! {
+        didSet {
+            loginTextField.addTarget(self, action: #selector(textFieldDidChange), for: UIControl.Event.editingChanged)
+        }
+    }
+    
+    @IBOutlet weak var passwordTextField: TextFieldWithCorner! {
+           didSet {
+               passwordTextField.addTarget(self, action: #selector(textFieldDidChange), for: UIControl.Event.editingChanged)
+           }
+    }
     
     @IBOutlet weak var enterEmailOrPhoneLabel: UILabel! {
         didSet {
             enterEmailOrPhoneLabel.setLabelStyle(textLabel: emailOrPhone, fontLabel: UIFont(name: robotoRegular, size: 13), colorLabel: greyTextColor)
+
         }
     }
     
@@ -50,10 +60,19 @@ class LoginFormView: UIView {
         }
     }
     
-    @objc func visibilityPasswordButtonTap(){
+    @objc func visibilityPasswordButtonTap() {
         passwordTextField.isSecureTextEntry.toggle()
-        let imageButtonName = passwordTextField.isSecureTextEntry ? "invisible" : "visible"
-        visibilityPasswordButton.setImage(UIImage(named: imageButtonName), for: .normal)
+        let imageButton = passwordTextField.isSecureTextEntry ? #imageLiteral(resourceName: "invisible") : #imageLiteral(resourceName: "visible")
+        visibilityPasswordButton.setImage(imageButton, for: .normal)
+    }
+    
+    @objc func textFieldDidChange() {
+        self.passwordTextField.errorInput(isError: false)
+        self.loginTextField.errorInput(isError: false)
+        
+        self.enterEmailLabel.isHidden = true
+        self.wrongPaswordLabel.isHidden = true
+        self.enterPasswordLabel.isHidden = true
     }
     
     func errorTextField(passwordIsEmpty: Bool, emailIsEmpty: Bool) {

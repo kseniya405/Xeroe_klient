@@ -12,11 +12,6 @@ class ChooseProductCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var labelCell: UILabel!
     
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
 
     func setParameters(backgroundColor: UIColor? = nil, labelColor: UIColor? = nil, labelText: String? = nil) {
         self.contentView.backgroundColor = backgroundColor

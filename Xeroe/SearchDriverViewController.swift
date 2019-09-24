@@ -7,7 +7,6 @@
 
 import UIKit
 import MapKit
-import GoogleMaps
 import CoreLocation
 
 fileprivate let defaultCoordinations = CLLocationCoordinate2D(latitude: 39.799372, longitude: -89.644458)

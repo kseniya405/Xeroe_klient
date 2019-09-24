@@ -235,18 +235,15 @@ class HamburgerMenu{
     //Class To Implement Easy Functions To Open Or Close LeftVC
     //Make object of this class and call functions
     func triggerSideMenu(){
-        let notificationOpenOrCloseSideMenu = Notification.Name("notificationOpenOrCloseSideMenu")
-        NotificationCenter.default.post(name: notificationOpenOrCloseSideMenu, object: nil)
+        NotificationCenter.default.post(name: NotificationName.notificationOpenOrCloseSideMenu.notification, object: nil)
     }
     
     func closeSideMenu(){
-        let notificationCloseSideMenu = Notification.Name("notificationCloseSideMenu")
-        NotificationCenter.default.post(name: notificationCloseSideMenu, object: nil)
+        NotificationCenter.default.post(name: NotificationName.notificationCloseSideMenu.notification, object: nil)
     }
     
     func closeSideMenuWithoutAnimation(){
-        let notificationCloseSideMenuWithoutAnimation = Notification.Name("notificationCloseSideMenuWithoutAnimation")
-        NotificationCenter.default.post(name: notificationCloseSideMenuWithoutAnimation, object: nil)
+        NotificationCenter.default.post(name: NotificationName.notificationCloseSideMenuWithoutAnimation.notification, object: nil)
     }
     
 }

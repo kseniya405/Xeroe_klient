@@ -18,7 +18,7 @@ class ClientDataTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        photoImage.layer.cornerRadius = photoImage.frame.height / 2.0
+        photoImage.layer.cornerRadius = photoImage.frame.height / 2
         photoImage.layer.masksToBounds = true
     }
 

@@ -7,14 +7,17 @@
 //
 
 import UIKit
-import GoogleMaps
+import MapKit
+import CoreLocation
+
 
 fileprivate let recipientVCIdentifier = "FoundUserDetailViewController"
 fileprivate let loginVCIdentifier = "LoginViewController"
 
 fileprivate let xeroeIDTextFieldFontSize = 18
 
-class HomeViewController: UIViewController, CLLocationManagerDelegate {
+class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
+    
     
     @IBOutlet weak var xeroeIDTextField: TextFieldWithCorner! {
         didSet {
@@ -30,7 +33,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
             openLeftMenuButton.addTarget(self, action: #selector(openLeftMenuButtonTap), for: .touchUpInside)
         }
     }
-    @IBOutlet weak var mapView: GMSMapView!
+    @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var inputButton: ButtonWithCornerRadius! {
         didSet {
             inputButton.addTarget(self, action: #selector(inputButtonTap), for: .touchUpInside)
@@ -48,29 +51,22 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     let locationManager = CLLocationManager()
     let viewModel = HomeViewModel()
     var activityIndicator: UIActivityIndicatorView?
-
+    
     override func viewDidLoad() {
-
-        // Ask for Authorisation from the User.
-        self.locationManager.requestAlwaysAuthorization()
-        // For use in foreground
-        self.locationManager.requestWhenInUseAuthorization()
-        if CLLocationManager.locationServicesEnabled() {
-            locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-            locationManager.startUpdatingLocation()
-        }
+        mapView.delegate = self
+        mapView.showsUserLocation = true
+        
         viewModel.goToNextScreen = { [weak self] dict in
-            self?.activityIndicator?.stopAnimating()
             DispatchQueue.main.async {
+                self?.activityIndicator?.stopAnimating()
                 self?.goToNextScreen(dictionary: dict)
             }
         }
         
         viewModel.showAlertInputButtonTap = { [weak self] in
-            self?.activityIndicator?.stopAnimating()
             DispatchQueue.main.async {
-//                self?.showAlertInputButtonTap()   add message
+                self?.activityIndicator?.stopAnimating()
+                self?.showAlertInputButtonTap(message: "message")
             }
         }
         
@@ -80,7 +76,14 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
                 self?.goToLoginScreen()
             }
         }
-
+        
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.requestLocation()
+        // To initialize locationManager (). Now it can give you the user location.
+        
+        
     }
     
     @objc func inputButtonTap() {
@@ -95,19 +98,20 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
     @objc func xeroeIDTextFieldDidChange(_ textField: UITextField) {
         
         //changes color point before the text you
-        guard let xeroeIDText = textField.text, xeroeIDText != "" else {
+        guard var xeroeIDText = textField.text, xeroeIDText != "" else {
             pointLabel.textColor = borderTextFieldColor
             return
         }
         pointLabel.textColor = blackTextColor
         
+        xeroeIDText = xeroeIDText.filter { $0.isNumber || $0.isLetter}
+        
         //adds a sharp before the entered IDXeroe
-        let sharp = "#"
-        if xeroeIDText == sharp {
+        if xeroeIDText.isEmpty || xeroeIDText == "#" {
             textField.text = ""
             pointLabel.textColor = borderTextFieldColor
-        } else if (!textField.text!.hasPrefix(sharp)) {
-            textField.text = sharp + textField.text!
+        } else {
+            textField.text = "#" + xeroeIDText
         }
     }
     
@@ -132,19 +136,42 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate {
         let initialViewController = storyboard.instantiateViewController(withIdentifier: loginVCIdentifier) as! LoginViewController
         self.navigationController?.pushViewController(initialViewController, animated: false)
     }
-
+    
+    func dropPinZoomIn(placemark: MKPlacemark){   // This function will "poste" the dialogue bubble of the pin.
+        
+        // clear existing pins to work with only one dialogue bubble.
+        mapView.removeAnnotations(mapView.annotations)
+        let annotation = MKPointAnnotation()    // The dialogue bubble object.
+        annotation.coordinate = placemark.coordinate
+        annotation.title = placemark.name// Here you should test to understand where the location appear in the dialogue bubble.
+        
+        if let city = placemark.locality,
+            let state = placemark.administrativeArea {
+            annotation.subtitle = String((city))+String((state));
+        } // To "post" the user location in the bubble.
+        
+        mapView.addAnnotation(annotation)     // To initialize the bubble.
+        let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+        let region = MKCoordinateRegion(center: placemark.coordinate, span: span)
+        mapView.setRegion(region, animated: true)   // To update the map with a center and a size.
+    }
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
+        print("Func has been summoned")
         
-        // Create a GMSCameraPosition that tells the map to display the
-        // coordinate -33.86,151.20 at zoom level 6.
-        let camera = GMSCameraPosition.camera(withLatitude: locValue.latitude, longitude: locValue.longitude, zoom: 6.0)
-        mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
-        
-        // Creates a marker in the center of the map.
-        let marker = GMSMarker()
-        marker.position = CLLocationCoordinate2D(latitude: locValue.latitude, longitude: locValue.longitude)
-        marker.map = mapView
+        let locationsArray = locations as NSArray
+        let locationObject = locationsArray.lastObject as? CLLocation
+        if (locationObject != nil) {
+            _ = locationObject?.coordinate.latitude
+            let newCoordinateLong = locationObject?.coordinate.longitude
+            
+            print("Begin the func!")
+            print("\(String(describing: newCoordinateLong))")
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        return
     }
     
 }

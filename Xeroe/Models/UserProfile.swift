@@ -9,7 +9,7 @@
 import Foundation
 
 // Sets / gets / keeps all client data in UserDefaults
-class UserProfile {
+class UserProfile: NSCoder {
     
     static var shared = UserProfile()
     
@@ -163,10 +163,12 @@ class UserProfile {
             UserDefaults.standard.synchronize()
         }
         get {
-            if let userableId = UserDefaults.standard.string(forKey: DefaultsKeys.userableId.rawValue) {
-                return convertStringToInt(string: userableId)
-            }
-            return nil
+            let userableId = UserDefaults.standard.integer(forKey: DefaultsKeys.userableId.rawValue)
+            return userableId == 0 ? nil : userableId
+////                return convertStringToInt(string: userableId)
+//                return userableId
+//            }
+//            return nil
         }
     }
 

@@ -8,7 +8,6 @@
 
 import UIKit
 import MapKit
-import GoogleMaps
 import CoreLocation
 
 fileprivate let defaultCoordinations = CLLocationCoordinate2D(latitude: 39.799372, longitude: -89.644458)
@@ -36,6 +35,11 @@ class DriverWayViewController: MapWithDriverViewController {
         }
     }
     @IBOutlet weak var driverRateView: UIView!
+    @IBOutlet weak var confirmRateButton: ButtonWithCornerRadius!{
+        didSet {
+            confirmRateButton.addTarget(self, action: #selector(confirmRateButtonTap), for: .touchUpInside)
+        }
+    }
     
     var finalRoute = MKRoute()
     
@@ -71,6 +75,13 @@ class DriverWayViewController: MapWithDriverViewController {
                 })
             }
         }
+    }
+    
+    @objc func confirmRateButtonTap() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let initialViewController = storyboard.instantiateViewController(withIdentifier: "ContainerViewController") as! ContainerViewController
+        initialViewController.identifier = "HomeViewController"
+        self.navigationController?.pushViewController(initialViewController, animated: false)
     }
     
     @objc func showQRButtonTap() {

@@ -11,6 +11,7 @@ import UIKit
 class ButtonWithCornerRadius: UIButton {
 
     override func awakeFromNib() {
+        super.awakeFromNib()
         self.layer.cornerRadius = 2
         self.layer.masksToBounds = true
     }

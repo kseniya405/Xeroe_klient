@@ -23,7 +23,6 @@ class DataDeliveryTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         answerTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
-
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

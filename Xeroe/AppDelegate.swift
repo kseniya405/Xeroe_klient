@@ -7,8 +7,7 @@
 //
 
 import UIKit
-import GoogleMaps
-import GooglePlaces
+
 import IQKeyboardManagerSwift
 
 @UIApplicationMain
@@ -16,30 +15,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var navigationController: UINavigationController?
-
-    let googleMapsApiKey = "AIzaSyD-3NH9jL5_2qI0kR2FQaNm_3f2GOaYIT0"
-
+    let loginVCIdentifier = "LoginViewController"
+    let containerVCIdentifier = "ContainerViewController"
+    let homeVCIdentifier = "HomeViewController"
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
-        // Override point for customization after application launch.
-        GMSServices.provideAPIKey(googleMapsApiKey)
-        GMSPlacesClient.provideAPIKey(googleMapsApiKey)
-        
+       
         IQKeyboardManager.shared.enable = true
 
         window = UIWindow()
         
         //if there is no token - opens LoginViewController, if there is - HomeViewController
         
-        print(UserProfile.shared.token)
-        if UserProfile.shared.token == nil || UserProfile.shared.token == "" {
-            let startViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
+        print("AppDelegate: didFinishLaunchingWithOptions: token: ", UserProfile.shared.token ?? "no token")
+        if UserProfile.shared.token?.isEmpty ?? true {
+            let startViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: loginVCIdentifier) as! LoginViewController
             navigationController = UINavigationController(rootViewController: startViewController)
 
         } else {
-            let startViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ContainerViewController") as! ContainerViewController
-            startViewController.identifier = "HomeViewController"
+            let startViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: containerVCIdentifier) as! ContainerViewController
+            startViewController.identifier = homeVCIdentifier
             navigationController = UINavigationController(rootViewController: startViewController)
         }
 

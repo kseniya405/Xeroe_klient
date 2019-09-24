@@ -53,9 +53,11 @@ class LeftMenuViewController: UIViewController {
     
     @objc func goToLoginView() {
         UserProfile.shared.clear(callback: { (isOk) in
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let initialViewController = storyboard.instantiateViewController(withIdentifier: loginViewControllerIdentifier) as! LoginViewController
-            self.navigationController?.pushViewController(initialViewController, animated: false)
+            DispatchQueue.main.async {
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let initialViewController = storyboard.instantiateViewController(withIdentifier: loginViewControllerIdentifier) as! LoginViewController
+                self.navigationController?.pushViewController(initialViewController, animated: false)
+            }
         })
     }
     

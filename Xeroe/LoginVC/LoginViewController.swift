@@ -40,24 +40,8 @@ class LoginViewController: UIViewController {
     var activityIndicator: UIActivityIndicatorView?
     
     override func viewDidLoad() {
-
         super.viewDidLoad()
-
-        viewModel.setError = { [weak self] (passwordIsEmpty, emailIsEmpty) in
-            DispatchQueue.main.async {
-                self?.activityIndicator?.stopAnimating()
-                self?.loginFormView.errorTextField(passwordIsEmpty: passwordIsEmpty, emailIsEmpty: emailIsEmpty)
-            }
-            
-        }
-        
-        viewModel.goToHomeScreen = { [weak self] in
-            DispatchQueue.main.async {
-                self?.activityIndicator?.stopAnimating()
-                self?.goToHomeScreen()
-            }
-            
-        }
+        funcViewModel()
     }
     
     @objc func signInButtonTap(){
@@ -75,6 +59,24 @@ class LoginViewController: UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let initialViewController = storyboard.instantiateViewController(withIdentifier: identifierRegistrationVC) as! RegistrationViewController
         self.navigationController?.pushViewController(initialViewController, animated: false)
+    }
+    
+    fileprivate func funcViewModel() {
+        viewModel.setError = { [weak self] (passwordIsEmpty, emailIsEmpty) in
+            DispatchQueue.main.async {
+                self?.activityIndicator?.stopAnimating()
+                self?.loginFormView.errorTextField(passwordIsEmpty: passwordIsEmpty, emailIsEmpty: emailIsEmpty)
+            }
+            
+        }
+        
+        viewModel.goToHomeScreen = { [weak self] in
+            DispatchQueue.main.async {
+                self?.activityIndicator?.stopAnimating()
+                self?.goToHomeScreen()
+            }
+            
+        }
     }
     
     func goToHomeScreen() {

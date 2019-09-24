@@ -128,14 +128,8 @@ extension OrderViewController: UITableViewDelegate, UITableViewDataSource {
             let phone = (isSender ? UserProfile.shared.phone : clientDataDictionary["phone"] as? String) ?? "Wrong data"
             let address = isSender ? userAddress : clientAddress
             
-            let urlAvatar: String
-            if isSender {
-                guard let avatar = UserProfile.shared.avatar else { return cell }
-                urlAvatar = avatar
-            } else {
-                guard let avatar = clientDataDictionary["avatar"] as? String else { return cell }
-                urlAvatar = avatar
-            }
+            let avatar = isSender ? UserProfile.shared.avatar : clientDataDictionary["avatar"] as? String
+            guard let urlAvatar = avatar else { return cell }
             
             cell.setParameters(id: id, name: nameUser, phone: phone, address: address, avatar: urlAvatar)
             return cell
@@ -151,9 +145,6 @@ extension OrderViewController: UITableViewDelegate, UITableViewDataSource {
             return tableView.dequeueReusableCell(withIdentifier: sections[0].typeOfNib, for: indexPath)
         }
     }
-    
-    
-    
 }
 
 extension OrderViewController: ImagePickerDelegate {

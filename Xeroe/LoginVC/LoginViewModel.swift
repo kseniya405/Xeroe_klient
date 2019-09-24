@@ -44,9 +44,9 @@ class LoginViewModel: NSObject {
             UserProfile.shared.token = token
             UserProfile.shared.password = password
             
-            self.setUserData()
-            self.goToHomeScreen?()
-            
+            self.setUserData { (isOk) in
+                self.goToHomeScreen?()
+            }
         }
     }
     
@@ -54,21 +54,24 @@ class LoginViewModel: NSObject {
     /**
      Gets the user's XeroeID, and it receives the rest of the user’s data.
     */
-    func setUserData() {
+    func setUserData(callback: @escaping (Bool) -> Void)  {
         RestApi().clientData() { (isOk, xeroeid)  in
             DispatchQueue.main.async {
                 guard isOk, let userXeroeID = xeroeid else {
                     print("AAAAA! Something in RestApi().clientData() wrong. isOk: \(isOk), xeroeid: \(String(describing: xeroeid))")
+                    callback(false)
                     return
                 }
                                 
                 RestApi().findID(xeroeID: userXeroeID) { (isOk, dictionaryClientData)  in
                     DispatchQueue.main.async {
                         guard isOk else {
+                            callback(false)
                             return
                         }
                         self.setUserProfile(dictionaryClientData)
                         UserProfile.shared.printProfile()
+                        callback(true)
                     }
                 }
             }
