@@ -17,47 +17,55 @@ protocol DimensionsTableViewCellDelegate {
 
 class DimensionsTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var widthTextField: TextFieldWithCorner!
-    @IBOutlet weak var lengthTextField: TextFieldWithCorner!
-    @IBOutlet weak var heightTextField: TextFieldWithCorner!
-    @IBOutlet weak var weightTextField: TextFieldWithCorner!
+    @IBOutlet weak var widthTextField: TextFieldWithCorner! {
+        didSet {
+            widthTextField.addTarget(self, action: #selector(widthTextFieldDidChange(_:)), for: UIControl.Event.editingChanged)
+        }
+    }
+    @IBOutlet weak var lengthTextField: TextFieldWithCorner!{
+        didSet {
+            lengthTextField.addTarget(self, action: #selector(lengthTextFieldDidChange(_:)), for: UIControl.Event.editingChanged)
+        }
+    }
+    @IBOutlet weak var heightTextField: TextFieldWithCorner!{
+        didSet {
+            heightTextField.addTarget(self, action: #selector(heightTextFieldDidChange(_:)), for: UIControl.Event.editingChanged)
+        }
+    }
+    @IBOutlet weak var weightTextField: TextFieldWithCorner!{
+        didSet {
+            weightTextField.addTarget(self, action: #selector(weightTextFieldDidChange(_:)), for: UIControl.Event.editingChanged)
+        }
+    }
     
     var delegate: DimensionsTableViewCellDelegate?
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        widthTextField.addTarget(self, action: #selector(widthTextFieldDidChange(_:)), for: UIControl.Event.editingChanged)
-        lengthTextField.addTarget(self, action: #selector(lengthTextFieldDidChange(_:)), for: UIControl.Event.editingChanged)
-        heightTextField.addTarget(self, action: #selector(heightTextFieldDidChange(_:)), for: UIControl.Event.editingChanged)
-        weightTextField.addTarget(self, action: #selector(weightTextFieldDidChange(_:)), for: UIControl.Event.editingChanged)
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
-    }
-    
     @objc func widthTextFieldDidChange(_ textField: UITextField) {
-        
-        let data = Int(sanitizeText(sourceText: textField.text) ?? "1")
-        delegate?.setWidthDeliver(width: data)
+        textField.text = textField.text?.filter{ $0.isNumber }
+        if let text = textField.text, let data = Int(text) {
+            delegate?.setWidthDeliver(width: data)
+        }
     }
     
     @objc func lengthTextFieldDidChange(_ textField: UITextField) {
-        
-        let data = Int(sanitizeText(sourceText: textField.text) ?? "1")
-        delegate?.setLengthDeliver(length: data)
+        textField.text = textField.text?.filter{ $0.isNumber }
+        if let text = textField.text, let data = Int(text) {
+            delegate?.setLengthDeliver(length: data)
+        }
     }
     
     @objc func heightTextFieldDidChange(_ textField: UITextField) {
-        let data = Int(sanitizeText(sourceText: textField.text) ?? "1")
-        delegate?.setHeightDeliver(height: data)
+        textField.text = textField.text?.filter{ $0.isNumber }
+        if let text = textField.text, let data = Int(text) {
+            delegate?.setHeightDeliver(height: data)
+        }
     }
     
     @objc func weightTextFieldDidChange(_ textField: UITextField) {
-        let data = Int(sanitizeText(sourceText: textField.text) ?? "1")
-        delegate?.setWeightDeliver(weight: data)
+        textField.text = textField.text?.filter{ $0.isNumber }
+        if let text = textField.text, let data = Int(text) {
+            delegate?.setWeightDeliver(weight: data)
+        }
     }
     
     func sanitizeText(sourceText: String?) -> String? {

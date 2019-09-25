@@ -18,11 +18,7 @@ class LeftMenuTableViewCell: UITableViewCell {
     }
 
     @IBOutlet weak var nameCell: UILabel!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
 
-    }
 
     // change the contents of the cell and its color depending on whether the cell is selected
     func setData(nameCell: String, isSelected: Bool) {        

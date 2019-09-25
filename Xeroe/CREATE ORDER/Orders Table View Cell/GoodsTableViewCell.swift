@@ -42,19 +42,19 @@ class GoodsTableViewCell: UITableViewCell{
     var goodsCellDelegate: GoodsCellDelegate?
     
     var numSelectProduct = 0
-    var productCells = ["PRODUCT 1", addProductElement]
+    var productCells = [""]
     
     let thumbnailSizeProduct = CGSize(width: widthCollectionCellProduct, height: heightCollectionCell)
     let thumbnailSizeAdd = CGSize(width: widthCollectionCellProduct, height: heightCollectionCell)
     let sectionInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 2)
+    var selectedIndexPath : IndexPath?
     
     let questionsWithTextField = [nameDeliver, describeDeliver]
     
-    var currentProduct: Product = Product()
+    var currentProduct = [Product()]
     
     override func awakeFromNib() {
         super.awakeFromNib()
-
         tableView.dataSource = self
         tableView.register(UINib(nibName: dataDeliveryIdentifier, bundle: nil), forCellReuseIdentifier: dataDeliveryIdentifier)
         tableView.register(UINib(nibName: addPhotoIdentifier, bundle: nil), forCellReuseIdentifier: addPhotoIdentifier)
@@ -63,15 +63,15 @@ class GoodsTableViewCell: UITableViewCell{
         tableView.layer.borderColor = cianColor.cgColor
         tableView.layer.masksToBounds = true
         tableView.allowsSelection = false
-        
-    }
-    
-    func setDataCell(currentProduct: Product, arrayCellsProduct: [String]) {
-        self.currentProduct = currentProduct
-        self.productCells = arrayCellsProduct
         collectionsView.dataSource = self
         collectionsView.delegate = self
         collectionsView.register(UINib(nibName: chooseProductIdentifier, bundle: nil), forCellWithReuseIdentifier: chooseProductIdentifier)
+    }
+    
+    func setDataCell(currentProduct: [Product], arrayCellsProduct: [String], numProduct: Int) {
+        self.currentProduct = currentProduct
+        self.productCells = arrayCellsProduct
+        self.numSelectProduct = numProduct
     }
     
     
@@ -86,13 +86,14 @@ extension GoodsTableViewCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: chooseProductIdentifier, for: indexPath) as! ChooseProductCollectionViewCell
-        
-        cell.isSelected = indexPath.row == numSelectProduct
-        
-        let backgroundColor = cell.isSelected ? cianColor : productCellOrderTableBackgroundColor
-        let labelColor = cell.isSelected ? .white : productCellOrderTableTextColor
-        
-        cell.setParameters(backgroundColor: backgroundColor, labelColor: labelColor, labelText: productCells[indexPath.row])
+               
+        if indexPath.row < productCells.count {
+            if indexPath.row == numSelectProduct {
+                cell.setParameters(backgroundColor: cianColor, labelColor: .white, labelText: productCells[indexPath.row])
+            } else {
+                cell.defaultParameters(labelText: productCells[indexPath.row])
+            }
+        }
         
         return cell
     }
@@ -112,27 +113,15 @@ extension GoodsTableViewCell: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         if (indexPath.row == productCells.count - 1) {
-            productCells.insert("PRODUCT \(productCells.count)", at: productCells.count - 1)
             goodsCellDelegate?.addProduct()
-            collectionView.reloadData()
+            goodsCellDelegate?.addProductCell()
             return
         }
-        
-        collectionView.reloadSections([0, numSelectProduct])
         numSelectProduct = indexPath.row
         goodsCellDelegate?.setNumProduct(numProduct: indexPath.row)
-
-        let selectCell = collectionsView.cellForItem(at: indexPath)  as! ChooseProductCollectionViewCell
-        selectCell.setParameters(backgroundColor: cianColor, labelColor: .white, labelText: productCells[indexPath.row])
-        selectCell.isSelected = true
-
-//        tableView.reloadData()
+        tableView.reloadData()
     }
-    
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        let deselectCell = collectionsView.cellForItem(at: indexPath)  as! ChooseProductCollectionViewCell
-        deselectCell.setParameters(backgroundColor: productCellOrderTableBackgroundColor, labelColor: productCellOrderTableTextColor, labelText: productCells[indexPath.row]) 
-    }
+
 }
 
 extension GoodsTableViewCell: UITableViewDataSource {
@@ -145,7 +134,7 @@ extension GoodsTableViewCell: UITableViewDataSource {
         case 0, 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: dataDeliveryIdentifier, for: indexPath) as! DataDeliveryTableViewCell
             cell.delegate = self
-            let inputAnswer = indexPath.row == 0 ? currentProduct.name : currentProduct.description
+            let inputAnswer = indexPath.row == 0 ? currentProduct[numSelectProduct].name : currentProduct[numSelectProduct].description
             cell.setParameters(questionsLabel: questionsWithTextField[indexPath.row], answerText: inputAnswer ?? "")
             return cell
         case 2:
@@ -154,11 +143,11 @@ extension GoodsTableViewCell: UITableViewDataSource {
             return cell
         case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: dimensionsIdentifier, for: indexPath) as! DimensionsTableViewCell
-            cell.setParameters(width: String(currentProduct.width), length: String(currentProduct.length), height: String(currentProduct.height), weight: String(currentProduct.weight))
+            cell.setParameters(width: String(currentProduct[numSelectProduct].width), length: String(currentProduct[numSelectProduct].length), height: String(currentProduct[numSelectProduct].height), weight: String(currentProduct[numSelectProduct].weight))
             cell.delegate = self
             return cell
         default:
-            return tableView.dequeueReusableCell(withIdentifier: dimensionsIdentifier, for: indexPath)
+            return UITableViewCell()
         }
     }
 }

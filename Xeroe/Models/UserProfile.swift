@@ -59,10 +59,8 @@ class UserProfile: NSCoder {
             UserDefaults.standard.synchronize()
         }
         get {
-            if let id = UserDefaults.standard.string(forKey: DefaultsKeys.id.rawValue) {
-                return convertStringToInt(string: id)
-            }
-            return nil
+            let id = UserDefaults.standard.integer(forKey: DefaultsKeys.id.rawValue)
+            return id == 0 ? nil : id
         }
     }
     
@@ -85,10 +83,8 @@ class UserProfile: NSCoder {
             UserDefaults.standard.synchronize()
         }
         get {
-            if let defaultAddressId = UserDefaults.standard.string(forKey: DefaultsKeys.defaultAddressId.rawValue) {
-                return convertStringToInt(string: defaultAddressId)
-            }
-            return nil
+            let defaultAddressId = UserDefaults.standard.integer(forKey: DefaultsKeys.defaultAddressId.rawValue)
+            return defaultAddressId == 0 ? nil : defaultAddressId
         }
     }
     
@@ -165,10 +161,6 @@ class UserProfile: NSCoder {
         get {
             let userableId = UserDefaults.standard.integer(forKey: DefaultsKeys.userableId.rawValue)
             return userableId == 0 ? nil : userableId
-////                return convertStringToInt(string: userableId)
-//                return userableId
-//            }
-//            return nil
         }
     }
 
@@ -193,11 +185,6 @@ class UserProfile: NSCoder {
     func printProfile(){
         print("token: \(String(describing: token))\n login: \(String(describing: login))\n password: \(String(describing: password))\n id: \(String(describing: id))\n xeroeId: \(String(describing: xeroeId)) defaultAddressId: \(String(describing: defaultAddressId))\n email: \(String(describing: email))\n phone: \(String(describing: phone))\n state: \(String(describing: state))\n avatar: \(String(describing: avatar))\n userableType: \(String(describing: userableType))\n userableId: \(String(describing: userableId))")
     }
-    
-    func convertStringToInt(string: String) -> Int {
-        let intInString = string.trimmingCharacters(in: CharacterSet.decimalDigits.inverted)
-        return Int(intInString) ?? 0
-    }
-    
+
 }
 

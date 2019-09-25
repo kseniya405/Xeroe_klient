@@ -43,6 +43,7 @@ let insertXeroeID: String = "Insert xeroe ID address"
 let invalidXeroeID: String = "Invalid xeroe ID"
 let userNotFound: String = "User not found"
 let ok: String = "OK"
+let shortXeroeID = "Enter at least 3 characters to search for a password"
 
 let sectionGoods = "GOODS"
 let sectionPaymentMethod = "PAYMENT METHOD"

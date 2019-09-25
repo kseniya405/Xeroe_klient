@@ -49,6 +49,9 @@ class ResultAgreementViewController: UIViewController {
     
     func setParameters() {
         guard let isSuccesful = isAgreementSuccesful else { return }
+        if isSuccesful {
+            
+        }
         
         let nameResultImage = isSuccesful ? "accept" : "block"
         self.resultImage.image = UIImage(named: nameResultImage)

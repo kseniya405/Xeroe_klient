@@ -16,33 +16,38 @@ protocol DataDeliveryTableViewCellDelegate {
 class DataDeliveryTableViewCell: UITableViewCell {
 
     @IBOutlet weak var questionsLabel: UILabel!
-    @IBOutlet weak var answerTextField: TextFieldWithCorner!
+    
+    @IBOutlet weak var answerTextView: UITextView! {
+        didSet {
+            self.layer.masksToBounds = true
+            self.layer.borderColor = borderTextFieldColor.cgColor
+            self.layer.cornerRadius = 4
+            self.fontSize = 12
+            self.translatesAutoresizingMaskIntoConstraints = false
+            answerTextView.target(forAction: #selector(textFieldDidChange(_:)), withSender: UIControl.Event.editingChanged)
+        }
+    }
     
     var delegate: DataDeliveryTableViewCellDelegate?
+        
+    var fontSize = 12
+
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        answerTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: UIControl.Event.editingChanged)
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        print("work")
+        guard let data = textField.text else { return }
+        if questionsLabel.text == nameDeliver {
+            delegate?.setDataDeliveryName(name: data)
+        } else {
+            delegate?.setDataDeliveryDescription(description: data)
+        }
     }
     
     func setParameters(questionsLabel: String, answerText: String) {
         self.questionsLabel.text = questionsLabel
-        self.answerTextField.text = answerText
+        self.answerTextView.text = answerText
     }
-        
-    @objc func textFieldDidChange(_ textField: UITextField) {
-        if questionsLabel.text == nameDeliver {
-            delegate?.setDataDeliveryName(name: textField.text ?? "")
-        } else {
-            delegate?.setDataDeliveryDescription(description: textField.text ?? "")
-        }
-    }
+
 }
 
 

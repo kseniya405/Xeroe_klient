@@ -12,15 +12,15 @@ class ChooseProductCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var labelCell: UILabel!
     
-
     func setParameters(backgroundColor: UIColor? = nil, labelColor: UIColor? = nil, labelText: String? = nil) {
         self.contentView.backgroundColor = backgroundColor
         self.labelCell.textColor = labelColor
         self.labelCell.text = labelText
     }
     
-    func defaultParameters(){
-        self.contentView.backgroundColor = .black
-        self.labelCell.textColor = .white
+    func defaultParameters(labelText: String){
+        self.contentView.backgroundColor = productCellOrderTableBackgroundColor
+        self.labelCell.textColor = productCellOrderTableTextColor
+        self.labelCell.text = labelText
     }
 }

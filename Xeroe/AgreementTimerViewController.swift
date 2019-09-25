@@ -51,11 +51,14 @@ class AgreementTimerViewController: UIViewController {
             
             if timerCount == confirmationTime {
                 timer.invalidate()
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let initialViewController = storyboard.instantiateViewController(withIdentifier: "ResultAgreementViewController") as! ResultAgreementViewController
-                initialViewController.isAgreementSuccesful = confirmationTime != 0
-                initialViewController.orderViewController = self.orderViewController
-                self.navigationController?.pushViewController(initialViewController, animated: false)
+                DispatchQueue.main.async {
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    let initialViewController = storyboard.instantiateViewController(withIdentifier: "ResultAgreementViewController") as! ResultAgreementViewController
+                    initialViewController.isAgreementSuccesful = confirmationTime != 0
+                    initialViewController.orderViewController = self.orderViewController
+                    self.navigationController?.pushViewController(initialViewController, animated: false)
+                }
+
             }
         }
     }

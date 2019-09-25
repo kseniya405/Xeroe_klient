@@ -1013,7 +1013,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "BFAC311F-43B1-48AF-BED1-4451403545BD"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "1"
             condition = "UIViewAlertForUnsatisfiableConstraints"
             continueAfterRunningActions = "Yes"
@@ -1035,7 +1035,7 @@
             <Locations>
                <Location
                   uuid = "BFAC311F-43B1-48AF-BED1-4451403545BD - 35e2df5366d3ed85"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "Xeroe.HomeViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; Xeroe.HomeViewController"
@@ -1058,7 +1058,7 @@
                </Location>
                <Location
                   uuid = "BFAC311F-43B1-48AF-BED1-4451403545BD - 6af42a9252774c15"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "function signature specialization &lt;Arg[0] = Owned To Guaranteed&gt; of Xeroe.HomeViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;Xeroe.HomeViewController&gt;"

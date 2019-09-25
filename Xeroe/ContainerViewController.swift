@@ -234,15 +234,15 @@ class ContainerViewController: UIViewController {
 class HamburgerMenu{
     //Class To Implement Easy Functions To Open Or Close LeftVC
     //Make object of this class and call functions
-    func triggerSideMenu(){
+    static func triggerSideMenu(){
         NotificationCenter.default.post(name: NotificationName.notificationOpenOrCloseSideMenu.notification, object: nil)
     }
     
-    func closeSideMenu(){
+    static func closeSideMenu(){
         NotificationCenter.default.post(name: NotificationName.notificationCloseSideMenu.notification, object: nil)
     }
     
-    func closeSideMenuWithoutAnimation(){
+    static func closeSideMenuWithoutAnimation(){
         NotificationCenter.default.post(name: NotificationName.notificationCloseSideMenuWithoutAnimation.notification, object: nil)
     }
     

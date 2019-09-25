@@ -18,9 +18,7 @@ class AddPhotoTableViewCell: UITableViewCell {
 
     @IBOutlet weak var addPhotosLable: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
-    
-    var imagePicker: ImagePicker!
-    
+        
     var delegate: AddPhotoTableViewCellDelegate?
     
     fileprivate var thumbnailSize = CGSize(width: 94.0, height: 94.0)
@@ -43,9 +41,9 @@ extension AddPhotoTableViewCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifierCell, for: indexPath) as! PhotosCollectionViewCell
-        cell.photoImage.image = indexPath.row == 0 ? UIImage(named: "default_photo") : UIImage(named: "add_photo")
+        guard let imageOrder = indexPath.row == 0 ? UIImage(named: "default_photo") : UIImage(named: "add_photo") else { return cell }
+        cell.setOrderImage(image: imageOrder)
         return cell
-        
     }
     
     

@@ -11,9 +11,8 @@ import UIKit
 class PhotosCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var photoImage: UIImageView!
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
 
+    func setOrderImage(image: UIImage) {
+        photoImage.image = image
+    }
 }

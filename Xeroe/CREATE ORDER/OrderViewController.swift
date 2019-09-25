@@ -43,28 +43,14 @@ class OrderViewController: UIViewController, UIImagePickerControllerDelegate, UI
         let section: String
         let typeOfNib: String
     }
-    
-    let sections = [
-        sectionData(section: sectionGoods, typeOfNib: identifierGoodsCell),
-        sectionData(section: sectionPaymentMethod, typeOfNib: identifierPaymentMethodCell),
-        sectionData(section: sectionSenderData, typeOfNib: identifierClientDataCell),
-        sectionData(section: sectionRecipientData, typeOfNib: identifierClientDataCell),
-        sectionData(section: sectionOptions, typeOfNib: identifierOptionsCell),
-        sectionData(section: sectionDeliveryType, typeOfNib: identifierDeliveryTypeCell)
-    ]
+
+    let sections = [sectionGoods, sectionPaymentMethod, sectionSenderData, sectionRecipientData, sectionOptions, sectionDeliveryType]
     
     let sectionInsets = UIEdgeInsets(top: 0, left: 20.0, bottom: 0, right: 0.0)
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.delegate = self
-        tableView.dataSource = self
-        for section in sections {
-            tableView.register(UINib(nibName: section.typeOfNib, bundle: nil), forCellReuseIdentifier: section.typeOfNib)
-        }
-        tableView.register(UINib.init(nibName: identifierHeader, bundle: Bundle.main), forHeaderFooterViewReuseIdentifier: identifierHeader)
-        
+        tableRegister()
         self.imagePicker = ImagePicker(presentationController: self, delegate: self)
 
     }
@@ -73,23 +59,25 @@ class OrderViewController: UIViewController, UIImagePickerControllerDelegate, UI
         self.dismiss()
     }
     
+    fileprivate func tableRegister() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(UINib(nibName: identifierGoodsCell, bundle: nil), forCellReuseIdentifier: identifierGoodsCell)
+        tableView.register(UINib(nibName: identifierPaymentMethodCell, bundle: nil), forCellReuseIdentifier: identifierPaymentMethodCell)
+        tableView.register(UINib(nibName: identifierClientDataCell, bundle: nil), forCellReuseIdentifier: identifierClientDataCell)
+        tableView.register(UINib(nibName: identifierOptionsCell, bundle: nil), forCellReuseIdentifier: identifierOptionsCell)
+        tableView.register(UINib(nibName: identifierDeliveryTypeCell, bundle: nil), forCellReuseIdentifier: identifierDeliveryTypeCell)
+        tableView.register(UINib.init(nibName: identifierHeader, bundle: Bundle.main), forHeaderFooterViewReuseIdentifier: identifierHeader)
+    }
 }
 
 extension OrderViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: identifierHeader) as! HeaderOrderTableView
+
+        headerView.setParameters(sectionNumberIsZero: section == 0, sectionName: sections[section])
         
-        let sectionNumberIsZero = section == 0
-        headerView.goodsLabel.isHidden = !sectionNumberIsZero
-        headerView.namesLabel.isHidden = sectionNumberIsZero
-        headerView.noteLabel.isHidden = !sectionNumberIsZero
-        headerView.namesLabel.text = sections[section].section
-        
-        headerView.viewBackground.layer.shadowColor = shadowColor.cgColor
-        headerView.viewBackground.layer.shadowOpacity = 1
-        headerView.viewBackground.layer.shadowRadius = 2
-        headerView.viewBackground.layer.shadowOffset = CGSize(width: 0, height: 2)
         return headerView
     }
     
@@ -105,22 +93,22 @@ extension OrderViewController: UITableViewDelegate, UITableViewDataSource {
         return 1
     }
     
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0:
-            let cell = tableView.dequeueReusableCell(withIdentifier: sections[indexPath.section].typeOfNib, for: indexPath) as! GoodsTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: identifierGoodsCell, for: indexPath) as! GoodsTableViewCell
             cell.addPhotoDelegate = self
             cell.goodsCellDelegate = self
-            cell.setDataCell(currentProduct: thisOrderData.products[currentProductNum], arrayCellsProduct: productCellsArray)
-            print(currentProductNum, " ", productCellsArray)
-
+            cell.setDataCell(currentProduct: thisOrderData.products, arrayCellsProduct: productCellsArray, numProduct: currentProductNum)
+            print(currentProductNum, " ", productCellsArray, " ", thisOrderData.products.count)
             return cell
         case 1:
-            let cell = tableView.dequeueReusableCell(withIdentifier: sections[indexPath.section].typeOfNib, for: indexPath) as! PaymentMethodTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: identifierPaymentMethodCell, for: indexPath) as! PaymentMethodTableViewCell
             cell.delegate = self
             return cell
         case 2, 3:
-            let cell = tableView.dequeueReusableCell(withIdentifier: sections[indexPath.section].typeOfNib, for: indexPath) as! ClientDataTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: identifierClientDataCell, for: indexPath) as! ClientDataTableViewCell
             
             let isSender = isDelivery ? indexPath.section == 2 : indexPath.section == 3
             let id = (isSender ? UserProfile.shared.xeroeId : clientDataDictionary["xeroeid"] as? String) ?? "Wrong data"
@@ -135,21 +123,23 @@ extension OrderViewController: UITableViewDelegate, UITableViewDataSource {
             return cell
             
         case 4:
-            let cell = tableView.dequeueReusableCell(withIdentifier: sections[indexPath.section].typeOfNib, for: indexPath) as! OptionsTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: identifierOptionsCell, for: indexPath) as! OptionsTableViewCell
             return cell
         case 5:
-            let cell = tableView.dequeueReusableCell(withIdentifier: sections[indexPath.section].typeOfNib, for: indexPath) as! DeliveryTypeTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: identifierDeliveryTypeCell, for: indexPath) as! DeliveryTypeTableViewCell
             cell.delegate = self
             return cell
         default:
-            return tableView.dequeueReusableCell(withIdentifier: sections[0].typeOfNib, for: indexPath)
+            return UITableViewCell()
         }
     }
 }
 
 extension OrderViewController: ImagePickerDelegate {
     func didSelect(image: UIImage?) {
-        imagePickCell?.photoImage.image = image
+        if let photo = image {
+            imagePickCell?.setOrderImage(image: photo)
+        }
     }
 }
 
@@ -189,7 +179,6 @@ extension OrderViewController: GoodsCellDelegate, PaymentMethodTableViewCellDele
     func setNumProduct(numProduct: Int) {
         currentProductNum = numProduct
         thisOrderData.products[currentProductNum].id = numProduct + 1
-        tableView.reloadSections(IndexSet(integer: 0), with: .none)
     }
     
     func setArrayProductCells(array: [String]) {
@@ -199,7 +188,7 @@ extension OrderViewController: GoodsCellDelegate, PaymentMethodTableViewCellDele
     func addProductCell() {
         productCellsArray.insert("PRODUCT \(productCellsArray.count)", at: productCellsArray.count - 1)
         print(productCellsArray)
-        tableView.reloadData()
+        tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .none)
     }
     
     func addProduct(){

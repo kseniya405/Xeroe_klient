@@ -24,7 +24,9 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
             xeroeIDTextField.fontSize = xeroeIDTextFieldFontSize
             xeroeIDTextField.placeholder = insertXeroeID
             xeroeIDTextField.leftInsets = xeroeIDTextField.frame.width * 0.10
-            xeroeIDTextField.addTarget(self, action: #selector(xeroeIDTextFieldDidChange(_:)), for: UIControl.Event.editingChanged)
+            xeroeIDTextField.addTarget(self, action: #selector(xeroeIDTextFieldDidChange(_:)), for: .editingChanged)
+            xeroeIDTextField.addTarget(self, action: #selector(xeroeIDTextFieldDidChange(_:)), for: .touchDragEnter)
+            
         }
     }
     
@@ -63,10 +65,10 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
             }
         }
         
-        viewModel.showAlertInputButtonTap = { [weak self] in
+        viewModel.showAlertInputButtonTap = { [weak self] (message) in
             DispatchQueue.main.async {
                 self?.activityIndicator?.stopAnimating()
-                self?.showAlertInputButtonTap(message: "message")
+                self?.showAlertInputButtonTap(message: message)
             }
         }
         
@@ -92,7 +94,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     }
     
     @objc func openLeftMenuButtonTap() {
-        HamburgerMenu().triggerSideMenu()
+        HamburgerMenu.triggerSideMenu()
     }
     
     @objc func xeroeIDTextFieldDidChange(_ textField: UITextField) {

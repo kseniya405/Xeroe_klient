@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 import CoreLocation
 
-fileprivate let defaultCoordinations = CLLocationCoordinate2D(latitude: 39.799372, longitude: -89.644458)
+fileprivate let defaultCoordinate = CLLocationCoordinate2D(latitude: 39.799372, longitude: -89.644458)
 
 class DriverWayViewController: MapWithDriverViewController {
     
@@ -95,11 +95,11 @@ class DriverWayViewController: MapWithDriverViewController {
         convertAddressToCoordinate(from: userAddress) { sourceLocationBack in
             self.convertAddressToCoordinate(from: clientAddress) { destinationLocationBack in
                 
-                self.locationStart = sourceLocationBack ?? defaultCoordinations
-                let sourceMapItem = self.setMapItem(location: sourceLocationBack ?? defaultCoordinations)
+                self.locationStart = sourceLocationBack ?? defaultCoordinate
+                let sourceMapItem = self.setMapItem(location: sourceLocationBack ?? defaultCoordinate)
                 
-                let destinationMapItem = self.setMapItem(location: destinationLocationBack ?? defaultCoordinations)
-                self.locationFinish = destinationLocationBack ?? defaultCoordinations
+                let destinationMapItem = self.setMapItem(location: destinationLocationBack ?? defaultCoordinate)
+                self.locationFinish = destinationLocationBack ?? defaultCoordinate
                 
                 let directionRequest = MKDirections.Request()
                 directionRequest.source = sourceMapItem

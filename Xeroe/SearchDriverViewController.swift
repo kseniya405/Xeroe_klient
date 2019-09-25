@@ -9,7 +9,7 @@ import UIKit
 import MapKit
 import CoreLocation
 
-fileprivate let defaultCoordinations = CLLocationCoordinate2D(latitude: 39.799372, longitude: -89.644458)
+fileprivate let defaultCoordinate = CLLocationCoordinate2D(latitude: 39.799372, longitude: -89.644458)
 
 class SearchDriverViewController: MapWithDriverViewController {
     
@@ -71,14 +71,14 @@ class SearchDriverViewController: MapWithDriverViewController {
         convertAddressToCoordinate(from: userAddress) { sourceLocationBack in
             self.convertAddressToCoordinate(from: clientAddress) { destinationLocationBack in
 
-                self.locationStart = sourceLocationBack ?? defaultCoordinations
-                let sourceMapItem = self.setMapItem(location: sourceLocationBack ?? defaultCoordinations)
+                self.locationStart = sourceLocationBack ?? defaultCoordinate
+                let sourceMapItem = self.setMapItem(location: sourceLocationBack ?? defaultCoordinate)
                 
                 let _ = self.setMapItem(location: CLLocationCoordinate2D(latitude: self.locationStart.latitude * 0.9999, longitude: self.locationStart.longitude * 1.2))
                 
-                let destinationMapItem = self.setMapItem(location: destinationLocationBack ?? defaultCoordinations)
+                let destinationMapItem = self.setMapItem(location: destinationLocationBack ?? defaultCoordinate)
             
-                self.locationFinish = destinationLocationBack ?? defaultCoordinations
+                self.locationFinish = destinationLocationBack ?? defaultCoordinate
                 
                 let directionRequest = MKDirections.Request()
                 directionRequest.source = sourceMapItem

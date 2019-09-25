@@ -33,8 +33,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             navigationController = UINavigationController(rootViewController: startViewController)
 
         } else {
-            let startViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: containerVCIdentifier) as! ContainerViewController
-            startViewController.identifier = homeVCIdentifier
+            let startViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "OrderViewController") as! OrderViewController
+//            startViewController.identifier = homeVCIdentifier
             navigationController = UINavigationController(rootViewController: startViewController)
         }
 
