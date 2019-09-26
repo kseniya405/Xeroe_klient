@@ -72,6 +72,7 @@ class GoodsTableViewCell: UITableViewCell{
         self.currentProduct = currentProduct
         self.productCells = arrayCellsProduct
         self.numSelectProduct = numProduct
+        collectionsView.reloadData()
     }
     
     
@@ -86,15 +87,13 @@ extension GoodsTableViewCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: chooseProductIdentifier, for: indexPath) as! ChooseProductCollectionViewCell
-               
-        if indexPath.row < productCells.count {
-            if indexPath.row == numSelectProduct {
-                cell.setParameters(backgroundColor: cianColor, labelColor: .white, labelText: productCells[indexPath.row])
+        if indexPath.item < productCells.count {
+            if indexPath.item == numSelectProduct {
+                cell.setParameters(backgroundColor: cianColor, labelColor: .white, labelText: productCells[indexPath.item])
             } else {
-                cell.defaultParameters(labelText: productCells[indexPath.row])
+                cell.defaultParameters(labelText: productCells[indexPath.item])
             }
         }
-        
         return cell
     }
 }
@@ -117,11 +116,11 @@ extension GoodsTableViewCell: UICollectionViewDelegate {
             goodsCellDelegate?.addProductCell()
             return
         }
+        collectionView.reloadData()
+        tableView.reloadData()
         numSelectProduct = indexPath.row
         goodsCellDelegate?.setNumProduct(numProduct: indexPath.row)
-        tableView.reloadData()
     }
-
 }
 
 extension GoodsTableViewCell: UITableViewDataSource {
@@ -154,27 +153,33 @@ extension GoodsTableViewCell: UITableViewDataSource {
 
 extension GoodsTableViewCell: DimensionsTableViewCellDelegate, DataDeliveryTableViewCellDelegate {
     
-    func setWidthDeliver(width: Int?) {
+    func setWidthDeliver(width: Int) {
         goodsCellDelegate?.setWidthDeliver(width: width)
+        currentProduct[numSelectProduct].width = width
     }
     
-    func setLengthDeliver(length: Int?) {
+    func setLengthDeliver(length: Int) {
         goodsCellDelegate?.setLengthDeliver(length: length)
+        currentProduct[numSelectProduct].length = length
     }
     
-    func setHeightDeliver(height: Int?) {
+    func setHeightDeliver(height: Int) {
         goodsCellDelegate?.setHeightDeliver(height: height)
+        currentProduct[numSelectProduct].height = height
     }
     
-    func setWeightDeliver(weight: Int?) {
+    func setWeightDeliver(weight: Int) {
         goodsCellDelegate?.setWeightDeliver(weight: weight)
+        currentProduct[numSelectProduct].weight = weight
     }
     
     func setDataDeliveryName(name: String) {
         goodsCellDelegate?.setNameDeliver(nameDeliver: name)
+        currentProduct[numSelectProduct].name = name
     }
     
     func setDataDeliveryDescription(description: String) {
         goodsCellDelegate?.setDescribeDeliver(describeDeliver: description)
+        currentProduct[numSelectProduct].description = description
     }
 }

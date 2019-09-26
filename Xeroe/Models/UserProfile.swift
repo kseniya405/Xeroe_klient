@@ -16,7 +16,7 @@ class UserProfile: NSCoder {
     var token : String?  {
         set {
             UserDefaults.standard.set(newValue, forKey: DefaultsKeys.token.rawValue)
-            print("set token")
+            debugPrint("set token")
             UserDefaults.standard.synchronize()
         }
         get {
@@ -183,7 +183,7 @@ class UserProfile: NSCoder {
     }
     
     func printProfile(){
-        print("token: \(String(describing: token))\n login: \(String(describing: login))\n password: \(String(describing: password))\n id: \(String(describing: id))\n xeroeId: \(String(describing: xeroeId)) defaultAddressId: \(String(describing: defaultAddressId))\n email: \(String(describing: email))\n phone: \(String(describing: phone))\n state: \(String(describing: state))\n avatar: \(String(describing: avatar))\n userableType: \(String(describing: userableType))\n userableId: \(String(describing: userableId))")
+        debugPrint("token: \(String(describing: token))\n login: \(String(describing: login))\n password: \(String(describing: password))\n id: \(String(describing: id))\n xeroeId: \(String(describing: xeroeId)) defaultAddressId: \(String(describing: defaultAddressId))\n email: \(String(describing: email))\n phone: \(String(describing: phone))\n state: \(String(describing: state))\n avatar: \(String(describing: avatar))\n userableType: \(String(describing: userableType))\n userableId: \(String(describing: userableId))")
     }
 
 }

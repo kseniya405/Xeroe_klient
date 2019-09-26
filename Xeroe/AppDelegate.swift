@@ -27,14 +27,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //if there is no token - opens LoginViewController, if there is - HomeViewController
         
-        print("AppDelegate: didFinishLaunchingWithOptions: token: ", UserProfile.shared.token ?? "no token")
+        debugPrint("AppDelegate: didFinishLaunchingWithOptions: token: ", UserProfile.shared.token ?? "no token")
         if UserProfile.shared.token?.isEmpty ?? true {
             let startViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: loginVCIdentifier) as! LoginViewController
             navigationController = UINavigationController(rootViewController: startViewController)
 
         } else {
-            let startViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "OrderViewController") as! OrderViewController
-//            startViewController.identifier = homeVCIdentifier
+            let startViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: containerVCIdentifier) as! ContainerViewController
+            startViewController.identifier = homeVCIdentifier
             navigationController = UINavigationController(rootViewController: startViewController)
         }
 

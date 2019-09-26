@@ -19,14 +19,13 @@ fileprivate let xeroeIDTextFieldFontSize = 18
 class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
     
-    @IBOutlet weak var xeroeIDTextField: TextFieldWithCorner! {
+    @IBOutlet weak var xeroeIDTextField: TextFieldWithCorner!
+    {
         didSet {
             xeroeIDTextField.fontSize = xeroeIDTextFieldFontSize
             xeroeIDTextField.placeholder = insertXeroeID
             xeroeIDTextField.leftInsets = xeroeIDTextField.frame.width * 0.10
             xeroeIDTextField.addTarget(self, action: #selector(xeroeIDTextFieldDidChange(_:)), for: .editingChanged)
-            xeroeIDTextField.addTarget(self, action: #selector(xeroeIDTextFieldDidChange(_:)), for: .touchDragEnter)
-            
         }
     }
     
@@ -49,43 +48,14 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     }
     
     var dictionaryClientData: [String : Any]?
-    
     let locationManager = CLLocationManager()
     let viewModel = HomeViewModel()
     var activityIndicator: UIActivityIndicatorView?
+    var location: CLLocation?
     
     override func viewDidLoad() {
-        mapView.delegate = self
-        mapView.showsUserLocation = true
-        
-        viewModel.goToNextScreen = { [weak self] dict in
-            DispatchQueue.main.async {
-                self?.activityIndicator?.stopAnimating()
-                self?.goToNextScreen(dictionary: dict)
-            }
-        }
-        
-        viewModel.showAlertInputButtonTap = { [weak self] (message) in
-            DispatchQueue.main.async {
-                self?.activityIndicator?.stopAnimating()
-                self?.showAlertInputButtonTap(message: message)
-            }
-        }
-        
-        viewModel.goToLoginScreen = { [weak self] in
-            DispatchQueue.main.async {
-                self?.activityIndicator?.stopAnimating()
-                self?.goToLoginScreen()
-            }
-        }
-        
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.requestLocation()
-        // To initialize locationManager (). Now it can give you the user location.
-        
-        
+        activateMapAndLocationManager()
+        funcViewModel()
     }
     
     @objc func inputButtonTap() {
@@ -139,42 +109,70 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
         self.navigationController?.pushViewController(initialViewController, animated: false)
     }
     
-    func dropPinZoomIn(placemark: MKPlacemark){   // This function will "poste" the dialogue bubble of the pin.
+    //MARK: viewModel functions
+    fileprivate func funcViewModel() {
+        viewModel.goToNextScreen = { [weak self] dict in
+            DispatchQueue.main.async {
+                self?.activityIndicator?.stopAnimating()
+                self?.goToNextScreen(dictionary: dict)
+            }
+        }
         
-        // clear existing pins to work with only one dialogue bubble.
-        mapView.removeAnnotations(mapView.annotations)
-        let annotation = MKPointAnnotation()    // The dialogue bubble object.
-        annotation.coordinate = placemark.coordinate
-        annotation.title = placemark.name// Here you should test to understand where the location appear in the dialogue bubble.
+        viewModel.showAlertInputButtonTap = { [weak self] (message) in
+            DispatchQueue.main.async {
+                self?.activityIndicator?.stopAnimating()
+                self?.showAlertInputButtonTap(message: message)
+            }
+        }
         
-        if let city = placemark.locality,
-            let state = placemark.administrativeArea {
-            annotation.subtitle = String((city))+String((state));
-        } // To "post" the user location in the bubble.
-        
-        mapView.addAnnotation(annotation)     // To initialize the bubble.
-        let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
-        let region = MKCoordinateRegion(center: placemark.coordinate, span: span)
-        mapView.setRegion(region, animated: true)   // To update the map with a center and a size.
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print("Func has been summoned")
-        
-        let locationsArray = locations as NSArray
-        let locationObject = locationsArray.lastObject as? CLLocation
-        if (locationObject != nil) {
-            _ = locationObject?.coordinate.latitude
-            let newCoordinateLong = locationObject?.coordinate.longitude
-            
-            print("Begin the func!")
-            print("\(String(describing: newCoordinateLong))")
+        viewModel.goToLoginScreen = { [weak self] in
+            DispatchQueue.main.async {
+                self?.activityIndicator?.stopAnimating()
+                self?.goToLoginScreen()
+            }
         }
     }
     
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        return
+
+    //MARK: delegate CLLocationManagerDelegate functions
+    
+    fileprivate func activateMapAndLocationManager() {
+        mapView.delegate = self
+        mapView.showsUserLocation = true
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.requestLocation()
+        locationManager.startUpdatingHeading()
     }
     
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        debugPrint("Func has been summoned")
+        guard let coordinate = location?.coordinate else { return  }
+        let locationPlacemark = MKPlacemark(coordinate: coordinate, addressDictionary: nil)
+        let locationAnnotation = MKPointAnnotation()
+        if let location = locationPlacemark.location {
+            locationAnnotation.coordinate = location.coordinate
+        }
+        self.mapView.showAnnotations([locationAnnotation], animated: true)
+
+       let region = MKCoordinateRegion(center: coordinate , latitudinalMeters: CLLocationDistance(exactly: 10000)!, longitudinalMeters: CLLocationDistance(exactly: 10000)!)
+       
+       self.mapView.setRegion(self.mapView.regionThatFits(region), animated: true)
+    }
+       
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        let coordinate = CLLocationCoordinate2D(latitude: 39.799372, longitude: -89.644458)
+         let locationPlacemark = MKPlacemark(coordinate: coordinate, addressDictionary: nil)
+         let locationAnnotation = MKPointAnnotation()
+         if let location = locationPlacemark.location {
+             locationAnnotation.coordinate = location.coordinate
+         }
+         self.mapView.showAnnotations([locationAnnotation], animated: true)
+
+        let region = MKCoordinateRegion(center: coordinate , latitudinalMeters: CLLocationDistance(exactly: 10000)!, longitudinalMeters: CLLocationDistance(exactly: 10000)!)
+        
+        self.mapView.setRegion(self.mapView.regionThatFits(region), animated: true)
+    }
 }
 

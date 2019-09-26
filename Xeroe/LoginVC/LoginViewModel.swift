@@ -58,7 +58,7 @@ class LoginViewModel: NSObject {
         RestApi().clientData() { (isOk, xeroeid)  in
             DispatchQueue.main.async {
                 guard isOk, let userXeroeID = xeroeid else {
-                    print("AAAAA! Something in RestApi().clientData() wrong. isOk: \(isOk), xeroeid: \(String(describing: xeroeid))")
+                    debugPrint("AAAAA! Something in RestApi().clientData() wrong. isOk: \(isOk), xeroeid: \(String(describing: xeroeid))")
                     callback(false)
                     return
                 }

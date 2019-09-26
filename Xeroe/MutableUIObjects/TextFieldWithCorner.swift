@@ -20,6 +20,7 @@ class TextFieldWithCorner: UITextField {
         self.layer.masksToBounds = true
         self.textColor = blackTextColor
         self.font = UIFont(name: robotoMedium, size: CGFloat(fontSize))
+
     }
 
     override open func textRect(forBounds bounds: CGRect) -> CGRect {

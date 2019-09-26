@@ -114,7 +114,7 @@ class DriverWayViewController: MapWithDriverViewController {
                     
                     guard let response = response else {
                         if let error = error {
-                            print("Error: \(error)")
+                            debugPrint("Error: \(error)")
                         }
                         callback(MKRoute())
                         return

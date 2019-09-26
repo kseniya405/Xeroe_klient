@@ -45,7 +45,7 @@ class LeftMenuViewController: UIViewController {
         userIDXeroeLabel.text = UserProfile.shared.xeroeId
         
         guard let urlAvatar: String = UserProfile.shared.avatar else {
-            print("error avatar")
+            debugPrint("error avatar")
             return
         }
         photoImage.getImageFromUrl(urlAvatar: urlAvatar)

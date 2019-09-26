@@ -45,9 +45,6 @@ class DeliveryTypeTableViewCell: UITableViewCell {
     @objc func confirmButtonTap() {
         delegate?.confirmButtonTap()
     }
-    
-
-    
 }
 
 extension DeliveryTypeTableViewCell: UICollectionViewDataSource {

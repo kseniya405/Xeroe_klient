@@ -30,7 +30,7 @@
 //    
 //    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
 //        guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
-//        print("locations = \(locValue.latitude) \(locValue.longitude)")
+//        debugPrint("locations = \(locValue.latitude) \(locValue.longitude)")
 //        
 //        // Create a GMSCameraPosition that tells the map to display the
 //        // coordinate -33.86,151.20 at zoom level 6.

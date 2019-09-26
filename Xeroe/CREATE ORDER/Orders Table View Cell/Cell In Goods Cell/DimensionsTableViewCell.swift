@@ -9,10 +9,10 @@
 import UIKit
 
 protocol DimensionsTableViewCellDelegate {
-    func setWidthDeliver(width: Int?)
-    func setLengthDeliver(length: Int?)
-    func setHeightDeliver(height: Int?)
-    func setWeightDeliver(weight: Int?)
+    func setWidthDeliver(width: Int)
+    func setLengthDeliver(length: Int)
+    func setHeightDeliver(height: Int)
+    func setWeightDeliver(weight: Int)
 }
 
 class DimensionsTableViewCell: UITableViewCell {

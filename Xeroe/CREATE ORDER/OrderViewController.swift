@@ -27,23 +27,18 @@ class OrderViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     @IBOutlet weak var tableView: UITableView!
     
-    
     var imagePicker: ImagePicker!
     var imagePickCell: PhotosCollectionViewCell?
-
-    var thisOrderData = ConfirmOrderByCreator()
+    
+    var order = ConfirmOrderByCreator()
     var currentProductNum: Int = 0
     
     var clientDataDictionary: [String: Any] = [:]
     var isDelivery: Bool = false
     
     var productCellsArray: [String] = ["PRODUCT 1", addProductElement]
-
-    struct sectionData {
-        let section: String
-        let typeOfNib: String
-    }
-
+    
+    
     let sections = [sectionGoods, sectionPaymentMethod, sectionSenderData, sectionRecipientData, sectionOptions, sectionDeliveryType]
     
     let sectionInsets = UIEdgeInsets(top: 0, left: 20.0, bottom: 0, right: 0.0)
@@ -52,7 +47,8 @@ class OrderViewController: UIViewController, UIImagePickerControllerDelegate, UI
         super.viewDidLoad()
         tableRegister()
         self.imagePicker = ImagePicker(presentationController: self, delegate: self)
-
+        
+        
     }
     
     @objc func backButtonTap() {
@@ -71,11 +67,13 @@ class OrderViewController: UIViewController, UIImagePickerControllerDelegate, UI
     }
 }
 
+
+// MARK: TableView setting
 extension OrderViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: identifierHeader) as! HeaderOrderTableView
-
+        
         headerView.setParameters(sectionNumberIsZero: section == 0, sectionName: sections[section])
         
         return headerView
@@ -100,8 +98,7 @@ extension OrderViewController: UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: identifierGoodsCell, for: indexPath) as! GoodsTableViewCell
             cell.addPhotoDelegate = self
             cell.goodsCellDelegate = self
-            cell.setDataCell(currentProduct: thisOrderData.products, arrayCellsProduct: productCellsArray, numProduct: currentProductNum)
-            print(currentProductNum, " ", productCellsArray, " ", thisOrderData.products.count)
+            cell.setDataCell(currentProduct: order.products, arrayCellsProduct: productCellsArray, numProduct: currentProductNum)
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: identifierPaymentMethodCell, for: indexPath) as! PaymentMethodTableViewCell
@@ -135,6 +132,7 @@ extension OrderViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+//MARK: ImagePickerDelegate
 extension OrderViewController: ImagePickerDelegate {
     func didSelect(image: UIImage?) {
         if let photo = image {
@@ -150,35 +148,61 @@ extension OrderViewController: AddPhotoTableViewCellDelegate {
     }
 }
 
-extension OrderViewController: GoodsCellDelegate, PaymentMethodTableViewCellDelegate, DeliveryTypeTableViewCellDelegate {
 
+//MARK: delegates to fill in the fields Order
+extension OrderViewController: GoodsCellDelegate, PaymentMethodTableViewCellDelegate, DeliveryTypeTableViewCellDelegate {
+    
     func confirmButtonTap() {
         guard let id = UserProfile.shared.userableId else {  return }
-        print(id)
-        RestApi().createOrder(idClient: id){ (isOk) in
-            DispatchQueue.main.async {
-                print(isOk)
+      
+        for index in 0..<order.products.count {
+            let product = order.products[index]
+            if product.name == nil || product.name!.isEmpty  {
+                if order.products.count == 1 {
+                    self.showAlertInputButtonTap(message: "Please, input name Product \(product.id + 1)")
+                } else {
+                    showAlertNextScreen(idProduct: index)
+                    return
+                }
+            }
+            guard let description = product.description, !description.isEmpty else {
+                self.showAlertInputButtonTap(message: "Please, input description Product \(product.id + 1)")
+                return
+            }
+            if product.height == 0 {
+                self.showAlertInputButtonTap(message: "Please, input height Product \(product.id + 1 )")
+                return
+            }
+            if product.width == 0 {
+                self.showAlertInputButtonTap(message: "Please, input width Product \(product.id + 1)")
+                return
+            }
+            if product.length == 0 {
+                self.showAlertInputButtonTap(message: "Please, input length Product \(product.id + 1)")
+                return
+            }
+            if product.weight == 0 {
+                self.showAlertInputButtonTap(message: "Please, input weight Product \(product.id + 1)")
+                return
             }
         }
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let initialViewController = storyboard.instantiateViewController(withIdentifier: "AgreementTimerViewController") as! AgreementTimerViewController
-        initialViewController.orderViewController = self
-        self.navigationController?.pushViewController(initialViewController, animated: false)
+        
+        self.sendOrder(idClient: id)
     }
     
     func setDeliveryType(type: Int?) {
-        thisOrderData.delivery_type = type
+        order.delivery_type = type
     }
     
     func setPaymentMethod(isCreditCard: Bool) {
         if isCreditCard {
-            thisOrderData.payment_method = "credit_card"
+            order.payment_method = "credit_card"
         }
     }
     
     func setNumProduct(numProduct: Int) {
         currentProductNum = numProduct
-        thisOrderData.products[currentProductNum].id = numProduct + 1
+        order.products[currentProductNum].id = numProduct
     }
     
     func setArrayProductCells(array: [String]) {
@@ -187,36 +211,76 @@ extension OrderViewController: GoodsCellDelegate, PaymentMethodTableViewCellDele
     
     func addProductCell() {
         productCellsArray.insert("PRODUCT \(productCellsArray.count)", at: productCellsArray.count - 1)
-        print(productCellsArray)
         tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .none)
     }
     
     func addProduct(){
-        thisOrderData.products.append(Product())
+        order.products.insert(Product(), at: productCellsArray.count - 1)
     }
     
     func setNameDeliver(nameDeliver: String) {
-        thisOrderData.products[currentProductNum].name = nameDeliver
+        order.products[currentProductNum].name = nameDeliver
     }
     
     func setDescribeDeliver(describeDeliver: String) {
-        thisOrderData.products[currentProductNum].description = describeDeliver
+        order.products[currentProductNum].description = describeDeliver
     }
     
     func setWidthDeliver(width: Int?) {
-        thisOrderData.products[currentProductNum].width = width ?? 1
+        order.products[currentProductNum].width = width ?? 1
     }
     
     func setLengthDeliver(length: Int?) {
-        thisOrderData.products[currentProductNum].length = length ?? 1
+        order.products[currentProductNum].length = length ?? 1
     }
     
     func setHeightDeliver(height: Int?) {
-        thisOrderData.products[currentProductNum].height = height ?? 1
+        order.products[currentProductNum].height = height ?? 1
     }
     
     func setWeightDeliver(weight: Int?) {
-        thisOrderData.products[currentProductNum].weight = weight ?? 1
+        order.products[currentProductNum].weight = weight ?? 1
     }
     
+    fileprivate func showAlertInputButtonTap(message: String){
+        let alert = UIAlertController(title: "Not all data entered", message: (message), preferredStyle: UIAlertController.Style.alert)
+        // add an action (button)
+        alert.addAction(UIAlertAction(title: ok, style: UIAlertAction.Style.default, handler: nil))
+        
+        // show the alert
+        self.present(alert, animated: false, completion: nil)
+    }
+    
+    fileprivate func showAlertNextScreen(idProduct: Int){
+        let alert = UIAlertController(title: "No product name # \(idProduct + 1).", message: ("No product name # 1. It will be remove. Do you want to continue?"), preferredStyle: UIAlertController.Style.alert)
+        // add an action (button)
+        alert.addAction(UIAlertAction(title: "No", style: UIAlertAction.Style.default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Yes", style: UIAlertAction.Style.default, handler: { action in
+            self.order.products.remove(at: idProduct)
+            self.productCellsArray.remove(at: self.productCellsArray.count - 2)
+            if self.currentProductNum != 0 {
+                self.currentProductNum = self.currentProductNum - 1
+            }
+            self.tableView.reloadData()
+        }))
+        
+        
+        // show the alert
+        self.present(alert, animated: false, completion: .none)
+    }
+    
+    
+    fileprivate func sendOrder(idClient: Int){
+        RestApi().createOrder(idClient: idClient){ (isOk) in
+            DispatchQueue.main.async {
+                debugPrint(isOk)
+
+            }
+        }
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let initialViewController = storyboard.instantiateViewController(withIdentifier: "AgreementTimerViewController") as! AgreementTimerViewController
+        initialViewController.orderViewController = self
+        self.navigationController?.pushViewController(initialViewController, animated: false)
+        
+    }
 }

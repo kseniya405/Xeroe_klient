@@ -13,39 +13,43 @@ protocol DataDeliveryTableViewCellDelegate {
     func setDataDeliveryDescription(description: String)
 }
 
-class DataDeliveryTableViewCell: UITableViewCell {
+fileprivate let fontSize = 12
+
+class DataDeliveryTableViewCell: UITableViewCell, UITextViewDelegate {
 
     @IBOutlet weak var questionsLabel: UILabel!
     
     @IBOutlet weak var answerTextView: UITextView! {
         didSet {
-            self.layer.masksToBounds = true
-            self.layer.borderColor = borderTextFieldColor.cgColor
-            self.layer.cornerRadius = 4
-            self.fontSize = 12
-            self.translatesAutoresizingMaskIntoConstraints = false
-            answerTextView.target(forAction: #selector(textFieldDidChange(_:)), withSender: UIControl.Event.editingChanged)
+            answerTextView.layer.masksToBounds = true
+            answerTextView.layer.borderColor = borderTextFieldColor.cgColor
+            answerTextView.layer.borderWidth = 1
+            answerTextView.layer.cornerRadius = 4
+            answerTextView.font = UIFont(name: robotoRegular, size: CGFloat(fontSize))
+            answerTextView.translatesAutoresizingMaskIntoConstraints = true
         }
     }
     
     var delegate: DataDeliveryTableViewCellDelegate?
-        
-    var fontSize = 12
-
     
-    @objc func textFieldDidChange(_ textField: UITextField) {
-        print("work")
-        guard let data = textField.text else { return }
-        if questionsLabel.text == nameDeliver {
-            delegate?.setDataDeliveryName(name: data)
-        } else {
-            delegate?.setDataDeliveryDescription(description: data)
-        }
+    override func awakeFromNib() {
+        answerTextView.delegate = self
     }
+
     
     func setParameters(questionsLabel: String, answerText: String) {
         self.questionsLabel.text = questionsLabel
         self.answerTextView.text = answerText
+    }
+
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+            guard let data = textView.text else { return }
+            if questionsLabel.text == nameDeliver {
+                delegate?.setDataDeliveryName(name: data)
+            } else {
+                delegate?.setDataDeliveryDescription(description: data)
+            }
     }
 
 }

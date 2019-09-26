@@ -93,11 +93,11 @@ class SearchDriverViewController: MapWithDriverViewController {
                     
                     guard let response = response else {
                         if let error = error {
-                            print("Error: \(error)")
+                            debugPrint("Error: \(error)")
                         }
                         return
                     }
-                    print("responce", response)
+                    debugPrint("responce", response)
                     let route = response.routes[0]
                     
                     let latitudeCenterLocation = (sourceLocationBack!.latitude  + destinationLocationBack!.latitude) / 2 * 0.9995

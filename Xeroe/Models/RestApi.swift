@@ -22,14 +22,14 @@ class RestApi {
         do {
             request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: []) // pass dictionary to nsdata object and set it as request body
         } catch let error {
-            print(error.localizedDescription)
+            debugPrint(error.localizedDescription)
         }
         
         //create dataTask using the session object to send data to the server
         let task = URLSession.shared.dataTask(with: request as URLRequest, completionHandler: { data, response, error in
             
             guard error == nil, let data = data else {
-                print("Error: \(String(describing: error))")
+                debugPrint("Error: \(String(describing: error))")
                 callback(false, nil)
                 return
             }
@@ -37,7 +37,7 @@ class RestApi {
             do {
                 //create json object from data
                 if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
-                    print(json)
+                    debugPrint(json)
                     if let token = json["access_token"] as? String {
                         callback(true, token)
                     } else {
@@ -45,7 +45,7 @@ class RestApi {
                     }
                 }
             } catch let error {
-                print(error.localizedDescription)
+                debugPrint(error.localizedDescription)
             }
         })
         task.resume()
@@ -66,7 +66,7 @@ class RestApi {
         //create dataTask using the session object to send data to the server
         URLSession.shared.dataTask(with: request, completionHandler: { data, response, error in
             guard let data = data else {
-                print("Error: \(String(describing: error))")
+                debugPrint("Error: \(String(describing: error))")
                 callback(false, [:])
                 return
             }
@@ -81,7 +81,7 @@ class RestApi {
                 }
                 
             } catch let error {
-                print("error JSONSerialization: \(error.localizedDescription)")
+                debugPrint("error JSONSerialization: \(error.localizedDescription)")
                 callback(false, [:])
                 return
             }
@@ -104,7 +104,7 @@ class RestApi {
         //create dataTask using the session object to send data to the server
         URLSession.shared.dataTask(with: request, completionHandler: { data, response, error in
             guard let data = data else {
-                print("Error: \(String(describing: error))")
+                debugPrint("Error: \(String(describing: error))")
                 callback(false, nil)
                 return
             }
@@ -121,7 +121,7 @@ class RestApi {
                 }
 
             } catch let error {
-                print("error JSONSerialization: \(error.localizedDescription)")
+                debugPrint("error JSONSerialization: \(error.localizedDescription)")
                 callback(false, nil)
             }
         }).resume()
@@ -143,15 +143,15 @@ class RestApi {
         do {
             request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: []) // pass dictionary to nsdata object and set it as request body
         } catch let error {
-            print(error.localizedDescription)
+            debugPrint(error.localizedDescription)
         }
         
         //create dataTask using the session object to send data to the server
         URLSession.shared.dataTask(with: request, completionHandler: { data, response, error in
-            print("start URLSession")
+            debugPrint("start URLSession")
             
             guard let data = data else {
-                print("Error: \(String(describing: error))")
+                debugPrint("Error: \(String(describing: error))")
                 callback(false)
                 return
             }
@@ -159,16 +159,16 @@ class RestApi {
                 //create json object from data
                 if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? String {
 
-                    print("json" + json)
+                    debugPrint("json" + json)
                     callback(true)
                     return
                 } else {
-                    print("errorParsingJSON")
+                    debugPrint("errorParsingJSON")
                 }
                 
             } catch let error {
                 callback(false)
-                print("error JSONSerialization: \(error.localizedDescription)")
+                debugPrint("error JSONSerialization: \(error.localizedDescription)")
             }
         }).resume()
     }
