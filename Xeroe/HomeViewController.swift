@@ -54,6 +54,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     var location: CLLocation?
     
     override func viewDidLoad() {
+        viewModel.tokenValidation()
         activateMapAndLocationManager()
         funcViewModel()
     }
@@ -77,7 +78,6 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
         pointLabel.textColor = blackTextColor
         
         xeroeIDText = xeroeIDText.filter { $0.isNumber || $0.isLetter}
-        
         //adds a sharp before the entered IDXeroe
         if xeroeIDText.isEmpty || xeroeIDText == "#" {
             textField.text = ""
@@ -112,15 +112,15 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     //MARK: viewModel functions
     fileprivate func funcViewModel() {
         viewModel.goToNextScreen = { [weak self] dict in
+            self?.activityIndicator?.stopAnimating()
             DispatchQueue.main.async {
-                self?.activityIndicator?.stopAnimating()
                 self?.goToNextScreen(dictionary: dict)
             }
         }
         
         viewModel.showAlertInputButtonTap = { [weak self] (message) in
+            self?.activityIndicator?.stopAnimating()
             DispatchQueue.main.async {
-                self?.activityIndicator?.stopAnimating()
                 self?.showAlertInputButtonTap(message: message)
             }
         }

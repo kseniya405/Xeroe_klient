@@ -36,6 +36,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let startViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: containerVCIdentifier) as! ContainerViewController
             startViewController.identifier = homeVCIdentifier
             navigationController = UINavigationController(rootViewController: startViewController)
+//            let startViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: containerVCIdentifier) as! OrderViewController
+//            navigationController = UINavigationController(rootViewController: startViewController)
         }
 
         navigationController?.navigationBar.isHidden = true

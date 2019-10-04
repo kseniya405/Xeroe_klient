@@ -81,6 +81,7 @@
 		9DD0BEA522F87B9300E55EA8 /* LeftMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DD0BEA222F87B9200E55EA8 /* LeftMenuTableViewCell.xib */; };
 		9DD0BEA622F87B9300E55EA8 /* LeftMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD0BEA322F87B9200E55EA8 /* LeftMenuViewController.swift */; };
 		9DD884632326460B00305AFC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DD884622326460B00305AFC /* Main.storyboard */; };
+		9DD934DD23471D6100160003 /* UIImageViewHalfCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD934DC23471D6100160003 /* UIImageViewHalfCorner.swift */; };
 		9DDFD4002303EDC4007DDB36 /* HeaderOrderTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDFD3FF2303EDC4007DDB36 /* HeaderOrderTableView.swift */; };
 		9DDFD4042303EEA0007DDB36 /* HeaderOrderTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DDFD4022303EEA0007DDB36 /* HeaderOrderTableView.xib */; };
 		9DDFD40623041A9B007DDB36 /* ClientData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDFD40523041A9B007DDB36 /* ClientData.swift */; };
@@ -173,6 +174,7 @@
 		9DD0BEA222F87B9200E55EA8 /* LeftMenuTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeftMenuTableViewCell.xib; sourceTree = "<group>"; };
 		9DD0BEA322F87B9200E55EA8 /* LeftMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuViewController.swift; sourceTree = "<group>"; };
 		9DD884622326460B00305AFC /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		9DD934DC23471D6100160003 /* UIImageViewHalfCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewHalfCorner.swift; sourceTree = "<group>"; };
 		9DDFD3FF2303EDC4007DDB36 /* HeaderOrderTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderOrderTableView.swift; sourceTree = "<group>"; };
 		9DDFD4022303EEA0007DDB36 /* HeaderOrderTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderOrderTableView.xib; sourceTree = "<group>"; };
 		9DDFD40523041A9B007DDB36 /* ClientData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientData.swift; sourceTree = "<group>"; };
@@ -330,6 +332,7 @@
 				9DACCB8722F42D7200D9F433 /* ButtonWithCornerRadius.swift */,
 				9DACCB8922F42E8600D9F433 /* TextFieldWithCorner.swift */,
 				9DA30B4C2310126C0054D1ED /* ImagePicker.swift */,
+				9DD934DC23471D6100160003 /* UIImageViewHalfCorner.swift */,
 			);
 			path = MutableUIObjects;
 			sourceTree = "<group>";
@@ -599,6 +602,7 @@
 				9D0EEC6C2301B64600891D7D /* PhotosCollectionViewCell.swift in Sources */,
 				9D1364762319445A0074FE60 /* LoginViewModel.swift in Sources */,
 				9DCF034B22EF364000A7F283 /* RegistrationViewController.swift in Sources */,
+				9DD934DD23471D6100160003 /* UIImageViewHalfCorner.swift in Sources */,
 				9D0B6D30231D594A00E3A8F8 /* DefaultsKeys.swift in Sources */,
 				9D13039422FD514D00DC983E /* ShippingAgrinentViewController.swift in Sources */,
 				9D13647D2319695D0074FE60 /* Color.swift in Sources */,

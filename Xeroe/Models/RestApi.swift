@@ -71,12 +71,16 @@ class RestApi {
                 return
             }
             do {
+                print(data)
                 if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [[String: Any]] {
                     guard json.count > 0, let _ = json[0]["avatar"] as? String else {
                         callback(false, [:])
                         return
                     }
                     callback(true, json[0])
+                    return
+                } else {
+                    callback(false, [:])
                     return
                 }
                 

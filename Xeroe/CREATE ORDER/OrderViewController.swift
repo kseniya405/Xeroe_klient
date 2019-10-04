@@ -27,6 +27,7 @@ class OrderViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     @IBOutlet weak var tableView: UITableView!
     
+    let viewModel = OrderViewModel()
     var imagePicker: ImagePicker!
     var imagePickCell: PhotosCollectionViewCell?
     
@@ -47,8 +48,7 @@ class OrderViewController: UIViewController, UIImagePickerControllerDelegate, UI
         super.viewDidLoad()
         tableRegister()
         self.imagePicker = ImagePicker(presentationController: self, delegate: self)
-        
-        
+        funcViewModel()
     }
     
     @objc func backButtonTap() {
@@ -64,6 +64,16 @@ class OrderViewController: UIViewController, UIImagePickerControllerDelegate, UI
         tableView.register(UINib(nibName: identifierOptionsCell, bundle: nil), forCellReuseIdentifier: identifierOptionsCell)
         tableView.register(UINib(nibName: identifierDeliveryTypeCell, bundle: nil), forCellReuseIdentifier: identifierDeliveryTypeCell)
         tableView.register(UINib.init(nibName: identifierHeader, bundle: Bundle.main), forHeaderFooterViewReuseIdentifier: identifierHeader)
+    }
+    
+    fileprivate func funcViewModel(){
+        viewModel.goToNextScreen = { [weak self] in
+            DispatchQueue.main.async {
+                self?.goToNextScreen()
+            }
+            
+        }
+        
     }
 }
 
@@ -107,17 +117,18 @@ extension OrderViewController: UITableViewDelegate, UITableViewDataSource {
         case 2, 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: identifierClientDataCell, for: indexPath) as! ClientDataTableViewCell
             
+            
             let isSender = isDelivery ? indexPath.section == 2 : indexPath.section == 3
-            let id = (isSender ? UserProfile.shared.xeroeId : clientDataDictionary["xeroeid"] as? String) ?? "Wrong data"
-            let nameUser = (isSender ? UserProfile.shared.email : clientDataDictionary["email"] as? String) ?? "Wrong data"
-            let phone = (isSender ? UserProfile.shared.phone : clientDataDictionary["phone"] as? String) ?? "Wrong data"
-            let address = isSender ? userAddress : clientAddress
-            
-            let avatar = isSender ? UserProfile.shared.avatar : clientDataDictionary["avatar"] as? String
-            guard let urlAvatar = avatar else { return cell }
-            
-            cell.setParameters(id: id, name: nameUser, phone: phone, address: address, avatar: urlAvatar)
-            return cell
+//            let id = (isSender ? UserProfile.shared.xeroeId : clientDataDictionary["xeroeid"] as? String) ?? "Wrong data"
+//            let nameUser = (isSender ? UserProfile.shared.email : clientDataDictionary["email"] as? String) ?? "Wrong data"
+//            let phone = (isSender ? UserProfile.shared.phone : clientDataDictionary["phone"] as? String) ?? "Wrong data"
+//            let address = isSender ? userAddress : clientAddress
+//            
+//            let avatar = isSender ? UserProfile.shared.avatar : clientDataDictionary["avatar"] as? String
+//            guard let urlAvatar = avatar else { return cell }
+//            
+//            cell.setParameters(id: id, name: nameUser, phone: phone, address: address, avatar: urlAvatar)
+            return viewModel.setParametersClientDataTableViewCell(cell: cell, isSender: isSender, clientDataDictionary: clientDataDictionary)
             
         case 4:
             let cell = tableView.dequeueReusableCell(withIdentifier: identifierOptionsCell, for: indexPath) as! OptionsTableViewCell
@@ -187,7 +198,7 @@ extension OrderViewController: GoodsCellDelegate, PaymentMethodTableViewCellDele
             }
         }
         
-        self.sendOrder(idClient: id)
+        viewModel.sendOrder(idClient: id, order: order)
     }
     
     func setDeliveryType(type: Int?) {
@@ -274,13 +285,15 @@ extension OrderViewController: GoodsCellDelegate, PaymentMethodTableViewCellDele
         RestApi().createOrder(idClient: idClient){ (isOk) in
             DispatchQueue.main.async {
                 debugPrint(isOk)
-
             }
         }
+            goToNextScreen()
+    }
+    
+    fileprivate func goToNextScreen() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let initialViewController = storyboard.instantiateViewController(withIdentifier: "AgreementTimerViewController") as! AgreementTimerViewController
         initialViewController.orderViewController = self
         self.navigationController?.pushViewController(initialViewController, animated: false)
-        
     }
 }

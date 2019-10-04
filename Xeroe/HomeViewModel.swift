@@ -32,7 +32,6 @@ class HomeViewModel: NSObject {
                 self.goToNextScreen?(dictionaryClientData)
             }
         }
-        return
         
     }
     
