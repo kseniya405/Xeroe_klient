@@ -47,11 +47,11 @@ class LoginFormView: UIView {
         }
     }
     
-    @IBOutlet weak var wrongPaswordLabel: UILabel!{
-        didSet {
-            wrongPaswordLabel.setLabelStyle(textLabel: wrongPassword, fontLabel: UIFont(name: robotoRegular, size: 11), colorLabel: .red)
-        }
-    }
+//    @IBOutlet weak var wrongPaswordLabel: UILabel!{
+//        didSet {
+//            wrongPaswordLabel.setLabelStyle(textLabel: wrongPassword, fontLabel: UIFont(name: robotoRegular, size: 11), colorLabel: .red)
+//        }
+//    }
     
     
     @IBOutlet weak var visibilityPasswordButton: ButtonWithCornerRadius! {
@@ -71,7 +71,7 @@ class LoginFormView: UIView {
         self.loginTextField.errorInput(isError: false)
         
         self.enterEmailLabel.isHidden = true
-        self.wrongPaswordLabel.isHidden = true
+//        self.wrongPaswordLabel.isHidden = true
         self.enterPasswordLabel.isHidden = true
     }
     
@@ -80,7 +80,7 @@ class LoginFormView: UIView {
         self.loginTextField.errorInput(isError: emailIsEmpty)
         
         self.enterEmailLabel.isHidden = !emailIsEmpty
-        self.wrongPaswordLabel.isHidden = passwordIsEmpty
+//        self.wrongPaswordLabel.isHidden = passwordIsEmpty
         self.enterPasswordLabel.isHidden = !passwordIsEmpty
     }
 

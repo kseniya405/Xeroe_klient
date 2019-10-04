@@ -20,18 +20,21 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var fbButton: ButtonWithCornerRadius!
     @IBOutlet weak var signInButton: ButtonWithCornerRadius! {
         didSet {
+            signInButton.backgroundColor = darkBlue
             signInButton.addTarget(self, action: #selector(signInButtonTap), for: .touchUpInside)
         }
     }
     
     @IBOutlet weak var forgotButton: ButtonWithCornerRadius!{
         didSet {
+            forgotButton.titleLabel?.textColor = darkBlue
             forgotButton.addTarget(self, action: #selector(forgotButtonTap), for: .touchUpInside)
         }
     }
     
     @IBOutlet weak var createAccountButton: ButtonWithCornerRadius! {
         didSet {
+            createAccountButton.titleLabel?.textColor = darkBlue
             createAccountButton.addTarget(self, action: #selector(createAccountButtonTap), for: .touchUpInside)
         }
     }
