@@ -1,68 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="Roboto-Medium.ttf">
-            <string>Roboto-Medium</string>
-        </array>
-    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RegistrationTableViewCell" id="KGk-i7-Jjw" customClass="RegistrationTableViewCell" customModule="Xeroe" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" restorationIdentifier="RegistrationTableViewCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="RegistrationTableViewCell" id="KGk-i7-Jjw" customClass="RegistrationTableViewCell" customModule="Xeroe" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="324" height="72"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="324" height="71.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="324" height="72"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MjY-5a-VpC">
-                        <rect key="frame" x="0.0" y="0.0" width="324" height="19.5"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u6N-Ra-KWt">
-                        <rect key="frame" x="0.0" y="19.5" width="32" height="16"/>
-                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="13"/>
-                        <color key="textColor" red="0.56078431370000004" green="0.56078431370000004" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G3Q-gP-CAL" customClass="TextFieldWithCorner" customModule="Xeroe" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="38" width="324" height="31.5"/>
-                        <constraints>
-                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="ZdF-0l-yat"/>
-                        </constraints>
-                        <nil key="textColor"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <textInputTraits key="textInputTraits"/>
-                    </textField>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="R9W-E5-bE5">
+                        <rect key="frame" x="0.0" y="10" width="324" height="34"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NU5-0d-xcH" customClass="TextFieldWithCorner" customModule="Xeroe" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="324" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="hPU-tw-Yqy"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter a data " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zpP-uJ-IA2">
+                                <rect key="frame" x="0.0" y="0.0" width="324" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="YW1-bH-bNk"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="MjY-5a-VpC" firstAttribute="height" relation="lessThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="0.25" priority="250" constant="-2" id="EBC-Ys-EjO"/>
-                    <constraint firstItem="MjY-5a-VpC" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="K7i-Fy-5gJ"/>
-                    <constraint firstItem="u6N-Ra-KWt" firstAttribute="top" secondItem="MjY-5a-VpC" secondAttribute="bottom" id="LaI-oy-Umo"/>
-                    <constraint firstItem="G3Q-gP-CAL" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="0.444" priority="500" id="Qj6-bf-CPA"/>
-                    <constraint firstItem="G3Q-gP-CAL" firstAttribute="top" secondItem="u6N-Ra-KWt" secondAttribute="baseline" constant="6" id="TDE-TD-QO5"/>
-                    <constraint firstItem="G3Q-gP-CAL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Yzf-SW-215"/>
-                    <constraint firstAttribute="trailing" secondItem="G3Q-gP-CAL" secondAttribute="trailing" id="lkd-gJ-HnJ"/>
-                    <constraint firstItem="MjY-5a-VpC" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" id="pl1-EH-RNP"/>
-                    <constraint firstAttribute="bottom" secondItem="G3Q-gP-CAL" secondAttribute="bottom" constant="2" id="sq7-tt-Goe"/>
-                    <constraint firstItem="u6N-Ra-KWt" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="taE-Ex-V6D"/>
-                    <constraint firstItem="MjY-5a-VpC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="uH5-1v-Geq"/>
+                    <constraint firstItem="R9W-E5-bE5" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" id="FZZ-Yq-yvz"/>
+                    <constraint firstItem="R9W-E5-bE5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="OEJ-xF-77a"/>
+                    <constraint firstItem="R9W-E5-bE5" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="ZRt-hh-Lkj"/>
+                    <constraint firstAttribute="bottom" secondItem="R9W-E5-bE5" secondAttribute="bottom" constant="20" id="xav-at-U8V"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="answerTextField" destination="G3Q-gP-CAL" id="sh1-qB-UJB"/>
-                <outlet property="namesLabel" destination="u6N-Ra-KWt" id="zJw-6E-GjB"/>
+                <outlet property="answerTextField" destination="NU5-0d-xcH" id="Zwe-rL-agi"/>
+                <outlet property="pleaseEnterDataLable" destination="zpP-uJ-IA2" id="cr5-ml-NFU"/>
             </connections>
             <point key="canvasLocation" x="310.14492753623193" y="209.59821428571428"/>
         </tableViewCell>

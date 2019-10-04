@@ -82,6 +82,8 @@
 		9DD0BEA622F87B9300E55EA8 /* LeftMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD0BEA322F87B9200E55EA8 /* LeftMenuViewController.swift */; };
 		9DD884632326460B00305AFC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DD884622326460B00305AFC /* Main.storyboard */; };
 		9DD934DD23471D6100160003 /* UIImageViewHalfCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD934DC23471D6100160003 /* UIImageViewHalfCorner.swift */; };
+		9DD934E023477B3000160003 /* ButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD934DE23477B3000160003 /* ButtonTableViewCell.swift */; };
+		9DD934E123477B3000160003 /* ButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DD934DF23477B3000160003 /* ButtonTableViewCell.xib */; };
 		9DDFD4002303EDC4007DDB36 /* HeaderOrderTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDFD3FF2303EDC4007DDB36 /* HeaderOrderTableView.swift */; };
 		9DDFD4042303EEA0007DDB36 /* HeaderOrderTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DDFD4022303EEA0007DDB36 /* HeaderOrderTableView.xib */; };
 		9DDFD40623041A9B007DDB36 /* ClientData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDFD40523041A9B007DDB36 /* ClientData.swift */; };
@@ -175,6 +177,8 @@
 		9DD0BEA322F87B9200E55EA8 /* LeftMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuViewController.swift; sourceTree = "<group>"; };
 		9DD884622326460B00305AFC /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		9DD934DC23471D6100160003 /* UIImageViewHalfCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewHalfCorner.swift; sourceTree = "<group>"; };
+		9DD934DE23477B3000160003 /* ButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTableViewCell.swift; sourceTree = "<group>"; };
+		9DD934DF23477B3000160003 /* ButtonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonTableViewCell.xib; sourceTree = "<group>"; };
 		9DDFD3FF2303EDC4007DDB36 /* HeaderOrderTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderOrderTableView.swift; sourceTree = "<group>"; };
 		9DDFD4022303EEA0007DDB36 /* HeaderOrderTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderOrderTableView.xib; sourceTree = "<group>"; };
 		9DDFD40523041A9B007DDB36 /* ClientData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientData.swift; sourceTree = "<group>"; };
@@ -277,6 +281,8 @@
 			children = (
 				9D1737F5231CFC68009EEDF6 /* RegistrationTableViewCell.swift */,
 				9D1737F6231CFC68009EEDF6 /* RegistrationTableViewCell.xib */,
+				9DD934DE23477B3000160003 /* ButtonTableViewCell.swift */,
+				9DD934DF23477B3000160003 /* ButtonTableViewCell.xib */,
 			);
 			path = "Registration Cell";
 			sourceTree = "<group>";
@@ -530,6 +536,7 @@
 				9DD0BEA522F87B9300E55EA8 /* LeftMenuTableViewCell.xib in Resources */,
 				9D0EEC5023014C5F00891D7D /* ClientDataTableViewCell.xib in Resources */,
 				9D0875AB230592BB0085EDD9 /* OptionsTableViewCell.xib in Resources */,
+				9DD934E123477B3000160003 /* ButtonTableViewCell.xib in Resources */,
 				9D1737F8231CFC68009EEDF6 /* RegistrationTableViewCell.xib in Resources */,
 				9D3E3DE12334C2FF00A44ED8 /* ProblemTableViewCell.xib in Resources */,
 				9DA30B4B230FE56C0054D1ED /* DeliveryTypeCollectionViewCell.xib in Resources */,
@@ -648,6 +655,7 @@
 				9D0B6D2E231D3F3700E3A8F8 /* LoginFormView.temp_caseinsensitive_rename.swift in Sources */,
 				9D3E3DE02334C2FF00A44ED8 /* ProblemTableViewCell.swift in Sources */,
 				9D09D7DF22F1E23800D4369F /* HomeViewController.swift in Sources */,
+				9DD934E023477B3000160003 /* ButtonTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

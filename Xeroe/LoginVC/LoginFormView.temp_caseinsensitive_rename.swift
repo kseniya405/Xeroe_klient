@@ -12,46 +12,35 @@ class LoginFormView: UIView {
     
     @IBOutlet weak var loginTextField: TextFieldWithCorner! {
         didSet {
-            loginTextField.addTarget(self, action: #selector(textFieldDidChange), for: UIControl.Event.editingChanged)
+            loginTextField.addTarget(self, action: #selector(changeColorBorderTextField(_:)), for: UIControl.Event.editingDidBegin)
+            loginTextField.addTarget(self, action: #selector(unchangeColorBorderTextField(_:)), for: UIControl.Event.editingDidEnd)
         }
     }
     
     @IBOutlet weak var passwordTextField: TextFieldWithCorner! {
-           didSet {
-               passwordTextField.addTarget(self, action: #selector(textFieldDidChange), for: UIControl.Event.editingChanged)
-           }
-    }
-    
-    @IBOutlet weak var enterEmailOrPhoneLabel: UILabel! {
         didSet {
-            enterEmailOrPhoneLabel.setLabelStyle(textLabel: emailOrPhone, fontLabel: UIFont(name: robotoRegular, size: 13), colorLabel: greyTextColor)
-
-        }
-    }
-    
-    @IBOutlet weak var passwordLabel: UILabel! {
-        didSet {
-            passwordLabel.setLabelStyle(textLabel: password, fontLabel: UIFont(name: robotoRegular, size: 13), colorLabel: greyTextColor)
+            passwordTextField.addTarget(self, action: #selector(changeColorBorderTextField(_:)), for: UIControl.Event.editingDidBegin)
+            passwordTextField.addTarget(self, action: #selector(unchangeColorBorderTextField(_:)), for: UIControl.Event.editingDidEnd)
         }
     }
     
     @IBOutlet weak var enterEmailLabel: UILabel! {
         didSet {
-            enterEmailLabel.setLabelStyle(textLabel: enterEmail, fontLabel: UIFont(name: robotoRegular, size: 12), colorLabel: .red)
+            enterEmailLabel.setLabelStyle(textLabel: enterEmail, fontLabel: UIFont(name: robotoRegular, size: 12), colorLabel: errorColor)
         }
     }
     
     @IBOutlet weak var enterPasswordLabel: UILabel! {
         didSet {
-            enterPasswordLabel.setLabelStyle(textLabel: enterPassword, fontLabel: UIFont(name: robotoRegular, size: 12), colorLabel: .red)
+            enterPasswordLabel.setLabelStyle(textLabel: enterPassword, fontLabel: UIFont(name: robotoRegular, size: 12), colorLabel: errorColor)
         }
     }
     
-//    @IBOutlet weak var wrongPaswordLabel: UILabel!{
-//        didSet {
-//            wrongPaswordLabel.setLabelStyle(textLabel: wrongPassword, fontLabel: UIFont(name: robotoRegular, size: 11), colorLabel: .red)
-//        }
-//    }
+    @IBOutlet weak var wrongPaswordLabel: UILabel!{
+        didSet {
+            wrongPaswordLabel.setLabelStyle(textLabel: wrongPassword, fontLabel: UIFont(name: robotoRegular, size: 11), colorLabel: errorColor)
+        }
+    }
     
     
     @IBOutlet weak var visibilityPasswordButton: ButtonWithCornerRadius! {
@@ -66,22 +55,26 @@ class LoginFormView: UIView {
         visibilityPasswordButton.setImage(imageButton, for: .normal)
     }
     
-    @objc func textFieldDidChange() {
-        self.passwordTextField.errorInput(isError: false)
-        self.loginTextField.errorInput(isError: false)
-        
+    @objc func changeColorBorderTextField(_ textField: TextFieldWithCorner) {
         self.enterEmailLabel.isHidden = true
-//        self.wrongPaswordLabel.isHidden = true
+        self.wrongPaswordLabel.isHidden = true
         self.enterPasswordLabel.isHidden = true
+        textField.changeColor(isChabge: true)
     }
     
-    func errorTextField(passwordIsEmpty: Bool, emailIsEmpty: Bool) {
-        self.passwordTextField.errorInput(isError: true)
-        self.loginTextField.errorInput(isError: emailIsEmpty)
-        
-        self.enterEmailLabel.isHidden = !emailIsEmpty
-//        self.wrongPaswordLabel.isHidden = passwordIsEmpty
-        self.enterPasswordLabel.isHidden = !passwordIsEmpty
+    @objc func unchangeColorBorderTextField(_ textField: TextFieldWithCorner) {
+        textField.changeColor(isChabge: false)
     }
 
+    
+    func errorTextField(passwordIsEmpty: Bool, emailIsEmpty: Bool, emailIsWrong: Bool) {
+        if emailIsEmpty || emailIsWrong {
+            self.enterEmailLabel.isHidden = false
+            self.enterEmailLabel.text = emailIsEmpty ? enterEmail : wrongEmail
+        } else {
+            self.wrongPaswordLabel.isHidden = passwordIsEmpty
+        }
+        self.enterPasswordLabel.isHidden = !passwordIsEmpty
+    }
+    
 }

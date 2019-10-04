@@ -10,7 +10,7 @@ import UIKit
 
 class LoginViewModel: NSObject {
     
-    var setError: ((Bool, Bool) -> ())?
+    var setError: ((Bool, Bool, Bool) -> ())?
     
     var goToHomeScreen: (() -> ())?
     
@@ -21,22 +21,24 @@ class LoginViewModel: NSObject {
      */
     func login(loginFormView: LoginFormView) {
         
-        let loginTextField = loginFormView.loginTextField
-        let passwordTextField = loginFormView.passwordTextField
+        guard let loginTextField = loginFormView.loginTextField, let passwordTextField = loginFormView.passwordTextField else {
+            return
+        }
         
-        guard let login = loginTextField?.text, let password = passwordTextField?.text, !login.isEmpty, !password.isEmpty else {
+        guard let login = loginTextField.text, let password = passwordTextField.text, !login.isEmpty, !password.isEmpty, loginTextField.validateEmail() else {
             
-            let passwordIsEmpty = passwordTextField?.text?.isEmpty ?? true
-            let emailIsEmpty = loginTextField?.text?.isEmpty ?? true
+            let passwordIsEmpty = passwordTextField.text?.isEmpty ?? true
+            let emailIsEmpty = loginTextField.text?.isEmpty ?? true
+            let emailIsWrong = emailIsEmpty ? false : !loginTextField.validateEmail()
             
-            setError?(passwordIsEmpty, emailIsEmpty)
+            setError?(passwordIsEmpty, emailIsEmpty, emailIsWrong)
             return
         }
         
         RestApi().login(login: login, password: password) { (isOk, token) in
             
             guard isOk, let token = token else {
-                self.setError?(false, false)
+                self.setError?(false, false, false)
                 return
             }
             

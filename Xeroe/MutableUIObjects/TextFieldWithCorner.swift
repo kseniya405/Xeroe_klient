@@ -38,10 +38,18 @@ class TextFieldWithCorner: UITextField {
         return bounds.inset(by: padding)
     }
     
-    func errorInput(isError: Bool) {
+    func changeColor(isChabge: Bool) {
         self.layer.masksToBounds = true
-        self.layer.borderWidth = isError ? 2.0 : 0.0
-        self.layer.borderColor = redBorder.cgColor
+        self.layer.borderWidth = isChabge ? 2.0 : 0.0
+        self.layer.borderColor = basicBlueColor.cgColor
     }
+    
+    func validateEmail() -> Bool {
+        let enteredEmail = self.text
+        let emailFormat = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        let emailPredicate = NSPredicate(format:"SELF MATCHES %@", emailFormat)
+        debugPrint(emailPredicate.evaluate(with: enteredEmail))
+        return emailPredicate.evaluate(with: enteredEmail)
+     }
     
 }

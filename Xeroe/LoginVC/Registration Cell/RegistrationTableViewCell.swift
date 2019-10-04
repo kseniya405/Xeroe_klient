@@ -10,20 +10,37 @@ import UIKit
 
 class RegistrationTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var namesLabel: UILabel!
-    @IBOutlet weak var answerTextField: TextFieldWithCorner!    
+    @IBOutlet weak var answerTextField: TextFieldWithCorner! {
+        didSet {
+            answerTextField.addTarget(self, action: #selector(answerTextFieldDidChange(_:)), for: .editingChanged)
+            answerTextField.addTarget(self, action: #selector(answerTextFieldDidEnd(_:)), for: .editingDidEnd)
+        }
+    }
+    
+    @IBOutlet weak var pleaseEnterDataLable: UILabel! {
+        didSet {
+            pleaseEnterDataLable.setLabelStyle(fontLabel: UIFont(name: robotoRegular, size: 12), colorLabel: errorColor)
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
     }
-
-    func setParameters(textNamesLabel: String) {
-        namesLabel.text = textNamesLabel
+    
+    @objc func answerTextFieldDidChange(_ textField: TextFieldWithCorner) {
+        textField.changeColor(isChabge: true)
+        pleaseEnterDataLable.isHidden = true
     }
     
-    override func prepareForReuse() {
-        namesLabel.text = ""
-        answerTextField.text = ""
+    @objc func answerTextFieldDidEnd(_ textField: TextFieldWithCorner) {
+        textField.changeColor(isChabge: false)
     }
+    
+    func setParameters(placeholder: String, errorText: String) {
+        answerTextField.placeholder = placeholder
+        pleaseEnterDataLable.text = errorText
+    }
+    
+    
 }

@@ -12,7 +12,9 @@ import UIKit
 let greyTextColor = UIColor(red: 0.56, green: 0.56, blue: 0.56, alpha: 1)
 let blackTextColor = UIColor(red: 0.16, green: 0.16, blue: 0.16, alpha: 1)
 let basicBlueColor = UIColor(red: 0.12, green: 0.24, blue: 0.44, alpha: 1)
-let darkBlue = UIColor(red: 0.056, green: 0.12, blue: 0.23, alpha: 1)
+let darkBlue = UIColor(red: 0.06, green: 0.12, blue: 0.23, alpha: 1)
+let errorColor = UIColor(red: 0.68, green: 0.05, blue: 0, alpha: 1)
+
 
 let borderTextFieldColor = UIColor(red: 0.77, green: 0.77, blue: 0.77, alpha: 1)
 let cianColor = UIColor(red: 0.18, green: 0.73, blue: 0.93, alpha: 1)
@@ -24,4 +26,4 @@ let productCellOrderTableTextColor = UIColor(red: 0.59, green: 0.59, blue: 0.59,
 
 let activityIndicatorColor = UIColor(red: 0.12, green: 0.24, blue: 0.44, alpha: 1)
 
-let shadowColor = UIColor(red: 0, green: 0, blue:0, alpha: 0.3)
+let shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3)
