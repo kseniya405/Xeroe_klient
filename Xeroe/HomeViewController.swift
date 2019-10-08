@@ -19,8 +19,7 @@ fileprivate let xeroeIDTextFieldFontSize = 18
 class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
     
-    @IBOutlet weak var xeroeIDTextField: TextFieldWithCorner!
-    {
+    @IBOutlet weak var xeroeIDTextField: TextFieldWithCorner! {
         didSet {
             xeroeIDTextField.fontSize = xeroeIDTextFieldFontSize
             xeroeIDTextField.placeholder = insertXeroeID
@@ -34,6 +33,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
             openLeftMenuButton.addTarget(self, action: #selector(openLeftMenuButtonTap), for: .touchUpInside)
         }
     }
+    
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var inputButton: ButtonWithCornerRadius! {
         didSet {
@@ -55,6 +55,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     
     override func viewDidLoad() {
         viewModel.tokenValidation()
+        checkUsersLocationServicesAuthorization()
         activateMapAndLocationManager()
         funcViewModel()
     }
@@ -133,6 +134,27 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
         }
     }
     
+    func checkUsersLocationServicesAuthorization(){
+        if CLLocationManager.locationServicesEnabled() {
+            switch CLLocationManager.authorizationStatus() {
+            case .notDetermined, .restricted, .denied:
+                print("No access")
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let initialViewController = storyboard.instantiateViewController(withIdentifier: "AccessLocationViewController") as! AccessLocationViewController
+                self.navigationController?.pushViewController(initialViewController, animated: false)
+            case .authorizedAlways, .authorizedWhenInUse:
+                debugPrint("Access")
+            @unknown default:
+                break
+            }
+        } else {
+            print("Location services are not enabled")
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let initialViewController = storyboard.instantiateViewController(withIdentifier: "AccessLocationViewController") as! AccessLocationViewController
+            self.navigationController?.pushViewController(initialViewController, animated: false)
+        }
+    }
+    
 
     //MARK: delegate CLLocationManagerDelegate functions
     
@@ -140,8 +162,6 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
         mapView.delegate = self
         mapView.showsUserLocation = true
         locationManager.delegate = self
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.requestLocation()
         locationManager.startUpdatingHeading()
     }
     

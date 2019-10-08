@@ -8,11 +8,14 @@
 
 import UIKit
 
+fileprivate let buttonCornerRadius: CGFloat = 4
+fileprivate let buttonBorderWidth: CGFloat = 2
+
 class ButtonForAddFotoOrder: UIButton {
     override func awakeFromNib() {
         self.layer.masksToBounds = true
-        self.layer.cornerRadius = 4
-        self.layer.borderWidth = 2
-        self.layer.borderColor = UIColor(red: 0.77, green: 0.77, blue: 0.77, alpha: 1).cgColor
+        self.layer.cornerRadius = buttonCornerRadius
+        self.layer.borderWidth = buttonBorderWidth
+        self.layer.borderColor = borderTextFieldColor.cgColor
     }
 }

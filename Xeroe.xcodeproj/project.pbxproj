@@ -50,6 +50,7 @@
 		9D23E9F422F0808C00E0E2C0 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D23E9F222F0808B00E0E2C0 /* Roboto-Bold.ttf */; };
 		9D23E9F522F0808C00E0E2C0 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D23E9F322F0808B00E0E2C0 /* Roboto-Regular.ttf */; };
 		9D23E9F822F08AA500E0E2C0 /* FuturaDemiC.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D23E9F722F08AA500E0E2C0 /* FuturaDemiC.ttf */; };
+		9D37EA91234B6F990096A28C /* AccessLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D37EA90234B6F990096A28C /* AccessLocationViewController.swift */; };
 		9D3E3DD82334BDF900A44ED8 /* SearchDriverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3E3DD72334BDF900A44ED8 /* SearchDriverViewController.swift */; };
 		9D3E3DDB2334C08B00A44ED8 /* ProblemHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3E3DD92334C08B00A44ED8 /* ProblemHeaderTableViewCell.swift */; };
 		9D3E3DDC2334C08B00A44ED8 /* ProblemHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D3E3DDA2334C08B00A44ED8 /* ProblemHeaderTableViewCell.xib */; };
@@ -144,6 +145,7 @@
 		9D23E9F222F0808B00E0E2C0 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		9D23E9F322F0808B00E0E2C0 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		9D23E9F722F08AA500E0E2C0 /* FuturaDemiC.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FuturaDemiC.ttf; sourceTree = "<group>"; };
+		9D37EA90234B6F990096A28C /* AccessLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessLocationViewController.swift; sourceTree = "<group>"; };
 		9D3E3DD72334BDF900A44ED8 /* SearchDriverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchDriverViewController.swift; sourceTree = "<group>"; };
 		9D3E3DD92334C08B00A44ED8 /* ProblemHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProblemHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		9D3E3DDA2334C08B00A44ED8 /* ProblemHeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProblemHeaderTableViewCell.xib; sourceTree = "<group>"; };
@@ -415,6 +417,7 @@
 				9DACCB8C22F4320100D9F433 /* LoginVC */,
 				9DD0BE5722F81DDB00E55EA8 /* Left menu */,
 				9DD0BE7522F8465D00E55EA8 /* ContainerViewController.swift */,
+				9D37EA90234B6F990096A28C /* AccessLocationViewController.swift */,
 				9D09D7DE22F1E23800D4369F /* HomeViewController.swift */,
 				9D1BFB10231E511E005E8024 /* HomeViewModel.swift */,
 				9DAD9E66233917CF0034DCC0 /* CREATE ORDER */,
@@ -620,6 +623,7 @@
 				9D75F5FA233A420800394F20 /* ViewController+dismiss.swift in Sources */,
 				9D3E3DDB2334C08B00A44ED8 /* ProblemHeaderTableViewCell.swift in Sources */,
 				9D75F5F8233A41D200394F20 /* ImageView+loadUrlImage.swift in Sources */,
+				9D37EA91234B6F990096A28C /* AccessLocationViewController.swift in Sources */,
 				9D13039622FD8C6400DC983E /* ButtonForAddFotoOrder.swift in Sources */,
 				9DF533A222EEDBE10036866C /* AppDelegate.swift in Sources */,
 				9D3E3DD82334BDF900A44ED8 /* SearchDriverViewController.swift in Sources */,

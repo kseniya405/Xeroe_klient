@@ -8,11 +8,13 @@
 
 import UIKit
 
+fileprivate let buttonCornerRadius: CGFloat = 4
+
 class ButtonWithCornerRadius: UIButton {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.layer.cornerRadius = 2
+        self.layer.cornerRadius = buttonCornerRadius
         self.layer.masksToBounds = true
     }
     

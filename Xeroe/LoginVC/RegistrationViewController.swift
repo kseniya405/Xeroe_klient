@@ -17,13 +17,25 @@ class RegistrationViewController: UIViewController {
     
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var backButton: UIButton! {
+        didSet {
+            backButton.addTarget(self, action: #selector(backButtonTap), for: .touchUpInside)
+        }
+    }
+    @IBOutlet weak var viewBar: UIView!
+    @IBOutlet weak var labelBar: UILabel! {
+        didSet {
+            labelBar.setLabelStyle(textLabel: register, fontLabel: UIFont(name: robotoMedium, size: 20), colorLabel: .white)
+        }
+    }
     
     struct cellData {
         var nameCell: String
         var errorLabelCell: String
         var cellIsEmpty: Bool
     }
-    let arrayDataCells = [cellData(nameCell: firstName, errorLabelCell: enterFirstName, cellIsEmpty: true),
+    
+    var arrayDataCells = [cellData(nameCell: firstName, errorLabelCell: enterFirstName, cellIsEmpty: true),
                           cellData(nameCell: lastName, errorLabelCell: enterLastName, cellIsEmpty: true),
                           cellData(nameCell: email, errorLabelCell: enterEmail, cellIsEmpty: true),
                           cellData(nameCell: mobileNumber, errorLabelCell: enterMobileNumber, cellIsEmpty: true),
@@ -38,11 +50,10 @@ class RegistrationViewController: UIViewController {
         tableView.register(UINib(nibName: identifierButtonCell, bundle: nil), forCellReuseIdentifier: identifierButtonCell)
         tableView.allowsSelection = false
         tableView.separatorStyle = .none
-        tableView.isScrollEnabled = false
         
     }
     
-    @objc func loginButtonTap() {
+    @objc func backButtonTap() {
         self.dismiss()
     }
     
@@ -59,38 +70,50 @@ extension RegistrationViewController: UITableViewDataSource, UITableViewDelegate
         case arrayDataCells.count:
             let cell = tableView.dequeueReusableCell(withIdentifier: identifierButtonCell, for: indexPath) as! ButtonTableViewCell
             cell.setParameters(text: register, font: UIFont(name: robotoRegular, size: sizeFontButton), tintColor: .white, backgroundColor: darkBlue)
+            cell.delegate = self
             return cell
-            
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: identifierCell, for: indexPath) as! RegistrationTableViewCell
             if indexPath.row < arrayDataCells.count {
                 cell.setParameters(placeholder: arrayDataCells[indexPath.row].nameCell, errorText: arrayDataCells[indexPath.row].errorLabelCell)
+                cell.delegate = self
+                cell.numCell = indexPath.row
+                if indexPath.row > arrayDataCells.count - 3 {
+                    cell.visibleButton.isHidden = false
+                    cell.answerTextField.isSecureTextEntry = true
+                }
             }
             return cell
         }
         
     }
     
-    
-    
 }
 
-extension RegistrationViewController: ButtonDelegate {
+extension RegistrationViewController: ButtonDelegate, RegistrationCellDelegate {
+    func cellIsEmpty(isEmpty: Bool, numCell: Int?) {
+        if let item = numCell, item < arrayDataCells.count {
+            arrayDataCells[item].cellIsEmpty = isEmpty
+            print("arrayDataCells[item].cellIsEmpty = ", isEmpty)
+        }
+    }
+    
     func registerButtonTap() {
         var isOk = true
-        for item in 0...arrayDataCells.count {
+        for item in 0...arrayDataCells.count - 1 {
             
             if arrayDataCells[item].cellIsEmpty {
                 isOk = false
-                let cell = tableView.dequeueReusableCell(withIdentifier: identifierCell, for: IndexPath(row: item, section: 0)) as! RegistrationTableViewCell
-                cell.pleaseEnterDataLable.isHidden = true
+                let cell = tableView.cellForRow(at: IndexPath(row: item, section: 0)) as! RegistrationTableViewCell
+                cell.pleaseEnterDataLable.isHidden = false
+                cell.spaceView.isHidden = true
             }
-            
         }
         
         if isOk {
-            print("ok")
+             self.dismiss()
         }
+        
     }
     
     

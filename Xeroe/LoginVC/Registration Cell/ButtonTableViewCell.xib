@@ -20,7 +20,7 @@
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="exU-9s-sFq" customClass="ButtonWithCornerRadius" customModule="Xeroe" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="1.5" width="320" height="30"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="36" id="wjo-P0-z5t"/>
+                            <constraint firstAttribute="height" constant="45" id="wjo-P0-z5t"/>
                         </constraints>
                         <state key="normal" title="Button"/>
                     </button>

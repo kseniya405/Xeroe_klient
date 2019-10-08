@@ -8,6 +8,9 @@
 
 import UIKit
 
+fileprivate let textFieldCornerRadius: CGFloat = 4
+
+
 class TextFieldWithCorner: UITextField {
     
     var leftInsets: CGFloat = 5.0
@@ -16,7 +19,7 @@ class TextFieldWithCorner: UITextField {
 
     override func awakeFromNib() {
         self.layer.borderColor = borderTextFieldColor.cgColor
-        self.layer.cornerRadius = 4
+        self.layer.cornerRadius = textFieldCornerRadius
         self.layer.masksToBounds = true
         self.textColor = blackTextColor
         self.font = UIFont(name: robotoMedium, size: CGFloat(fontSize))

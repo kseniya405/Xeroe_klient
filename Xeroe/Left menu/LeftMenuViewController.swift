@@ -14,14 +14,7 @@ fileprivate let loginViewControllerIdentifier = "LoginViewController"
 
 class LeftMenuViewController: UIViewController {
     
-    @IBOutlet weak var photoImage: UIImageView!{
-        didSet{
-            photoImage.layer.cornerRadius = photoImage.frame.height / 2.0
-            photoImage.layer.masksToBounds = true
-        }
-    }
     @IBOutlet weak var userNameLabel: UILabel!
-    @IBOutlet weak var userIDXeroeLabel: UILabel!
     @IBOutlet weak var leftMenu: UIView!
     @IBOutlet weak var leftMenuTableView: UITableView!
     @IBOutlet weak var logoutButton: UIButton!{
@@ -30,7 +23,7 @@ class LeftMenuViewController: UIViewController {
         }
     }
     
-    let cellLeftMenuNames = [yourDeliveries, help, payments, freeDeliveries, setting, notifications]
+    let cellLeftMenuNames = [yourDeliveries, payments, help]
     
     var selectedIndexPath : IndexPath?
     
@@ -42,13 +35,7 @@ class LeftMenuViewController: UIViewController {
         leftMenuTableView.tableFooterView = UIView()
         
         userNameLabel.text = UserProfile.shared.email
-        userIDXeroeLabel.text = UserProfile.shared.xeroeId
-        
-        guard let urlAvatar: String = UserProfile.shared.avatar else {
-            debugPrint("error avatar")
-            return
-        }
-        photoImage.getImageFromUrl(urlAvatar: urlAvatar)
+
     }
     
     @objc func goToLoginView() {

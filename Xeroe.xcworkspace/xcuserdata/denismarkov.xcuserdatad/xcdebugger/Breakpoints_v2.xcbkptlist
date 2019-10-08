@@ -1230,8 +1230,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "113"
             endingLineNumber = "113"
-            landmarkName = "funcViewModel()"
-            landmarkType = "7">
+            landmarkName = "HomeViewController"
+            landmarkType = "3">
             <Locations>
                <Location
                   uuid = "5496D442-4B74-4C9D-A117-FAC7FC8DF611 - 346dc7081d7b787c"

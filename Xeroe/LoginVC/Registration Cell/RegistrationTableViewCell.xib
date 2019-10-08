@@ -7,44 +7,71 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" restorationIdentifier="RegistrationTableViewCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="RegistrationTableViewCell" id="KGk-i7-Jjw" customClass="RegistrationTableViewCell" customModule="Xeroe" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="324" height="72"/>
+        <tableViewCell contentMode="scaleToFill" restorationIdentifier="RegistrationTableViewCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="RegistrationTableViewCell" rowHeight="67" id="KGk-i7-Jjw" customClass="RegistrationTableViewCell" customModule="Xeroe" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="324" height="67"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="324" height="72"/>
+                <rect key="frame" x="0.0" y="0.0" width="324" height="67"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="R9W-E5-bE5">
-                        <rect key="frame" x="0.0" y="10" width="324" height="34"/>
+                        <rect key="frame" x="0.0" y="0.0" width="324" height="60"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NU5-0d-xcH" customClass="TextFieldWithCorner" customModule="Xeroe" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="324" height="34"/>
+                                <rect key="frame" x="0.0" y="0.0" width="324" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="hPU-tw-Yqy"/>
+                                    <constraint firstAttribute="height" constant="50" id="hPU-tw-Yqy"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c6W-iP-crH">
+                                <rect key="frame" x="0.0" y="50" width="324" height="10"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="10" id="HjL-lF-LDT"/>
+                                </constraints>
+                            </view>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter a data " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zpP-uJ-IA2">
-                                <rect key="frame" x="0.0" y="0.0" width="324" height="20"/>
+                                <rect key="frame" x="0.0" y="60" width="324" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="YW1-bH-bNk"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="c6W-iP-crH" secondAttribute="trailing" id="2tO-Zx-3nt"/>
+                            <constraint firstItem="c6W-iP-crH" firstAttribute="top" secondItem="NU5-0d-xcH" secondAttribute="bottom" id="def-ge-19A"/>
+                            <constraint firstItem="c6W-iP-crH" firstAttribute="leading" secondItem="R9W-E5-bE5" secondAttribute="leading" id="tXT-XT-4xq"/>
+                        </constraints>
                     </stackView>
+                    <button hidden="YES" opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A0p-2b-EEi">
+                        <rect key="frame" x="289" y="12.5" width="25" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="A0p-2b-EEi" secondAttribute="height" multiplier="1:1" id="Dcr-fH-jGO"/>
+                        </constraints>
+                        <state key="normal" image="invisible"/>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="R9W-E5-bE5" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" id="FZZ-Yq-yvz"/>
-                    <constraint firstItem="R9W-E5-bE5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="OEJ-xF-77a"/>
+                    <constraint firstItem="A0p-2b-EEi" firstAttribute="height" secondItem="NU5-0d-xcH" secondAttribute="height" multiplier="0.5" id="Igx-G2-eba"/>
+                    <constraint firstItem="A0p-2b-EEi" firstAttribute="centerY" secondItem="NU5-0d-xcH" secondAttribute="centerY" id="J7a-tV-GyY"/>
+                    <constraint firstItem="R9W-E5-bE5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="OEJ-xF-77a"/>
                     <constraint firstItem="R9W-E5-bE5" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="ZRt-hh-Lkj"/>
-                    <constraint firstAttribute="bottom" secondItem="R9W-E5-bE5" secondAttribute="bottom" constant="20" id="xav-at-U8V"/>
+                    <constraint firstItem="A0p-2b-EEi" firstAttribute="trailing" secondItem="NU5-0d-xcH" secondAttribute="trailing" constant="-10" id="hHL-Tg-qsJ"/>
+                    <constraint firstAttribute="bottom" secondItem="R9W-E5-bE5" secondAttribute="bottom" priority="752" constant="15" id="xav-at-U8V"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -52,8 +79,13 @@
             <connections>
                 <outlet property="answerTextField" destination="NU5-0d-xcH" id="Zwe-rL-agi"/>
                 <outlet property="pleaseEnterDataLable" destination="zpP-uJ-IA2" id="cr5-ml-NFU"/>
+                <outlet property="spaceView" destination="c6W-iP-crH" id="eNi-fb-ZeT"/>
+                <outlet property="visibleButton" destination="A0p-2b-EEi" id="3Nb-Ql-1or"/>
             </connections>
-            <point key="canvasLocation" x="310.14492753623193" y="209.59821428571428"/>
+            <point key="canvasLocation" x="310.14492753623193" y="207.92410714285714"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="invisible" width="24" height="24"/>
+    </resources>
 </document>
