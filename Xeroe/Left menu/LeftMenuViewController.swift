@@ -10,6 +10,7 @@ import UIKit
 
 fileprivate let cellIdentifier = "LeftMenuTableViewCell"
 fileprivate let loginViewControllerIdentifier = "LoginViewController"
+fileprivate let vatNumber = "320491336"
 
 
 class LeftMenuViewController: UIViewController {
@@ -22,6 +23,13 @@ class LeftMenuViewController: UIViewController {
             logoutButton.addTarget(self, action: #selector(goToLoginView), for: .touchUpInside)
         }
     }
+    
+    @IBOutlet weak var xeroeVATNumberLabel: UILabel! {
+        didSet {
+            xeroeVATNumberLabel.setLabelStyle(textLabel: (xeroeVATNumber + vatNumber), fontLabel: UIFont(name: robotoRegular, size: 13), colorLabel: greyTextColor)
+        }
+    }
+    
     
     let cellLeftMenuNames = [yourDeliveries, payments, help]
     
@@ -73,6 +81,14 @@ extension LeftMenuViewController: UITableViewDelegate {
         }
         selectedIndexPath = indexPath
         tableView.reloadRows(at: [indexPath], with: .none)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 10
     }
     
 }

@@ -42,6 +42,7 @@ let freeDeliveries = "Free deliveries"
 let setting = "Setting"
 let notifications = "Notifications"
 let logout = "Logout"
+let xeroeVATNumber = "Xeroe VAT Number: "
 
 let doMoreWithYourAccount: String = "Do more with your account"
 let insertXeroeID: String = "Insert xeroe ID address"

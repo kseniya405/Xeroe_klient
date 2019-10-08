@@ -1012,71 +1012,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "BFAC311F-43B1-48AF-BED1-4451403545BD"
-            shouldBeEnabled = "No"
-            ignoreCount = "1"
-            condition = "UIViewAlertForUnsatisfiableConstraints"
-            continueAfterRunningActions = "Yes"
-            filePath = "Xeroe/HomeViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "21"
-            endingLineNumber = "21"
-            landmarkName = "HomeViewController"
-            landmarkType = "3">
-            <Actions>
-               <BreakpointActionProxy
-                  ActionExtensionID = "Xcode.BreakpointAction.DebuggerCommand">
-                  <ActionContent
-                     consoleCommand = "po [[UIWindow keyWindow] _autolayoutTrace]">
-                  </ActionContent>
-               </BreakpointActionProxy>
-            </Actions>
-            <Locations>
-               <Location
-                  uuid = "BFAC311F-43B1-48AF-BED1-4451403545BD - 35e2df5366d3ed85"
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Xeroe.HomeViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; Xeroe.HomeViewController"
-                  moduleName = "Xeroe"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/denismarkov/Documents/Learning/Kseniya/Xeroe/Xeroe/HomeViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "22"
-                  endingLineNumber = "22"
-                  offsetFromSymbolStart = "33">
-                  <Actions>
-                     <BreakpointActionProxy
-                        ActionExtensionID = "Xcode.BreakpointAction.DebuggerCommand">
-                        <ActionContent
-                           consoleCommand = "expr -l objc++ -O -- [[UIWindow keyWindow] _autolayoutTrace]">
-                        </ActionContent>
-                     </BreakpointActionProxy>
-                  </Actions>
-               </Location>
-               <Location
-                  uuid = "BFAC311F-43B1-48AF-BED1-4451403545BD - 6af42a9252774c15"
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "function signature specialization &lt;Arg[0] = Owned To Guaranteed&gt; of Xeroe.HomeViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;Xeroe.HomeViewController&gt;"
-                  moduleName = "Xeroe"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/denismarkov/Documents/Learning/Kseniya/Xeroe/Xeroe/HomeViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "22"
-                  endingLineNumber = "22"
-                  offsetFromSymbolStart = "19">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "5C392839-B606-408E-8DE6-A511517A65C9"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -1214,7 +1149,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "114"
             endingLineNumber = "114"
-            landmarkName = "funcViewModel()"
+            landmarkName = "checkUsersLocationServicesAuthorization()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1230,8 +1165,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "113"
             endingLineNumber = "113"
-            landmarkName = "HomeViewController"
-            landmarkType = "3">
+            landmarkName = "checkUsersLocationServicesAuthorization()"
+            landmarkType = "7">
             <Locations>
                <Location
                   uuid = "5496D442-4B74-4C9D-A117-FAC7FC8DF611 - 346dc7081d7b787c"

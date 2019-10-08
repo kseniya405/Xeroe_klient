@@ -18,16 +18,6 @@ fileprivate let xeroeIDTextFieldFontSize = 18
 
 class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
-    
-    @IBOutlet weak var xeroeIDTextField: TextFieldWithCorner! {
-        didSet {
-            xeroeIDTextField.fontSize = xeroeIDTextFieldFontSize
-            xeroeIDTextField.placeholder = insertXeroeID
-            xeroeIDTextField.leftInsets = xeroeIDTextField.frame.width * 0.10
-            xeroeIDTextField.addTarget(self, action: #selector(xeroeIDTextFieldDidChange(_:)), for: .editingChanged)
-        }
-    }
-    
     @IBOutlet weak var openLeftMenuButton: UIButton! {
         didSet {
             openLeftMenuButton.addTarget(self, action: #selector(openLeftMenuButtonTap), for: .touchUpInside)
@@ -35,19 +25,12 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     }
     
     @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet weak var inputButton: ButtonWithCornerRadius! {
+    @IBOutlet weak var foundAddressView: UIView! {
         didSet {
-            inputButton.addTarget(self, action: #selector(inputButtonTap), for: .touchUpInside)
+            foundAddressView.backgroundColor = basicBlueColor
         }
     }
     
-    @IBOutlet weak var pointLabel: UILabel! {
-        didSet {
-            pointLabel.textColor = borderTextFieldColor
-        }
-    }
-    
-    var dictionaryClientData: [String : Any]?
     let locationManager = CLLocationManager()
     let viewModel = HomeViewModel()
     var activityIndicator: UIActivityIndicatorView?
@@ -62,40 +45,12 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     
     @objc func inputButtonTap() {
         activityIndicator = self.view.showActivityIndicator()
-        viewModel.findUser(xeroeIDTextField: xeroeIDTextField)
     }
     
     @objc func openLeftMenuButtonTap() {
         HamburgerMenu.triggerSideMenu()
     }
     
-    @objc func xeroeIDTextFieldDidChange(_ textField: UITextField) {
-        
-        //changes color point before the text you
-        guard var xeroeIDText = textField.text, xeroeIDText != "" else {
-            pointLabel.textColor = borderTextFieldColor
-            return
-        }
-        pointLabel.textColor = blackTextColor
-        
-        xeroeIDText = xeroeIDText.filter { $0.isNumber || $0.isLetter}
-        //adds a sharp before the entered IDXeroe
-        if xeroeIDText.isEmpty || xeroeIDText == "#" {
-            textField.text = ""
-            pointLabel.textColor = borderTextFieldColor
-        } else {
-            textField.text = "#" + xeroeIDText
-        }
-    }
-    
-    func showAlertInputButtonTap(message: String){
-        let alert = UIAlertController(title: invalidXeroeID, message: (message), preferredStyle: UIAlertController.Style.alert)
-        // add an action (button)
-        alert.addAction(UIAlertAction(title: ok, style: UIAlertAction.Style.default, handler: nil))
-        
-        // show the alert
-        self.present(alert, animated: false, completion: nil)
-    }
     
     func goToNextScreen(dictionary: [String : Any]) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -119,12 +74,6 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
             }
         }
         
-        viewModel.showAlertInputButtonTap = { [weak self] (message) in
-            self?.activityIndicator?.stopAnimating()
-            DispatchQueue.main.async {
-                self?.showAlertInputButtonTap(message: message)
-            }
-        }
         
         viewModel.goToLoginScreen = { [weak self] in
             DispatchQueue.main.async {
