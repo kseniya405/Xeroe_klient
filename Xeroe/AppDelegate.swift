@@ -9,6 +9,7 @@
 import UIKit
 
 import IQKeyboardManagerSwift
+import GooglePlaces
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,6 +20,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let containerVCIdentifier = "ContainerViewController"
     let homeVCIdentifier = "HomeViewController"
 
+    let googleMapsApiKey = "AIzaSyDwwMGHMrgee2y8tRjDJJl0DOOp3N-CZaA"
+
+
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
        
         IQKeyboardManager.shared.enable = true
@@ -40,9 +45,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            navigationController = UINavigationController(rootViewController: startViewController)
         }
 
+        // Override point for customization after application launch.
+
+        GMSPlacesClient.provideAPIKey(googleMapsApiKey)
+        
         navigationController?.navigationBar.isHidden = true
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
+        
+          let barColor: UIColor =  basicBlueColor
+        let backgroundColor: UIColor =  _ColorLiteralType(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        let textColor: UIColor =  _ColorLiteralType(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+        // Navigation bar background.
+          UINavigationBar.appearance().barTintColor = barColor
+          UINavigationBar.appearance().tintColor = UIColor.white
+        // Color and font of typed text in the search bar.
+          let searchBarTextAttributes = [NSAttributedString.Key.foregroundColor: textColor, NSAttributedString.Key.font: UIFont(name: robotoRegular, size: 16)]
+        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).defaultTextAttributes = searchBarTextAttributes as [NSAttributedString.Key : Any]
+        // Color of the placeholder text in the search bar prior to text entry
+          let placeholderAttributes = [NSAttributedString.Key.foregroundColor: backgroundColor, NSAttributedString.Key.font: UIFont(name: robotoRegular, size: 15)]
+        // Color of the default search text.
+          let attributedPlaceholder = NSAttributedString(string: "Search", attributes: placeholderAttributes as [NSAttributedString.Key : Any])
+        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).attributedPlaceholder = attributedPlaceholder
         
         return true
     }

@@ -34,7 +34,6 @@ class AccessLocationViewController: UIViewController, CLLocationManagerDelegate 
 
         // Ask for Authorisation from the User.
         locationManager.requestAlwaysAuthorization()
-
         // For use in foreground
         locationManager.requestWhenInUseAuthorization()
         
@@ -48,7 +47,6 @@ class AccessLocationViewController: UIViewController, CLLocationManagerDelegate 
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         let initialViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ContainerViewController") as! ContainerViewController
         initialViewController.identifier = homeVCIdentifier
-
         self.navigationController?.pushViewController(initialViewController, animated: false)
     }
 

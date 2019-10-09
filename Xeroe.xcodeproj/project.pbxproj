@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9D007DEF234CC8CC00702737 /* ResultAddressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D007DED234CC8CC00702737 /* ResultAddressTableViewCell.swift */; };
+		9D007DF0234CC8CC00702737 /* ResultAddressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D007DEE234CC8CC00702737 /* ResultAddressTableViewCell.xib */; };
 		9D0875AB230592BB0085EDD9 /* OptionsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D0875AA230592BA0085EDD9 /* OptionsTableViewCell.xib */; };
 		9D09B35B2330E80100389491 /* DriverWayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D09B35A2330E80100389491 /* DriverWayViewController.swift */; };
 		9D09B35D2330ED2000389491 /* MapWithDriverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D09B35C2330ED2000389491 /* MapWithDriverViewController.swift */; };
@@ -50,6 +52,7 @@
 		9D23E9F422F0808C00E0E2C0 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D23E9F222F0808B00E0E2C0 /* Roboto-Bold.ttf */; };
 		9D23E9F522F0808C00E0E2C0 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D23E9F322F0808B00E0E2C0 /* Roboto-Regular.ttf */; };
 		9D23E9F822F08AA500E0E2C0 /* FuturaDemiC.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D23E9F722F08AA500E0E2C0 /* FuturaDemiC.ttf */; };
+		9D241206234E0061005B58A1 /* SearchResultTableDataSourceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D241205234E0061005B58A1 /* SearchResultTableDataSourceDelegate.swift */; };
 		9D37EA91234B6F990096A28C /* AccessLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D37EA90234B6F990096A28C /* AccessLocationViewController.swift */; };
 		9D3E3DD82334BDF900A44ED8 /* SearchDriverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3E3DD72334BDF900A44ED8 /* SearchDriverViewController.swift */; };
 		9D3E3DDB2334C08B00A44ED8 /* ProblemHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3E3DD92334C08B00A44ED8 /* ProblemHeaderTableViewCell.swift */; };
@@ -95,13 +98,15 @@
 		9DF533AC22EEDBE30036866C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DF533AA22EEDBE30036866C /* LaunchScreen.storyboard */; };
 		9DFFAB7922F179880008F325 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9DFFAB7822F179880008F325 /* Roboto-Medium.ttf */; };
 		9DFFAB7B22F181D10008F325 /* fontello.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9DFFAB7A22F181D00008F325 /* fontello.ttf */; };
-		C6584510C50C1F01F832B9EA /* Pods_Xeroe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FA96868B0382980D707E3E7 /* Pods_Xeroe.framework */; };
+		E8DF191FE216F580111D08CE /* Pods_Xeroe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81F54CE665B1ABC053917921 /* Pods_Xeroe.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		049E9F30D17E25EF4C50520B /* Pods-Xeroe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Xeroe.release.xcconfig"; path = "Target Support Files/Pods-Xeroe/Pods-Xeroe.release.xcconfig"; sourceTree = "<group>"; };
-		462B678E837F5DDE2DEF6AA4 /* Pods-Xeroe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Xeroe.debug.xcconfig"; path = "Target Support Files/Pods-Xeroe/Pods-Xeroe.debug.xcconfig"; sourceTree = "<group>"; };
-		4FA96868B0382980D707E3E7 /* Pods_Xeroe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Xeroe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		35960E7A60DD5F79255E3C3D /* Pods-Xeroe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Xeroe.release.xcconfig"; path = "Target Support Files/Pods-Xeroe/Pods-Xeroe.release.xcconfig"; sourceTree = "<group>"; };
+		4DFB4B6C67FE2A0B2D660AAE /* Pods-Xeroe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Xeroe.debug.xcconfig"; path = "Target Support Files/Pods-Xeroe/Pods-Xeroe.debug.xcconfig"; sourceTree = "<group>"; };
+		81F54CE665B1ABC053917921 /* Pods_Xeroe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Xeroe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D007DED234CC8CC00702737 /* ResultAddressTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultAddressTableViewCell.swift; sourceTree = "<group>"; };
+		9D007DEE234CC8CC00702737 /* ResultAddressTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultAddressTableViewCell.xib; sourceTree = "<group>"; };
 		9D0875AA230592BA0085EDD9 /* OptionsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OptionsTableViewCell.xib; sourceTree = "<group>"; };
 		9D09B35A2330E80100389491 /* DriverWayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverWayViewController.swift; sourceTree = "<group>"; };
 		9D09B35C2330ED2000389491 /* MapWithDriverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapWithDriverViewController.swift; sourceTree = "<group>"; };
@@ -145,6 +150,7 @@
 		9D23E9F222F0808B00E0E2C0 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		9D23E9F322F0808B00E0E2C0 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		9D23E9F722F08AA500E0E2C0 /* FuturaDemiC.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FuturaDemiC.ttf; sourceTree = "<group>"; };
+		9D241205234E0061005B58A1 /* SearchResultTableDataSourceDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultTableDataSourceDelegate.swift; sourceTree = "<group>"; };
 		9D37EA90234B6F990096A28C /* AccessLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessLocationViewController.swift; sourceTree = "<group>"; };
 		9D3E3DD72334BDF900A44ED8 /* SearchDriverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchDriverViewController.swift; sourceTree = "<group>"; };
 		9D3E3DD92334C08B00A44ED8 /* ProblemHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProblemHeaderTableViewCell.swift; sourceTree = "<group>"; };
@@ -200,7 +206,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C6584510C50C1F01F832B9EA /* Pods_Xeroe.framework in Frameworks */,
+				E8DF191FE216F580111D08CE /* Pods_Xeroe.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,6 +425,9 @@
 				9DD0BE7522F8465D00E55EA8 /* ContainerViewController.swift */,
 				9D37EA90234B6F990096A28C /* AccessLocationViewController.swift */,
 				9D09D7DE22F1E23800D4369F /* HomeViewController.swift */,
+				9D241205234E0061005B58A1 /* SearchResultTableDataSourceDelegate.swift */,
+				9D007DED234CC8CC00702737 /* ResultAddressTableViewCell.swift */,
+				9D007DEE234CC8CC00702737 /* ResultAddressTableViewCell.xib */,
 				9D1BFB10231E511E005E8024 /* HomeViewModel.swift */,
 				9DAD9E66233917CF0034DCC0 /* CREATE ORDER */,
 				9D113C222327C80B00BE8D22 /* AgreementTimerViewController.swift */,
@@ -444,8 +453,8 @@
 		A21E6A318FC93CD9EDD2FD6C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				462B678E837F5DDE2DEF6AA4 /* Pods-Xeroe.debug.xcconfig */,
-				049E9F30D17E25EF4C50520B /* Pods-Xeroe.release.xcconfig */,
+				4DFB4B6C67FE2A0B2D660AAE /* Pods-Xeroe.debug.xcconfig */,
+				35960E7A60DD5F79255E3C3D /* Pods-Xeroe.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -454,7 +463,7 @@
 			isa = PBXGroup;
 			children = (
 				9DD0BE5522F817FE00E55EA8 /* MapKit.framework */,
-				4FA96868B0382980D707E3E7 /* Pods_Xeroe.framework */,
+				81F54CE665B1ABC053917921 /* Pods_Xeroe.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -466,11 +475,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9DF533B022EEDBE30036866C /* Build configuration list for PBXNativeTarget "Xeroe" */;
 			buildPhases = (
-				99D6C1BC8A637EBCA808ADAB /* [CP] Check Pods Manifest.lock */,
+				6584DD7E32410AC6013C4E37 /* [CP] Check Pods Manifest.lock */,
 				9DF5339A22EEDBE10036866C /* Sources */,
 				9DF5339B22EEDBE10036866C /* Frameworks */,
 				9DF5339C22EEDBE10036866C /* Resources */,
-				DE9D1F9A8CA2102E8884F350 /* [CP] Embed Pods Frameworks */,
+				AB02E303627E62CD98072FD5 /* [CP] Embed Pods Frameworks */,
+				7D6525EE3D567DD98F23B841 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -540,6 +550,7 @@
 				9D0EEC5023014C5F00891D7D /* ClientDataTableViewCell.xib in Resources */,
 				9D0875AB230592BB0085EDD9 /* OptionsTableViewCell.xib in Resources */,
 				9DD934E123477B3000160003 /* ButtonTableViewCell.xib in Resources */,
+				9D007DF0234CC8CC00702737 /* ResultAddressTableViewCell.xib in Resources */,
 				9D1737F8231CFC68009EEDF6 /* RegistrationTableViewCell.xib in Resources */,
 				9D3E3DE12334C2FF00A44ED8 /* ProblemTableViewCell.xib in Resources */,
 				9DA30B4B230FE56C0054D1ED /* DeliveryTypeCollectionViewCell.xib in Resources */,
@@ -552,7 +563,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		99D6C1BC8A637EBCA808ADAB /* [CP] Check Pods Manifest.lock */ = {
+		6584DD7E32410AC6013C4E37 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -574,7 +585,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DE9D1F9A8CA2102E8884F350 /* [CP] Embed Pods Frameworks */ = {
+		7D6525EE3D567DD98F23B841 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Xeroe/Pods-Xeroe-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Xeroe/Pods-Xeroe-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Xeroe/Pods-Xeroe-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AB02E303627E62CD98072FD5 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -605,6 +633,7 @@
 				9D0C0C392332779D000688D5 /* QRCodeViewController.swift in Sources */,
 				9D09B35B2330E80100389491 /* DriverWayViewController.swift in Sources */,
 				9DA30B4D2310126C0054D1ED /* ImagePicker.swift in Sources */,
+				9D241206234E0061005B58A1 /* SearchResultTableDataSourceDelegate.swift in Sources */,
 				9D75F5F0233A3BC000394F20 /* NotificationName.swift in Sources */,
 				9D0EEC5F230181F100891D7D /* ChooseProductCollectionViewCell.swift in Sources */,
 				9D0EEC4F23014C5F00891D7D /* ClientDataTableViewCell.swift in Sources */,
@@ -653,6 +682,7 @@
 				9DACCB8E22F4473C00D9F433 /* RestApi.swift in Sources */,
 				9DACCB8A22F42E8600D9F433 /* TextFieldWithCorner.swift in Sources */,
 				9DA494192302D90500730624 /* CheckButton.swift in Sources */,
+				9D007DEF234CC8CC00702737 /* ResultAddressTableViewCell.swift in Sources */,
 				9DD0BEA622F87B9300E55EA8 /* LeftMenuViewController.swift in Sources */,
 				9D113C232327C80B00BE8D22 /* AgreementTimerViewController.swift in Sources */,
 				9D75F5F6233A413600394F20 /* View+slideAnimating.swift in Sources */,
@@ -795,14 +825,14 @@
 		};
 		9DF533B122EEDBE30036866C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 462B678E837F5DDE2DEF6AA4 /* Pods-Xeroe.debug.xcconfig */;
+			baseConfigurationReference = 4DFB4B6C67FE2A0B2D660AAE /* Pods-Xeroe.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Xeroe/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -817,14 +847,14 @@
 		};
 		9DF533B222EEDBE30036866C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 049E9F30D17E25EF4C50520B /* Pods-Xeroe.release.xcconfig */;
+			baseConfigurationReference = 35960E7A60DD5F79255E3C3D /* Pods-Xeroe.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Xeroe/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

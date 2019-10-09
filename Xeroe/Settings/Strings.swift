@@ -35,7 +35,7 @@ let enterMobileNumber = "Please enter a phone number"
 let confirmPassword = "Confirm Password"
 let enterConfirmPassword = "Please confirm your password"
 
-let yourDeliveries = "Your deliveries"
+let yourDeliveries = "Your Deliveries"
 let help = "Help"
 let payments = "Payments"
 let freeDeliveries = "Free deliveries"
