@@ -27,6 +27,8 @@ class SearchResultTableDataSourceDelegate: NSObject, UITableViewDataSource, UITa
     var delegate: SearchResultTableDelegate?
     var isStart: Bool?
     var mapView: MKMapView?
+    let locationAnnotation = MKPointAnnotation()
+
     
     func setParameters(textField: UITextField, resultArray: [String]?, tableView: UITableView, tableHeight: NSLayoutConstraint, delegate: SearchResultTableDelegate, isStart: Bool) {
         self.tableView = tableView
@@ -97,11 +99,11 @@ class SearchResultTableDataSourceDelegate: NSObject, UITableViewDataSource, UITa
     func setMapItem(location: CLLocationCoordinate2D) -> MKMapItem {
         let locationPlacemark = MKPlacemark(coordinate: location, addressDictionary: nil)
         let locationMapItem = MKMapItem(placemark: locationPlacemark)
-        let locationAnnotation = MKPointAnnotation()
+        self.mapView?.removeAnnotation(locationAnnotation)
         if let location = locationPlacemark.location {
             locationAnnotation.coordinate = location.coordinate
         }
-        self.mapView?.showAnnotations([locationAnnotation], animated: true)
+        self.mapView?.addAnnotations([locationAnnotation])
         return locationMapItem
     }
     

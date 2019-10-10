@@ -11,7 +11,7 @@ import UIKit
 fileprivate let cellIdentifier = "LeftMenuTableViewCell"
 fileprivate let loginViewControllerIdentifier = "LoginViewController"
 fileprivate let vatNumber = "320491336"
-
+fileprivate let urlXeroeFaq = "http:/xeroe.co.uk/faqs/"
 
 class LeftMenuViewController: UIViewController {
     
@@ -32,7 +32,6 @@ class LeftMenuViewController: UIViewController {
     
     
     let cellLeftMenuNames = [yourDeliveries, payments, help]
-    
     var selectedIndexPath : IndexPath?
     
     override func viewDidLoad() {
@@ -66,7 +65,7 @@ extension LeftMenuViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! LeftMenuTableViewCell
         if indexPath.row < cellLeftMenuNames.count {
-            cell.setData(nameCell: cellLeftMenuNames[indexPath.row], isSelected: selectedIndexPath == indexPath)
+            cell.setData(nameCell: cellLeftMenuNames[indexPath.row], isSelected: cell.isSelected)
         }
         return cell
     }
@@ -75,12 +74,30 @@ extension LeftMenuViewController: UITableViewDataSource {
 extension LeftMenuViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let previosSelectCell = selectedIndexPath {
-            selectedIndexPath = indexPath
-            tableView.reloadRows(at: [previosSelectCell], with: .none)
+        switch indexPath.row {
+        case 0:
+            print("Your Deliveries Tap")
+        case 1:
+            print("Payments Tap")
+        case 2:
+            if let url = URL(string: urlXeroeFaq), UIApplication.shared.canOpenURL(url) {
+                UIApplication.shared.open(url)
+            } else {
+                print("ooops, I can`t open url: \(urlXeroeFaq)")
+            }
+        default:
+            return
         }
-        selectedIndexPath = indexPath
-        tableView.reloadRows(at: [indexPath], with: .none)
+    }
+    
+    func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as! LeftMenuTableViewCell
+        cell.setData(nameCell: cellLeftMenuNames[indexPath.row], isSelected: true)
+    }
+    
+    func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as! LeftMenuTableViewCell
+        cell.setData(nameCell: cellLeftMenuNames[indexPath.row], isSelected: false)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

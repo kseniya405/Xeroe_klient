@@ -24,16 +24,15 @@ class LeftMenuTableViewCell: UITableViewCell {
     func setData(nameCell: String, isSelected: Bool) {        
         self.nameCell.text = nameCell
         self.iconImage.image = UIImage(named: nameCell)?.withRenderingMode(.alwaysTemplate)
-        
-        let backgroundColor = isSelected ? cianColor : .white
-        let fillingColor = isSelected ? .white : blackTextColor
-        chooseColors(nameCell, backgroundColor: backgroundColor, fillingColor: fillingColor)
+        let fillingColor = isSelected ? UIColor(red: 0.78, green: 0.78, blue: 0.78, alpha: 1) : blackTextColor
+        chooseColors(nameCell, fillingColor: fillingColor)
     }
     
-    func chooseColors(_ nameCell: String, backgroundColor: UIColor, fillingColor: UIColor) {
-        self.backgroundColor = backgroundColor
+    func chooseColors(_ nameCell: String, fillingColor: UIColor) {
+        self.backgroundColor = .white
+        self.contentView.backgroundColor = .white
         self.iconImage.tintColor = fillingColor
-        self.iconImage.backgroundColor = backgroundColor
+        self.iconImage.backgroundColor = .white
         self.nameCell.textColor = fillingColor
     }
 

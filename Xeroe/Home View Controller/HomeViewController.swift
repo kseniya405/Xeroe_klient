@@ -15,8 +15,6 @@ import GoogleMaps
 fileprivate let recipientVCIdentifier = "FoundUserDetailViewController"
 fileprivate let loginVCIdentifier = "LoginViewController"
 fileprivate let xeroeIDTextFieldFontSize = 18
-fileprivate let neBoundsCornerLondon = CLLocationCoordinate2D(latitude: 51.71467574, longitude: 0.27293622)
-fileprivate let swBoundsCornerLondon = CLLocationCoordinate2D(latitude: 51.24729011, longitude: -0.50672293)
 fileprivate let cellIdentifier = "ResultAddressTableViewCell"
 
 class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
@@ -55,7 +53,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     @IBOutlet weak var endTableHeight: NSLayoutConstraint!
     @IBOutlet weak var goToOrderButton: UIButton! {
         didSet {
-            
+            goToOrderButton.addTarget(self, action: #selector(goToOrderButtonTap), for: .touchUpInside)
         }
     }
     
@@ -64,6 +62,9 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     var activityIndicator: UIActivityIndicatorView?
     var location: CLLocation?
     var fetcher: GMSAutocompleteFetcher?
+    
+    var distanceIsLong = true
+    
     var startPointSearchResult: [String]?
     var endPointSearchResult: [String]?
     var startPointDelegateDataSource = SearchResultTableDataSourceDelegate()
@@ -97,12 +98,29 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
 
     }
     
+    @objc func goToOrderButtonTap() {
+        if distanceIsLong {
+            let alert = UIAlertController(title: "Sorry, we've limited deliveries to 10 miles during the trial", message: ("Can we help with a different delivery?"), preferredStyle: UIAlertController.Style.alert)
+            // add an action (button)
+            alert.addAction(UIAlertAction(title: "CANCEL", style: UIAlertAction.Style.default, handler: nil))
+            
+            // show the alert
+            self.present(alert, animated: false, completion: nil)
+        } else {
+            goToNextScreen()
+        }
+
+    }
     
-    func goToNextScreen(dictionary: [String : Any]) {
+    
+    func goToNextScreen() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let initialViewController = storyboard.instantiateViewController(withIdentifier: recipientVCIdentifier) as! FoundUserDetailViewController
-        initialViewController.clientDataDictionary = dictionary
+        let initialViewController = storyboard.instantiateViewController(withIdentifier: "OrderDetailsViewController") as! OrderDetailsViewController
         self.navigationController?.pushViewController(initialViewController, animated: false)
+    }
+    
+    func checkDistance() {
+        
     }
     
     func goToLoginScreen() {
@@ -131,7 +149,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
         viewModel.goToNextScreen = { [weak self] dict in
             self?.activityIndicator?.stopAnimating()
             DispatchQueue.main.async {
-                self?.goToNextScreen(dictionary: dict)
+                self?.goToNextScreen()
             }
         }
         
@@ -145,9 +163,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     }
     
     func searchAndFilterAddresse() {
-        // Set bounds to London
-        let bounds = GMSCoordinateBounds(coordinate: neBoundsCornerLondon, coordinate: swBoundsCornerLondon)
-        
+
         // Set up the autocomplete filter.
         let filter = GMSAutocompleteFilter()
         filter.type = .address
@@ -156,7 +172,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
         let token: GMSAutocompleteSessionToken = GMSAutocompleteSessionToken.init()
         
         // Create the fetcher.
-        fetcher = GMSAutocompleteFetcher(bounds: bounds, filter: filter)
+        fetcher = GMSAutocompleteFetcher(bounds: .none, filter: filter)
         fetcher?.delegate = self
         fetcher?.provide(token)
         
@@ -246,9 +262,11 @@ extension HomeViewController: SearchResultTableDelegate {
             directionRequest.destination = endPoinCoordinate
             directionRequest.transportType = .automobile
             
+            //remove previos route
+            self.mapView.removeOverlays(self.mapView.overlays(in: MKOverlayLevel.aboveRoads))
+            
             // Calculate the direction
             let directions = MKDirections(request: directionRequest)
-            
             directions.calculate {
                 (response, error) -> Void in
                 
@@ -268,8 +286,12 @@ extension HomeViewController: SearchResultTableDelegate {
                     let region = MKCoordinateRegion(center: location , latitudinalMeters: route.distance, longitudinalMeters: route.distance)
                     self.mapView.setRegion(self.mapView.regionThatFits(region), animated: true)
                 }
+                self.distanceIsLong = route.distance > 16090
                 debugPrint(route.distance)
-                self.mapView.addOverlay((route.polyline), level: MKOverlayLevel.aboveRoads)
+                
+                //draw route
+                self.mapView.addOverlay(route.polyline, level: MKOverlayLevel.aboveRoads)
+                
             }
         } else {
             self.goToOrderButton.isHidden = true
@@ -279,8 +301,8 @@ extension HomeViewController: SearchResultTableDelegate {
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         let renderer = MKPolylineRenderer(overlay: overlay)
-        renderer.strokeColor = UIColor(red: 0.94, green: 0.68, blue: 0.86, alpha: 1)
-        renderer.lineWidth = 2.0
+        renderer.strokeColor = UIColor(red: 0.99, green: 0.39, blue: 0.67, alpha: 1)
+        renderer.lineWidth = 4.0
         return renderer
     }
     
@@ -300,19 +322,13 @@ extension HomeViewController: SearchResultTableDelegate {
             annotationView?.annotation = annotation
         }
         
-        guard let startCoordinate = self.startPoinCoordinate?.placemark.coordinate, let endCoordinate = self.endPoinCoordinate?.placemark.coordinate else {
+        guard let startCoordinate = self.startPoinCoordinate?.placemark.coordinate else {
             return annotationView
         }
-        if annotation.coordinate.latitude == startCoordinate.latitude, annotation.coordinate.longitude == startCoordinate.longitude {
-           
-            let pinImage = UIImage(named: "collection")
-            annotationView?.image = pinImage
-
-        } else {
-            let pinImage = UIImage(named: "delivery")
-            annotationView?.image = pinImage
-        }
+        let pinImage = (annotation.coordinate.latitude == startCoordinate.latitude && annotation.coordinate.longitude == startCoordinate.longitude) ? UIImage(named: "collection") : UIImage(named: "delivery")
         
+        
+        annotationView?.image = pinImage
         return annotationView
     }
 }

@@ -38,7 +38,7 @@ class LoginFormView: UIView {
     
     @IBOutlet weak var wrongPaswordLabel: UILabel!{
         didSet {
-            wrongPaswordLabel.setLabelStyle(textLabel: wrongPassword, fontLabel: UIFont(name: robotoRegular, size: 11), colorLabel: errorColor)
+            wrongPaswordLabel.setLabelStyle(textLabel: wrongPassword, fontLabel: UIFont(name: robotoMedium, size: 11), colorLabel: errorColor)
         }
     }
     
