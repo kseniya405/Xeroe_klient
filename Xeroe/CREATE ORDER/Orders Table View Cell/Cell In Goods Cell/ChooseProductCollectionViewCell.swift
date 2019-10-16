@@ -19,7 +19,7 @@ class ChooseProductCollectionViewCell: UICollectionViewCell {
     }
     
     func defaultParameters(labelText: String){
-        self.contentView.backgroundColor = productCellOrderTableBackgroundColor
+        self.contentView.backgroundColor = lightGrayBackgroundColor
         self.labelCell.textColor = productCellOrderTableTextColor
         self.labelCell.text = labelText
     }

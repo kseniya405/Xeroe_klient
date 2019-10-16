@@ -12,6 +12,10 @@
 		9D040BF5234F611900963BFC /* OrderDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D040BF4234F611900963BFC /* OrderDetailsViewController.swift */; };
 		9D040BF8234F6A7700963BFC /* imAddressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D040BF6234F6A7700963BFC /* imAddressTableViewCell.swift */; };
 		9D040BF9234F6A7700963BFC /* imAddressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D040BF7234F6A7700963BFC /* imAddressTableViewCell.xib */; };
+		9D04F74C2350A915005B75A2 /* ClientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D04F74A2350A915005B75A2 /* ClientTableViewCell.swift */; };
+		9D04F74D2350A915005B75A2 /* ClientTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D04F74B2350A915005B75A2 /* ClientTableViewCell.xib */; };
+		9D04F7502350CD03005B75A2 /* ParcelDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D04F74E2350CD03005B75A2 /* ParcelDetailsTableViewCell.swift */; };
+		9D04F7512350CD03005B75A2 /* ParcelDetailsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D04F74F2350CD03005B75A2 /* ParcelDetailsTableViewCell.xib */; };
 		9D0875AB230592BB0085EDD9 /* OptionsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D0875AA230592BA0085EDD9 /* OptionsTableViewCell.xib */; };
 		9D09B35B2330E80100389491 /* DriverWayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D09B35A2330E80100389491 /* DriverWayViewController.swift */; };
 		9D09B35D2330ED2000389491 /* MapWithDriverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D09B35C2330ED2000389491 /* MapWithDriverViewController.swift */; };
@@ -55,12 +59,19 @@
 		9D23E9F522F0808C00E0E2C0 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D23E9F322F0808B00E0E2C0 /* Roboto-Regular.ttf */; };
 		9D23E9F822F08AA500E0E2C0 /* FuturaDemiC.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D23E9F722F08AA500E0E2C0 /* FuturaDemiC.ttf */; };
 		9D241206234E0061005B58A1 /* SearchResultTableDataSourceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D241205234E0061005B58A1 /* SearchResultTableDataSourceDelegate.swift */; };
+		9D2F29142357068600C67A0B /* ParcelSizeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2F29122357068600C67A0B /* ParcelSizeTableViewCell.swift */; };
+		9D2F29152357068600C67A0B /* ParcelSizeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D2F29132357068600C67A0B /* ParcelSizeTableViewCell.xib */; };
+		9D2F291823570BCF00C67A0B /* ParcelSizeTypeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2F291623570BCF00C67A0B /* ParcelSizeTypeCollectionViewCell.swift */; };
+		9D2F291923570BCF00C67A0B /* ParcelSizeTypeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D2F291723570BCF00C67A0B /* ParcelSizeTypeCollectionViewCell.xib */; };
 		9D37EA91234B6F990096A28C /* AccessLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D37EA90234B6F990096A28C /* AccessLocationViewController.swift */; };
 		9D3E3DD82334BDF900A44ED8 /* SearchDriverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3E3DD72334BDF900A44ED8 /* SearchDriverViewController.swift */; };
 		9D3E3DDB2334C08B00A44ED8 /* ProblemHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3E3DD92334C08B00A44ED8 /* ProblemHeaderTableViewCell.swift */; };
 		9D3E3DDC2334C08B00A44ED8 /* ProblemHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D3E3DDA2334C08B00A44ED8 /* ProblemHeaderTableViewCell.xib */; };
 		9D3E3DE02334C2FF00A44ED8 /* ProblemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3E3DDE2334C2FF00A44ED8 /* ProblemTableViewCell.swift */; };
 		9D3E3DE12334C2FF00A44ED8 /* ProblemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D3E3DDF2334C2FF00A44ED8 /* ProblemTableViewCell.xib */; };
+		9D5353052355BE8600E3236A /* OrderData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5353042355BE8600E3236A /* OrderData.swift */; };
+		9D6A5618235744E3008026BB /* LimitedSizeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6A5616235744E3008026BB /* LimitedSizeTableViewCell.swift */; };
+		9D6A5619235744E3008026BB /* LimitedSizeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D6A5617235744E3008026BB /* LimitedSizeTableViewCell.xib */; };
 		9D75F5F0233A3BC000394F20 /* NotificationName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D75F5EF233A3BC000394F20 /* NotificationName.swift */; };
 		9D75F5F2233A404A00394F20 /* View+ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D75F5F1233A404A00394F20 /* View+ActivityIndicator.swift */; };
 		9D75F5F4233A40EE00394F20 /* Label+LabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D75F5F3233A40EE00394F20 /* Label+LabelStyle.swift */; };
@@ -111,6 +122,10 @@
 		9D040BF4234F611900963BFC /* OrderDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsViewController.swift; sourceTree = "<group>"; };
 		9D040BF6234F6A7700963BFC /* imAddressTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imAddressTableViewCell.swift; sourceTree = "<group>"; };
 		9D040BF7234F6A7700963BFC /* imAddressTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = imAddressTableViewCell.xib; sourceTree = "<group>"; };
+		9D04F74A2350A915005B75A2 /* ClientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientTableViewCell.swift; sourceTree = "<group>"; };
+		9D04F74B2350A915005B75A2 /* ClientTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClientTableViewCell.xib; sourceTree = "<group>"; };
+		9D04F74E2350CD03005B75A2 /* ParcelDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParcelDetailsTableViewCell.swift; sourceTree = "<group>"; };
+		9D04F74F2350CD03005B75A2 /* ParcelDetailsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ParcelDetailsTableViewCell.xib; sourceTree = "<group>"; };
 		9D0875AA230592BA0085EDD9 /* OptionsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OptionsTableViewCell.xib; sourceTree = "<group>"; };
 		9D09B35A2330E80100389491 /* DriverWayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverWayViewController.swift; sourceTree = "<group>"; };
 		9D09B35C2330ED2000389491 /* MapWithDriverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapWithDriverViewController.swift; sourceTree = "<group>"; };
@@ -154,12 +169,19 @@
 		9D23E9F322F0808B00E0E2C0 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		9D23E9F722F08AA500E0E2C0 /* FuturaDemiC.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FuturaDemiC.ttf; sourceTree = "<group>"; };
 		9D241205234E0061005B58A1 /* SearchResultTableDataSourceDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultTableDataSourceDelegate.swift; sourceTree = "<group>"; };
+		9D2F29122357068600C67A0B /* ParcelSizeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParcelSizeTableViewCell.swift; sourceTree = "<group>"; };
+		9D2F29132357068600C67A0B /* ParcelSizeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ParcelSizeTableViewCell.xib; sourceTree = "<group>"; };
+		9D2F291623570BCF00C67A0B /* ParcelSizeTypeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParcelSizeTypeCollectionViewCell.swift; sourceTree = "<group>"; };
+		9D2F291723570BCF00C67A0B /* ParcelSizeTypeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ParcelSizeTypeCollectionViewCell.xib; sourceTree = "<group>"; };
 		9D37EA90234B6F990096A28C /* AccessLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessLocationViewController.swift; sourceTree = "<group>"; };
 		9D3E3DD72334BDF900A44ED8 /* SearchDriverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchDriverViewController.swift; sourceTree = "<group>"; };
 		9D3E3DD92334C08B00A44ED8 /* ProblemHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProblemHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		9D3E3DDA2334C08B00A44ED8 /* ProblemHeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProblemHeaderTableViewCell.xib; sourceTree = "<group>"; };
 		9D3E3DDE2334C2FF00A44ED8 /* ProblemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProblemTableViewCell.swift; sourceTree = "<group>"; };
 		9D3E3DDF2334C2FF00A44ED8 /* ProblemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProblemTableViewCell.xib; sourceTree = "<group>"; };
+		9D5353042355BE8600E3236A /* OrderData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderData.swift; sourceTree = "<group>"; };
+		9D6A5616235744E3008026BB /* LimitedSizeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimitedSizeTableViewCell.swift; sourceTree = "<group>"; };
+		9D6A5617235744E3008026BB /* LimitedSizeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LimitedSizeTableViewCell.xib; sourceTree = "<group>"; };
 		9D75F5EF233A3BC000394F20 /* NotificationName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationName.swift; sourceTree = "<group>"; };
 		9D75F5F1233A404A00394F20 /* View+ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+ActivityIndicator.swift"; sourceTree = "<group>"; };
 		9D75F5F3233A40EE00394F20 /* Label+LabelStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Label+LabelStyle.swift"; sourceTree = "<group>"; };
@@ -232,6 +254,13 @@
 			children = (
 				9D040BF6234F6A7700963BFC /* imAddressTableViewCell.swift */,
 				9D040BF7234F6A7700963BFC /* imAddressTableViewCell.xib */,
+				9D04F74A2350A915005B75A2 /* ClientTableViewCell.swift */,
+				9D04F74B2350A915005B75A2 /* ClientTableViewCell.xib */,
+				9D04F74E2350CD03005B75A2 /* ParcelDetailsTableViewCell.swift */,
+				9D04F74F2350CD03005B75A2 /* ParcelDetailsTableViewCell.xib */,
+				9D2F29122357068600C67A0B /* ParcelSizeTableViewCell.swift */,
+				9D2F29132357068600C67A0B /* ParcelSizeTableViewCell.xib */,
+				9D2F291A235736F100C67A0B /* ParcelSizeCell */,
 			);
 			path = "Order Cells";
 			sourceTree = "<group>";
@@ -330,6 +359,17 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		9D2F291A235736F100C67A0B /* ParcelSizeCell */ = {
+			isa = PBXGroup;
+			children = (
+				9D2F291623570BCF00C67A0B /* ParcelSizeTypeCollectionViewCell.swift */,
+				9D2F291723570BCF00C67A0B /* ParcelSizeTypeCollectionViewCell.xib */,
+				9D6A5616235744E3008026BB /* LimitedSizeTableViewCell.swift */,
+				9D6A5617235744E3008026BB /* LimitedSizeTableViewCell.xib */,
+			);
+			path = ParcelSizeCell;
+			sourceTree = "<group>";
+		};
 		9D3E3DDD2334C09200A44ED8 /* ProblemTable */ = {
 			isa = PBXGroup;
 			children = (
@@ -348,6 +388,7 @@
 				9DDFD4072304215D007DDB36 /* UserProfile.swift */,
 				9DDFD40523041A9B007DDB36 /* ClientData.swift */,
 				9DA4941A2302FE0F00730624 /* ConfirmOrderByCreator.swift */,
+				9D5353042355BE8600E3236A /* OrderData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -560,11 +601,15 @@
 				9D0EEC5C23014CA800891D7D /* DeliveryTypeTableViewCell.xib in Resources */,
 				9DD884632326460B00305AFC /* Main.storyboard in Resources */,
 				9DF533A922EEDBE30036866C /* Assets.xcassets in Resources */,
+				9D04F7512350CD03005B75A2 /* ParcelDetailsTableViewCell.xib in Resources */,
+				9D04F74D2350A915005B75A2 /* ClientTableViewCell.xib in Resources */,
 				9DDFD4042303EEA0007DDB36 /* HeaderOrderTableView.xib in Resources */,
 				9DFFAB7B22F181D10008F325 /* fontello.ttf in Resources */,
 				9D3E3DDC2334C08B00A44ED8 /* ProblemHeaderTableViewCell.xib in Resources */,
+				9D2F291923570BCF00C67A0B /* ParcelSizeTypeCollectionViewCell.xib in Resources */,
 				9DFFAB7922F179880008F325 /* Roboto-Medium.ttf in Resources */,
 				9D0EEC6D2301B64600891D7D /* PhotosCollectionViewCell.xib in Resources */,
+				9D6A5619235744E3008026BB /* LimitedSizeTableViewCell.xib in Resources */,
 				9D0EEC642301AAD200891D7D /* DataDeliveryTableViewCell.xib in Resources */,
 				9DD0BEA522F87B9300E55EA8 /* LeftMenuTableViewCell.xib in Resources */,
 				9D0EEC5023014C5F00891D7D /* ClientDataTableViewCell.xib in Resources */,
@@ -573,6 +618,7 @@
 				9D007DF0234CC8CC00702737 /* ResultAddressTableViewCell.xib in Resources */,
 				9D1737F8231CFC68009EEDF6 /* RegistrationTableViewCell.xib in Resources */,
 				9D3E3DE12334C2FF00A44ED8 /* ProblemTableViewCell.xib in Resources */,
+				9D2F29152357068600C67A0B /* ParcelSizeTableViewCell.xib in Resources */,
 				9DA30B4B230FE56C0054D1ED /* DeliveryTypeCollectionViewCell.xib in Resources */,
 				9D23E9F522F0808C00E0E2C0 /* Roboto-Regular.ttf in Resources */,
 				9D0EEC692301B46800891D7D /* AddPhotoTableViewCell.xib in Resources */,
@@ -647,6 +693,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D0EEC682301B46800891D7D /* AddPhotoTableViewCell.swift in Sources */,
+				9D5353052355BE8600E3236A /* OrderData.swift in Sources */,
 				9DF533A422EEDBE10036866C /* LoginViewController.swift in Sources */,
 				9D0EEC4B23014C4700891D7D /* PaymentMethodTableViewCell.swift in Sources */,
 				9D1BFB11231E511E005E8024 /* HomeViewModel.swift in Sources */,
@@ -656,6 +703,7 @@
 				9D241206234E0061005B58A1 /* SearchResultTableDataSourceDelegate.swift in Sources */,
 				9D75F5F0233A3BC000394F20 /* NotificationName.swift in Sources */,
 				9D0EEC5F230181F100891D7D /* ChooseProductCollectionViewCell.swift in Sources */,
+				9D6A5618235744E3008026BB /* LimitedSizeTableViewCell.swift in Sources */,
 				9D0EEC4F23014C5F00891D7D /* ClientDataTableViewCell.swift in Sources */,
 				9D040BF5234F611900963BFC /* OrderDetailsViewController.swift in Sources */,
 				9DCF034922EF1EEE00A7F283 /* ForgotPasswordViewControll.swift in Sources */,
@@ -666,6 +714,7 @@
 				9D0B6D30231D594A00E3A8F8 /* DefaultsKeys.swift in Sources */,
 				9D13647D2319695D0074FE60 /* Color.swift in Sources */,
 				9DD0BE9E22F8727C00E55EA8 /* ClientDetailViewController.swift in Sources */,
+				9D2F29142357068600C67A0B /* ParcelSizeTableViewCell.swift in Sources */,
 				9DA4941B2302FE0F00730624 /* ConfirmOrderByCreator.swift in Sources */,
 				9DDFD4002303EDC4007DDB36 /* HeaderOrderTableView.swift in Sources */,
 				9D040BF8234F6A7700963BFC /* imAddressTableViewCell.swift in Sources */,
@@ -704,9 +753,12 @@
 				9DA494192302D90500730624 /* CheckButton.swift in Sources */,
 				9D007DEF234CC8CC00702737 /* ResultAddressTableViewCell.swift in Sources */,
 				9DD0BEA622F87B9300E55EA8 /* LeftMenuViewController.swift in Sources */,
+				9D04F74C2350A915005B75A2 /* ClientTableViewCell.swift in Sources */,
 				9D113C232327C80B00BE8D22 /* AgreementTimerViewController.swift in Sources */,
 				9D75F5F6233A413600394F20 /* View+slideAnimating.swift in Sources */,
+				9D2F291823570BCF00C67A0B /* ParcelSizeTypeCollectionViewCell.swift in Sources */,
 				9D0B6D2E231D3F3700E3A8F8 /* LoginFormView.temp_caseinsensitive_rename.swift in Sources */,
+				9D04F7502350CD03005B75A2 /* ParcelDetailsTableViewCell.swift in Sources */,
 				9D3E3DE02334C2FF00A44ED8 /* ProblemTableViewCell.swift in Sources */,
 				9D09D7DF22F1E23800D4369F /* HomeViewController.swift in Sources */,
 				9DD934E023477B3000160003 /* ButtonTableViewCell.swift in Sources */,

@@ -23,12 +23,11 @@ class CheckButton: UIButton {
     
     override func awakeFromNib() {
         self.addTarget(self, action:#selector(buttonClicked(sender:)), for: UIControl.Event.touchUpInside)
-        self.isChecked = false
     }
     
     @objc func buttonClicked(sender: UIButton) {
         if sender == self {
-            isChecked = !isChecked
+            isChecked = true
         }
     }
     
@@ -36,5 +35,9 @@ class CheckButton: UIButton {
         self.checkedImage = checkedImage
         self.uncheckedImage = uncheckedImage
         self.reloadInputViews()
+    }
+    
+    func setChecked(isChecked: Bool) {
+        self.isChecked = isChecked
     }
 }

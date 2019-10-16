@@ -54,6 +54,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     @IBOutlet weak var goToOrderButton: UIButton! {
         didSet {
             goToOrderButton.addTarget(self, action: #selector(goToOrderButtonTap), for: .touchUpInside)
+            self.goToOrderButton.isHidden = false
         }
     }
     
@@ -80,7 +81,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
         checkUsersLocationServicesAuthorization()
         activateMapAndLocationManager()
         funcViewModel()
-        searchAndFilterAddresse()
+//        searchAndFilterAddresse()
         registerTablesWithResultSearching()
     }
     
@@ -94,18 +95,20 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     
     @objc func textFieldDidChange(_ textField: UITextField) {
         fetcher?.sourceTextHasChanged(textField.text)
-        goToOrderButton.isHidden = true
+//        goToOrderButton.isHidden = true
+        goToOrderButton.isHidden = false
 
     }
     
     @objc func goToOrderButtonTap() {
         if distanceIsLong {
-            let alert = UIAlertController(title: "Sorry, we've limited deliveries to 10 miles during the trial", message: ("Can we help with a different delivery?"), preferredStyle: UIAlertController.Style.alert)
-            // add an action (button)
-            alert.addAction(UIAlertAction(title: "CANCEL", style: UIAlertAction.Style.default, handler: nil))
-            
-            // show the alert
-            self.present(alert, animated: false, completion: nil)
+            goToNextScreen()
+//            let alert = UIAlertController(title: "Sorry, we've limited deliveries to 10 miles during the trial", message: ("Can we help with a different delivery?"), preferredStyle: UIAlertController.Style.alert)
+//            // add an action (button)
+//            alert.addAction(UIAlertAction(title: "CANCEL", style: UIAlertAction.Style.default, handler: nil))
+//            
+//            // show the alert
+//            self.present(alert, animated: false, completion: nil)
         } else {
             goToNextScreen()
         }
@@ -116,6 +119,10 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     func goToNextScreen() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let initialViewController = storyboard.instantiateViewController(withIdentifier: "OrderDetailsViewController") as! OrderDetailsViewController
+        if let start = startPointTextField.text, let finish = endPointTextField.text {
+            initialViewController.inputSenderAddress = start
+            initialViewController.inputDeliveryAddress = finish
+        }
         self.navigationController?.pushViewController(initialViewController, animated: false)
     }
     
@@ -234,6 +241,9 @@ extension HomeViewController: GMSAutocompleteFetcherDelegate {
             endPointDelegateDataSource.setResult(resultArray: arrayResult)
             endPointTableView.reloadData()
         }
+        self.mapView.layoutIfNeeded()
+        self.mapView.layoutSubviews()
+
     }
     
     func didFailAutocompleteWithError(_ error: Error) {
@@ -289,12 +299,15 @@ extension HomeViewController: SearchResultTableDelegate {
                 self.distanceIsLong = route.distance > 16090
                 debugPrint(route.distance)
                 
+
+                self.mapView.setNeedsDisplay()
+                
                 //draw route
                 self.mapView.addOverlay(route.polyline, level: MKOverlayLevel.aboveRoads)
-                
+
             }
         } else {
-            self.goToOrderButton.isHidden = true
+//            self.goToOrderButton.isHidden = true
             
         }
     }

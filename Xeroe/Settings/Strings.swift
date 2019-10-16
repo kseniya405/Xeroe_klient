@@ -89,3 +89,45 @@ let problemPackageIsWrong = "Package is wrong"
 let problemPickUpPersonDidntAnswerCall = "Pick up person did’n answer the call"
 let problemDropOffPersonDidntAnswerCall = "Drop off person did’n answer the call"
 let problemPackageIsDamaged = "Package is damaged"
+
+
+//imAddressTableViewCell
+let uncheckAddres = "There are some errors, please check below."
+let collectionAddress = "   I'm at the collection address."
+let deliveryAddress = "   I'm at the delivery address."
+
+//ClientTableViewCell
+let collection = "Collection"
+let delivery = "Delivery"
+let provideName = "Please provide a name"
+let provideMobileNumber = "Please provide a mobile number"
+let contactName = "Contact Name"
+let contactMobileNumber = "Contact Mobile Number"
+let explanationNumber = "By submitting this contact number you are confirming authority to contact the owner of number during this delivary."
+
+//ParcelDetailsTableViewCell
+let parcelDetails = "Parcel details"
+let descriptionOnTheParcel = "Description on the parcel"
+let provideDescription = "Please provide detail about you parcel"
+
+//ParcelSizeTableViewCell
+let chooseProvideSize = "Please choose your parcel size"
+let parcelSize = "Parcel Size"
+let envelope = "Envelope"
+let package = "Package"
+let bulkyItem = "Bulky Item"
+
+let small = "Small"
+let medium = "Medium"
+let large = "Large"
+let xlarge = "Xlarge"
+
+let envelopeSSize = "Max Size: 25cm x 15cm x 1cm \nMax Weight: 0.25kg"
+let envelopeMSize = "Max Size: 30cm x 21cm x 2cm \nMax Weight: 0.75kg"
+let envelopeLSize = "Max Size: 42cm x 30cm x 5cm \nMax Weight: 2kg"
+let packageSSize = "Max Size: 20cm x 20cm x 15cm \nMax Weight: 3kg"
+let packageMSize = "Max Size: 25cm x 25cm x 20cm \nMax Weight: 7kg"
+let packageLSize = "Max Size: 50cm x 35cm x 28cm \nMax Weight: 15kg"
+let bulkyItemLSize = "Max Size: 120cm x 100cm x 80cm \nMax Weight: 250kg"
+let bulkyItemXlSize = "Max Size: 170cm x 170cm x 120cm \nMax Weight: 500kg"
+

@@ -9,7 +9,7 @@
 import Foundation
 
 class ConfirmOrderByCreator: Codable {
-
+    
     var payment_method: String? = nil
     var delivery_type: Int? = 0
     var cost: Int? = 0

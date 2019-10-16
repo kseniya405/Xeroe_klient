@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -30,7 +29,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="hPU-tw-Yqy"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c6W-iP-crH">
@@ -57,7 +56,7 @@
                         </constraints>
                     </stackView>
                     <button hidden="YES" opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A0p-2b-EEi">
-                        <rect key="frame" x="289" y="12.5" width="25" height="25"/>
+                        <rect key="frame" x="297.5" y="17" width="16.5" height="16.5"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="A0p-2b-EEi" secondAttribute="height" multiplier="1:1" id="Dcr-fH-jGO"/>
                         </constraints>
@@ -66,7 +65,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="R9W-E5-bE5" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" id="FZZ-Yq-yvz"/>
-                    <constraint firstItem="A0p-2b-EEi" firstAttribute="height" secondItem="NU5-0d-xcH" secondAttribute="height" multiplier="0.5" id="Igx-G2-eba"/>
+                    <constraint firstItem="A0p-2b-EEi" firstAttribute="height" secondItem="NU5-0d-xcH" secondAttribute="height" multiplier="0.33" id="Igx-G2-eba"/>
                     <constraint firstItem="A0p-2b-EEi" firstAttribute="centerY" secondItem="NU5-0d-xcH" secondAttribute="centerY" id="J7a-tV-GyY"/>
                     <constraint firstItem="R9W-E5-bE5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="OEJ-xF-77a"/>
                     <constraint firstItem="R9W-E5-bE5" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="ZRt-hh-Lkj"/>

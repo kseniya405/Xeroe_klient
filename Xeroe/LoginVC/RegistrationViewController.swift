@@ -61,7 +61,7 @@ class RegistrationViewController: UIViewController {
 
 extension RegistrationViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return arrayDataCells.count + 1
+        return arrayDataCells.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

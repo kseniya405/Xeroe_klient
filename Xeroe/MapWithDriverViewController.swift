@@ -29,7 +29,7 @@ class MapWithDriverViewController: UIViewController, CLLocationManagerDelegate, 
     
     @IBOutlet weak var driverNameTitle: UILabel! {
         didSet {
-            driverNameTitle.setLabelStyle(textLabel: driverName, fontLabel: UIFont(name: robotoRegular, size: 14), colorLabel: greyTextColor)
+            driverNameTitle.setLabelStyle(textLabel: driverName, fontLabel: UIFont(name: robotoRegular, size: 14), colorLabel: grayTextColor)
         }
     }
     @IBOutlet weak var driverNameValue: UILabel!
@@ -41,12 +41,12 @@ class MapWithDriverViewController: UIViewController, CLLocationManagerDelegate, 
     @IBOutlet weak var rateImage: UIImageView!
     @IBOutlet weak var rateLabel: UILabel!  {
         didSet {
-            rateLabel.setLabelStyle(fontLabel: UIFont(name: robotoRegular, size: 14), colorLabel: greyTextColor)
+            rateLabel.setLabelStyle(fontLabel: UIFont(name: robotoRegular, size: 14), colorLabel: grayTextColor)
         }
     }
     @IBOutlet weak var estimateTitle: UILabel! {
         didSet {
-            estimateTitle.setLabelStyle(textLabel: estimateTimeForTrip, fontLabel: UIFont(name: robotoRegular, size: 14), colorLabel: greyTextColor)
+            estimateTitle.setLabelStyle(textLabel: estimateTimeForTrip, fontLabel: UIFont(name: robotoRegular, size: 14), colorLabel: grayTextColor)
         }
     }
     @IBOutlet weak var estimateValue: UILabel! {
@@ -56,7 +56,7 @@ class MapWithDriverViewController: UIViewController, CLLocationManagerDelegate, 
     }
     @IBOutlet weak var carTitle: UILabel! {
         didSet {
-            carTitle.setLabelStyle(textLabel: car, fontLabel: UIFont(name: robotoRegular, size: 14), colorLabel: greyTextColor)
+            carTitle.setLabelStyle(textLabel: car, fontLabel: UIFont(name: robotoRegular, size: 14), colorLabel: grayTextColor)
         }
     }
     @IBOutlet weak var carValue: UILabel! {

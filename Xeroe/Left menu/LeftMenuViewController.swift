@@ -26,7 +26,7 @@ class LeftMenuViewController: UIViewController {
     
     @IBOutlet weak var xeroeVATNumberLabel: UILabel! {
         didSet {
-            xeroeVATNumberLabel.setLabelStyle(textLabel: (xeroeVATNumber + vatNumber), fontLabel: UIFont(name: robotoRegular, size: 13), colorLabel: greyTextColor)
+            xeroeVATNumberLabel.setLabelStyle(textLabel: (xeroeVATNumber + vatNumber), fontLabel: UIFont(name: robotoRegular, size: 13), colorLabel: grayTextColor)
         }
     }
     
