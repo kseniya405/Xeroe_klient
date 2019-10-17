@@ -128,7 +128,7 @@ extension OrderDetailsViewController: UITableViewDelegate, UITableViewDataSource
             return cell
         case 4:
             let cell = tableView.dequeueReusableCell(withIdentifier: parcelSizeCell, for: indexPath) as! ParcelSizeTableViewCell
-            
+            cell.delegate = self
             return cell
         default:
             return UITableViewCell()
@@ -167,6 +167,19 @@ extension OrderDetailsViewController: ParcelDetailsTableViewCellProtocol {
     func setDescription(description: String) {
         order.parselDetails = description
         print(order.parselDetails)
+    }
+    
+}
+
+extension OrderDetailsViewController: ParcelSizeTableViewCelldelegate {
+    func updateConstraintCell() {
+        tableView.beginUpdates()
+        self.updateViewConstraints()
+        tableView.endUpdates()
+    }
+    
+    func setSize(size: Int) {
+        order.parcelSize = size
     }
     
 }

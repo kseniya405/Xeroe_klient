@@ -45,7 +45,8 @@ class ParcelDetailsTableViewCell: UITableViewCell, UITextViewDelegate {
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         provideDetailsLabel.isHidden = true
-        
+        textView.layer.borderColor = darkBlue.cgColor
+
         if textView.text == descriptionOnTheParcel {
             textView.text =  ""
             textView.textColor = blackTextColor
@@ -54,11 +55,12 @@ class ParcelDetailsTableViewCell: UITableViewCell, UITextViewDelegate {
     }
     
     func textViewDidChange(_ textView: UITextView) {
-        
-       delegate?.setDescription(description: textView.text)
+        delegate?.setDescription(description: textView.text)
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
+        textView.layer.borderColor = lightGrayBackgroundColor.cgColor
+
         guard let text = textView.text, !text.isEmpty else {
             textView.text = descriptionOnTheParcel
             textView.textColor = lightGrayTextColor
@@ -98,4 +100,5 @@ class VerticallyCenteredTextView: UITextView {
         self.layer.masksToBounds = true
         self.textColor = blackTextColor
     }
+    
 }

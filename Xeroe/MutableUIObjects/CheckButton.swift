@@ -15,7 +15,7 @@ class CheckButton: UIButton {
     
     // Bool property
     var isChecked = true {
-        didSet{
+        didSet {
             let image = isChecked ? checkedImage : uncheckedImage
             self.setImage(image, for: UIControl.State.normal)
         }

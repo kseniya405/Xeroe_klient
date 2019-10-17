@@ -10,15 +10,24 @@ import UIKit
 
 class LimitedSizeTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var nameSizeLabel: UILabel! {
+           didSet {
+               nameSizeLabel.setLabelStyle(fontLabel: UIFont(name: robotoMedium, size: 14), colorLabel: .darkText)
+           }
+       }
+    @IBOutlet weak var valueSizeLabel: UILabel! {
+              didSet {
+                  valueSizeLabel.setLabelStyle(fontLabel: UIFont(name: robotoRegular, size: 12), colorLabel: .darkText)
+              }
+          }
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    func setParameters(title: String, value: String){
+        nameSizeLabel.text = title
+        valueSizeLabel.text = value
     }
     
 }

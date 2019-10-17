@@ -14,20 +14,10 @@ class OrderData {
     var collectionData = userData()
     var deliveryData = userData()
     var parselDetails = ""
-    var parselSize = typeSize.self
+    var parcelSize: Int? = 0
     var parcelValue: Int? = 0
     var photo: UIImage? = nil
-    
-    enum typeSize {
-        case envelopeS
-        case envelopeM
-        case envelopeL
-        case packageS
-        case packageM
-        case packageL
-        case bulkyItemL
-        case bulkyItemXl
-    }
+
 }
 
 

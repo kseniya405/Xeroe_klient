@@ -23,10 +23,11 @@ class ClientTableViewCell: UITableViewCell {
         }
     }
     @IBOutlet weak var nameTextField: UITextField!  {
-          didSet{
+          didSet {
               nameTextField.font = UIFont(name: robotoRegular, size: 17)
               nameTextField.textColor = blackTextColor
               nameTextField.addTarget(self, action: #selector(nameEditingChanged), for: .editingChanged)
+            nameTextField.addTarget(self, action: #selector(textFieldEditingChanged(sender:)), for: .editingDidEnd)
           }
       }
     @IBOutlet weak var provideNameLabel: UILabel! {
@@ -77,15 +78,19 @@ class ClientTableViewCell: UITableViewCell {
     }
     
     @objc func mobileNumberEditingChanged() {
+        mobileNumberTextField.layer.borderColor = basicBlueColor.cgColor
         provideMobileNumberLabel.isHidden = true
         delegate?.editNumber(inputNumber: mobileNumberTextField.text ?? "")
-
     }
     
     @objc func nameEditingChanged(){
+        nameTextField.layer.borderColor = basicBlueColor.cgColor
         provideNameLabel.isHidden = true
         delegate?.editName(inputName: nameTextField.text ?? "", isSender: isSender)
-
+    }
+    
+    @objc func textFieldEditingChanged(sender: UITextField) {
+        //
     }
     
     func setParameters(header: String, address: String, name: String, mobileNumber: String, isSender: Bool, enteredName: Bool, enteredNumber: Bool) {

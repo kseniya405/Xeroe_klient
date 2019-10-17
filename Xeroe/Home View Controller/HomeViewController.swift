@@ -126,9 +126,6 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
         self.navigationController?.pushViewController(initialViewController, animated: false)
     }
     
-    func checkDistance() {
-        
-    }
     
     func goToLoginScreen() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)

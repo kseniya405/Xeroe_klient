@@ -28,3 +28,5 @@ let productCellOrderTableTextColor = UIColor(red: 0.59, green: 0.59, blue: 0.59,
 let activityIndicatorColor = UIColor(red: 0.12, green: 0.24, blue: 0.44, alpha: 1)
 
 let shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.3)
+
+let lightGrayBackground = UIColor(displayP3Red: 203, green: 203, blue: 208, alpha: 1)
