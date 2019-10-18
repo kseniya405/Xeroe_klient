@@ -59,6 +59,10 @@
 		9D23E9F522F0808C00E0E2C0 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D23E9F322F0808B00E0E2C0 /* Roboto-Regular.ttf */; };
 		9D23E9F822F08AA500E0E2C0 /* FuturaDemiC.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D23E9F722F08AA500E0E2C0 /* FuturaDemiC.ttf */; };
 		9D241206234E0061005B58A1 /* SearchResultTableDataSourceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D241205234E0061005B58A1 /* SearchResultTableDataSourceDelegate.swift */; };
+		9D2913682359DE9200EF27D3 /* ParcelValueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2913662359DE9200EF27D3 /* ParcelValueTableViewCell.swift */; };
+		9D2913692359DE9200EF27D3 /* ParcelValueTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D2913672359DE9200EF27D3 /* ParcelValueTableViewCell.xib */; };
+		9D29136C2359F33C00EF27D3 /* PhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D29136A2359F33C00EF27D3 /* PhotoTableViewCell.swift */; };
+		9D29136D2359F33C00EF27D3 /* PhotoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D29136B2359F33C00EF27D3 /* PhotoTableViewCell.xib */; };
 		9D2F29142357068600C67A0B /* ParcelSizeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2F29122357068600C67A0B /* ParcelSizeTableViewCell.swift */; };
 		9D2F29152357068600C67A0B /* ParcelSizeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D2F29132357068600C67A0B /* ParcelSizeTableViewCell.xib */; };
 		9D2F291823570BCF00C67A0B /* ParcelSizeTypeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2F291623570BCF00C67A0B /* ParcelSizeTypeCollectionViewCell.swift */; };
@@ -169,6 +173,10 @@
 		9D23E9F322F0808B00E0E2C0 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		9D23E9F722F08AA500E0E2C0 /* FuturaDemiC.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FuturaDemiC.ttf; sourceTree = "<group>"; };
 		9D241205234E0061005B58A1 /* SearchResultTableDataSourceDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultTableDataSourceDelegate.swift; sourceTree = "<group>"; };
+		9D2913662359DE9200EF27D3 /* ParcelValueTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParcelValueTableViewCell.swift; sourceTree = "<group>"; };
+		9D2913672359DE9200EF27D3 /* ParcelValueTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ParcelValueTableViewCell.xib; sourceTree = "<group>"; };
+		9D29136A2359F33C00EF27D3 /* PhotoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTableViewCell.swift; sourceTree = "<group>"; };
+		9D29136B2359F33C00EF27D3 /* PhotoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoTableViewCell.xib; sourceTree = "<group>"; };
 		9D2F29122357068600C67A0B /* ParcelSizeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParcelSizeTableViewCell.swift; sourceTree = "<group>"; };
 		9D2F29132357068600C67A0B /* ParcelSizeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ParcelSizeTableViewCell.xib; sourceTree = "<group>"; };
 		9D2F291623570BCF00C67A0B /* ParcelSizeTypeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParcelSizeTypeCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -261,6 +269,10 @@
 				9D2F29122357068600C67A0B /* ParcelSizeTableViewCell.swift */,
 				9D2F29132357068600C67A0B /* ParcelSizeTableViewCell.xib */,
 				9D2F291A235736F100C67A0B /* ParcelSizeCell */,
+				9D2913662359DE9200EF27D3 /* ParcelValueTableViewCell.swift */,
+				9D2913672359DE9200EF27D3 /* ParcelValueTableViewCell.xib */,
+				9D29136A2359F33C00EF27D3 /* PhotoTableViewCell.swift */,
+				9D29136B2359F33C00EF27D3 /* PhotoTableViewCell.xib */,
 			);
 			path = "Order Cells";
 			sourceTree = "<group>";
@@ -596,6 +608,7 @@
 				9DA494172302B77700730624 /* DimensionsTableViewCell.xib in Resources */,
 				9D0EEC4723014B9300891D7D /* GoodsTableViewCell.xib in Resources */,
 				9D0EEC60230181F100891D7D /* ChooseProductCollectionViewCell.xib in Resources */,
+				9D2913692359DE9200EF27D3 /* ParcelValueTableViewCell.xib in Resources */,
 				9D23E9F822F08AA500E0E2C0 /* FuturaDemiC.ttf in Resources */,
 				9DF533AC22EEDBE30036866C /* LaunchScreen.storyboard in Resources */,
 				9D0EEC5C23014CA800891D7D /* DeliveryTypeTableViewCell.xib in Resources */,
@@ -616,6 +629,7 @@
 				9D0875AB230592BB0085EDD9 /* OptionsTableViewCell.xib in Resources */,
 				9DD934E123477B3000160003 /* ButtonTableViewCell.xib in Resources */,
 				9D007DF0234CC8CC00702737 /* ResultAddressTableViewCell.xib in Resources */,
+				9D29136D2359F33C00EF27D3 /* PhotoTableViewCell.xib in Resources */,
 				9D1737F8231CFC68009EEDF6 /* RegistrationTableViewCell.xib in Resources */,
 				9D3E3DE12334C2FF00A44ED8 /* ProblemTableViewCell.xib in Resources */,
 				9D2F29152357068600C67A0B /* ParcelSizeTableViewCell.xib in Resources */,
@@ -716,6 +730,7 @@
 				9DD0BE9E22F8727C00E55EA8 /* ClientDetailViewController.swift in Sources */,
 				9D2F29142357068600C67A0B /* ParcelSizeTableViewCell.swift in Sources */,
 				9DA4941B2302FE0F00730624 /* ConfirmOrderByCreator.swift in Sources */,
+				9D2913682359DE9200EF27D3 /* ParcelValueTableViewCell.swift in Sources */,
 				9DDFD4002303EDC4007DDB36 /* HeaderOrderTableView.swift in Sources */,
 				9D040BF8234F6A7700963BFC /* imAddressTableViewCell.swift in Sources */,
 				9D136473231918B60074FE60 /* Strings.swift in Sources */,
@@ -723,6 +738,7 @@
 				9D3E3DDB2334C08B00A44ED8 /* ProblemHeaderTableViewCell.swift in Sources */,
 				9D75F5F8233A41D200394F20 /* ImageView+loadUrlImage.swift in Sources */,
 				9D37EA91234B6F990096A28C /* AccessLocationViewController.swift in Sources */,
+				9D29136C2359F33C00EF27D3 /* PhotoTableViewCell.swift in Sources */,
 				9D13039622FD8C6400DC983E /* ButtonForAddFotoOrder.swift in Sources */,
 				9DF533A222EEDBE10036866C /* AppDelegate.swift in Sources */,
 				9D3E3DD82334BDF900A44ED8 /* SearchDriverViewController.swift in Sources */,

@@ -78,6 +78,12 @@ class ParcelDetailsTableViewCell: UITableViewCell, UITextViewDelegate {
 
     }
     
+    func errordetails(showError: Bool) {
+        if showError {
+            provideDetailsLabel.isHidden = false
+        }
+    }
+    
 }
 
 

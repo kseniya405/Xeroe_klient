@@ -131,3 +131,10 @@ let packageLSize = "Max Size: 50cm x 35cm x 28cm \nMax Weight: 15kg"
 let bulkyItemLSize = "Max Size: 120cm x 100cm x 80cm \nMax Weight: 250kg"
 let bulkyItemXlSize = "Max Size: 170cm x 170cm x 120cm \nMax Weight: 500kg"
 
+//ParcelValueTableViewCell
+let parcelValue = "Parcel Value (£)"
+let provideValue = "Please provide a value of your parcel"
+
+//PhotoTableViewCell
+let photo = "Photo"
+let pleaseProvideImage = "Please provide an image of your parcel"

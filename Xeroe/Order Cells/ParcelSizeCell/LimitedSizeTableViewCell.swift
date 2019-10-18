@@ -22,7 +22,8 @@ class LimitedSizeTableViewCell: UITableViewCell {
           }
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        self.layer.masksToBounds = true
+        self.layer.cornerRadius = 4
     }
 
     func setParameters(title: String, value: String){

@@ -14,7 +14,7 @@ class OrderData {
     var collectionData = userData()
     var deliveryData = userData()
     var parselDetails = ""
-    var parcelSize: Int? = 0
+    var parcelSize: Int? = nil
     var parcelValue: Int? = 0
     var photo: UIImage? = nil
 

@@ -53,6 +53,9 @@ class ParcelSizeTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        chooseParcelSize.isHidden = true
+        parcelTypeTableView.isHidden = true
+        
         parcelTypeCollectionView.delegate = self
         parcelTypeCollectionView.dataSource = self
         parcelTypeCollectionView.register(UINib(nibName: identifierCollectionViewCell, bundle: nil), forCellWithReuseIdentifier: identifierCollectionViewCell)
@@ -67,6 +70,12 @@ class ParcelSizeTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
         
         // Configure the view for the selected state
+    }
+    
+    func errorSize(showError: Bool) {
+        if showError {
+            chooseParcelSize.isHidden = false
+        }
     }
     
 }
@@ -98,13 +107,17 @@ extension ParcelSizeTableViewCell: UICollectionViewDelegate, UICollectionViewDat
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         indexTable = indexPath.row
+        heightTable.constant = dataSize[indexTable].sizeType.count == 3 ? 240 : 160
+        chooseParcelSize.isHidden = true
+
         parcelTypeTableView.beginUpdates()
         parcelTypeTableView.reloadData()
         parcelTypeTableView.endUpdates()
         parcelTypeTableView.isHidden = false
         delegate?.updateConstraintCell()
+        
         let selectCell = collectionView.cellForItem(at: indexPath) as! ParcelSizeTypeCollectionViewCell
-        selectCell.setBackgroundColor(color: lightGrayBackgroundColor)
+        selectCell.setBackgroundColor(color: lightGrayBackground)
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
@@ -117,7 +130,6 @@ extension ParcelSizeTableViewCell: UICollectionViewDelegate, UICollectionViewDat
 
 extension ParcelSizeTableViewCell: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        tableView.isHidden = false
         return 3
     }
     
@@ -130,6 +142,8 @@ extension ParcelSizeTableViewCell: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        delegate?.setSize(size: indexTable + indexPath.row)
+    }
 }
 

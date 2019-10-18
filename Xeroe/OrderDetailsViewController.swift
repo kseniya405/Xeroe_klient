@@ -29,30 +29,40 @@ class OrderDetailsViewController: UIViewController {
     
     @objc func touchMeButtonTap() {
         debugPrint("touchMeButton Tap")
+        isCheck = true
         if order.collectionData.name == nil || order.collectionData.name == "" {
             let indexPath = clientIsSender ? IndexPath(row: 1, section: 0) : IndexPath(row: 2, section: 0)
-            let cell = tableView.cellForRow(at: indexPath) as! ClientTableViewCell
-            cell.provideNameLabel.isHidden = false
-            
+            tableView.reloadRows(at: [indexPath], with: .none)
         }
         
         if order.deliveryData.name == nil || order.deliveryData.name == "" {
             let indexPath = clientIsSender ? IndexPath(row: 2, section: 0) : IndexPath(row: 1, section: 0)
-            let cell = tableView.cellForRow(at: indexPath) as! ClientTableViewCell
-            cell.provideNameLabel.isHidden = false
-            
+            tableView.reloadRows(at: [indexPath], with: .none)
         }
         
         if order.deliveryData.mobileNumber == nil || order.deliveryData.mobileNumber == "" {
             let indexPath = clientIsSender ? IndexPath(row: 2, section: 0) : IndexPath(row: 1, section: 0)
-            let cell = tableView.cellForRow(at: indexPath) as! ClientTableViewCell
-            cell.provideMobileNumberLabel.isHidden = false
+            tableView.reloadRows(at: [indexPath], with: .none)
         }
         
         if order.parselDetails.isEmpty {
             let indexPath = IndexPath(row: 3, section: 0)
-            let cell = tableView.cellForRow(at: indexPath) as! ParcelDetailsTableViewCell
-            cell.provideDetailsLabel.isHidden = false
+            tableView.reloadRows(at: [indexPath], with: .none)
+        }
+        
+        if order.parcelSize == nil {
+            let indexPath = IndexPath(row: 4, section: 0)
+            tableView.reloadRows(at: [indexPath], with: .none)
+        }
+        
+        if order.parcelValue == nil || order.parcelValue == 0 {
+            let indexPath = IndexPath(row: 5, section: 0)
+            tableView.reloadRows(at: [indexPath], with: .none)
+        }
+        
+        if order.photo == nil{
+            let indexPath = IndexPath(row: 6, section: 0)
+            tableView.reloadRows(at: [indexPath], with: .none)
         }
         
         tableView.beginUpdates()
@@ -73,7 +83,9 @@ class OrderDetailsViewController: UIViewController {
     var inputSenderAddress = ""
     var inputDeliveryAddress = ""
     var order = OrderData()
-    
+    var isCheck = false
+    var imagePicker: ImagePicker!
+    var imagePickCell: PhotoTableViewCell?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,7 +95,8 @@ class OrderDetailsViewController: UIViewController {
         tableView.register(UINib(nibName: clientCell, bundle: nil), forCellReuseIdentifier: clientCell)
         tableView.register(UINib(nibName: parcelDetailsCell, bundle: nil), forCellReuseIdentifier: parcelDetailsCell)
         tableView.register(UINib(nibName: parcelSizeCell, bundle: nil), forCellReuseIdentifier: parcelSizeCell)
-
+        tableView.register(UINib(nibName: parcelValueCell, bundle: nil), forCellReuseIdentifier: parcelValueCell)
+        tableView.register(UINib(nibName: photoCell, bundle: nil), forCellReuseIdentifier: photoCell)
     }
     
     @objc func backButtonTap() {
@@ -108,6 +121,7 @@ extension OrderDetailsViewController: UITableViewDelegate, UITableViewDataSource
             cell.delegate = self
             let isSender = clientIsSender ? indexPath.row == 1 : indexPath.row == 2
             let header = indexPath.row == 1 ? collection : delivery
+            
             if isSender {
                 if inputSenderAddress == "" {
                     inputSenderAddress = "Here will be the sender address"
@@ -120,15 +134,32 @@ extension OrderDetailsViewController: UITableViewDelegate, UITableViewDataSource
                 }
                 cell.setParameters(header: header, address: inputDeliveryAddress, name: order.deliveryData.name ?? "", mobileNumber: order.deliveryData.mobileNumber ?? "", isSender: isSender, enteredName: true, enteredNumber: true)
             }
+            cell.errorMobileNumber(showError: isCheck && (cell.mobileNumberTextField.text?.isEmpty ?? true))
+            cell.errorName(showError: isCheck && (cell.nameTextField.text?.isEmpty ?? true))
+            
             return cell
         case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: parcelDetailsCell, for: indexPath) as! ParcelDetailsTableViewCell
             cell.setParameters(details: order.parselDetails)
             cell.delegate = self
+            cell.errordetails(showError: isCheck && order.parselDetails.isEmpty)
             return cell
         case 4:
             let cell = tableView.dequeueReusableCell(withIdentifier: parcelSizeCell, for: indexPath) as! ParcelSizeTableViewCell
+            cell.errorSize(showError: isCheck && order.parcelSize == nil)
             cell.delegate = self
+            return cell
+        case 5:
+            let cell = tableView.dequeueReusableCell(withIdentifier: parcelValueCell, for: indexPath) as! ParcelValueTableViewCell
+            cell.delegate = self
+            cell.setParameters(value: order.parcelValue)
+            cell.errorValue(showError: isCheck && (order.parcelValue == nil || order.parcelValue == 0))
+            return cell
+        case 6:
+            let cell = tableView.dequeueReusableCell(withIdentifier: photoCell, for: indexPath) as! PhotoTableViewCell
+            cell.delegate = self
+            cell.setParameters(photo: order.photo)
+            cell.errorImage(showError: isCheck && order.photo == nil)
             return cell
         default:
             return UITableViewCell()
@@ -150,6 +181,7 @@ extension OrderDetailsViewController: ClientTableViewCellProtocol {
         } else {
             order.deliveryData.name = inputName
         }
+        isCheck = false
     }
     
     func editNumber(inputNumber: String) {
@@ -158,6 +190,8 @@ extension OrderDetailsViewController: ClientTableViewCellProtocol {
         } else {
             order.collectionData.mobileNumber = inputNumber
         }
+        isCheck = false
+        
     }
     
     
@@ -180,6 +214,33 @@ extension OrderDetailsViewController: ParcelSizeTableViewCelldelegate {
     
     func setSize(size: Int) {
         order.parcelSize = size
+        isCheck = false
     }
     
 }
+
+extension OrderDetailsViewController: ParcelValueDelegate {
+    func setParcelValue(value: Int) {
+        order.parcelValue = value
+        isCheck = false
+    }
+    
+    
+}
+
+
+extension OrderDetailsViewController: ImagePickerDelegate {
+    func didSelect(image: UIImage?) {
+        if let photo = image {
+            imagePickCell?.setParameters(photo: photo)
+        }
+    }
+}
+
+extension OrderDetailsViewController: PhotoTableViewCellDelegate {
+    func addImageCall(cell: PhotoTableViewCell) {
+        imagePickCell = cell
+        self.imagePicker.present(from: cell)
+    }
+}
+

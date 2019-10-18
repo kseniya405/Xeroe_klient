@@ -113,5 +113,15 @@ class ClientTableViewCell: UITableViewCell {
         }
     }
 
+    func errorName(showError: Bool) {
+        if showError {
+            provideNameLabel.isHidden = false
+        }
+    }
     
+    func errorMobileNumber(showError: Bool) {
+        if showError {
+            provideMobileNumberLabel.isHidden = false
+        }
+    }
 }
