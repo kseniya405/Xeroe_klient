@@ -238,9 +238,9 @@ extension HomeViewController: GMSAutocompleteFetcherDelegate {
             endPointDelegateDataSource.setResult(resultArray: arrayResult)
             endPointTableView.reloadData()
         }
-        self.mapView.layoutIfNeeded()
-        self.mapView.layoutSubviews()
-
+        self.loadViewIfNeeded()
+        self.viewDidLayoutSubviews()
+        self.updateViewConstraints()
     }
     
     func didFailAutocompleteWithError(_ error: Error) {

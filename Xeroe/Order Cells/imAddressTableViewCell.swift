@@ -24,7 +24,7 @@ class imAddressTableViewCell: UITableViewCell {
         
     @IBOutlet weak var checkCollectionAddressButton: CheckButton! {
         didSet {
-            checkCollectionAddressButton.setParametersImage(checkedImage: UIImage(named: checkedImageButton), uncheckedImage: UIImage(named: uncheckedImageButton))
+            checkCollectionAddressButton.setParametersImage(checkedImage: UIImage(named: checkedImageButton), uncheckedImage: UIImage(named: uncheckedImageButton), isLigament: true)
             checkCollectionAddressButton.addTarget(self, action: #selector(checkCollectionAddressButtonTap), for: .touchUpInside)
             
         }
@@ -37,7 +37,7 @@ class imAddressTableViewCell: UITableViewCell {
     
     @IBOutlet weak var checkDeliveryAddressButton: CheckButton! {
         didSet {
-            checkDeliveryAddressButton.setParametersImage(checkedImage: UIImage(named: checkedImageButton), uncheckedImage: UIImage(named: uncheckedImageButton))
+            checkDeliveryAddressButton.setParametersImage(checkedImage: UIImage(named: checkedImageButton), uncheckedImage: UIImage(named: uncheckedImageButton), isLigament: true)
             checkDeliveryAddressButton.addTarget(self, action: #selector(checkDeliveryAddressButtonTap), for: .touchUpInside)
         }
     }
@@ -51,17 +51,16 @@ class imAddressTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        checkCollectionAddressButton.setChecked(isChecked: true)
-        checkCollectionAddressButton.setChecked(isChecked: true)
-
     }
     
     @objc func checkCollectionAddressButtonTap() {
+        checkCollectionAddressButton.isChecked = true
         changeChoose(otherButton: checkDeliveryAddressButton, isCollectionAddress: true)
     }
     
     
     @objc func checkDeliveryAddressButtonTap() {
+        checkDeliveryAddressButton.isChecked = true
         changeChoose(otherButton: checkCollectionAddressButton, isCollectionAddress: false)
     }
     

@@ -54,6 +54,7 @@ class ParcelValueTableViewCell: UITableViewCell {
     }
     
     func setParameters(value: Int?) {
+        provideValueLabel.isHidden = true
         if let intValue = value {
             valueTextField.text = intValue == 0 ? "" : String(intValue)
         }

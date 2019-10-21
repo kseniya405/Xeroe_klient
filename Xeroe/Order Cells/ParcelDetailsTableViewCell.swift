@@ -38,6 +38,7 @@ class ParcelDetailsTableViewCell: UITableViewCell, UITextViewDelegate {
     
     
     func setParameters(details: String){
+        provideDetailsLabel.isHidden = true
         descriptionTextView.delegate = self
         descriptionTextView.text = details.isEmpty ? descriptionOnTheParcel : details
         descriptionTextView.textColor = details.isEmpty ? lightGrayTextColor : blackTextColor
@@ -52,10 +53,6 @@ class ParcelDetailsTableViewCell: UITableViewCell, UITextViewDelegate {
             textView.textColor = blackTextColor
             return
         }
-    }
-    
-    func textViewDidChange(_ textView: UITextView) {
-        delegate?.setDescription(description: textView.text)
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
@@ -74,6 +71,7 @@ class ParcelDetailsTableViewCell: UITableViewCell, UITextViewDelegate {
             delegate?.setDescription(description: "")
             return
         }
+        
         delegate?.setDescription(description: textView.text)
 
     }
@@ -83,7 +81,7 @@ class ParcelDetailsTableViewCell: UITableViewCell, UITextViewDelegate {
             provideDetailsLabel.isHidden = false
         }
     }
-    
+        
 }
 
 

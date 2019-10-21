@@ -23,13 +23,13 @@ class ClientTableViewCell: UITableViewCell {
         }
     }
     @IBOutlet weak var nameTextField: UITextField!  {
-          didSet {
-              nameTextField.font = UIFont(name: robotoRegular, size: 17)
-              nameTextField.textColor = blackTextColor
-              nameTextField.addTarget(self, action: #selector(nameEditingChanged), for: .editingChanged)
+        didSet {
+            nameTextField.font = UIFont(name: robotoRegular, size: 17)
+            nameTextField.textColor = blackTextColor
+            nameTextField.addTarget(self, action: #selector(nameEditingChanged), for: .editingChanged)
             nameTextField.addTarget(self, action: #selector(textFieldEditingChanged(sender:)), for: .editingDidEnd)
-          }
-      }
+        }
+    }
     @IBOutlet weak var provideNameLabel: UILabel! {
         didSet{
             provideNameLabel.setLabelStyle(textLabel: provideName, fontLabel: UIFont(name: robotoRegular, size: 12), colorLabel: errorColor)
@@ -48,7 +48,6 @@ class ClientTableViewCell: UITableViewCell {
             //               mobileNumberTextField.isUserInteractionEnabled = false
             mobileNumberTextField.backgroundColor = lightGrayBackgroundColor
             mobileNumberTextField.font = UIFont(name: robotoRegular, size: 17)
-            mobileNumberTextField.textColor = lightGrayTextColor
             mobileNumberTextField.addTarget(self, action: #selector(mobileNumberEditingChanged), for: .editingChanged)
         }
     }
@@ -105,6 +104,8 @@ class ClientTableViewCell: UITableViewCell {
             self.mobileNumberTextField.backgroundColor = lightGrayBackgroundColor
             self.explanationOfNumber.isHidden = true
             self.provideMobileNumberLabel.isHidden = true
+            self.mobileNumberTextField.textColor = lightGrayTextColor
+
         } else {
             self.mobileNumberTextField.backgroundColor = .white
             self.explanationOfNumber.isHidden = false
@@ -112,7 +113,7 @@ class ClientTableViewCell: UITableViewCell {
             mobileNumberTextField.textColor = blackTextColor
         }
     }
-
+    
     func errorName(showError: Bool) {
         if showError {
             provideNameLabel.isHidden = false

@@ -91,12 +91,12 @@ let problemDropOffPersonDidntAnswerCall = "Drop off person did’n answer the ca
 let problemPackageIsDamaged = "Package is damaged"
 
 
-//imAddressTableViewCell
+//MARK: imAddressTableViewCell
 let uncheckAddres = "There are some errors, please check below."
 let collectionAddress = "   I'm at the collection address."
 let deliveryAddress = "   I'm at the delivery address."
 
-//ClientTableViewCell
+//MARK: ClientTableViewCell
 let collection = "Collection"
 let delivery = "Delivery"
 let provideName = "Please provide a name"
@@ -105,12 +105,12 @@ let contactName = "Contact Name"
 let contactMobileNumber = "Contact Mobile Number"
 let explanationNumber = "By submitting this contact number you are confirming authority to contact the owner of number during this delivary."
 
-//ParcelDetailsTableViewCell
+//MARK: ParcelDetailsTableViewCell
 let parcelDetails = "Parcel details"
 let descriptionOnTheParcel = "Description on the parcel"
 let provideDescription = "Please provide detail about you parcel"
 
-//ParcelSizeTableViewCell
+//MARK: ParcelSizeTableViewCell
 let chooseProvideSize = "Please choose your parcel size"
 let parcelSize = "Parcel Size"
 let envelope = "Envelope"
@@ -131,10 +131,22 @@ let packageLSize = "Max Size: 50cm x 35cm x 28cm \nMax Weight: 15kg"
 let bulkyItemLSize = "Max Size: 120cm x 100cm x 80cm \nMax Weight: 250kg"
 let bulkyItemXlSize = "Max Size: 170cm x 170cm x 120cm \nMax Weight: 500kg"
 
-//ParcelValueTableViewCell
+//MARK: ParcelValueTableViewCell
 let parcelValue = "Parcel Value (£)"
 let provideValue = "Please provide a value of your parcel"
 
-//PhotoTableViewCell
+//MARK: PhotoTableViewCell
 let photo = "Photo"
 let pleaseProvideImage = "Please provide an image of your parcel"
+let addPhoto = "Add Photo"
+let useADifferentPhoto = "Use a different photo"
+
+//MARK: PaymentsDetailTableViewCell
+let paymentDetails = "Payment Detail"
+
+//MARK: DisclaimerTableViewCell
+let disclaimer = "Disclaimer"
+let clickToAccept = "Click to accept"
+let termsAndConditions = "Term and Conditions"
+let ensureAccepted = "Please ensure you have read and accepted the terms and conditions"
+let getPrice = "Get price"

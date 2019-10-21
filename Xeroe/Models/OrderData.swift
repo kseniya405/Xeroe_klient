@@ -17,7 +17,7 @@ class OrderData {
     var parcelSize: Int? = nil
     var parcelValue: Int? = 0
     var photo: UIImage? = nil
-
+    var isChecked = false
 }
 
 

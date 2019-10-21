@@ -21,17 +21,19 @@ class CheckButton: UIButton {
         }
     }
     
+    var isLigament = false
+    
     override func awakeFromNib() {
-        self.addTarget(self, action:#selector(buttonClicked(sender:)), for: UIControl.Event.touchUpInside)
+        self.addTarget(self, action:#selector(buttonClicked), for: UIControl.Event.touchUpInside)
     }
     
-    @objc func buttonClicked(sender: UIButton) {
-        if sender == self {
-            isChecked = true
-        }
+    @objc func buttonClicked() {
+        isChecked = isLigament ? true : !isChecked
+ 
     }
     
-    func setParametersImage(checkedImage: UIImage?, uncheckedImage: UIImage?) {
+    func setParametersImage(checkedImage: UIImage?, uncheckedImage: UIImage?, isLigament: Bool? = false) {
+        self.isLigament = isLigament ?? false
         self.checkedImage = checkedImage
         self.uncheckedImage = uncheckedImage
         self.reloadInputViews()

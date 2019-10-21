@@ -17,19 +17,19 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ppv-Vx-BHx">
-                        <rect key="frame" x="20" y="0.0" width="42" height="21"/>
+                        <rect key="frame" x="20" y="0.0" width="42" height="76"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="21" id="uhZ-HD-RVW"/>
+                            <constraint firstAttribute="height" priority="750" constant="21" id="uhZ-HD-RVW"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Zmh-m2-zBj">
-                        <rect key="frame" x="20" y="41" width="348" height="34"/>
+                        <rect key="frame" x="20" y="96" width="348" height="50"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="(£)Value" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="k6S-P3-lX9">
-                                <rect key="frame" x="0.0" y="0.0" width="348" height="34"/>
+                                <rect key="frame" x="0.0" y="0.0" width="348" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="JcI-5D-qgY"/>
                                 </constraints>
@@ -37,7 +37,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please provide a value of your parcel " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q7W-8Z-wyI">
-                                <rect key="frame" x="0.0" y="0.0" width="348" height="0.0"/>
+                                <rect key="frame" x="0.0" y="50" width="348" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>

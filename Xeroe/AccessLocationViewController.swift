@@ -41,6 +41,10 @@ class AccessLocationViewController: UIViewController, CLLocationManagerDelegate 
             locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             locationManager.startUpdatingLocation()
+        } else {
+            let initialViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ContainerViewController") as! ContainerViewController
+            initialViewController.identifier = homeVCIdentifier
+            self.navigationController?.pushViewController(initialViewController, animated: false)
         }
     }
     

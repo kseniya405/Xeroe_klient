@@ -9,7 +9,7 @@
 import UIKit
 
 protocol PhotoTableViewCellDelegate {
-    func addImageCall(cell: PhotoTableViewCell)
+    func addImageCell(cell: PhotoTableViewCell)
 }
 
 class PhotoTableViewCell: UITableViewCell {
@@ -22,7 +22,7 @@ class PhotoTableViewCell: UITableViewCell {
     @IBOutlet weak var PhotoImage: UIImageView!
     @IBOutlet weak var addPhotoButton: ButtonWithCornerRadius! {
         didSet {
-            addPhotoButton.setParameters(text: signIn, font: UIFont(name: robotoRegular, size: 17), tintColor: .white, backgroundColor: darkBlue)
+            addPhotoButton.setParameters(text: addPhoto, font: UIFont(name: robotoRegular, size: 17), tintColor: .white, backgroundColor: darkBlue)
             addPhotoButton.addTarget(self, action: #selector(addPhotoButtonTap), for: .touchUpInside)
         }
     }
@@ -36,9 +36,6 @@ class PhotoTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        PhotoImage.isHidden = true
-        provideImage.isHidden = true
-
         // Initialization code
     }
     
@@ -49,8 +46,8 @@ class PhotoTableViewCell: UITableViewCell {
     }
     
     @objc func addPhotoButtonTap() {
-        let cell = self as! PhotoTableViewCell
-       delegate?.addImageCall(cell: cell)
+        provideImage.isHidden = true
+        delegate?.addImageCell(cell: self)
     }
     
     func setParameters(photo: UIImage?) {
@@ -58,7 +55,11 @@ class PhotoTableViewCell: UITableViewCell {
             PhotoImage.image = image
             PhotoImage.isHidden = false
             provideImage.isHidden = true
-
+            addPhotoButton.setTitle(useADifferentPhoto, for: .normal)
+        } else {
+            PhotoImage.isHidden = true
+            provideImage.isHidden = true
+            addPhotoButton.setTitle(addPhoto, for: .normal)
         }
     }
     

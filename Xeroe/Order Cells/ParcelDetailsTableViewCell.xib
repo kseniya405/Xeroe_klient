@@ -22,16 +22,16 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Parcel Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LGM-YI-owP">
-                        <rect key="frame" x="20" y="0.0" width="104" height="20"/>
+                        <rect key="frame" x="20" y="0.0" width="104" height="21"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="20" id="qQM-pJ-0x4"/>
+                            <constraint firstAttribute="height" priority="750" constant="21" id="qQM-pJ-0x4"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="2ar-SV-qMe">
-                        <rect key="frame" x="20" y="40" width="334" height="170"/>
+                        <rect key="frame" x="20" y="41" width="334" height="169"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4zg-HV-dXl">
                                 <rect key="frame" x="0.0" y="0.0" width="334" height="100"/>
@@ -56,7 +56,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please provide details about parcel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cx2-C6-3lT">
-                                <rect key="frame" x="0.0" y="105" width="334" height="65"/>
+                                <rect key="frame" x="0.0" y="105" width="334" height="64"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>

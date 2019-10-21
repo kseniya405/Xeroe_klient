@@ -73,9 +73,7 @@ class ParcelSizeTableViewCell: UITableViewCell {
     }
     
     func errorSize(showError: Bool) {
-        if showError {
-            chooseParcelSize.isHidden = false
-        }
+       chooseParcelSize.isHidden = !showError
     }
     
 }

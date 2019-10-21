@@ -58,6 +58,10 @@
 		9D23E9F422F0808C00E0E2C0 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D23E9F222F0808B00E0E2C0 /* Roboto-Bold.ttf */; };
 		9D23E9F522F0808C00E0E2C0 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D23E9F322F0808B00E0E2C0 /* Roboto-Regular.ttf */; };
 		9D23E9F822F08AA500E0E2C0 /* FuturaDemiC.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D23E9F722F08AA500E0E2C0 /* FuturaDemiC.ttf */; };
+		9D240ABB235D96EE00977A88 /* PaymentDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D240AB9235D96EE00977A88 /* PaymentDetailsTableViewCell.swift */; };
+		9D240ABC235D96EE00977A88 /* PaymentDetailsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D240ABA235D96EE00977A88 /* PaymentDetailsTableViewCell.xib */; };
+		9D240ABF235DA5FC00977A88 /* DisclaimerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D240ABD235DA5FC00977A88 /* DisclaimerTableViewCell.swift */; };
+		9D240AC0235DA5FC00977A88 /* DisclaimerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D240ABE235DA5FC00977A88 /* DisclaimerTableViewCell.xib */; };
 		9D241206234E0061005B58A1 /* SearchResultTableDataSourceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D241205234E0061005B58A1 /* SearchResultTableDataSourceDelegate.swift */; };
 		9D2913682359DE9200EF27D3 /* ParcelValueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2913662359DE9200EF27D3 /* ParcelValueTableViewCell.swift */; };
 		9D2913692359DE9200EF27D3 /* ParcelValueTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D2913672359DE9200EF27D3 /* ParcelValueTableViewCell.xib */; };
@@ -82,6 +86,7 @@
 		9D75F5F6233A413600394F20 /* View+slideAnimating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D75F5F5233A413600394F20 /* View+slideAnimating.swift */; };
 		9D75F5F8233A41D200394F20 /* ImageView+loadUrlImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D75F5F7233A41D200394F20 /* ImageView+loadUrlImage.swift */; };
 		9D75F5FA233A420800394F20 /* ViewController+dismiss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D75F5F9233A420800394F20 /* ViewController+dismiss.swift */; };
+		9D8029A0235E090C009E012B /* PaymentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D80299F235E090C009E012B /* PaymentsViewController.swift */; };
 		9DA30B4A230FE56C0054D1ED /* DeliveryTypeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA30B48230FE56C0054D1ED /* DeliveryTypeCollectionViewCell.swift */; };
 		9DA30B4B230FE56C0054D1ED /* DeliveryTypeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DA30B49230FE56C0054D1ED /* DeliveryTypeCollectionViewCell.xib */; };
 		9DA30B4D2310126C0054D1ED /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA30B4C2310126C0054D1ED /* ImagePicker.swift */; };
@@ -93,6 +98,7 @@
 		9DACCB8822F42D7200D9F433 /* ButtonWithCornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DACCB8722F42D7200D9F433 /* ButtonWithCornerRadius.swift */; };
 		9DACCB8A22F42E8600D9F433 /* TextFieldWithCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DACCB8922F42E8600D9F433 /* TextFieldWithCorner.swift */; };
 		9DACCB8E22F4473C00D9F433 /* RestApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DACCB8D22F4473C00D9F433 /* RestApi.swift */; };
+		9DCC5C5C235E135E009E64A1 /* UpdateCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCC5C5B235E135E009E64A1 /* UpdateCardViewController.swift */; };
 		9DCF034922EF1EEE00A7F283 /* ForgotPasswordViewControll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCF034822EF1EEE00A7F283 /* ForgotPasswordViewControll.swift */; };
 		9DCF034B22EF364000A7F283 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCF034A22EF364000A7F283 /* RegistrationViewController.swift */; };
 		9DD0BE7622F8465D00E55EA8 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD0BE7522F8465D00E55EA8 /* ContainerViewController.swift */; };
@@ -172,6 +178,10 @@
 		9D23E9F222F0808B00E0E2C0 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		9D23E9F322F0808B00E0E2C0 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		9D23E9F722F08AA500E0E2C0 /* FuturaDemiC.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FuturaDemiC.ttf; sourceTree = "<group>"; };
+		9D240AB9235D96EE00977A88 /* PaymentDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentDetailsTableViewCell.swift; sourceTree = "<group>"; };
+		9D240ABA235D96EE00977A88 /* PaymentDetailsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentDetailsTableViewCell.xib; sourceTree = "<group>"; };
+		9D240ABD235DA5FC00977A88 /* DisclaimerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisclaimerTableViewCell.swift; sourceTree = "<group>"; };
+		9D240ABE235DA5FC00977A88 /* DisclaimerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DisclaimerTableViewCell.xib; sourceTree = "<group>"; };
 		9D241205234E0061005B58A1 /* SearchResultTableDataSourceDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultTableDataSourceDelegate.swift; sourceTree = "<group>"; };
 		9D2913662359DE9200EF27D3 /* ParcelValueTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParcelValueTableViewCell.swift; sourceTree = "<group>"; };
 		9D2913672359DE9200EF27D3 /* ParcelValueTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ParcelValueTableViewCell.xib; sourceTree = "<group>"; };
@@ -196,6 +206,7 @@
 		9D75F5F5233A413600394F20 /* View+slideAnimating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+slideAnimating.swift"; sourceTree = "<group>"; };
 		9D75F5F7233A41D200394F20 /* ImageView+loadUrlImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageView+loadUrlImage.swift"; sourceTree = "<group>"; };
 		9D75F5F9233A420800394F20 /* ViewController+dismiss.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+dismiss.swift"; sourceTree = "<group>"; };
+		9D80299F235E090C009E012B /* PaymentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentsViewController.swift; sourceTree = "<group>"; };
 		9DA30B48230FE56C0054D1ED /* DeliveryTypeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryTypeCollectionViewCell.swift; sourceTree = "<group>"; };
 		9DA30B49230FE56C0054D1ED /* DeliveryTypeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeliveryTypeCollectionViewCell.xib; sourceTree = "<group>"; };
 		9DA30B4C2310126C0054D1ED /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
@@ -207,6 +218,7 @@
 		9DACCB8722F42D7200D9F433 /* ButtonWithCornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonWithCornerRadius.swift; sourceTree = "<group>"; };
 		9DACCB8922F42E8600D9F433 /* TextFieldWithCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithCorner.swift; sourceTree = "<group>"; };
 		9DACCB8D22F4473C00D9F433 /* RestApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestApi.swift; sourceTree = "<group>"; };
+		9DCC5C5B235E135E009E64A1 /* UpdateCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateCardViewController.swift; sourceTree = "<group>"; };
 		9DCF034822EF1EEE00A7F283 /* ForgotPasswordViewControll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewControll.swift; sourceTree = "<group>"; };
 		9DCF034A22EF364000A7F283 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		9DD0BE5522F817FE00E55EA8 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -273,6 +285,10 @@
 				9D2913672359DE9200EF27D3 /* ParcelValueTableViewCell.xib */,
 				9D29136A2359F33C00EF27D3 /* PhotoTableViewCell.swift */,
 				9D29136B2359F33C00EF27D3 /* PhotoTableViewCell.xib */,
+				9D240AB9235D96EE00977A88 /* PaymentDetailsTableViewCell.swift */,
+				9D240ABA235D96EE00977A88 /* PaymentDetailsTableViewCell.xib */,
+				9D240ABD235DA5FC00977A88 /* DisclaimerTableViewCell.swift */,
+				9D240ABE235DA5FC00977A88 /* DisclaimerTableViewCell.xib */,
 			);
 			path = "Order Cells";
 			sourceTree = "<group>";
@@ -500,8 +516,10 @@
 				9D37EA90234B6F990096A28C /* AccessLocationViewController.swift */,
 				9D040BF3234F60C500963BFC /* Home View Controller */,
 				9D040BF4234F611900963BFC /* OrderDetailsViewController.swift */,
-				9D040BFA234F6A8800963BFC /* Order Cells */,
 				9DAD9E66233917CF0034DCC0 /* CREATE ORDER */,
+				9D80299F235E090C009E012B /* PaymentsViewController.swift */,
+				9DCC5C5B235E135E009E64A1 /* UpdateCardViewController.swift */,
+				9D040BFA234F6A8800963BFC /* Order Cells */,
 				9D113C222327C80B00BE8D22 /* AgreementTimerViewController.swift */,
 				9D113C242327D68F00BE8D22 /* ResultAgreementViewController.swift */,
 				9D09B35C2330ED2000389491 /* MapWithDriverViewController.swift */,
@@ -621,6 +639,7 @@
 				9D3E3DDC2334C08B00A44ED8 /* ProblemHeaderTableViewCell.xib in Resources */,
 				9D2F291923570BCF00C67A0B /* ParcelSizeTypeCollectionViewCell.xib in Resources */,
 				9DFFAB7922F179880008F325 /* Roboto-Medium.ttf in Resources */,
+				9D240AC0235DA5FC00977A88 /* DisclaimerTableViewCell.xib in Resources */,
 				9D0EEC6D2301B64600891D7D /* PhotosCollectionViewCell.xib in Resources */,
 				9D6A5619235744E3008026BB /* LimitedSizeTableViewCell.xib in Resources */,
 				9D0EEC642301AAD200891D7D /* DataDeliveryTableViewCell.xib in Resources */,
@@ -633,6 +652,7 @@
 				9D1737F8231CFC68009EEDF6 /* RegistrationTableViewCell.xib in Resources */,
 				9D3E3DE12334C2FF00A44ED8 /* ProblemTableViewCell.xib in Resources */,
 				9D2F29152357068600C67A0B /* ParcelSizeTableViewCell.xib in Resources */,
+				9D240ABC235D96EE00977A88 /* PaymentDetailsTableViewCell.xib in Resources */,
 				9DA30B4B230FE56C0054D1ED /* DeliveryTypeCollectionViewCell.xib in Resources */,
 				9D23E9F522F0808C00E0E2C0 /* Roboto-Regular.ttf in Resources */,
 				9D0EEC692301B46800891D7D /* AddPhotoTableViewCell.xib in Resources */,
@@ -744,11 +764,15 @@
 				9D3E3DD82334BDF900A44ED8 /* SearchDriverViewController.swift in Sources */,
 				9D0EEC632301AAD200891D7D /* DataDeliveryTableViewCell.swift in Sources */,
 				9D0EEC4623014B9300891D7D /* GoodsTableViewCell.swift in Sources */,
+				9D240ABF235DA5FC00977A88 /* DisclaimerTableViewCell.swift in Sources */,
 				9D0B6D33231D62B300E3A8F8 /* Image+rotate.swift in Sources */,
 				9D113C212327888C00BE8D22 /* OrderViewModel.swift in Sources */,
+				9DCC5C5C235E135E009E64A1 /* UpdateCardViewController.swift in Sources */,
 				9DA30B4A230FE56C0054D1ED /* DeliveryTypeCollectionViewCell.swift in Sources */,
+				9D240ABB235D96EE00977A88 /* PaymentDetailsTableViewCell.swift in Sources */,
 				9D75F5F4233A40EE00394F20 /* Label+LabelStyle.swift in Sources */,
 				9D1737F7231CFC68009EEDF6 /* RegistrationTableViewCell.swift in Sources */,
+				9D8029A0235E090C009E012B /* PaymentsViewController.swift in Sources */,
 				9D09B35D2330ED2000389491 /* MapWithDriverViewController.swift in Sources */,
 				9DACCB8822F42D7200D9F433 /* ButtonWithCornerRadius.swift in Sources */,
 				9D13039222FD50AC00DC983E /* OrderViewController.swift in Sources */,
