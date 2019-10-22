@@ -11,7 +11,6 @@ import UIKit
 fileprivate let identifierForgotPasswordVC = "ForgotPasswordViewController"
 fileprivate let identifierRegistrationVC = "RegistrationViewController"
 fileprivate let identifierContainerVC = "ContainerViewController"
-fileprivate let sizeFontButton: CGFloat = 12
 
 class LoginViewController: UIViewController {
     

@@ -157,11 +157,10 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
             }
         }
         
-        
         viewModel.goToLoginScreen = { [weak self] in
             DispatchQueue.main.async {
                 self?.activityIndicator?.stopAnimating()
-                self?.goToLoginScreen()
+//                self?.goToLoginScreen()
             }
         }
     }

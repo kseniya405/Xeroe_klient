@@ -24,7 +24,7 @@ class QRCodeViewController: UIViewController {
     
     @IBOutlet weak var topBarLabel: UILabel! {
         didSet {
-            topBarLabel.setLabelStyle(textLabel: driverArrived, fontLabel: UIFont(name: robotoMedium, size: 20), colorLabel: .white)
+            topBarLabel.setLabelStyle(textLabel: driverArrived, fontLabel: UIFont(name: robotoMedium, size: sizeFontBarLabel), colorLabel: .white)
         }
     }
     

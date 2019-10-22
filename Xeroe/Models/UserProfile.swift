@@ -164,6 +164,33 @@ class UserProfile: NSCoder {
         }
     }
 
+    
+    var endCardNumber: String?  {
+        set {
+            UserDefaults.standard.set(newValue, forKey: DefaultsKeys.endCardNumber.rawValue)
+            UserDefaults.standard.synchronize()
+        }
+        get {
+            if let endCardNumber = UserDefaults.standard.string(forKey: DefaultsKeys.endCardNumber.rawValue) {
+                return endCardNumber
+            }
+            return "• • • •"
+        }
+    }
+
+    var valideDate: String?  {
+        set {
+            UserDefaults.standard.set(newValue, forKey: DefaultsKeys.valideDate.rawValue)
+            UserDefaults.standard.synchronize()
+        }
+        get {
+            if let valideDate = UserDefaults.standard.string(forKey: DefaultsKeys.valideDate.rawValue) {
+                return valideDate
+            }
+            return "MM/YY"
+        }
+    }
+    
     func clear(callback: @escaping (Bool) -> Void) {
 
         login = nil

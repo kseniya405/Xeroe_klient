@@ -8,6 +8,7 @@
 
 import UIKit
 
+fileprivate let numCell = 9
 fileprivate let imCell = "imAddressTableViewCell"
 fileprivate let clientCell = "ClientTableViewCell"
 fileprivate let deliveryCell = "deliveryTableViewCell"
@@ -85,7 +86,7 @@ class OrderDetailsViewController: UIViewController {
 
 extension OrderDetailsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 9
+        return numCell
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

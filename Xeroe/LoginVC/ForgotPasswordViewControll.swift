@@ -9,7 +9,6 @@
 import UIKit
 
 fileprivate let identifierLoginVC = "LoginViewController"
-fileprivate let sizeFontButton: CGFloat = 13
 
 class ForgotPasswordViewControll: UIViewController {
     
@@ -28,7 +27,7 @@ class ForgotPasswordViewControll: UIViewController {
     
     @IBOutlet weak var topBarLabel: UILabel! {
         didSet {
-            topBarLabel.setLabelStyle(textLabel: requestPassword, fontLabel: UIFont(name: robotoMedium, size: 20), colorLabel: .white)
+            topBarLabel.setLabelStyle(textLabel: requestPassword, fontLabel: UIFont(name: robotoMedium, size: sizeFontBarLabel), colorLabel: .white)
         }
     }
     

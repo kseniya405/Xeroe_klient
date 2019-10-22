@@ -11,7 +11,6 @@ import UIKit
 fileprivate let identifierCell = "RegistrationTableViewCell"
 fileprivate let identifierButtonCell = "ButtonTableViewCell"
 fileprivate let identifierLoginVC = "LoginViewController"
-fileprivate let sizeFontButton: CGFloat = 13
 
 class RegistrationViewController: UIViewController {
     
@@ -25,7 +24,7 @@ class RegistrationViewController: UIViewController {
     @IBOutlet weak var viewBar: UIView!
     @IBOutlet weak var labelBar: UILabel! {
         didSet {
-            labelBar.setLabelStyle(textLabel: register, fontLabel: UIFont(name: robotoMedium, size: 20), colorLabel: .white)
+            labelBar.setLabelStyle(textLabel: register, fontLabel: UIFont(name: robotoMedium, size: sizeFontBarLabel), colorLabel: .white)
         }
     }
     

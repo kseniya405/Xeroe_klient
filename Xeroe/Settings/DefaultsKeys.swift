@@ -22,6 +22,8 @@ enum DefaultsKeys: String {
     case avatar = "avatar"
     case userableType = "userable_type"
     case userableId = "userable_id"
+    case endCardNumber = "endCardNumber"
+    case valideDate = "valideDate"
 }
 
 

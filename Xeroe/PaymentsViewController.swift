@@ -8,8 +8,11 @@
 
 import UIKit
 
-class PaymentsViewController: UIViewController {
+fileprivate let updateCardViewController = "UpdateCardViewController"
+fileprivate let endNumberCard = "1243"
 
+class PaymentsViewController: UIViewController {
+    
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var backButton: UIButton! {
         didSet {
@@ -17,27 +20,36 @@ class PaymentsViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak var cardImageView: UIImageView!
+    @IBOutlet weak var cardImageView: UIImageView!  {
+        didSet {
+            cardImageView.layer.masksToBounds = true
+            cardImageView.layer.cornerRadius = 8
+        }
+    }
     @IBOutlet weak var numberCard: UILabel!
+    @IBOutlet weak var validDateLabel: UILabel!
+    
+    @IBOutlet weak var updateCardButton: ButtonWithCornerRadius!  {
+        didSet {
+            updateCardButton.setParameters(text: updateCard, font: UIFont(name: robotoRegular, size: sizeFontButton), tintColor: .white, backgroundColor: darkBlue)
+            updateCardButton.addTarget(self, action: #selector(updateCardButtonTap), for: .touchUpInside)
+        }
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        numberCard.text = dotNumber + (UserProfile.shared.endCardNumber ?? endNumberCard)
+        validDateLabel.text = UserProfile.shared.valideDate
     }
     
     @objc func backButtonTap() {
         self.dismiss()
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    @objc func updateCardButtonTap() {
+        let initialViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: updateCardViewController) as! UpdateCardViewController
+        self.navigationController?.pushViewController(initialViewController, animated: false)
     }
-    */
-
+    
 }

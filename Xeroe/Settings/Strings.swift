@@ -35,7 +35,7 @@ let enterMobileNumber = "Please enter a phone number"
 let confirmPassword = "Confirm Password"
 let enterConfirmPassword = "Please confirm your password"
 
-let yourDeliveries = "Your Deliveries"
+let yourDeliveries = "Your deliveries"
 let help = "Help"
 let payments = "Payments"
 let freeDeliveries = "Free deliveries"
@@ -150,3 +150,12 @@ let clickToAccept = "Click to accept"
 let termsAndConditions = "Term and Conditions"
 let ensureAccepted = "Please ensure you have read and accepted the terms and conditions"
 let getPrice = "Get price"
+
+//MARK: PaymentsViewController
+let updateCard = "Update Card"
+let dotNumber = "• • • •  • • • •   • • • •  "
+
+//MARK: UpdateCardViewController
+let dotPattern = "• • • •  • • • •   • • • •  • • • •"
+let fullName = "FULL NAME"
+let mmyy = "MM/YY"

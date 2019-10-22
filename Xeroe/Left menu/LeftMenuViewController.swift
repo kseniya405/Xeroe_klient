@@ -10,6 +10,7 @@ import UIKit
 
 fileprivate let cellIdentifier = "LeftMenuTableViewCell"
 fileprivate let loginViewControllerIdentifier = "LoginViewController"
+fileprivate let paymentsViewControllerIdentifier = "PaymentsViewController"
 fileprivate let vatNumber = "320491336"
 fileprivate let urlXeroeFaq = "http:/xeroe.co.uk/faqs/"
 
@@ -78,7 +79,8 @@ extension LeftMenuViewController: UITableViewDelegate {
         case 0:
             print("Your Deliveries Tap")
         case 1:
-            print("Payments Tap")
+            let initialViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: paymentsViewControllerIdentifier) as! PaymentsViewController
+            self.navigationController?.pushViewController(initialViewController, animated: false)
         case 2:
             if let url = URL(string: urlXeroeFaq), UIApplication.shared.canOpenURL(url) {
                 UIApplication.shared.open(url)
