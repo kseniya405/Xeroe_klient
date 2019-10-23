@@ -118,6 +118,8 @@
 		9DF533A422EEDBE10036866C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF533A322EEDBE10036866C /* LoginViewController.swift */; };
 		9DF533A922EEDBE30036866C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DF533A822EEDBE30036866C /* Assets.xcassets */; };
 		9DF533AC22EEDBE30036866C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DF533AA22EEDBE30036866C /* LaunchScreen.storyboard */; };
+		9DF8932023608C6600B4A013 /* CreditCardType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF8931F23608C6600B4A013 /* CreditCardType.swift */; };
+		9DF893222360A10300B4A013 /* YourDeliveriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF893212360A10300B4A013 /* YourDeliveriesViewController.swift */; };
 		9DFFAB7922F179880008F325 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9DFFAB7822F179880008F325 /* Roboto-Medium.ttf */; };
 		9DFFAB7B22F181D10008F325 /* fontello.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9DFFAB7A22F181D00008F325 /* fontello.ttf */; };
 		E8DF191FE216F580111D08CE /* Pods_Xeroe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81F54CE665B1ABC053917921 /* Pods_Xeroe.framework */; };
@@ -218,7 +220,7 @@
 		9DACCB8722F42D7200D9F433 /* ButtonWithCornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonWithCornerRadius.swift; sourceTree = "<group>"; };
 		9DACCB8922F42E8600D9F433 /* TextFieldWithCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithCorner.swift; sourceTree = "<group>"; };
 		9DACCB8D22F4473C00D9F433 /* RestApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestApi.swift; sourceTree = "<group>"; };
-		9DCC5C5B235E135E009E64A1 /* UpdateCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateCardViewController.swift; sourceTree = "<group>"; };
+		9DCC5C5B235E135E009E64A1 /* UpdateCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateCardViewController.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		9DCF034822EF1EEE00A7F283 /* ForgotPasswordViewControll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewControll.swift; sourceTree = "<group>"; };
 		9DCF034A22EF364000A7F283 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		9DD0BE5522F817FE00E55EA8 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -241,6 +243,8 @@
 		9DF533A822EEDBE30036866C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9DF533AB22EEDBE30036866C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9DF533AD22EEDBE30036866C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9DF8931F23608C6600B4A013 /* CreditCardType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardType.swift; sourceTree = "<group>"; };
+		9DF893212360A10300B4A013 /* YourDeliveriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourDeliveriesViewController.swift; sourceTree = "<group>"; };
 		9DFFAB7822F179880008F325 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		9DFFAB7A22F181D00008F325 /* fontello.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = fontello.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -263,7 +267,6 @@
 				9D09D7DE22F1E23800D4369F /* HomeViewController.swift */,
 				9D1BFB10231E511E005E8024 /* HomeViewModel.swift */,
 				9D241205234E0061005B58A1 /* SearchResultTableDataSourceDelegate.swift */,
-				9D007DED234CC8CC00702737 /* ResultAddressTableViewCell.swift */,
 				9D007DEE234CC8CC00702737 /* ResultAddressTableViewCell.xib */,
 			);
 			path = "Home View Controller";
@@ -279,6 +282,7 @@
 				9D04F74E2350CD03005B75A2 /* ParcelDetailsTableViewCell.swift */,
 				9D04F74F2350CD03005B75A2 /* ParcelDetailsTableViewCell.xib */,
 				9D2F29122357068600C67A0B /* ParcelSizeTableViewCell.swift */,
+				9D007DED234CC8CC00702737 /* ResultAddressTableViewCell.swift */,
 				9D2F29132357068600C67A0B /* ParcelSizeTableViewCell.xib */,
 				9D2F291A235736F100C67A0B /* ParcelSizeCell */,
 				9D2913662359DE9200EF27D3 /* ParcelValueTableViewCell.swift */,
@@ -323,6 +327,7 @@
 				9D75F5F7233A41D200394F20 /* ImageView+loadUrlImage.swift */,
 				9D0B6D32231D62B300E3A8F8 /* Image+rotate.swift */,
 				9D75F5F3233A40EE00394F20 /* Label+LabelStyle.swift */,
+				9DF8931F23608C6600B4A013 /* CreditCardType.swift */,
 			);
 			path = Utilits;
 			sourceTree = "<group>";
@@ -519,6 +524,7 @@
 				9DAD9E66233917CF0034DCC0 /* CREATE ORDER */,
 				9D80299F235E090C009E012B /* PaymentsViewController.swift */,
 				9DCC5C5B235E135E009E64A1 /* UpdateCardViewController.swift */,
+				9DF893212360A10300B4A013 /* YourDeliveriesViewController.swift */,
 				9D040BFA234F6A8800963BFC /* Order Cells */,
 				9D113C222327C80B00BE8D22 /* AgreementTimerViewController.swift */,
 				9D113C242327D68F00BE8D22 /* ResultAgreementViewController.swift */,
@@ -736,6 +742,7 @@
 				9DA30B4D2310126C0054D1ED /* ImagePicker.swift in Sources */,
 				9D241206234E0061005B58A1 /* SearchResultTableDataSourceDelegate.swift in Sources */,
 				9D75F5F0233A3BC000394F20 /* NotificationName.swift in Sources */,
+				9DF8932023608C6600B4A013 /* CreditCardType.swift in Sources */,
 				9D0EEC5F230181F100891D7D /* ChooseProductCollectionViewCell.swift in Sources */,
 				9D6A5618235744E3008026BB /* LimitedSizeTableViewCell.swift in Sources */,
 				9D0EEC4F23014C5F00891D7D /* ClientDataTableViewCell.swift in Sources */,
@@ -754,6 +761,7 @@
 				9DDFD4002303EDC4007DDB36 /* HeaderOrderTableView.swift in Sources */,
 				9D040BF8234F6A7700963BFC /* imAddressTableViewCell.swift in Sources */,
 				9D136473231918B60074FE60 /* Strings.swift in Sources */,
+				9DF893222360A10300B4A013 /* YourDeliveriesViewController.swift in Sources */,
 				9D75F5FA233A420800394F20 /* ViewController+dismiss.swift in Sources */,
 				9D3E3DDB2334C08B00A44ED8 /* ProblemHeaderTableViewCell.swift in Sources */,
 				9D75F5F8233A41D200394F20 /* ImageView+loadUrlImage.swift in Sources */,

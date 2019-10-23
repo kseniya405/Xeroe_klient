@@ -49,7 +49,17 @@ class PaymentsViewController: UIViewController {
     
     @objc func updateCardButtonTap() {
         let initialViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: updateCardViewController) as! UpdateCardViewController
+        initialViewController.delegate = self
         self.navigationController?.pushViewController(initialViewController, animated: false)
     }
     
+    
+}
+
+
+extension PaymentsViewController: UpdateCardDelegate {
+    func reloadCard() {
+        numberCard.text = dotNumber + (UserProfile.shared.endCardNumber ?? endNumberCard)
+        validDateLabel.text = UserProfile.shared.valideDate
+    }
 }

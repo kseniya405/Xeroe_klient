@@ -53,6 +53,4 @@ class AccessLocationViewController: UIViewController, CLLocationManagerDelegate 
         initialViewController.identifier = homeVCIdentifier
         self.navigationController?.pushViewController(initialViewController, animated: false)
     }
-
-
 }

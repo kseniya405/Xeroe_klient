@@ -11,6 +11,10 @@ import UIKit
 fileprivate let cornerRadiusCard: CGFloat = 8
 fileprivate let cornerRadiusBackgroundStackView: CGFloat = 4
 
+protocol UpdateCardDelegate {
+    func reloadCard()
+}
+
 class UpdateCardViewController: UIViewController {
     
     @IBOutlet weak var topView: UIView!
@@ -32,10 +36,14 @@ class UpdateCardViewController: UIViewController {
             backImageView.layer.cornerRadius = cornerRadiusCard
         }
     }
+    @IBOutlet weak var paymentSystemLabel: UIImageView!
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var numberCard: UILabel!
     @IBOutlet weak var validDateLabel: UILabel!
+    
+    @IBOutlet weak var cvcLabel: UILabel!
+    
     @IBOutlet weak var backgroundStackView: UIView! {
         didSet {
             backgroundStackView.layer.masksToBounds = true
@@ -74,6 +82,7 @@ class UpdateCardViewController: UIViewController {
     @IBOutlet weak var backCardView: UIView!
     @IBOutlet weak var frontCardView: UIView!
     
+    var delegate: UpdateCardDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,73 +95,35 @@ class UpdateCardViewController: UIViewController {
     }
     
     @objc func addCardButtonTap() {
-        
+        if let cardSplit = cardNumberTextField.text?.split(separator: " ") {
+            UserProfile.shared.endCardNumber = String(cardSplit[cardSplit.count - 1])
+        }
+        UserProfile.shared.valideDate = validDateTextField.text
+        delegate?.reloadCard()
+        self.dismiss()
     }
     
-    //    @objc func textFieldEditingDidBegin(textField: UITextField) {
-    //        perform(#selector(flip), with: nil, afterDelay: 2)
-    //    }
+
     
     @objc func textFieldEditingCange(textField: UITextField) {
         
         if textField.isEqual(cardholdersNameTextField) {
-            
-            if let text = textField.text, !text.isEmpty {
-                nameLabel.text = text
-                nameLabel.alpha = 1
-            } else {
-                nameLabel.text = fullName
-                nameLabel.alpha = 0.7
-            }
+            editCardholderName(textField)
             return
         }
         
         if textField.isEqual(cardNumberTextField) {
-            textField.text = textField.text?.filter{ $0.isNumber }
-            if var text = textField.text, !text.isEmpty {
-                numberCard.textAlignment = .left
-                if text.count > 4 {
-                    text.insert(" ", at: text.index(text.startIndex, offsetBy: 4))
-                }
-                if text.count > 9 {
-                    text.insert(" ", at: text.index(text.startIndex, offsetBy: 9))
-                }
-                if text.count > 13 {
-                    text.insert(" ", at: text.index(text.startIndex, offsetBy: 14))
-                }
-                if text.count > 19 {
-                    text.remove(at: text.index(text.startIndex, offsetBy: 19 ))
-                }
-                textField.text = text
-                numberCard.text = text
-                numberCard.alpha = 1
-            } else {
-                numberCard.textAlignment = .center
-                numberCard.text = dotPattern
-                numberCard.alpha = 0.7
-            }
+            editCardNumber(textField)
             return
         }
         
         if textField.isEqual(validDateTextField) {
-            textField.text = textField.text?.filter{ $0.isNumber }
-            if var text = textField.text, !text.isEmpty {
-                if text.count == 1, !text.hasSuffix("0") || !text.hasSuffix("1") {
-                    text.insert("0", at: text.startIndex)
-                }
-                if text.count > 3 {
-                    text.insert("/", at: text.index(text.startIndex, offsetBy: 2))
-                }
-                if text.count > 5 {
-                    text.remove(at: text.index(text.startIndex, offsetBy: 5 ))
-                }
-                textField.text = text
-                validDateLabel.text = text
-                validDateLabel.alpha = 1
-            } else {
-                validDateLabel.text = mmyy
-                validDateLabel.alpha = 0.7
-            }
+            editValidCardDate(textField)
+            return
+        }
+        
+        if textField.isEqual(CVCTextField) {
+            editCardCVC(textField)
             return
         }
         
@@ -162,16 +133,17 @@ class UpdateCardViewController: UIViewController {
     @objc func flipBack() {
         let transitionOptions: UIView.AnimationOptions = [.transitionFlipFromRight, .showHideTransitionViews, .curveEaseOut]
         
-        UIView.transition(with: backCardView, duration: 1, options: transitionOptions, animations: {
-            //            self.frontCardView.bringSubviewToFront(self.backCardView)
-            self.frontCardView.isHidden = true
+        UIView.transition(with: backCardView, duration: 0.5, options: transitionOptions, animations: {
+            self.backCardView.isHidden = false
+
         })
         
         
-        UIView.transition(with: frontCardView, duration: 1, options: transitionOptions, animations: {
+        UIView.transition(with: frontCardView, duration: 0.5, options: transitionOptions, animations: {
         }) { (isOk) in
-             self.backCardView.isHidden = false
+            self.frontCardView.isHidden = true
         }
+        
         
     }
     
@@ -179,21 +151,106 @@ class UpdateCardViewController: UIViewController {
         
         let transitionOptions: UIView.AnimationOptions = [.transitionFlipFromLeft, .showHideTransitionViews, .curveEaseOut]
         
-        UIView.transition(with: frontCardView, duration: 1, options: transitionOptions, animations: {
-            //            self.frontCardView.bringSubviewToFront(self.backCardView)
+        UIView.transition(with: frontCardView, duration: 0.5, options: transitionOptions, animations: {
             self.frontCardView.isHidden = false
+
         })
         
         
-        UIView.transition(with: backCardView, duration: 1, options: transitionOptions, animations: {
+        UIView.transition(with: backCardView, duration: 0.5, options: transitionOptions, animations: {
         }) { (isOk) in
             self.backCardView.isHidden = true
         }
         
         
-        
-        
+
     }
     
+    fileprivate func editCardNumber(_ textField: UITextField) {
+        textField.text = textField.text?.filter{ $0.isNumber }
+        
+        checkPaymentSystem(number: textField.text ?? "")
+
+        if var number = textField.text, !number.isEmpty {
+
+            numberCard.textAlignment = .left
+            if number.count > 4 {
+                number.insert(" ", at: number.index(number.startIndex, offsetBy: 4))
+            }
+            if number.count > 9 {
+                number.insert(" ", at: number.index(number.startIndex, offsetBy: 9))
+            }
+            if number.count > 14 {
+                number.insert(" ", at: number.index(number.startIndex, offsetBy: 14))
+            }
+            if number.count > 19 {
+                number.remove(at: number.index(number.startIndex, offsetBy: 19 ))
+            }
+            textField.text = number
+            numberCard.text = number
+            numberCard.alpha = 1
+            
+        } else {
+            numberCard.textAlignment = .center
+            numberCard.text = dotPattern
+            numberCard.alpha = 0.7
+        }
+    }
+    
+    func checkPaymentSystem(number: String) {
+            
+        if let type = CreditCardTypeChecker.type(for: number) {
+            paymentSystemLabel.image = type.image
+        } else {
+            paymentSystemLabel.image = nil
+        }
+            
+    }
+    
+    fileprivate func editCardholderName(_ textField: UITextField) {
+        if let name = textField.text, !name.isEmpty {
+            nameLabel.text = name
+            nameLabel.alpha = 1
+        } else {
+            nameLabel.text = fullName
+            nameLabel.alpha = 0.7
+        }
+    }
+    
+    fileprivate func editValidCardDate(_ textField: UITextField) {
+        textField.text = textField.text?.filter{ $0.isNumber }
+        if var date = textField.text, !date.isEmpty {
+            if date.count == 1, !(date.hasSuffix("0") || date.hasSuffix("1")) {
+                date.insert("0", at: date.startIndex)
+            }
+            if date.count > 3 {
+                date.insert("/", at: date.index(date.startIndex, offsetBy: 2))
+            }
+            if date.count > 5 {
+                date.remove(at: date.index(date.startIndex, offsetBy: 5 ))
+            }
+            textField.text = date
+            validDateLabel.text = date
+            validDateLabel.alpha = 1
+        } else {
+            validDateLabel.text = mmyy
+            validDateLabel.alpha = 0.7
+        }
+    }
+    
+    fileprivate func editCardCVC(_ textField: UITextField) {
+        textField.text = textField.text?.filter{ $0.isNumber }
+        if var cvc = textField.text, !cvc.isEmpty {
+            if cvc.count > 3 {
+                cvc.remove(at: cvc.index(cvc.startIndex, offsetBy: 3 ))
+            }
+            textField.text = cvc
+            cvcLabel.text = cvc
+            cvcLabel.alpha = 1
+        } else {
+            cvcLabel.text = "•••"
+            cvcLabel.alpha = 0.7
+        }
+    }
     
 }
