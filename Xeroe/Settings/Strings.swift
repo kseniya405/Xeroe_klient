@@ -90,6 +90,7 @@ let problemPickUpPersonDidntAnswerCall = "Pick up person did’n answer the call
 let problemDropOffPersonDidntAnswerCall = "Drop off person did’n answer the call"
 let problemPackageIsDamaged = "Package is damaged"
 
+let orderDetails = "Order Details"
 
 //MARK: imAddressTableViewCell
 let uncheckAddres = "There are some errors, please check below."
@@ -160,3 +161,7 @@ let dotPattern = "• • • •  • • • •   • • • •  • • �
 let fullName = "FULL NAME"
 let mmyy = "MM/YY"
 let cvc = "•••"
+
+//MARK: YourDeliveriesViewController
+let YourDeliveries = "Your Deliveries"
+let pricesIncVat = "All prices inc VAT"

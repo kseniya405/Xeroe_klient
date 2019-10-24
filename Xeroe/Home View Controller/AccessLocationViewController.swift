@@ -31,26 +31,18 @@ class AccessLocationViewController: UIViewController, CLLocationManagerDelegate 
     }
     
     @objc func allowAccessButtonTap() {
-
+        locationManager.delegate = self
         // Ask for Authorisation from the User.
         locationManager.requestAlwaysAuthorization()
         // For use in foreground
         locationManager.requestWhenInUseAuthorization()
-        
         if CLLocationManager.locationServicesEnabled() {
-            locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             locationManager.startUpdatingLocation()
-        } else {
-            let initialViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ContainerViewController") as! ContainerViewController
-            initialViewController.identifier = homeVCIdentifier
-            self.navigationController?.pushViewController(initialViewController, animated: false)
         }
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        let initialViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ContainerViewController") as! ContainerViewController
-        initialViewController.identifier = homeVCIdentifier
-        self.navigationController?.pushViewController(initialViewController, animated: false)
+        self.dismiss()
     }
 }

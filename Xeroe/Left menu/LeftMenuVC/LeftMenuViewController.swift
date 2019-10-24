@@ -77,7 +77,9 @@ extension LeftMenuViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
         case 0:
-            print("Your Deliveries Tap")
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let initialViewController = storyboard.instantiateViewController(withIdentifier: "YourDeliveriesViewController") as! YourDeliveriesViewController
+            self.navigationController?.pushViewController(initialViewController, animated: false)
         case 1:
             let initialViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: paymentsViewControllerIdentifier) as! PaymentsViewController
             self.navigationController?.pushViewController(initialViewController, animated: false)

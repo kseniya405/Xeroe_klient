@@ -33,17 +33,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //if there is no token - opens LoginViewController, if there is - HomeViewController
         
         debugPrint("AppDelegate: didFinishLaunchingWithOptions: token: ", UserProfile.shared.token ?? "no token")
-//        if UserProfile.shared.token?.isEmpty ?? true {
-//            let startViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: loginVCIdentifier) as! LoginViewController
-//            navigationController = UINavigationController(rootViewController: startViewController)
-//
-//        } else {
+        if UserProfile.shared.token?.isEmpty ?? true {
+            let startViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: loginVCIdentifier) as! LoginViewController
+            navigationController = UINavigationController(rootViewController: startViewController)
+
+        } else {
             let startViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: containerVCIdentifier) as! ContainerViewController
             startViewController.identifier = homeVCIdentifier
             navigationController = UINavigationController(rootViewController: startViewController)
-//            let startViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: containerVCIdentifier) as! OrderViewController
-//            navigationController = UINavigationController(rootViewController: startViewController)
-//        }
+        }
 
         // Override point for customization after application launch.
 

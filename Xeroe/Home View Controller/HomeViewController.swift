@@ -160,7 +160,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
         viewModel.goToLoginScreen = { [weak self] in
             DispatchQueue.main.async {
                 self?.activityIndicator?.stopAnimating()
-//                self?.goToLoginScreen()
+                self?.goToLoginScreen()
             }
         }
     }
@@ -185,10 +185,8 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
         if CLLocationManager.locationServicesEnabled() {
             switch CLLocationManager.authorizationStatus() {
             case .notDetermined, .restricted, .denied:
-                print("No access")
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let initialViewController = storyboard.instantiateViewController(withIdentifier: "AccessLocationViewController") as! AccessLocationViewController
-                self.navigationController?.pushViewController(initialViewController, animated: false)
+                debugPrint("No access")
+
             case .authorizedAlways, .authorizedWhenInUse:
                 debugPrint("Access")
             @unknown default:

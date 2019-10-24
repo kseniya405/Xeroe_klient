@@ -19,6 +19,11 @@ class PaymentsViewController: UIViewController {
             backButton.addTarget(self, action: #selector(backButtonTap), for: .touchUpInside)
         }
     }
+    @IBOutlet weak var labelBar: UILabel! {
+        didSet {
+            labelBar.setLabelStyle(textLabel: payments, fontLabel: UIFont(name: robotoMedium, size: sizeFontBarLabel), colorLabel: .white)
+        }
+    }
     
     @IBOutlet weak var cardImageView: UIImageView!  {
         didSet {

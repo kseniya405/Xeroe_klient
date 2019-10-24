@@ -32,6 +32,11 @@ class OrderDetailsViewController: UIViewController {
             backButton.addTarget(self, action: #selector(backButtonTap), for: .touchUpInside)
         }
     }
+    @IBOutlet weak var labelBar: UILabel! {
+        didSet {
+            labelBar.setLabelStyle(textLabel: orderDetails, fontLabel: UIFont(name: robotoMedium, size: sizeFontBarLabel), colorLabel: .white)
+        }
+    }
     @IBOutlet weak var resetFormButton: UIButton! {
         didSet {
             resetFormButton.addTarget(self, action: #selector(resetFormButtonTap), for: .touchUpInside)
@@ -142,7 +147,7 @@ extension OrderDetailsViewController: UITableViewDelegate, UITableViewDataSource
             return cell
         case 7:
             let cell = tableView.dequeueReusableCell(withIdentifier: paymentDetailsCell, for: indexPath) as! PaymentDetailsTableViewCell
-            cell.setParameters(paymentSystem: masterCard, endCardNumber: endCardNumber)
+            cell.setParameters(paymentSystem: masterCard, endCardNumber: UserProfile.shared.endCardNumber ?? "****")
             return cell
         case 8:
             let cell = tableView.dequeueReusableCell(withIdentifier: disclaimerCell, for: indexPath) as! DisclaimerTableViewCell

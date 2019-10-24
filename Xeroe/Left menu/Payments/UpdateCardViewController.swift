@@ -23,6 +23,11 @@ class UpdateCardViewController: UIViewController {
             backButton.addTarget(self, action: #selector(backButtonTap), for: .touchUpInside)
         }
     }
+    @IBOutlet weak var labelBar: UILabel! {
+        didSet {
+            labelBar.setLabelStyle(textLabel: updateCard, fontLabel: UIFont(name: robotoMedium, size: sizeFontBarLabel), colorLabel: .white)
+        }
+    }
     
     @IBOutlet weak var cardImageView: UIImageView! {
         didSet {
@@ -95,7 +100,7 @@ class UpdateCardViewController: UIViewController {
     }
     
     @objc func addCardButtonTap() {
-        if let cardSplit = cardNumberTextField.text?.split(separator: " ") {
+        if let cardSplit = cardNumberTextField.text?.split(separator: " "), cardSplit.count > 0 {
             UserProfile.shared.endCardNumber = String(cardSplit[cardSplit.count - 1])
         }
         UserProfile.shared.valideDate = validDateTextField.text

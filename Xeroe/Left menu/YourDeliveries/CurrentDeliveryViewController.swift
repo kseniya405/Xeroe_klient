@@ -1,14 +1,14 @@
 //
-//  YourDeliveriesViewController.swift
+//  CurrentDeliveryViewController.swift
 //  Xeroe
 //
-//  Created by Денис Марков on 10/23/19.
+//  Created by Денис Марков on 10/24/19.
 //  Copyright © 2019 Денис Марков. All rights reserved.
 //
 
 import UIKit
 
-class YourDeliveriesViewController: UIViewController {
+class CurrentDeliveryViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
