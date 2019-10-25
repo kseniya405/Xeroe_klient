@@ -21,8 +21,6 @@ fileprivate let disclaimerCell = "DisclaimerTableViewCell"
 
 fileprivate let userMobileNumber = "+380669962658"
 
-fileprivate let masterCard = "MasterCard"
-fileprivate let endCardNumber = "1243"
 
 class OrderDetailsViewController: UIViewController {
     
@@ -146,8 +144,16 @@ extension OrderDetailsViewController: UITableViewDelegate, UITableViewDataSource
             cell.errorImage(showError: isCheck && order.photo == nil)
             return cell
         case 7:
+            var numCard = "****"
+            var paymentSystem = ""
+            if let endNumber = UserProfile.shared.endCardNumber {
+                numCard = endNumber
+            }
+            if let savePaymentSystem = UserProfile.shared.paymentsSystem {
+                paymentSystem = savePaymentSystem
+            }
             let cell = tableView.dequeueReusableCell(withIdentifier: paymentDetailsCell, for: indexPath) as! PaymentDetailsTableViewCell
-            cell.setParameters(paymentSystem: masterCard, endCardNumber: UserProfile.shared.endCardNumber ?? "****")
+            cell.setParameters(paymentSystem: paymentSystem, endCardNumber: numCard)
             return cell
         case 8:
             let cell = tableView.dequeueReusableCell(withIdentifier: disclaimerCell, for: indexPath) as! DisclaimerTableViewCell

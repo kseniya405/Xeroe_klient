@@ -10,6 +10,8 @@ import UIKit
 
 class DeliveryTableViewCell: UITableViewCell {
 
+
+    
     @IBOutlet var numDelivery: UILabel!
     @IBOutlet var deliveryDate: UILabel!
     @IBOutlet var price: UILabel!
@@ -28,9 +30,10 @@ class DeliveryTableViewCell: UITableViewCell {
     }
     
     func setParameters(data: DeliveryData) {
-        numDelivery.text = "#" + String(data.number ?? 0)
-        deliveryDate.text = formatedDate(dateString: data.date ?? "")
-        price.text = "£" + (data.cost ?? "0")
+        
+        numDelivery.text = "#" + String(data.number)
+        deliveryDate.text = formatedDate(dateString: data.date )
+        price.text = "£" + (data.cost )
         collectionAddress.text = data.collectedAddress
         deliveryAddress.text = data.deliveryAddress
     }
@@ -44,11 +47,10 @@ class DeliveryTableViewCell: UITableViewCell {
 
         dateFormatter.dateFormat = "dd-MM-yyyy"
         if let dateObj = dateObj {
-            print("Dateobj: \(dateFormatter.string(from: dateObj))")
-
             return dateFormatter.string(from: dateObj)
-
         }
         return ""
     }
+    
+
 }

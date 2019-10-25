@@ -59,11 +59,23 @@ enum CreditCardType : String {
         }
     }
     
+    var paymentSystem: String {
+        switch self {
+        case .visa: return "Visa"
+        case .visaElectron: return "Visa Electron"
+        case .mastercard: return "Mastercard"
+        case .maestro: return "Maestro"
+        case .americanExpress: return "American Express"
+        case .dinnersClub: return "Dinners Club"
+        case .discovery: return "Discovery"
+        case .jcb: return "JCB"
+        }
+    }
 }
 
 struct CreditCardTypeChecker {
     
-    static func type(for value: String) -> CreditCardType? {
+    func type(for value: String) -> CreditCardType? {
         for creditCardType in CreditCardType.all {
             if isValid(for: creditCardType, value: value) {
                 return creditCardType
@@ -72,11 +84,11 @@ struct CreditCardTypeChecker {
         return nil
     }
     
-    private static func isValid(for cardType: CreditCardType, value: String) -> Bool {
+    private func isValid(for cardType: CreditCardType, value: String) -> Bool {
         do {
             let regex = try NSRegularExpression(pattern: cardType.pattern,
                                                 options: .caseInsensitive)
-        
+            
             return regex.matches(in: value,
                                  options: [],
                                  range: NSMakeRange(0, value.count)).count > 0

@@ -89,6 +89,11 @@ extension YourDeliveriesViewController: UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //
+        if indexPath.row < listDeliveries?.count ?? 0 {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let initialViewController = storyboard.instantiateViewController(withIdentifier: "CurrentDeliveryViewController") as! CurrentDeliveryViewController
+            initialViewController.setDeliveryData(data: listDeliveries?[indexPath.row] ?? DeliveryData()) //EDIT
+            self.navigationController?.pushViewController(initialViewController, animated: false)
+        }
     }
 }

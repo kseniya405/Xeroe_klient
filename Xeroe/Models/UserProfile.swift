@@ -191,8 +191,20 @@ class UserProfile: NSCoder {
         }
     }
     
+    var paymentsSystem: String?  {
+        set {
+            UserDefaults.standard.set(newValue, forKey: DefaultsKeys.paymentsSystem.rawValue)
+            UserDefaults.standard.synchronize()
+        }
+        get {
+            if let paymentsSystem = UserDefaults.standard.string(forKey: DefaultsKeys.paymentsSystem.rawValue) {
+                return paymentsSystem
+            }
+            return ""
+        }
+    }
+    
     func clear(callback: @escaping (Bool) -> Void) {
-
         login = nil
         token = nil
         id = nil

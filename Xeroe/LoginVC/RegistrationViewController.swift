@@ -60,7 +60,7 @@ class RegistrationViewController: UIViewController {
 
 extension RegistrationViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return arrayDataCells.count
+        return arrayDataCells.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -93,7 +93,6 @@ extension RegistrationViewController: ButtonDelegate, RegistrationCellDelegate {
     func cellIsEmpty(isEmpty: Bool, numCell: Int?) {
         if let item = numCell, item < arrayDataCells.count {
             arrayDataCells[item].cellIsEmpty = isEmpty
-            print("arrayDataCells[item].cellIsEmpty = ", isEmpty)
         }
     }
     

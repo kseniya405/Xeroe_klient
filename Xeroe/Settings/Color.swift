@@ -14,7 +14,7 @@ let blackTextColor = UIColor(red: 0.16, green: 0.16, blue: 0.16, alpha: 1)
 let basicBlueColor = UIColor(red: 0.12, green: 0.24, blue: 0.46, alpha: 1)
 let darkBlue = UIColor(red: 0.06, green: 0.12, blue: 0.23, alpha: 1)
 let errorColor = UIColor(red: 0.71, green: 0.21, blue: 0.19, alpha: 1)
-
+let errorButtonColor = UIColor(red: 0.69, green: 0.15, blue: 0.13, alpha: 1)
 
 let borderTextFieldColor = UIColor(red: 0.77, green: 0.77, blue: 0.77, alpha: 1)
 let cianColor = UIColor(red: 0.18, green: 0.73, blue: 0.93, alpha: 1)

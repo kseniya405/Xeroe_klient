@@ -13,15 +13,15 @@ struct DeliveryJson: Codable {
 }
 
 struct DeliveryData: Codable {
-    var number: Int?
-    var status: String?
-    var collectedName: String?
-    var collectedAddress: String?
-    var deliveryName: String?
-    var deliveryAddress: String?
-    var cost: String?
-    var date: String?
-    var payment: Int?
+    var number: Int = 0
+    var status: String = ""
+    var collectedName: String = ""
+    var collectedAddress: String = ""
+    var deliveryName: String = ""
+    var deliveryAddress: String = ""
+    var cost: String = ""
+    var date: String = ""
+    var payment: Int = 0
 }
 
 

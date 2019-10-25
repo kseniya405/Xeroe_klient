@@ -163,5 +163,15 @@ let mmyy = "MM/YY"
 let cvc = "•••"
 
 //MARK: YourDeliveriesViewController
-let YourDeliveries = "Your Deliveries"
 let pricesIncVat = "All prices inc VAT"
+
+
+//MARK: CurrenrtDeliveryViewController
+let journeyStatus = "JOURNEY STATUS"
+let collectedFrom = "COLLECTED FROM"
+let deliveredTo = "DELIVERED TO"
+let deliveryCost = "DELIVERY COST"
+let orderPlaced = "ORDER PLACED"
+let orderDelivered = "ORDER DELIVERED"
+let payment = "PAYMENT"
+let reportAnIssue = "Report An Issue"

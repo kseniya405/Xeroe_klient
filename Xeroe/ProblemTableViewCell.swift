@@ -24,16 +24,9 @@ class ProblemTableViewCell: UITableViewCell {
     }
     
 
-    func setData(typeOfProblem: String, isSelected: Bool) {
+    func setData(typeOfProblem: String) {
         self.typeOfProblem.text = typeOfProblem
-        let backgroundColor = isSelected ? cianColor : .white
-        let fillingColor = isSelected ? .white : blackTextColor
-        chooseColors(typeOfProblem: typeOfProblem, backgroundColor: backgroundColor, fillingColor: fillingColor)
     }
-    
-    func chooseColors(typeOfProblem: String, backgroundColor: UIColor, fillingColor: UIColor) {
-        self.backgroundColor = backgroundColor
-        self.typeOfProblem.textColor = fillingColor
-    }
+
     
 }

@@ -203,14 +203,15 @@ class UpdateCardViewController: UIViewController {
     }
     
     func checkPaymentSystem(number: String) {
-            
-        if let type = CreditCardTypeChecker.type(for: number) {
+        if let type = CreditCardTypeChecker().type(for: number) {
             paymentSystemLabel.image = type.image
+            UserProfile.shared.paymentsSystem = type.paymentSystem
         } else {
             paymentSystemLabel.image = nil
         }
-            
+
     }
+    
     
     fileprivate func editCardholderName(_ textField: UITextField) {
         if let name = textField.text, !name.isEmpty {
