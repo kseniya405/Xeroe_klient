@@ -47,7 +47,7 @@ class ForgotPasswordViewControll: UIViewController {
     }
     @IBOutlet weak var wrongEmailLabel: UILabel! {
         didSet {
-            wrongEmailLabel.setLabelStyle(textLabel: enterEmail, fontLabel: UIFont(name: robotoRegular, size: 12), colorLabel: errorColor)
+            wrongEmailLabel.setLabelStyle(textLabel: enterEmail, fontLabel: UIFont(name: robotoRegular, size: sizeFontError), colorLabel: errorColor)
         }
     }
     

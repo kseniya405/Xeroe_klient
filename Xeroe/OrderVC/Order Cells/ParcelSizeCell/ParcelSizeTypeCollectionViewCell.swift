@@ -13,7 +13,7 @@ class ParcelSizeTypeCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var typeSizeImageView: UIImageView!
     @IBOutlet weak var typeSizeLabel: UILabel! {
         didSet {
-            typeSizeLabel.setLabelStyle(fontLabel: UIFont(name: robotoRegular, size: 12), colorLabel: .darkText)
+            typeSizeLabel.setLabelStyle(fontLabel: UIFont(name: robotoRegular, size: sizeFontError), colorLabel: .darkText)
         }
     }
     

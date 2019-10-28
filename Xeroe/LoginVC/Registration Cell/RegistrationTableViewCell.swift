@@ -23,7 +23,7 @@ class RegistrationTableViewCell: UITableViewCell {
     
     @IBOutlet weak var pleaseEnterDataLable: UILabel! {
         didSet {
-            pleaseEnterDataLable.setLabelStyle(fontLabel: UIFont(name: robotoRegular, size: 12), colorLabel: errorColor)
+            pleaseEnterDataLable.setLabelStyle(fontLabel: UIFont(name: robotoRegular, size: sizeFontError), colorLabel: errorColor)
         }
     }
     @IBOutlet weak var spaceView: UIView!

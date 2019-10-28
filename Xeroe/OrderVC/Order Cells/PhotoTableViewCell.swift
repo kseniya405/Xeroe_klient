@@ -28,7 +28,7 @@ class PhotoTableViewCell: UITableViewCell {
     }
     @IBOutlet weak var provideImage: UILabel! {
         didSet{
-            provideImage.setLabelStyle(textLabel: pleaseProvideImage, fontLabel: UIFont(name: robotoRegular, size: 12), colorLabel: errorColor)
+            provideImage.setLabelStyle(textLabel: pleaseProvideImage, fontLabel: UIFont(name: robotoRegular, size: sizeFontError), colorLabel: errorColor)
         }
     }
     

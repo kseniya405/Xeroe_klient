@@ -44,7 +44,7 @@ class DisclaimerTableViewCell: UITableViewCell {
     }
     @IBOutlet weak var acceptedTermsLabel: UILabel! {
         didSet {
-            acceptedTermsLabel.setLabelStyle(textLabel: ensureAccepted, fontLabel: UIFont(name: robotoRegular, size: 12), colorLabel: errorColor)
+            acceptedTermsLabel.setLabelStyle(textLabel: ensureAccepted, fontLabel: UIFont(name: robotoRegular, size: sizeFontError), colorLabel: errorColor)
         }
     }
     

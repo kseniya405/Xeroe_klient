@@ -8,8 +8,6 @@
 
 import UIKit
 
-fileprivate let sizeFont: CGFloat = 12
-
 protocol ClientTableViewCellProtocol {
     func editName(inputName: String, isSender: Bool)
     func editNumber(inputNumber: String)
@@ -32,7 +30,7 @@ class ClientTableViewCell: UITableViewCell {
     }
     @IBOutlet weak var provideNameLabel: UILabel! {
         didSet{
-            provideNameLabel.setLabelStyle(textLabel: provideName, fontLabel: UIFont(name: robotoRegular, size: 12), colorLabel: errorColor)
+            provideNameLabel.setLabelStyle(textLabel: provideName, fontLabel: UIFont(name: robotoRegular, size: sizeFontError), colorLabel: errorColor)
         }
     }
     @IBOutlet weak var addressTextField: UITextField! {
@@ -53,12 +51,12 @@ class ClientTableViewCell: UITableViewCell {
     }
     @IBOutlet weak var explanationOfNumber: UILabel! {
         didSet{
-            explanationOfNumber.setLabelStyle(textLabel: explanationNumber, fontLabel: UIFont(name: robotoRegular, size: sizeFont), colorLabel: lightGrayTextColor)
+            explanationOfNumber.setLabelStyle(textLabel: explanationNumber, fontLabel: UIFont(name: robotoRegular, size: sizeFontError), colorLabel: lightGrayTextColor)
         }
     }
     @IBOutlet weak var provideMobileNumberLabel: UILabel! {
         didSet{
-            provideMobileNumberLabel.setLabelStyle(textLabel: provideMobileNumber, fontLabel: UIFont(name: robotoRegular, size: sizeFont), colorLabel: errorColor)
+            provideMobileNumberLabel.setLabelStyle(textLabel: provideMobileNumber, fontLabel: UIFont(name: robotoRegular, size: sizeFontError), colorLabel: errorColor)
         }
     }
     

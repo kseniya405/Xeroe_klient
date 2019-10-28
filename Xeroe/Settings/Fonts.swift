@@ -15,3 +15,4 @@ let robotoBold = "Roboto-Bold"
 
 let sizeFontButton: CGFloat = 13
 let sizeFontBarLabel: CGFloat = 20
+let sizeFontError: CGFloat = 12

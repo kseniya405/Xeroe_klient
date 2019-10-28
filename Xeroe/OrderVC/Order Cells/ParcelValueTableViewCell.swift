@@ -28,7 +28,7 @@ class ParcelValueTableViewCell: UITableViewCell {
     }
     @IBOutlet weak var provideValueLabel: UILabel! {
         didSet{
-            provideValueLabel.setLabelStyle(textLabel: provideValue, fontLabel: UIFont(name: robotoRegular, size: 12), colorLabel: errorColor)
+            provideValueLabel.setLabelStyle(textLabel: provideValue, fontLabel: UIFont(name: robotoRegular, size: sizeFontError), colorLabel: errorColor)
         }
     }
     override func awakeFromNib() {

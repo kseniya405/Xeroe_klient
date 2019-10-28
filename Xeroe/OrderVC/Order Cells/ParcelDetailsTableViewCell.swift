@@ -25,7 +25,7 @@ class ParcelDetailsTableViewCell: UITableViewCell, UITextViewDelegate {
     
     @IBOutlet weak var provideDetailsLabel: UILabel!{
         didSet {
-             provideDetailsLabel.setLabelStyle(textLabel: provideDescription, fontLabel: UIFont(name: robotoRegular, size: 12), colorLabel: errorColor)
+             provideDetailsLabel.setLabelStyle(textLabel: provideDescription, fontLabel: UIFont(name: robotoRegular, size: sizeFontError), colorLabel: errorColor)
         }
     }
     

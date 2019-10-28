@@ -15,14 +15,13 @@ class TextFieldWithCorner: UITextField {
     
     var leftInsets: CGFloat = 5.0
     var padding = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
-    var fontSize = 12
 
     override func awakeFromNib() {
         self.layer.borderColor = borderTextFieldColor.cgColor
         self.layer.cornerRadius = textFieldCornerRadius
         self.layer.masksToBounds = true
         self.textColor = blackTextColor
-        self.font = UIFont(name: robotoMedium, size: CGFloat(fontSize))
+        self.font = UIFont(name: robotoMedium, size: sizeFontError)
 
     }
 

@@ -85,10 +85,7 @@ let timeToArrive = "Time to arrive"
 let driverArrived = "Driver has arrived"
 
 
-let problemPackageIsWrong = "Package is wrong"
-let problemPickUpPersonDidntAnswerCall = "Pick up person did’n answer the call"
-let problemDropOffPersonDidntAnswerCall = "Drop off person did’n answer the call"
-let problemPackageIsDamaged = "Package is damaged"
+
 
 let orderDetails = "Order Details"
 
@@ -175,3 +172,15 @@ let orderPlaced = "ORDER PLACED"
 let orderDelivered = "ORDER DELIVERED"
 let payment = "PAYMENT"
 let reportAnIssue = "Report An Issue"
+
+//MARK: ReportViewController
+let report = "Report"
+let selectReason = "Select a reason..."
+let pleaseLeaveComment = "Please leave a comment"
+let pleaseLeaveMessage = "Please leave a message regarding your issue"
+let reportIssue = "Report Issue"
+
+let problemPackageIsWrong = "Package is wrong"
+let unableContactCustomer = "Unable to contact customer"
+let unableContactDriver = "Unable to contact driver"
+let other = "Other"

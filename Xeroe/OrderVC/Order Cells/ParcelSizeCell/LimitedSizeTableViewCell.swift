@@ -17,7 +17,7 @@ class LimitedSizeTableViewCell: UITableViewCell {
        }
     @IBOutlet weak var valueSizeLabel: UILabel! {
               didSet {
-                  valueSizeLabel.setLabelStyle(fontLabel: UIFont(name: robotoRegular, size: 12), colorLabel: .darkText)
+                  valueSizeLabel.setLabelStyle(fontLabel: UIFont(name: robotoRegular, size: sizeFontError), colorLabel: .darkText)
               }
           }
     override func awakeFromNib() {

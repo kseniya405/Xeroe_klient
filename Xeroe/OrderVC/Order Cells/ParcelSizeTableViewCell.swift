@@ -8,7 +8,6 @@
 
 import UIKit
 
-fileprivate let sizeFont: CGFloat = 12
 fileprivate let identifierCollectionViewCell = "ParcelSizeTypeCollectionViewCell"
 fileprivate let identifierTableViewCell = "LimitedSizeTableViewCell"
 
@@ -28,7 +27,7 @@ class ParcelSizeTableViewCell: UITableViewCell {
     @IBOutlet weak var parcelTypeTableView: UITableView! 
     @IBOutlet weak var chooseParcelSize: UILabel! {
         didSet{
-            chooseParcelSize.setLabelStyle(textLabel: chooseProvideSize, fontLabel: UIFont(name: robotoRegular, size: 12), colorLabel: errorColor)
+            chooseParcelSize.setLabelStyle(textLabel: chooseProvideSize, fontLabel: UIFont(name: robotoRegular, size: sizeFontError), colorLabel: errorColor)
         }
     }
     @IBOutlet weak var heightTable: NSLayoutConstraint!

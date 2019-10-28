@@ -37,7 +37,7 @@ class SearchDriverViewController: MapWithDriverViewController {
     
     @IBOutlet weak var timeToArriveTitle: UILabel! {
         didSet {
-            timeToArriveTitle.setLabelStyle(textLabel: timeToArrive, fontLabel: UIFont(name: robotoRegular, size: 12), colorLabel: .white)
+            timeToArriveTitle.setLabelStyle(textLabel: timeToArrive, fontLabel: UIFont(name: robotoRegular, size: sizeFontError), colorLabel: .white)
         }
     }
     

@@ -9,6 +9,7 @@ target 'Xeroe' do
   pod 'Cosmos'
   pod 'GooglePlaces'
   pod 'GoogleMaps'
+  pod 'DropDown'
   # Pods for Xeroe
 
 end

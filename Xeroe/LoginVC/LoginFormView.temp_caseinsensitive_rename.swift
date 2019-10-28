@@ -26,19 +26,19 @@ class LoginFormView: UIView {
     
     @IBOutlet weak var enterEmailLabel: UILabel! {
         didSet {
-            enterEmailLabel.setLabelStyle(textLabel: enterEmail, fontLabel: UIFont(name: robotoRegular, size: 12), colorLabel: errorColor)
+            enterEmailLabel.setLabelStyle(textLabel: enterEmail, fontLabel: UIFont(name: robotoRegular, size: sizeFontError), colorLabel: errorColor)
         }
     }
     
     @IBOutlet weak var enterPasswordLabel: UILabel! {
         didSet {
-            enterPasswordLabel.setLabelStyle(textLabel: enterPassword, fontLabel: UIFont(name: robotoRegular, size: 12), colorLabel: errorColor)
+            enterPasswordLabel.setLabelStyle(textLabel: enterPassword, fontLabel: UIFont(name: robotoRegular, size: sizeFontError), colorLabel: errorColor)
         }
     }
     
     @IBOutlet weak var wrongPaswordLabel: UILabel!{
         didSet {
-            wrongPaswordLabel.setLabelStyle(textLabel: wrongPassword, fontLabel: UIFont(name: robotoMedium, size: 11), colorLabel: errorColor)
+            wrongPaswordLabel.setLabelStyle(textLabel: wrongPassword, fontLabel: UIFont(name: robotoMedium, size: sizeFontError), colorLabel: errorColor)
         }
     }
     

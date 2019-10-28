@@ -10,6 +10,7 @@ import UIKit
 
 import IQKeyboardManagerSwift
 import GooglePlaces
+import DropDown
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -30,6 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         window = UIWindow()
         
+        DropDown.startListeningToKeyboard()
         //if there is no token - opens LoginViewController, if there is - HomeViewController
         
         debugPrint("AppDelegate: didFinishLaunchingWithOptions: token: ", UserProfile.shared.token ?? "no token")

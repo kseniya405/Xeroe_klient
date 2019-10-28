@@ -869,7 +869,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="d48-vx-DpF">
-                                <rect key="frame" x="0.0" y="110" width="414" height="752"/>
+                                <rect key="frame" x="0.0" y="130" width="414" height="732"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
                         </subviews>
@@ -877,7 +877,7 @@
                         <constraints>
                             <constraint firstItem="rFC-sA-To1" firstAttribute="centerX" secondItem="fVA-a4-ioC" secondAttribute="centerX" id="HPf-5T-X5C"/>
                             <constraint firstItem="rFC-sA-To1" firstAttribute="height" secondItem="fVA-a4-ioC" secondAttribute="height" multiplier="0.0805" id="JGw-eq-bxV"/>
-                            <constraint firstItem="d48-vx-DpF" firstAttribute="top" secondItem="rFC-sA-To1" secondAttribute="bottom" id="R6I-Dt-UJ1"/>
+                            <constraint firstItem="d48-vx-DpF" firstAttribute="top" secondItem="rFC-sA-To1" secondAttribute="bottom" constant="20" id="R6I-Dt-UJ1"/>
                             <constraint firstItem="rFC-sA-To1" firstAttribute="leading" secondItem="fVA-a4-ioC" secondAttribute="leading" id="RVb-2t-IBs"/>
                             <constraint firstItem="d48-vx-DpF" firstAttribute="leading" secondItem="rFC-sA-To1" secondAttribute="leading" id="fQ0-tY-2Yy"/>
                             <constraint firstItem="rFC-sA-To1" firstAttribute="top" secondItem="fVA-a4-ioC" secondAttribute="top" id="nNp-na-BRd"/>
@@ -2015,33 +2015,25 @@
                                     <constraint firstItem="azC-vL-Ngs" firstAttribute="leading" secondItem="bhX-RG-fHq" secondAttribute="leading" constant="20" id="e9Q-S4-CUA"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XCd-LX-oMX" customClass="ButtonWithCornerRadius" customModule="Xeroe" customModuleProvider="target">
-                                <rect key="frame" x="20" y="136" width="374" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="4Ij-wJ-zzC"/>
-                                </constraints>
-                                <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Select a reason..."/>
-                            </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="header" translatesAutoresizingMaskIntoConstraints="NO" id="nTk-j1-x0X">
                                 <rect key="frame" x="381.5" y="155" width="12.5" height="12.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="nTk-j1-x0X" secondAttribute="height" multiplier="1:1" id="PDo-EL-VnA"/>
                                 </constraints>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Lwz-om-165">
-                                <rect key="frame" x="20" y="186" width="374" height="213.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Lwz-om-165">
+                                <rect key="frame" x="20" y="191" width="374" height="221.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ONZ-8N-gUx">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="143"/>
                                         <subviews>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Please leave a comment" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="9IT-KJ-mb7">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Please leave a comment" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="9IT-KJ-mb7" customClass="VerticallyCenteredTextView" customModule="Xeroe" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="143"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="143" id="OQ4-kp-JXa"/>
                                                 </constraints>
-                                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
@@ -2055,13 +2047,13 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please leave a message regarding your issue" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ELo-Bg-Xcf">
-                                        <rect key="frame" x="0.0" y="143" width="374" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="147" width="374" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DtS-dh-t4X" customClass="ButtonWithCornerRadius" customModule="Xeroe" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="163.5" width="374" height="50"/>
+                                        <rect key="frame" x="0.0" y="171.5" width="374" height="50"/>
                                         <color key="backgroundColor" red="0.1215686275" green="0.23921568630000001" blue="0.4431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="51K-PF-Hhv"/>
@@ -2074,32 +2066,43 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <tableView clipsSubviews="YES" alpha="0.20000000000000001" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vSd-Hy-nnx">
-                                <rect key="frame" x="40" y="156" width="280.5" height="300"/>
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XCd-LX-oMX" customClass="ButtonWithCornerRadius" customModule="Xeroe" customModuleProvider="target">
+                                <rect key="frame" x="20" y="136" width="374" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="4Ij-wJ-zzC"/>
+                                </constraints>
+                                <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Select a reason...">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default" weight="thin"/>
+                                </state>
+                            </button>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s5z-d7-dfh">
+                                <rect key="frame" x="40" y="161" width="280.5" height="250"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="ADf-mx-7AA"/>
+                                    <constraint firstAttribute="height" constant="250" id="etl-x7-if9"/>
                                 </constraints>
-                            </tableView>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="nTk-j1-x0X" firstAttribute="centerY" secondItem="XCd-LX-oMX" secondAttribute="centerY" id="8tC-Y1-6Ka"/>
                             <constraint firstItem="bhX-RG-fHq" firstAttribute="leading" secondItem="ypE-Au-cuw" secondAttribute="leading" id="8td-m2-5wq"/>
-                            <constraint firstItem="vSd-Hy-nnx" firstAttribute="width" secondItem="XCd-LX-oMX" secondAttribute="width" multiplier="0.75" id="9kt-JG-3NB"/>
-                            <constraint firstItem="vSd-Hy-nnx" firstAttribute="leading" secondItem="XCd-LX-oMX" secondAttribute="leading" constant="20" id="AVM-kC-gIW"/>
                             <constraint firstItem="ypE-Au-cuw" firstAttribute="trailing" secondItem="XCd-LX-oMX" secondAttribute="trailing" constant="20" id="HXH-xU-4nk"/>
                             <constraint firstItem="Lwz-om-165" firstAttribute="leading" secondItem="ypE-Au-cuw" secondAttribute="leading" constant="20" id="JMu-VQ-EQw"/>
                             <constraint firstItem="bhX-RG-fHq" firstAttribute="trailing" secondItem="ypE-Au-cuw" secondAttribute="trailing" id="Zoo-pT-0cL"/>
                             <constraint firstItem="bhX-RG-fHq" firstAttribute="height" secondItem="mHp-yc-aFL" secondAttribute="height" multiplier="0.0805" id="aAT-kD-298"/>
-                            <constraint firstItem="vSd-Hy-nnx" firstAttribute="top" secondItem="XCd-LX-oMX" secondAttribute="top" constant="20" id="cDX-2t-r6A"/>
                             <constraint firstItem="nTk-j1-x0X" firstAttribute="height" secondItem="XCd-LX-oMX" secondAttribute="height" multiplier="0.25" id="fb0-gV-tTw"/>
                             <constraint firstItem="bhX-RG-fHq" firstAttribute="top" secondItem="ypE-Au-cuw" secondAttribute="top" id="fhb-wc-riy"/>
                             <constraint firstItem="XCd-LX-oMX" firstAttribute="top" secondItem="bhX-RG-fHq" secondAttribute="bottom" constant="20" id="hVy-WN-Zlk"/>
+                            <constraint firstItem="s5z-d7-dfh" firstAttribute="top" secondItem="XCd-LX-oMX" secondAttribute="centerY" id="hdK-95-RCj"/>
                             <constraint firstItem="nTk-j1-x0X" firstAttribute="trailing" secondItem="XCd-LX-oMX" secondAttribute="trailing" id="jih-eK-ZEx"/>
-                            <constraint firstItem="Lwz-om-165" firstAttribute="top" secondItem="XCd-LX-oMX" secondAttribute="bottom" id="qTX-4Y-tYp"/>
+                            <constraint firstItem="s5z-d7-dfh" firstAttribute="leading" secondItem="XCd-LX-oMX" secondAttribute="leading" constant="20" id="osb-QN-xtw"/>
+                            <constraint firstItem="Lwz-om-165" firstAttribute="top" secondItem="XCd-LX-oMX" secondAttribute="bottom" constant="5" id="qTX-4Y-tYp"/>
                             <constraint firstItem="ypE-Au-cuw" firstAttribute="trailing" secondItem="Lwz-om-165" secondAttribute="trailing" constant="20" id="rFd-n9-pU8"/>
                             <constraint firstItem="XCd-LX-oMX" firstAttribute="leading" secondItem="ypE-Au-cuw" secondAttribute="leading" constant="20" id="xqo-Ek-m2z"/>
+                            <constraint firstItem="s5z-d7-dfh" firstAttribute="width" secondItem="XCd-LX-oMX" secondAttribute="width" multiplier="0.75" id="zu7-bA-riR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ypE-Au-cuw"/>
                     </view>
@@ -2107,10 +2110,10 @@
                     <connections>
                         <outlet property="backButton" destination="azC-vL-Ngs" id="iyu-Vw-epc"/>
                         <outlet property="commentTextField" destination="9IT-KJ-mb7" id="tJM-J2-TZ7"/>
+                        <outlet property="dropDownView" destination="s5z-d7-dfh" id="yMm-AK-ig3"/>
                         <outlet property="leaveMessageLabel" destination="ELo-Bg-Xcf" id="r3C-ge-Vrd"/>
                         <outlet property="selectReasonButton" destination="XCd-LX-oMX" id="e2m-g5-QE3"/>
                         <outlet property="submitButton" destination="DtS-dh-t4X" id="tDB-YW-lOU"/>
-                        <outlet property="tableView" destination="vSd-Hy-nnx" id="l5S-eU-17b"/>
                         <outlet property="topBarLabel" destination="e6b-Jb-oQJ" id="OTg-eo-EpB"/>
                         <outlet property="topBarView" destination="bhX-RG-fHq" id="UjH-vJ-yka"/>
                     </connections>

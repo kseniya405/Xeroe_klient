@@ -25,7 +25,7 @@ class YourDeliveriesViewController: UIViewController {
     }
     @IBOutlet weak var pricesIncVATLabel: UILabel! {
         didSet {
-            pricesIncVATLabel.setLabelStyle(textLabel: pricesIncVat, fontLabel: UIFont(name: robotoRegular, size: 12), colorLabel: .white)
+            pricesIncVATLabel.setLabelStyle(textLabel: pricesIncVat, fontLabel: UIFont(name: robotoRegular, size: sizeFontError), colorLabel: .white)
         }
     }
     
