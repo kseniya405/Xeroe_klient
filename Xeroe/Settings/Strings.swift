@@ -184,3 +184,9 @@ let problemPackageIsWrong = "Package is wrong"
 let unableContactCustomer = "Unable to contact customer"
 let unableContactDriver = "Unable to contact driver"
 let other = "Other"
+
+//MARK: HomeViewController
+let alertTitleLimitDistance = "Sorry, we've limited deliveries to 10 miles during the trial"
+let alertMessageLimitDistance = "Can we help with a different delivery?"
+
+

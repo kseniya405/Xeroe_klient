@@ -52,6 +52,9 @@ class QRCodeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let code = randomString(length: 8)
+        uniqudeCodeValue.text = code
+        QRImage.image = generateQRCode(from: code)
     }
     
     @objc func backButtonTap() {
@@ -61,6 +64,26 @@ class QRCodeViewController: UIViewController {
     @objc func nextButtonTap() {
         delegate?.changView()
         self.dismiss()
+    }
+    
+    func randomString(length: Int) -> String {
+      let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+      return String((0..<length).map{ _ in letters.randomElement()! })
+    }
+    
+    func generateQRCode(from string: String) -> UIImage? {
+        let data = string.data(using: String.Encoding.ascii)
+
+        if let filter = CIFilter(name: "CIQRCodeGenerator") {
+            filter.setValue(data, forKey: "inputMessage")
+            let transform = CGAffineTransform(scaleX: 3, y: 3)
+
+            if let output = filter.outputImage?.transformed(by: transform) {
+                return UIImage(ciImage: output)
+            }
+        }
+
+        return nil
     }
 
 }

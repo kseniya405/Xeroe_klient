@@ -66,6 +66,7 @@ class DisclaimerTableViewCell: UITableViewCell {
     
     @objc func checkCollectionAddressButtonTap() {
         acceptedTermsLabel.isHidden = true
+        checkButton.isChecked = !checkButton.isChecked
         delegate?.isChecked(isChecked: checkButton.isChecked)
     }
     
@@ -82,16 +83,9 @@ class DisclaimerTableViewCell: UITableViewCell {
 
     }
     
-    func setParameters(isChecked: Bool) {
-        acceptedTermsLabel.isHidden = true
+    func setParameters(isChecked: Bool, showError: Bool) {
         checkButton.isChecked = isChecked
-    }
-    
-    func errorAccept(showError: Bool) {
-        if showError {
-            acceptedTermsLabel.isHidden = false
-
-        }
+        acceptedTermsLabel.isHidden = !showError
     }
     
 }

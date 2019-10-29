@@ -49,7 +49,7 @@ class CurrentDeliveryViewController: UIViewController {
     func setDeliveryData(data: DeliveryData) {
         labelBar?.text = (labelBar.text ?? "#") + String(data.number)
         allCells = [DataCell(title: journeyStatus, value0: data.status),
-                    DataCell(title: collectedFrom, value0: data.collectedAddress, value1: data.collectedAddress),
+                    DataCell(title: collectedFrom, value0: data.collectedName, value1: data.collectedAddress),
                     DataCell(title: deliveredTo, value0: data.deliveryName, value1: data.deliveryAddress),
                     DataCell(title: deliveryCost, value0: data.cost),
                     DataCell(title: orderPlaced, value0: data.date),

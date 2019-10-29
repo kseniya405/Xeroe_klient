@@ -15,7 +15,7 @@ fileprivate let heightCell: CGFloat = 50
 fileprivate let identifier = "ResultAddressTableViewCell"
 
 protocol SearchResultTableDelegate {
-    func chooseAddress(isStart: Bool, coordinate: MKMapItem)
+    func chooseAddress(isStart: Bool, mapItem: MKMapItem)
 }
 
 class SearchResultTableDataSourceDelegate: NSObject, UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate, MKMapViewDelegate {
@@ -79,7 +79,7 @@ class SearchResultTableDataSourceDelegate: NSObject, UITableViewDataSource, UITa
         tableView.isHidden = true
         if let address = textField?.text {
             convertAddressToCoordinate(from: address) { (location) in
-                self.delegate?.chooseAddress(isStart: self.isStart ?? true, coordinate: self.setMapItem(location: location))
+                self.delegate?.chooseAddress(isStart: self.isStart ?? true, mapItem: self.setMapItem(location: location))
             }
         }
         

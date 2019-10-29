@@ -50,23 +50,16 @@ class PhotoTableViewCell: UITableViewCell {
         delegate?.addImageCell(cell: self)
     }
     
-    func setParameters(photo: UIImage?) {
+    func setParameters(photo: UIImage?, showError: Bool) {
         if let image = photo {
             PhotoImage.image = image
             PhotoImage.isHidden = false
-            provideImage.isHidden = true
             addPhotoButton.setTitle(useADifferentPhoto, for: .normal)
         } else {
             PhotoImage.isHidden = true
-            provideImage.isHidden = true
             addPhotoButton.setTitle(addPhoto, for: .normal)
         }
-    }
-    
-    func errorImage(showError: Bool) {
-        if showError {
-            provideImage.isHidden = false
-            PhotoImage.isHidden = true
-        }
+        
+        provideImage.isHidden = !showError
     }
 }

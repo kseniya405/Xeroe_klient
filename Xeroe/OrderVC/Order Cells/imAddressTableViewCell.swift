@@ -24,7 +24,7 @@ class imAddressTableViewCell: UITableViewCell {
         
     @IBOutlet weak var checkCollectionAddressButton: CheckButton! {
         didSet {
-            checkCollectionAddressButton.setParametersImage(checkedImage: UIImage(named: checkedImageButton), uncheckedImage: UIImage(named: uncheckedImageButton), isLigament: true)
+            checkCollectionAddressButton.setParametersImage(checkedImage: UIImage(named: checkedImageButton), uncheckedImage: UIImage(named: uncheckedImageButton))
             checkCollectionAddressButton.addTarget(self, action: #selector(checkCollectionAddressButtonTap), for: .touchUpInside)
             
         }
@@ -37,7 +37,7 @@ class imAddressTableViewCell: UITableViewCell {
     
     @IBOutlet weak var checkDeliveryAddressButton: CheckButton! {
         didSet {
-            checkDeliveryAddressButton.setParametersImage(checkedImage: UIImage(named: checkedImageButton), uncheckedImage: UIImage(named: uncheckedImageButton), isLigament: true)
+            checkDeliveryAddressButton.setParametersImage(checkedImage: UIImage(named: checkedImageButton), uncheckedImage: UIImage(named: uncheckedImageButton))
             checkDeliveryAddressButton.addTarget(self, action: #selector(checkDeliveryAddressButtonTap), for: .touchUpInside)
         }
     }

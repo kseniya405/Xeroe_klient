@@ -12,9 +12,8 @@ import CoreLocation
 import GooglePlaces
 import GoogleMaps
 
-fileprivate let recipientVCIdentifier = "FoundUserDetailViewController"
+fileprivate let orderVCIdentifier = "OrderDetailsViewController"
 fileprivate let loginVCIdentifier = "LoginViewController"
-fileprivate let xeroeIDTextFieldFontSize = 18
 fileprivate let cellIdentifier = "ResultAddressTableViewCell"
 
 class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
@@ -33,7 +32,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     }
     @IBOutlet weak var startPointTextField: UITextField! {
         didSet {
-//            startPointTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingDidBegin)
+            startPointTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingDidBegin)
             startPointTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
             startPointTextField.autoresizingMask = .flexibleWidth
         }
@@ -42,7 +41,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     @IBOutlet weak var startPointTableView: UITableView!
     @IBOutlet weak var endPointTextField: UITextField!{
         didSet {
-//            endPointTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingDidBegin)
+            endPointTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingDidBegin)
             endPointTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
             endPointTextField.autoresizingMask = .flexibleWidth
         }
@@ -64,24 +63,25 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     var location: CLLocation?
     var fetcher: GMSAutocompleteFetcher?
     
-    var distanceIsLong = true
+    var distanceIsLong = false
     
     var startPointSearchResult: [String]?
     var endPointSearchResult: [String]?
     var startPointDelegateDataSource = SearchResultTableDataSourceDelegate()
     var endPointDelegateDataSource = SearchResultTableDataSourceDelegate()
-    var startPointIsCorrect: Bool?
-    var endPointIsCorrect: Bool?
+    var startPointIsCorrect = false
+    var endPointIsCorrect = false
     
     var startPoinCoordinate: MKMapItem?
     var endPoinCoordinate: MKMapItem?
 
     override func viewDidLoad() {
+        goToOrderButton.isHidden = true
         viewModel.tokenValidation()
         checkUsersLocationServicesAuthorization()
         activateMapAndLocationManager()
         funcViewModel()
-//        searchAndFilterAddresse()
+        searchAndFilterAddresse()
         registerTablesWithResultSearching()
     }
     
@@ -94,34 +94,32 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     }
     
     @objc func textFieldDidChange(_ textField: UITextField) {
-        fetcher?.sourceTextHasChanged(textField.text)
-//        goToOrderButton.isHidden = true
-        goToOrderButton.isHidden = false
-
+        if textField.text?.count ?? 0 > 3 {
+            fetcher?.sourceTextHasChanged(textField.text)
+        }
+        goToOrderButton.isHidden = true
     }
     
     @objc func goToOrderButtonTap() {
         if distanceIsLong {
-            goToNextScreen()
-//            let alert = UIAlertController(title: "Sorry, we've limited deliveries to 10 miles during the trial", message: ("Can we help with a different delivery?"), preferredStyle: UIAlertController.Style.alert)
-//            // add an action (button)
-//            alert.addAction(UIAlertAction(title: "CANCEL", style: UIAlertAction.Style.default, handler: nil))
-//            
-//            // show the alert
-//            self.present(alert, animated: false, completion: nil)
+            let alert = UIAlertController(title: alertTitleLimitDistance, message: (alertMessageLimitDistance), preferredStyle: UIAlertController.Style.alert)
+            // add an action (button)
+            alert.addAction(UIAlertAction(title: ok, style: UIAlertAction.Style.default, handler: nil))
+            // show the alert
+            self.present(alert, animated: false, completion: nil)
         } else {
             goToNextScreen()
         }
-
     }
-    
     
     func goToNextScreen() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let initialViewController = storyboard.instantiateViewController(withIdentifier: "OrderDetailsViewController") as! OrderDetailsViewController
+        let initialViewController = storyboard.instantiateViewController(withIdentifier: orderVCIdentifier) as! OrderDetailsViewController
         if let start = startPointTextField.text, let finish = endPointTextField.text {
             initialViewController.inputSenderAddress = start
             initialViewController.inputDeliveryAddress = finish
+            Address.shared.collection = self.startPoinCoordinate?.placemark.coordinate
+            Address.shared.delivery = self.endPoinCoordinate?.placemark.coordinate
         }
         self.navigationController?.pushViewController(initialViewController, animated: false)
     }
@@ -184,9 +182,13 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     func checkUsersLocationServicesAuthorization(){
         if CLLocationManager.locationServicesEnabled() {
             switch CLLocationManager.authorizationStatus() {
-            case .notDetermined, .restricted, .denied:
+            case .notDetermined, .restricted:
                 debugPrint("No access")
-
+            case .denied:
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let initialViewController = storyboard.instantiateViewController(withIdentifier: "AccessLocationViewController") as! AccessLocationViewController
+                self.navigationController?.pushViewController(initialViewController, animated: false)
+                debugPrint("Denied")
             case .authorizedAlways, .authorizedWhenInUse:
                 debugPrint("Access")
             @unknown default:
@@ -194,15 +196,10 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
             }
         } else {
             print("Location services are not enabled")
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let initialViewController = storyboard.instantiateViewController(withIdentifier: "AccessLocationViewController") as! AccessLocationViewController
-            self.navigationController?.pushViewController(initialViewController, animated: false)
         }
     }
     
-    
     //MARK: delegate CLLocationManagerDelegate functions
-    
     fileprivate func activateMapAndLocationManager() {
         mapView.delegate = self
         mapView.showsUserLocation = true
@@ -247,17 +244,16 @@ extension HomeViewController: GMSAutocompleteFetcherDelegate {
 
 extension HomeViewController: SearchResultTableDelegate {
 
-    
-    func chooseAddress(isStart: Bool, coordinate: MKMapItem) {
+    func chooseAddress(isStart: Bool, mapItem: MKMapItem) {
         if isStart {
             self.startPointIsCorrect = true
-            self.startPoinCoordinate = coordinate
+            self.startPoinCoordinate = mapItem
         } else {
             self.endPointIsCorrect = true
-            self.endPoinCoordinate = coordinate
+            self.endPoinCoordinate = mapItem
         }
         
-        if startPointIsCorrect ?? false, endPointIsCorrect ?? false {
+        if startPointIsCorrect, endPointIsCorrect {
             goToOrderButton.isHidden = false
 
             mapView.reloadInputViews()
@@ -280,7 +276,6 @@ extension HomeViewController: SearchResultTableDelegate {
                     }
                     return
                 }
-                debugPrint("responce", response)
                 let route = response.routes[0]
                 
                 if let startLatitude = self.startPoinCoordinate?.placemark.coordinate.latitude, let startLongitude = self.startPoinCoordinate?.placemark.coordinate.longitude, let endLatitude = self.endPoinCoordinate?.placemark.coordinate.latitude, let endLongitude = self.endPoinCoordinate?.placemark.coordinate.longitude {
@@ -301,8 +296,7 @@ extension HomeViewController: SearchResultTableDelegate {
 
             }
         } else {
-//            self.goToOrderButton.isHidden = true
-            
+            self.goToOrderButton.isHidden = true
         }
     }
     

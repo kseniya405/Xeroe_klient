@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol ClientTableViewCellProtocol {
+protocol ClientTableViewCellDelegate {
     func editName(inputName: String, isSender: Bool)
     func editNumber(inputNumber: String)
 }
@@ -60,7 +60,7 @@ class ClientTableViewCell: UITableViewCell {
         }
     }
     
-    var delegate: ClientTableViewCellProtocol?
+    var delegate: ClientTableViewCellDelegate?
     var isSender = true
     
     override func awakeFromNib() {
@@ -90,13 +90,13 @@ class ClientTableViewCell: UITableViewCell {
         //
     }
     
-    func setParameters(header: String, address: String, name: String, mobileNumber: String, isSender: Bool, enteredName: Bool, enteredNumber: Bool) {
+    func setParameters(header: String, address: String, name: String, mobileNumber: String, isSender: Bool, errorName: Bool, errorMobileNumber: Bool) {
         self.isSender = isSender
         self.headerLabel.text = header
         self.addressTextField.text = address
         self.mobileNumberTextField.text = mobileNumber
         self.mobileNumberTextField.isUserInteractionEnabled = !isSender
-        self.provideNameLabel.isHidden = enteredName
+        self.provideNameLabel.isHidden = !errorName
         self.nameTextField.text = name
         if isSender {
             self.mobileNumberTextField.backgroundColor = lightGrayBackgroundColor
@@ -107,20 +107,9 @@ class ClientTableViewCell: UITableViewCell {
         } else {
             self.mobileNumberTextField.backgroundColor = .white
             self.explanationOfNumber.isHidden = false
-            self.provideMobileNumberLabel.isHidden = enteredNumber
+            self.provideMobileNumberLabel.isHidden = !errorMobileNumber
             mobileNumberTextField.textColor = blackTextColor
         }
     }
-    
-    func errorName(showError: Bool) {
-        if showError {
-            provideNameLabel.isHidden = false
-        }
-    }
-    
-    func errorMobileNumber(showError: Bool) {
-        if showError {
-            provideMobileNumberLabel.isHidden = false
-        }
-    }
+
 }

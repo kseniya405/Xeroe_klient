@@ -53,16 +53,13 @@ class ParcelValueTableViewCell: UITableViewCell {
         }
     }
     
-    func setParameters(value: Int?) {
+    func setParameters(value: Int?, showError: Bool) {
         provideValueLabel.isHidden = true
         if let intValue = value {
             valueTextField.text = intValue == 0 ? "" : String(intValue)
         }
+        provideValueLabel.isHidden = !showError
+
     }
-    
-    func errorValue(showError: Bool) {
-        if showError {
-            provideValueLabel.isHidden = false
-        }
-    }
+
 }

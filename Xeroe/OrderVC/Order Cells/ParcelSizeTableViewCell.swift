@@ -11,7 +11,7 @@ import UIKit
 fileprivate let identifierCollectionViewCell = "ParcelSizeTypeCollectionViewCell"
 fileprivate let identifierTableViewCell = "LimitedSizeTableViewCell"
 
-protocol ParcelSizeTableViewCelldelegate {
+protocol ParcelSizeTableViewCellDelegate {
     func updateConstraintCell()
     func setSize(size: Int)
 }
@@ -31,7 +31,7 @@ class ParcelSizeTableViewCell: UITableViewCell {
         }
     }
     @IBOutlet weak var heightTable: NSLayoutConstraint!
-    var delegate: ParcelSizeTableViewCelldelegate?
+    var delegate: ParcelSizeTableViewCellDelegate?
     
     struct sizeType {
         var imageType = ""

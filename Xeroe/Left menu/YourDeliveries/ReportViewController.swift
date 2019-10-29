@@ -28,22 +28,27 @@ class ReportViewController: UIViewController, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var selectReasonButton: ButtonWithCornerRadius!  {
         didSet {
-            selectReasonButton.setParameters(text: selectReason, font: UIFont(name: robotoRegular, size: sizeFontButton), tintColor: .gray, backgroundColor: .white, borderColor: .lightGray)
+            selectReasonButton.setParameters(text: selectReason, font: UIFont(name: robotoRegular, size: sizeFontButton), tintColor: .gray, backgroundColor: .white, borderColor: lightGrayBackgroundColor)
             selectReasonButton.addTarget(self, action: #selector(selectReasonButtonTap), for: .touchUpInside)
+            selectReasonButton.contentEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
         }
     }
-    @IBOutlet weak var commentTextField: VerticallyCenteredTextView! {
+    @IBOutlet weak var commentTextView: VerticallyCenteredTextView! {
         didSet{
-            commentTextField.layer.masksToBounds = true
-            commentTextField.layer.cornerRadius = 1
+            commentTextView.layer.masksToBounds = true
+            commentTextView.layer.cornerRadius = 1
         }
     }
-    @IBOutlet weak var leaveMessageLabel: UILabel!
+    @IBOutlet weak var leaveMessageLabel: UILabel!  {
+           didSet{
+               leaveMessageLabel.setLabelStyle(textLabel: pleaseLeaveMessage, fontLabel: UIFont(name: robotoRegular, size: sizeFontError), colorLabel: errorColor)
+           }
+       }
     
     @IBOutlet weak var dropDownView: UIView!
-    @IBOutlet weak var submitButton: ButtonWithCornerRadius! {
+    @IBOutlet weak var reportIssueButton: ButtonWithCornerRadius! {
         didSet {
-            submitButton.addTarget(self, action: #selector(submitButtonTap), for: .touchUpInside)
+            reportIssueButton.addTarget(self, action: #selector(reportIssueTap), for: .touchUpInside)
         }
     }
     
@@ -55,7 +60,7 @@ class ReportViewController: UIViewController, UIGestureRecognizerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        commentTextField.delegate = self
+        commentTextView.delegate = self
 
 
         let tap = UITapGestureRecognizer()
@@ -70,10 +75,12 @@ class ReportViewController: UIViewController, UIGestureRecognizerDelegate {
         dropDown.dataSource = listProblems
         // Action triggered on selection
         dropDown.selectionAction = { [unowned self] (index: Int, item: String) in
-            let color: UIColor = index == 0 ? .gray : .darkText
-            self.selectReasonButton.setParameters(text: item, font: UIFont(name: robotoRegular, size: sizeFontButton), tintColor: color, backgroundColor: .white)
+            let color: UIColor = index == 0 ? .gray : blackTextColor
+            self.selectReasonButton.setTitle(item, for: .normal)
+            self.selectReasonButton.setTitleColor(color, for: .normal)
 
         }
+        
 
     }
     
@@ -82,12 +89,17 @@ class ReportViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     
-    @objc func submitButtonTap() {
-        self.dismiss()
+    @objc func reportIssueTap() {
+        if let comment = commentTextView.text, !comment.isEmpty, !comment.elementsEqual(pleaseLeaveComment) {
+            self.dismiss()
+        } else {
+            leaveMessageLabel.isHidden = false
+        }
     }
     
     @objc func backButtonTap() {
         self.dismiss()
+            
     }
     
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
@@ -121,16 +133,18 @@ extension ReportViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension ReportViewController: UITextViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
-        print("textViewDidBeginEditing")
-       textView.text = ""
+        textView.text = ""
         textView.textColor = .darkText
-
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
             textView.text = pleaseLeaveComment
         }
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        leaveMessageLabel.isHidden = true
     }
 
 }

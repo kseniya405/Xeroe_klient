@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol ParcelDetailsTableViewCellProtocol {
+protocol ParcelDetailsTableViewCellDelegate {
     func setDescription(description: String)
 }
 
@@ -29,7 +29,7 @@ class ParcelDetailsTableViewCell: UITableViewCell, UITextViewDelegate {
         }
     }
     
-    var delegate: ParcelDetailsTableViewCellProtocol?
+    var delegate: ParcelDetailsTableViewCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -37,11 +37,12 @@ class ParcelDetailsTableViewCell: UITableViewCell, UITextViewDelegate {
     }
     
     
-    func setParameters(details: String){
+    func setParameters(details: String, showError: Bool) {
         provideDetailsLabel.isHidden = true
         descriptionTextView.delegate = self
         descriptionTextView.text = details.isEmpty ? descriptionOnTheParcel : details
         descriptionTextView.textColor = details.isEmpty ? lightGrayTextColor : blackTextColor
+        provideDetailsLabel.isHidden = !showError
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
@@ -75,13 +76,6 @@ class ParcelDetailsTableViewCell: UITableViewCell, UITextViewDelegate {
         delegate?.setDescription(description: textView.text)
 
     }
-    
-    func errordetails(showError: Bool) {
-        if showError {
-            provideDetailsLabel.isHidden = false
-        }
-    }
-        
 }
 
 

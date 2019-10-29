@@ -31,8 +31,13 @@ class PaymentDetailsTableViewCell: UITableViewCell {
         // Initialization code
     }
     
-    func setParameters(paymentSystem: String, endCardNumber: String) {
-        paymentSystemLabel.text = paymentSystem
-        cardNumberLabel.text = "**** **** ****" + endCardNumber
+    func setParameters(paymentSystem: String? = nil, endCardNumber: String? = nil) {
+        if let numCard = endCardNumber, let payment = paymentSystem {
+            paymentSystemLabel.text = payment
+            cardNumberLabel.text = "**** **** **** " + numCard
+            return
+        }
+        cardNumberLabel.text = dotPattern
+        paymentSystemLabel.text = ""
     }
 }

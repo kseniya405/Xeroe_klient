@@ -66,12 +66,12 @@ class DriverWayViewController: MapWithDriverViewController {
                 self.runDriverWaitingStopwatch(callback: { (isOk) in
                     self.statusValue.text = "Delivery status: delivered"
                     self.infoWithTimer.isHidden = true
-
-                    if userIsSender ?? false {
-                        self.waitingRecipientConfirm.isHidden = false
-                    } else {
-                        self.showQRButton.isHidden = false
-                    }
+//
+//                    if userIsSender ?? false {
+//                        self.waitingRecipientConfirm.isHidden = false
+//                    } else {
+//                        self.showQRButton.isHidden = false
+//                    }
                 })
             }
         }

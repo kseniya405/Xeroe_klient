@@ -19,8 +19,7 @@ fileprivate let photoCell = "PhotoTableViewCell"
 fileprivate let paymentDetailsCell = "PaymentDetailsTableViewCell"
 fileprivate let disclaimerCell = "DisclaimerTableViewCell"
 
-fileprivate let userMobileNumber = "+380669962658"
-
+fileprivate let nextViewControllerIdentifier = "ContainerViewController"
 
 class OrderDetailsViewController: UIViewController {
     
@@ -43,12 +42,13 @@ class OrderDetailsViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var clientIsSender = true
-    var inputSenderAddress = ""
-    var inputDeliveryAddress = ""
+    var inputSenderAddress = "Here will be the sender address"
+    var inputDeliveryAddress = "Here will be the delivery address"
     var order = OrderData()
     var isCheck = false
     var imagePicker: ImagePicker?
     var imagePickCell: PhotoTableViewCell?
+    var allInput = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,15 +74,21 @@ class OrderDetailsViewController: UIViewController {
     }
     
     @objc func resetFormButtonTap() {
-        order = OrderData()
-        isCheck = false
-        tableView.reloadData()
-
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+        let alert = UIAlertController(title: "Reset Form", message: ("Are you sure you want to reset the form?"), preferredStyle: UIAlertController.Style.alert)
+        // add an action (button)
+        alert.addAction(UIAlertAction(title: "No", style: UIAlertAction.Style.default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Yes", style: UIAlertAction.Style.default, handler: { action in
+            self.order = OrderData()
+            self.isCheck = false
             self.tableView.reloadData()
-        }
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                self.tableView.reloadData()
+            }
+        }))
         
-
+        // show the alert
+        self.present(alert, animated: false, completion: .none)
     }
     
 }
@@ -105,26 +111,16 @@ extension OrderDetailsViewController: UITableViewDelegate, UITableViewDataSource
             let header = indexPath.row == 1 ? collection : delivery
             
             if isSender {
-                if inputSenderAddress == "" {
-                    inputSenderAddress = "Here will be the sender address"
-                }
                 order.collectionData.mobileNumber = UserProfile.shared.phone
-                cell.setParameters(header: header, address: inputSenderAddress, name: order.collectionData.name ?? "", mobileNumber: order.collectionData.mobileNumber ?? userMobileNumber, isSender: isSender, enteredName: true, enteredNumber: true)
+                cell.setParameters(header: header, address: inputSenderAddress, name: order.collectionData.name ?? "", mobileNumber: order.collectionData.mobileNumber ?? "", isSender: isSender, errorName: isCheck && (order.collectionData.name?.isEmpty ?? true), errorMobileNumber: isCheck && (order.collectionData.mobileNumber?.isEmpty ?? true))
             } else {
-                if inputDeliveryAddress == "" {
-                    inputDeliveryAddress = "Here will be the delivery address"
-                }
-                cell.setParameters(header: header, address: inputDeliveryAddress, name: order.deliveryData.name ?? "", mobileNumber: order.deliveryData.mobileNumber ?? "", isSender: isSender, enteredName: true, enteredNumber: true)
+                cell.setParameters(header: header, address: inputDeliveryAddress, name: order.deliveryData.name ?? "", mobileNumber: order.deliveryData.mobileNumber ?? "", isSender: isSender, errorName: isCheck && (order.deliveryData.name?.isEmpty ?? true), errorMobileNumber: isCheck && (order.deliveryData.mobileNumber?.isEmpty ?? true))
             }
-            cell.errorMobileNumber(showError: isCheck && (cell.mobileNumberTextField.text?.isEmpty ?? true))
-            cell.errorName(showError: isCheck && (cell.nameTextField.text?.isEmpty ?? true))
-            
             return cell
         case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: parcelDetailsCell, for: indexPath) as! ParcelDetailsTableViewCell
-            cell.setParameters(details: order.parselDetails)
             cell.delegate = self
-            cell.errordetails(showError: isCheck && order.parselDetails.isEmpty)
+            cell.setParameters(details: order.parselDetails, showError: isCheck && order.parselDetails.isEmpty)
             return cell
         case 4:
             let cell = tableView.dequeueReusableCell(withIdentifier: parcelSizeCell, for: indexPath) as! ParcelSizeTableViewCell
@@ -134,34 +130,24 @@ extension OrderDetailsViewController: UITableViewDelegate, UITableViewDataSource
         case 5:
             let cell = tableView.dequeueReusableCell(withIdentifier: parcelValueCell, for: indexPath) as! ParcelValueTableViewCell
             cell.delegate = self
-            cell.setParameters(value: order.parcelValue)
-            cell.errorValue(showError: isCheck && (order.parcelValue == nil || order.parcelValue == 0))
+            cell.setParameters(value: order.parcelValue, showError: isCheck && (order.parcelValue == nil || order.parcelValue == 0))
             return cell
         case 6:
             let cell = tableView.dequeueReusableCell(withIdentifier: photoCell, for: indexPath) as! PhotoTableViewCell
             cell.delegate = self
-            cell.setParameters(photo: order.photo)
-            cell.errorImage(showError: isCheck && order.photo == nil)
+            cell.setParameters(photo: order.photo, showError: isCheck && order.photo == nil)
             return cell
         case 7:
-            var numCard = "****"
-            var paymentSystem = ""
-            if let endNumber = UserProfile.shared.endCardNumber {
-                numCard = endNumber
-            }
-            if let savePaymentSystem = UserProfile.shared.paymentsSystem {
-                paymentSystem = savePaymentSystem
-            }
             let cell = tableView.dequeueReusableCell(withIdentifier: paymentDetailsCell, for: indexPath) as! PaymentDetailsTableViewCell
-            cell.setParameters(paymentSystem: paymentSystem, endCardNumber: numCard)
+            cell.setParameters(paymentSystem: UserProfile.shared.paymentsSystem, endCardNumber: UserProfile.shared.endCardNumber)
             return cell
         case 8:
             let cell = tableView.dequeueReusableCell(withIdentifier: disclaimerCell, for: indexPath) as! DisclaimerTableViewCell
             cell.delegate = self
-            cell.setParameters(isChecked: order.isChecked)
-            cell.errorAccept(showError: isCheck && !order.isChecked)
+            cell.setParameters(isChecked: order.isChecked, showError: isCheck && !order.isChecked)
             return cell
         default:
+            debugPrint("something wrong in tableView.dataSource")
             return UITableViewCell()
         }
     }
@@ -177,7 +163,7 @@ extension OrderDetailsViewController: ImAddressDelegate {
     }
 }
 
-extension OrderDetailsViewController: ClientTableViewCellProtocol {
+extension OrderDetailsViewController: ClientTableViewCellDelegate {
     func editName(inputName: String, isSender: Bool) {
         if isSender {
             order.collectionData.name = inputName
@@ -197,14 +183,13 @@ extension OrderDetailsViewController: ClientTableViewCellProtocol {
     }
 }
 
-extension OrderDetailsViewController: ParcelDetailsTableViewCellProtocol {
+extension OrderDetailsViewController: ParcelDetailsTableViewCellDelegate {
     func setDescription(description: String) {
         order.parselDetails = description
     }
-    
 }
 
-extension OrderDetailsViewController: ParcelSizeTableViewCelldelegate {
+extension OrderDetailsViewController: ParcelSizeTableViewCellDelegate {
     func updateConstraintCell() {
         tableView.beginUpdates()
         self.updateViewConstraints()
@@ -215,7 +200,6 @@ extension OrderDetailsViewController: ParcelSizeTableViewCelldelegate {
         order.parcelSize = size
         isCheck = false
     }
-    
 }
 
 extension OrderDetailsViewController: ParcelValueDelegate {
@@ -223,15 +207,13 @@ extension OrderDetailsViewController: ParcelValueDelegate {
         order.parcelValue = value
         isCheck = false
     }
-    
-    
 }
 
 
 extension OrderDetailsViewController: ImagePickerDelegate {
     func didSelect(image: UIImage?) {
         if let photo = image {
-            imagePickCell?.setParameters(photo: photo)
+            imagePickCell?.setParameters(photo: photo, showError: false)
             order.photo = photo
             tableView.beginUpdates()
             self.updateViewConstraints()
@@ -262,50 +244,39 @@ extension OrderDetailsViewController: DisclaimerTableViewCellDelegate {
     }
     
     @objc func getPriceButtonTap() {
+        
+        allInput = true
+        
         isCheck = true
+        var row = clientIsSender ? 1 : 2
+        checkFields(condition: order.collectionData.name?.isEmpty ?? true, row: row)
         
-        if order.collectionData.name == nil || order.collectionData.name == "" {
-            let indexPath = clientIsSender ? IndexPath(row: 1, section: 0) : IndexPath(row: 2, section: 0)
-            tableView.reloadRows(at: [indexPath], with: .none)
-        }
-        
-        if order.deliveryData.name == nil || order.deliveryData.name == "" {
-            let indexPath = clientIsSender ? IndexPath(row: 2, section: 0) : IndexPath(row: 1, section: 0)
-            tableView.reloadRows(at: [indexPath], with: .none)
-        }
-        
-        if order.deliveryData.mobileNumber == nil || order.deliveryData.mobileNumber == "" {
-            let indexPath = clientIsSender ? IndexPath(row: 2, section: 0) : IndexPath(row: 1, section: 0)
-            tableView.reloadRows(at: [indexPath], with: .none)
-        }
-        
-        if order.parselDetails.isEmpty {
-            let indexPath = IndexPath(row: 3, section: 0)
-            tableView.reloadRows(at: [indexPath], with: .none)
-        }
-        
-        if order.parcelSize == nil {
-            let indexPath = IndexPath(row: 4, section: 0)
-            tableView.reloadRows(at: [indexPath], with: .none)
-        }
-        
-        if order.parcelValue == nil || order.parcelValue == 0 {
-            let indexPath = IndexPath(row: 5, section: 0)
-            tableView.reloadRows(at: [indexPath], with: .none)
-        }
-        
-        if order.photo == nil{
-            let indexPath = IndexPath(row: 6, section: 0)
-            tableView.reloadRows(at: [indexPath], with: .none)
-        }
-        
-        if !order.isChecked {
-            let indexPath = IndexPath(row: 8, section: 0)
-            tableView.reloadRows(at: [indexPath], with: .none)
-        }
+        row = clientIsSender ? 2 : 1
+        checkFields(condition: order.deliveryData.name?.isEmpty ?? true, row: row)
+        checkFields(condition: order.deliveryData.mobileNumber?.isEmpty ?? true, row: row)
+        checkFields(condition: order.parselDetails.isEmpty, row: 3)
+        checkFields(condition: order.parcelSize == nil, row: 4)
+        checkFields(condition: order.parcelValue == nil || order.parcelValue == 0, row: 5)
+        checkFields(condition: order.photo == nil, row: 6)
+        checkFields(condition: !order.isChecked, row: 8)
         
         tableView.beginUpdates()
         self.updateViewConstraints()
         tableView.endUpdates()
+        
+        if allInput {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let initialViewController = storyboard.instantiateViewController(withIdentifier: nextViewControllerIdentifier) as! ContainerViewController
+            initialViewController.identifier = "SearchDriverViewController"
+            self.navigationController?.pushViewController(initialViewController, animated: false)
+        }
+        allInput = true
+    }
+    
+    fileprivate func checkFields(condition: Bool, row: Int) {
+        if condition {
+            tableView.reloadRows(at: [IndexPath(row: row, section: 0)], with: .none)
+            allInput = false
+        }
     }
 }

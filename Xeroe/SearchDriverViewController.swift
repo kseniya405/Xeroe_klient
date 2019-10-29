@@ -30,7 +30,7 @@ class SearchDriverViewController: MapWithDriverViewController {
         didSet {
             timeToArriveView.layer.masksToBounds = true
             timeToArriveView.layer.cornerRadius = 4
-    
+            
         }
         
     }
@@ -61,55 +61,55 @@ class SearchDriverViewController: MapWithDriverViewController {
     }
     
     override func viewDidLoad() {
+        setCoordinate()
         mapView.delegate = self
         self.showDriverData()
         getDirections()
     }
     
+    func setCoordinate() {
+        self.locationStart = Address.shared.collection ?? defaultCoordinate
+        self.locationFinish = Address.shared.delivery ?? defaultCoordinate
+    }
+    
     
     override func getDirections() {
-        convertAddressToCoordinate(from: userAddress) { sourceLocationBack in
-            self.convertAddressToCoordinate(from: clientAddress) { destinationLocationBack in
-
-                self.locationStart = sourceLocationBack ?? defaultCoordinate
-                let sourceMapItem = self.setMapItem(location: sourceLocationBack ?? defaultCoordinate)
-                
-                let _ = self.setMapItem(location: CLLocationCoordinate2D(latitude: self.locationStart.latitude * 0.9999, longitude: self.locationStart.longitude * 1.2))
-                
-                let destinationMapItem = self.setMapItem(location: destinationLocationBack ?? defaultCoordinate)
+        
+        let _ = self.setMapItem(location: CLLocationCoordinate2D(latitude: self.locationStart.latitude * 0.9999, longitude: self.locationStart.longitude * 1.2))
+        
+        let sourceMapItem = self.setMapItem(location: locationStart)
+        
+        let destinationMapItem = self.setMapItem(location: locationFinish)
+        
+        let directionRequest = MKDirections.Request()
+        directionRequest.source = sourceMapItem
+        directionRequest.destination = destinationMapItem
+        directionRequest.transportType = .automobile
+        
+        // Calculate the direction
+        let directions = MKDirections(request: directionRequest)
+        
+        directions.calculate {
+            (response, error) -> Void in
             
-                self.locationFinish = destinationLocationBack ?? defaultCoordinate
-                
-                let directionRequest = MKDirections.Request()
-                directionRequest.source = sourceMapItem
-                directionRequest.destination = destinationMapItem
-                directionRequest.transportType = .automobile
-                
-                // Calculate the direction
-                let directions = MKDirections(request: directionRequest)
-                
-                directions.calculate {
-                    (response, error) -> Void in
-                    
-                    guard let response = response else {
-                        if let error = error {
-                            debugPrint("Error: \(error)")
-                        }
-                        return
-                    }
-                    debugPrint("responce", response)
-                    let route = response.routes[0]
-                    
-                    let latitudeCenterLocation = (sourceLocationBack!.latitude  + destinationLocationBack!.latitude) / 2 * 0.9995
-                    let longitudeCenterLocation = (sourceLocationBack!.longitude  + destinationLocationBack!.longitude) / 2
-                    let location = CLLocationCoordinate2D(latitude: latitudeCenterLocation, longitude: longitudeCenterLocation)
-                    let region = MKCoordinateRegion(center: location , latitudinalMeters: CLLocationDistance(exactly: 10000)!, longitudinalMeters: CLLocationDistance(exactly: 10000)!)
-
-                    self.mapView.setRegion(self.mapView.regionThatFits(region), animated: true)
-                    self.mapView.addOverlay((route.polyline), level: MKOverlayLevel.aboveRoads)
+            guard let response = response else {
+                if let error = error {
+                    debugPrint("Error: \(error)")
                 }
+                return
             }
+            debugPrint("responce", response)
+            let route = response.routes[0]
+            
+            let latitudeCenterLocation = (self.locationStart.latitude  + self.locationFinish.latitude) / 2 * 0.9995
+            let longitudeCenterLocation = (self.locationStart.longitude + self.locationFinish.longitude) / 2
+            let location = CLLocationCoordinate2D(latitude: latitudeCenterLocation, longitude: longitudeCenterLocation)
+            let region = MKCoordinateRegion(center: location , latitudinalMeters: CLLocationDistance(exactly: 10000)!, longitudinalMeters: CLLocationDistance(exactly: 10000)!)
+            
+            self.mapView.setRegion(self.mapView.regionThatFits(region), animated: true)
+            self.mapView.addOverlay((route.polyline), level: MKOverlayLevel.aboveRoads)
         }
+        
     }
     
     func showDriverData() {
@@ -123,9 +123,9 @@ class SearchDriverViewController: MapWithDriverViewController {
                 self.timeToArriveView.alpha = 1.0
             })
         }
-
+        
     }
-
+    
     func visibleView() {
         self.searhDriverView.isHidden = !self.searhDriverView.isHidden
         self.leftMenuButton.isHidden = !self.leftMenuButton.isHidden
