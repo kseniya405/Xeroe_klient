@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import CoreLocation
+import MapKit
 
 fileprivate let numCell = 9
 fileprivate let imCell = "imAddressTableViewCell"
@@ -42,8 +44,6 @@ class OrderDetailsViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var clientIsSender = true
-    var inputSenderAddress = "Here will be the sender address"
-    var inputDeliveryAddress = "Here will be the delivery address"
     var order = OrderData()
     var isCheck = false
     var imagePicker: ImagePicker?
@@ -78,10 +78,9 @@ class OrderDetailsViewController: UIViewController {
         // add an action (button)
         alert.addAction(UIAlertAction(title: "No", style: UIAlertAction.Style.default, handler: nil))
         alert.addAction(UIAlertAction(title: "Yes", style: UIAlertAction.Style.default, handler: { action in
-            self.order = OrderData()
+            self.order.clearInputData()
             self.isCheck = false
             self.tableView.reloadData()
-            
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 self.tableView.reloadData()
             }
@@ -89,6 +88,14 @@ class OrderDetailsViewController: UIViewController {
         
         // show the alert
         self.present(alert, animated: false, completion: .none)
+    }
+    
+    func addWaypointsToOrder(startAddress: String?, finishAddress: String?, startPoinCoordinate: CLLocationCoordinate2D?, endPoinCoordinate: CLLocationCoordinate2D?, route: MKRoute?) {
+        order.collectionData.address = startAddress
+        order.deliveryData.address = finishAddress
+        order.collectionData.coordinate = startPoinCoordinate
+        order.deliveryData.coordinate = endPoinCoordinate
+        order.route = route
     }
     
 }
@@ -112,9 +119,10 @@ extension OrderDetailsViewController: UITableViewDelegate, UITableViewDataSource
             
             if isSender {
                 order.collectionData.mobileNumber = UserProfile.shared.phone
-                cell.setParameters(header: header, address: inputSenderAddress, name: order.collectionData.name ?? "", mobileNumber: order.collectionData.mobileNumber ?? "", isSender: isSender, errorName: isCheck && (order.collectionData.name?.isEmpty ?? true), errorMobileNumber: isCheck && (order.collectionData.mobileNumber?.isEmpty ?? true))
+                cell.setParameters(header: header, address: order.collectionData.address ?? "", name: order.collectionData.name ?? "", mobileNumber: order.collectionData.mobileNumber ?? "", isSender: isSender, errorName: isCheck && (order.collectionData.name?.isEmpty ?? true), errorMobileNumber: isCheck && (order.collectionData.mobileNumber?.isEmpty ?? true))
             } else {
-                cell.setParameters(header: header, address: inputDeliveryAddress, name: order.deliveryData.name ?? "", mobileNumber: order.deliveryData.mobileNumber ?? "", isSender: isSender, errorName: isCheck && (order.deliveryData.name?.isEmpty ?? true), errorMobileNumber: isCheck && (order.deliveryData.mobileNumber?.isEmpty ?? true))
+                order.deliveryData.mobileNumber = UserProfile.shared.phone
+                cell.setParameters(header: header, address: order.deliveryData.address ?? "", name: order.deliveryData.name ?? "", mobileNumber: order.deliveryData.mobileNumber ?? "", isSender: isSender, errorName: isCheck && (order.deliveryData.name?.isEmpty ?? true), errorMobileNumber: isCheck && (order.deliveryData.mobileNumber?.isEmpty ?? true))
             }
             return cell
         case 3:
@@ -267,7 +275,8 @@ extension OrderDetailsViewController: DisclaimerTableViewCellDelegate {
         if allInput {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let initialViewController = storyboard.instantiateViewController(withIdentifier: nextViewControllerIdentifier) as! ContainerViewController
-            initialViewController.identifier = "SearchDriverViewController"
+            initialViewController.identifier = .searchDriver
+            initialViewController.transformOrder = order
             self.navigationController?.pushViewController(initialViewController, animated: false)
         }
         allInput = true

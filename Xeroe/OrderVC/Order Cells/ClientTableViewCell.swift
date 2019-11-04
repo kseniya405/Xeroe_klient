@@ -20,12 +20,11 @@ class ClientTableViewCell: UITableViewCell {
             headerLabel.setLabelStyle(textLabel: requestPassword, fontLabel: UIFont(name: robotoMedium, size: 18), colorLabel: .darkText)
         }
     }
-    @IBOutlet weak var nameTextField: UITextField!  {
+    @IBOutlet weak var nameTextField: TextFieldWithCorner!  {
         didSet {
             nameTextField.font = UIFont(name: robotoRegular, size: 17)
             nameTextField.textColor = blackTextColor
             nameTextField.addTarget(self, action: #selector(nameEditingChanged), for: .editingChanged)
-            nameTextField.addTarget(self, action: #selector(textFieldEditingChanged(sender:)), for: .editingDidEnd)
         }
     }
     @IBOutlet weak var provideNameLabel: UILabel! {
@@ -33,15 +32,16 @@ class ClientTableViewCell: UITableViewCell {
             provideNameLabel.setLabelStyle(textLabel: provideName, fontLabel: UIFont(name: robotoRegular, size: sizeFontError), colorLabel: errorColor)
         }
     }
-    @IBOutlet weak var addressTextField: UITextField! {
+    @IBOutlet weak var addressTextField: TextFieldWithCorner! {
         didSet{
             addressTextField.isUserInteractionEnabled = false
             addressTextField.backgroundColor = lightGrayBackgroundColor
             addressTextField.font = UIFont(name: robotoRegular, size: 17)
             addressTextField.textColor = lightGrayTextColor
+            addressTextField.layer.borderColor = lightGrayTextColor.cgColor
         }
     }
-    @IBOutlet weak var mobileNumberTextField: UITextField!  {
+    @IBOutlet weak var mobileNumberTextField: TextFieldWithCorner!  {
         didSet{
             //               mobileNumberTextField.isUserInteractionEnabled = false
             mobileNumberTextField.backgroundColor = lightGrayBackgroundColor
@@ -75,19 +75,16 @@ class ClientTableViewCell: UITableViewCell {
     }
     
     @objc func mobileNumberEditingChanged() {
-        mobileNumberTextField.layer.borderColor = basicBlueColor.cgColor
         provideMobileNumberLabel.isHidden = true
         delegate?.editNumber(inputNumber: mobileNumberTextField.text ?? "")
+        
     }
     
     @objc func nameEditingChanged(){
         nameTextField.layer.borderColor = basicBlueColor.cgColor
+        nameTextField.layer.borderWidth = 1
         provideNameLabel.isHidden = true
         delegate?.editName(inputName: nameTextField.text ?? "", isSender: isSender)
-    }
-    
-    @objc func textFieldEditingChanged(sender: UITextField) {
-        //
     }
     
     func setParameters(header: String, address: String, name: String, mobileNumber: String, isSender: Bool, errorName: Bool, errorMobileNumber: Bool) {

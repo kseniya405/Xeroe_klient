@@ -12,7 +12,7 @@ class LimitedSizeTableViewCell: UITableViewCell {
 
     @IBOutlet weak var nameSizeLabel: UILabel! {
            didSet {
-               nameSizeLabel.setLabelStyle(fontLabel: UIFont(name: robotoMedium, size: 14), colorLabel: .darkText)
+               nameSizeLabel.setLabelStyle(fontLabel: UIFont(name: robotoMedium, size: sizeFontBasic), colorLabel: .darkText)
            }
        }
     @IBOutlet weak var valueSizeLabel: UILabel! {

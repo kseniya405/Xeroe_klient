@@ -8,8 +8,6 @@
 
 import UIKit
 
-fileprivate let identifierLoginVC = "LoginViewController"
-
 class ForgotPasswordViewControll: UIViewController {
     
     @IBOutlet weak var viewInputEmail: UIStackView!
@@ -21,7 +19,7 @@ class ForgotPasswordViewControll: UIViewController {
        }
     @IBOutlet weak var checkYourInboxLabel: UILabel! {
         didSet {
-            checkYourInboxLabel.setLabelStyle(textLabel: checkInbox, fontLabel: UIFont(name: robotoRegular, size: 14), colorLabel: .black)
+            checkYourInboxLabel.setLabelStyle(textLabel: checkInbox, fontLabel: UIFont(name: robotoRegular, size: sizeFontBasic), colorLabel: .black)
         }
     }
     
@@ -40,9 +38,7 @@ class ForgotPasswordViewControll: UIViewController {
     @IBOutlet weak var emailTextField: TextFieldWithCorner! {
         didSet {
             emailTextField.addTarget(self, action: #selector(changeColorBorderTextField(_:)), for: UIControl.Event.editingDidBegin)
-
             emailTextField.addTarget(self, action: #selector(changeColorBorderTextField(_:)), for: UIControl.Event.editingChanged)
-            emailTextField.addTarget(self, action: #selector(unchangeColorBorderTextField(_:)), for: UIControl.Event.editingDidEnd)
         }
     }
     @IBOutlet weak var wrongEmailLabel: UILabel! {
@@ -64,12 +60,8 @@ class ForgotPasswordViewControll: UIViewController {
     
     @objc func changeColorBorderTextField(_ textField: TextFieldWithCorner) {
         wrongEmailLabel.isHidden = true
-        textField.changeColor(isChabge: true)
     }
-    
-    @objc func unchangeColorBorderTextField(_ textField: TextFieldWithCorner) {
-        textField.changeColor(isChabge: false)
-    }
+
     
     @objc func resetPasswordButtonTap() {
         if emailTextField.validateEmail(), !(emailTextField.text?.isEmpty ?? true) {

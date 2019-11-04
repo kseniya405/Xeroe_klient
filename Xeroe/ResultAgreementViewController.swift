@@ -39,7 +39,7 @@ class ResultAgreementViewController: UIViewController {
         if isAgreementSuccesful ?? false {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let initialViewController = storyboard.instantiateViewController(withIdentifier: nextViewControllerIdentifier) as! ContainerViewController
-            initialViewController.identifier = "SearchDriverViewController"
+            initialViewController.identifier = .searchDriver
             self.navigationController?.pushViewController(initialViewController, animated: false)
         } else {
             self.navigationController?.popToViewController(orderViewController!, animated: false)

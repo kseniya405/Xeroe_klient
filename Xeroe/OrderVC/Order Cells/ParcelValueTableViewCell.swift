@@ -19,7 +19,7 @@ class ParcelValueTableViewCell: UITableViewCell {
             headerLabel.setLabelStyle(textLabel: parcelValue, fontLabel: UIFont(name: robotoMedium, size: 18), colorLabel: .darkText)
         }
     }
-    @IBOutlet weak var valueTextField: UITextField! {
+    @IBOutlet weak var valueTextField: TextFieldWithCorner! {
         didSet {
             valueTextField.font = UIFont(name: robotoRegular, size: 17)
             valueTextField.textColor = blackTextColor
@@ -46,6 +46,7 @@ class ParcelValueTableViewCell: UITableViewCell {
     
     @objc func valueEditingChanged(){
         valueTextField.layer.borderColor = basicBlueColor.cgColor
+        valueTextField.layer.borderWidth = 1
         provideValueLabel.isHidden = true
         valueTextField.text = valueTextField.text?.filter{ $0.isNumber }
         if let text = valueTextField.text, let value = Int(text) {

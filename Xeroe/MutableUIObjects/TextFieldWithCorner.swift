@@ -17,12 +17,14 @@ class TextFieldWithCorner: UITextField {
     var padding = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
 
     override func awakeFromNib() {
+        self.layer.masksToBounds = true
         self.layer.borderColor = borderTextFieldColor.cgColor
         self.layer.cornerRadius = textFieldCornerRadius
-        self.layer.masksToBounds = true
+        self.layer.borderWidth = 1.0
         self.textColor = blackTextColor
-        self.font = UIFont(name: robotoMedium, size: sizeFontError)
-
+        self.font = UIFont(name: robotoRegular, size: sizeFontBasic)
+        self.addTarget(self, action: #selector(setSelected), for: .editingDidBegin)
+        self.addTarget(self, action: #selector(setDeselected), for: .editingDidEnd)
     }
 
     override open func textRect(forBounds bounds: CGRect) -> CGRect {
@@ -40,11 +42,14 @@ class TextFieldWithCorner: UITextField {
         return bounds.inset(by: padding)
     }
     
-    func changeColor(isChabge: Bool) {
-        self.layer.masksToBounds = true
-        self.layer.borderWidth = isChabge ? 2.0 : 0.0
+    @objc func setSelected() {
         self.layer.borderColor = basicBlueColor.cgColor
     }
+    
+    @objc func setDeselected() {
+        self.layer.borderColor = borderTextFieldColor.cgColor
+    }
+
     
     func validateEmail() -> Bool {
         let enteredEmail = self.text

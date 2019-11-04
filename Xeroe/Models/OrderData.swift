@@ -8,6 +8,8 @@
 
 import Foundation
 import UIKit
+import CoreLocation
+import MapKit
 
 class OrderData {
     
@@ -18,6 +20,19 @@ class OrderData {
     var parcelValue: Int? = 0
     var photo: UIImage? = nil
     var isChecked = false
+    var route: MKRoute?
+    
+    func clearInputData() {
+        collectionData.name = nil
+        collectionData.mobileNumber = nil
+        deliveryData.name = nil
+        deliveryData.mobileNumber = nil
+        parselDetails = ""
+        parcelSize = nil
+        parcelValue = 0
+        photo = nil
+        isChecked = false
+    }
 }
 
 
@@ -25,4 +40,5 @@ class userData {
     var name: String? = nil
     var address: String? = nil
     var mobileNumber: String? = nil
+    var coordinate: CLLocationCoordinate2D? = nil
 }

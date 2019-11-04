@@ -82,8 +82,8 @@ class LoginViewController: UIViewController {
     
     func goToHomeScreen() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let initialViewController = storyboard.instantiateViewController(withIdentifier: identifierContainerVC) as! ContainerViewController
-        initialViewController.identifier = "HomeViewController"
+        let initialViewController = storyboard.instantiateViewController(withIdentifier: ViewControllerType.container.rawValue) as! ContainerViewController
+        initialViewController.identifier = .home
         self.navigationController?.pushViewController(initialViewController, animated: false)
     }
 }

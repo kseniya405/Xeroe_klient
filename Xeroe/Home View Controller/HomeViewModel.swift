@@ -15,25 +15,6 @@ class HomeViewModel: NSObject {
     
     var goToLoginScreen: (() -> ())?
     
-    func findUser (xeroeIDTextField: TextFieldWithCorner) {
-        
-        guard var textID = xeroeIDTextField.text, textID.count > 3 else {
-            showAlertInputButtonTap?(shortXeroeID)
-            return
-        }
-        
-        textID.remove(at: textID.startIndex)
-        RestApi().findID(xeroeID: textID) { (isOk, dictionaryClientData)  in
-            DispatchQueue.main.async {
-                guard isOk else {
-                    self.showAlertInputButtonTap?(userNotFound)
-                    return 
-                }
-                self.goToNextScreen?(dictionaryClientData)
-            }
-        }
-        
-    }
     
     /** Checks the relevance of the token.
              - If relevant - opens the HomeViewController.

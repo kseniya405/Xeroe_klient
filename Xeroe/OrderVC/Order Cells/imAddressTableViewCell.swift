@@ -13,7 +13,6 @@ protocol ImAddressDelegate {
 //    func addressIsCheck(isCheck: Bool)
 }
 
-fileprivate let sizeFont: CGFloat = 15
 fileprivate let sizeErrorFont: CGFloat = 14
 
 fileprivate let checkedImageButton = "checkedImage"
@@ -31,7 +30,7 @@ class imAddressTableViewCell: UITableViewCell {
     }
     @IBOutlet weak var imCollectionAddressLabel: UILabel! {
         didSet {
-            imCollectionAddressLabel.setLabelStyle(textLabel: collectionAddress, fontLabel: UIFont(name: robotoRegular, size: sizeFont), colorLabel: grayTextColor)
+            imCollectionAddressLabel.setLabelStyle(textLabel: collectionAddress, fontLabel: UIFont(name: robotoRegular, size: sizeFontBasic), colorLabel: grayTextColor)
         }
     }
     
@@ -43,7 +42,7 @@ class imAddressTableViewCell: UITableViewCell {
     }
     @IBOutlet weak var imDeliveryAddressLabel: UILabel! {
         didSet {
-            imDeliveryAddressLabel.setLabelStyle(textLabel: deliveryAddress, fontLabel: UIFont(name: robotoRegular, size: sizeFont), colorLabel: grayTextColor)
+            imDeliveryAddressLabel.setLabelStyle(textLabel: deliveryAddress, fontLabel: UIFont(name: robotoRegular, size: sizeFontBasic), colorLabel: grayTextColor)
         }
     }
     

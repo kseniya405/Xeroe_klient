@@ -8,8 +8,15 @@
 
 import UIKit
 
+enum viewControllerTypes: String {
+    case home = "HomeViewController"
+    case searchDriver = "SearchDriverViewController"
+}
+
+
+fileprivate let leftMenuIdentifier = "leftMenuVC"
+
 class ContainerViewController: UIViewController {
-    
     
     @IBOutlet weak var tabbarContainerView: UIView!
     @IBOutlet weak var sideMenuView: UIView!
@@ -19,16 +26,26 @@ class ContainerViewController: UIViewController {
     var touchPos: CGPoint?
     let blackTransparentViewTag = 04051993
     var openFlag: Bool = false
-    var identifier: String?
+    var identifier: viewControllerTypes = .home
 
     
     var frontVC: UIViewController?
     var leftMenuVC: UIViewController?
+    var transformOrder: OrderData?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        frontVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: identifier ?? "HomeViewController")
-        leftMenuVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "leftMenuVC")
+        
+        switch identifier {
+        case .searchDriver:
+            frontVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: identifier.rawValue) as! SearchDriverViewController
+            let searchVC: SearchDriverViewController = frontVC as! SearchDriverViewController
+            searchVC.setCoordinate(startPoint: transformOrder?.collectionData.coordinate, finishPoint: transformOrder?.deliveryData.coordinate, route: transformOrder?.route)
+        default:
+            frontVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: identifier.rawValue) as! HomeViewController
+        }
+        leftMenuVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: leftMenuIdentifier)
+        
         displayTabbar()
         addShadowToView()
         setUpNotifications()

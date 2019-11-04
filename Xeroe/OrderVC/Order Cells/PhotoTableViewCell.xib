@@ -28,10 +28,10 @@
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="NqQ-un-Drh">
                         <rect key="frame" x="20" y="41" width="347" height="423"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YnK-K4-lUB">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YnK-K4-lUB">
                                 <rect key="frame" x="0.0" y="0.0" width="347" height="347"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="YnK-K4-lUB" secondAttribute="height" multiplier="1:1" priority="500" id="4N1-uA-Tml"/>
+                                    <constraint firstAttribute="width" secondItem="YnK-K4-lUB" secondAttribute="height" multiplier="1:1" id="4N1-uA-Tml"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eX5-WK-hzF" customClass="ButtonWithCornerRadius" customModule="Xeroe" customModuleProvider="target">
@@ -52,7 +52,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="NqQ-un-Drh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="5wq-Zg-5aO"/>
-                    <constraint firstItem="NqQ-un-Drh" firstAttribute="top" secondItem="Xbh-gd-g29" secondAttribute="bottom" priority="750" constant="20" id="KF8-Pz-4YJ"/>
+                    <constraint firstItem="NqQ-un-Drh" firstAttribute="top" secondItem="Xbh-gd-g29" secondAttribute="bottom" constant="20" id="KF8-Pz-4YJ"/>
                     <constraint firstItem="Xbh-gd-g29" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="LEK-t6-htH"/>
                     <constraint firstAttribute="trailing" secondItem="NqQ-un-Drh" secondAttribute="trailing" constant="20" id="ckb-Os-qq4"/>
                     <constraint firstAttribute="bottom" secondItem="NqQ-un-Drh" secondAttribute="bottom" priority="750" constant="20" id="x3L-vF-k5M"/>

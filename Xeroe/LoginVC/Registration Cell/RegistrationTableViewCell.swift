@@ -42,7 +42,6 @@ class RegistrationTableViewCell: UITableViewCell {
     }
     
     @objc func answerTextFieldDidChange(_ textField: TextFieldWithCorner) {
-        textField.changeColor(isChabge: true)
         pleaseEnterDataLable.isHidden = true
         spaceView.isHidden = false
         let cellIsEmpty = textField.text?.isEmpty ?? true
@@ -50,7 +49,6 @@ class RegistrationTableViewCell: UITableViewCell {
     }
     
     @objc func answerTextFieldDidEnd(_ textField: TextFieldWithCorner) {
-        textField.changeColor(isChabge: false)
         let cellIsEmpty = textField.text?.isEmpty ?? true
         delegate?.cellIsEmpty(isEmpty: cellIsEmpty, numCell: numCell)
     }

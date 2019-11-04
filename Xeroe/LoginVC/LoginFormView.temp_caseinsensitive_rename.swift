@@ -13,14 +13,12 @@ class LoginFormView: UIView {
     @IBOutlet weak var loginTextField: TextFieldWithCorner! {
         didSet {
             loginTextField.addTarget(self, action: #selector(changeColorBorderTextField(_:)), for: UIControl.Event.editingDidBegin)
-            loginTextField.addTarget(self, action: #selector(unchangeColorBorderTextField(_:)), for: UIControl.Event.editingDidEnd)
         }
     }
     
     @IBOutlet weak var passwordTextField: TextFieldWithCorner! {
         didSet {
             passwordTextField.addTarget(self, action: #selector(changeColorBorderTextField(_:)), for: UIControl.Event.editingDidBegin)
-            passwordTextField.addTarget(self, action: #selector(unchangeColorBorderTextField(_:)), for: UIControl.Event.editingDidEnd)
         }
     }
     
@@ -59,12 +57,8 @@ class LoginFormView: UIView {
         self.enterEmailLabel.isHidden = true
         self.wrongPaswordLabel.isHidden = true
         self.enterPasswordLabel.isHidden = true
-        textField.changeColor(isChabge: true)
     }
-    
-    @objc func unchangeColorBorderTextField(_ textField: TextFieldWithCorner) {
-        textField.changeColor(isChabge: false)
-    }
+
 
     
     func errorTextField(passwordIsEmpty: Bool, emailIsEmpty: Bool, emailIsWrong: Bool) {

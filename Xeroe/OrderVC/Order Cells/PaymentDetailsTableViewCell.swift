@@ -37,7 +37,7 @@ class PaymentDetailsTableViewCell: UITableViewCell {
             cardNumberLabel.text = "**** **** **** " + numCard
             return
         }
-        cardNumberLabel.text = dotPattern
+        cardNumberLabel.text = "****"
         paymentSystemLabel.text = ""
     }
 }

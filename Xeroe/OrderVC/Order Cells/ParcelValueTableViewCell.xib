@@ -28,7 +28,7 @@
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Zmh-m2-zBj">
                         <rect key="frame" x="20" y="96" width="348" height="50"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="(£)Value" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="k6S-P3-lX9">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="(£)Value" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="k6S-P3-lX9" customClass="TextFieldWithCorner" customModule="Xeroe" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="348" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="JcI-5D-qgY"/>

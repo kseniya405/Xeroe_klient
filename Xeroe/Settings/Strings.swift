@@ -91,8 +91,8 @@ let orderDetails = "Order Details"
 
 //MARK: imAddressTableViewCell
 let uncheckAddres = "There are some errors, please check below."
-let collectionAddress = "   I'm at the collection address."
-let deliveryAddress = "   I'm at the delivery address."
+var collectionAddress = "   I'm at the collection address."
+var deliveryAddress = "   I'm at the delivery address."
 
 //MARK: ClientTableViewCell
 let collection = "Collection"

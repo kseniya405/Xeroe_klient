@@ -37,6 +37,7 @@
 		9D18B1332363325E00132E82 /* DeliveryDataTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D18B1312363325E00132E82 /* DeliveryDataTableViewCell.xib */; };
 		9D18B1362363465400132E82 /* ReportAnIssueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D18B1342363465400132E82 /* ReportAnIssueTableViewCell.swift */; };
 		9D18B1372363465400132E82 /* ReportAnIssueTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D18B1352363465400132E82 /* ReportAnIssueTableViewCell.xib */; };
+		9D19CFF42369867A00AF5A33 /* ViewControllerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D19CFF32369867A00AF5A33 /* ViewControllerType.swift */; };
 		9D1BFB11231E511E005E8024 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1BFB10231E511E005E8024 /* HomeViewModel.swift */; };
 		9D23E9F422F0808C00E0E2C0 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D23E9F222F0808B00E0E2C0 /* Roboto-Bold.ttf */; };
 		9D23E9F522F0808C00E0E2C0 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D23E9F322F0808B00E0E2C0 /* Roboto-Regular.ttf */; };
@@ -54,6 +55,7 @@
 		9D2F29152357068600C67A0B /* ParcelSizeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D2F29132357068600C67A0B /* ParcelSizeTableViewCell.xib */; };
 		9D2F291823570BCF00C67A0B /* ParcelSizeTypeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2F291623570BCF00C67A0B /* ParcelSizeTypeCollectionViewCell.swift */; };
 		9D2F291923570BCF00C67A0B /* ParcelSizeTypeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D2F291723570BCF00C67A0B /* ParcelSizeTypeCollectionViewCell.xib */; };
+		9D37C6DD2370408A00C0C12D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DD0BE5522F817FE00E55EA8 /* MapKit.framework */; };
 		9D37EA91234B6F990096A28C /* AccessLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D37EA90234B6F990096A28C /* AccessLocationViewController.swift */; };
 		9D3E3DD82334BDF900A44ED8 /* SearchDriverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3E3DD72334BDF900A44ED8 /* SearchDriverViewController.swift */; };
 		9D3E3DE02334C2FF00A44ED8 /* ProblemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3E3DDE2334C2FF00A44ED8 /* ProblemTableViewCell.swift */; };
@@ -94,7 +96,6 @@
 		9DD934DD23471D6100160003 /* UIImageViewHalfCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD934DC23471D6100160003 /* UIImageViewHalfCorner.swift */; };
 		9DD934E023477B3000160003 /* ButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD934DE23477B3000160003 /* ButtonTableViewCell.swift */; };
 		9DD934E123477B3000160003 /* ButtonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DD934DF23477B3000160003 /* ButtonTableViewCell.xib */; };
-		9DDFD40623041A9B007DDB36 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDFD40523041A9B007DDB36 /* Address.swift */; };
 		9DDFD4082304215D007DDB36 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDFD4072304215D007DDB36 /* UserProfile.swift */; };
 		9DF533A222EEDBE10036866C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF533A122EEDBE10036866C /* AppDelegate.swift */; };
 		9DF533A422EEDBE10036866C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF533A322EEDBE10036866C /* LoginViewController.swift */; };
@@ -140,6 +141,7 @@
 		9D18B1312363325E00132E82 /* DeliveryDataTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeliveryDataTableViewCell.xib; sourceTree = "<group>"; };
 		9D18B1342363465400132E82 /* ReportAnIssueTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportAnIssueTableViewCell.swift; sourceTree = "<group>"; };
 		9D18B1352363465400132E82 /* ReportAnIssueTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReportAnIssueTableViewCell.xib; sourceTree = "<group>"; };
+		9D19CFF32369867A00AF5A33 /* ViewControllerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerType.swift; sourceTree = "<group>"; };
 		9D1BFB10231E511E005E8024 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		9D23E9F222F0808B00E0E2C0 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		9D23E9F322F0808B00E0E2C0 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 		9D2F29132357068600C67A0B /* ParcelSizeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ParcelSizeTableViewCell.xib; sourceTree = "<group>"; };
 		9D2F291623570BCF00C67A0B /* ParcelSizeTypeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParcelSizeTypeCollectionViewCell.swift; sourceTree = "<group>"; };
 		9D2F291723570BCF00C67A0B /* ParcelSizeTypeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ParcelSizeTypeCollectionViewCell.xib; sourceTree = "<group>"; };
+		9D37C6DC2370405E00C0C12D /* Xeroe.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Xeroe.entitlements; sourceTree = "<group>"; };
 		9D37EA90234B6F990096A28C /* AccessLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessLocationViewController.swift; sourceTree = "<group>"; };
 		9D3E3DD72334BDF900A44ED8 /* SearchDriverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchDriverViewController.swift; sourceTree = "<group>"; };
 		9D3E3DDE2334C2FF00A44ED8 /* ProblemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProblemTableViewCell.swift; sourceTree = "<group>"; };
@@ -198,7 +201,6 @@
 		9DD934DC23471D6100160003 /* UIImageViewHalfCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewHalfCorner.swift; sourceTree = "<group>"; };
 		9DD934DE23477B3000160003 /* ButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTableViewCell.swift; sourceTree = "<group>"; };
 		9DD934DF23477B3000160003 /* ButtonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonTableViewCell.xib; sourceTree = "<group>"; };
-		9DDFD40523041A9B007DDB36 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		9DDFD4072304215D007DDB36 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		9DF5339E22EEDBE10036866C /* Xeroe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Xeroe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DF533A122EEDBE10036866C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D37C6DD2370408A00C0C12D /* MapKit.framework in Frameworks */,
 				E8DF191FE216F580111D08CE /* Pods_Xeroe.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -335,11 +338,11 @@
 			children = (
 				9DACCB8D22F4473C00D9F433 /* RestApi.swift */,
 				9DDFD4072304215D007DDB36 /* UserProfile.swift */,
-				9DDFD40523041A9B007DDB36 /* Address.swift */,
 				9D18B12E2363220F00132E82 /* CreditCardType.swift */,
 				9DA4941A2302FE0F00730624 /* ConfirmOrderByCreator.swift */,
 				9D5353042355BE8600E3236A /* OrderData.swift */,
 				9D8874ED2361868B00613447 /* DeliveryData.swift */,
+				9D19CFF32369867A00AF5A33 /* ViewControllerType.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -418,6 +421,8 @@
 		9DD0BE5622F8182F00E55EA8 /* draft */ = {
 			isa = PBXGroup;
 			children = (
+				9DA34585236899F300EB5CD8 /* Login.storyboard */,
+				9D09B35C2330ED2000389491 /* MapWithDriverViewController.swift */,
 				9DD0BE9D22F8727C00E55EA8 /* ClientDetailViewController.swift */,
 				9D09D7E222F1E97400D4369F /* View.xib */,
 				9DACCB7F22F415A400D9F433 /* MapView.swift */,
@@ -456,17 +461,16 @@
 		9DF533A022EEDBE10036866C /* Xeroe */ = {
 			isa = PBXGroup;
 			children = (
+				9D37C6DC2370405E00C0C12D /* Xeroe.entitlements */,
 				9DF533A122EEDBE10036866C /* AppDelegate.swift */,
 				9DF533A822EEDBE30036866C /* Assets.xcassets */,
 				9DD884622326460B00305AFC /* Main.storyboard */,
-				9DA34585236899F300EB5CD8 /* Login.storyboard */,
 				9DACCB8C22F4320100D9F433 /* LoginVC */,
 				9DD0BE5722F81DDB00E55EA8 /* Left menu */,
 				9DD0BE7522F8465D00E55EA8 /* ContainerViewController.swift */,
 				9D040BF3234F60C500963BFC /* Home View Controller */,
 				9D94EB062361E52000EBA47F /* OrderVC */,
 				9D113C242327D68F00BE8D22 /* ResultAgreementViewController.swift */,
-				9D09B35C2330ED2000389491 /* MapWithDriverViewController.swift */,
 				9D3E3DD72334BDF900A44ED8 /* SearchDriverViewController.swift */,
 				9D09B35A2330E80100389491 /* DriverWayViewController.swift */,
 				9D0C0C382332779D000688D5 /* QRCodeViewController.swift */,
@@ -669,6 +673,7 @@
 				9D241206234E0061005B58A1 /* SearchResultTableDataSourceDelegate.swift in Sources */,
 				9D75F5F0233A3BC000394F20 /* NotificationName.swift in Sources */,
 				9D6A5618235744E3008026BB /* LimitedSizeTableViewCell.swift in Sources */,
+				9D19CFF42369867A00AF5A33 /* ViewControllerType.swift in Sources */,
 				9D040BF5234F611900963BFC /* OrderDetailsViewController.swift in Sources */,
 				9DCF034922EF1EEE00A7F283 /* ForgotPasswordViewControll.swift in Sources */,
 				9D1364762319445A0074FE60 /* LoginViewModel.swift in Sources */,
@@ -703,7 +708,6 @@
 				9D09B35D2330ED2000389491 /* MapWithDriverViewController.swift in Sources */,
 				9DACCB8822F42D7200D9F433 /* ButtonWithCornerRadius.swift in Sources */,
 				9D18B1322363325E00132E82 /* DeliveryDataTableViewCell.swift in Sources */,
-				9DDFD40623041A9B007DDB36 /* Address.swift in Sources */,
 				9DD0BEA422F87B9200E55EA8 /* LeftMenuTableViewCell.swift in Sources */,
 				9D113C252327D68F00BE8D22 /* ResultAgreementViewController.swift in Sources */,
 				9D18B12F2363221000132E82 /* CreditCardType.swift in Sources */,
@@ -866,8 +870,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Xeroe/Xeroe.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 7XSVATSQ6N;
 				INFOPLIST_FILE = Xeroe/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -888,8 +893,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Xeroe/Xeroe.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 7XSVATSQ6N;
 				INFOPLIST_FILE = Xeroe/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
