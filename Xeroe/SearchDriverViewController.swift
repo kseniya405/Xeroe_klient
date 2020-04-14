@@ -150,6 +150,26 @@ class SearchDriverViewController: UIViewController, CLLocationManagerDelegate, M
     
     var finalRoute = MKRoute()
     
+    override func viewDidLoad() {
+        activateMapAndLocationManager()
+        self.showDriverData()
+       
+        heightMapView.constant = UIScreen.main.bounds.height
+
+        let latitudeCenterLocation = (self.locationStart.latitude + self.locationFinish.latitude) / 2
+        let longitudeCenterLocation = (self.locationStart.longitude + self.locationFinish.longitude) / 2
+        let location = CLLocationCoordinate2D(latitude: latitudeCenterLocation, longitude: longitudeCenterLocation)
+        
+        showAnnotation(location: locationStart)
+        showAnnotation(location: locationFinish)
+        
+        let region = MKCoordinateRegion(center: location , latitudinalMeters: finalRoute.distance, longitudinalMeters: finalRoute.distance)
+        self.mapView.setRegion(self.mapView.regionThatFits(region), animated: true)
+        self.mapView.setNeedsDisplay()
+        //draw route
+        self.mapView.addOverlay(finalRoute.polyline, level: MKOverlayLevel.aboveRoads)
+
+    }
     
     @objc func leftMenuButtonTap() {
         HamburgerMenu.triggerSideMenu()
@@ -202,27 +222,6 @@ class SearchDriverViewController: UIViewController, CLLocationManagerDelegate, M
                 })
             }
         }
-    }
-    
-    override func viewDidLoad() {
-        activateMapAndLocationManager()
-        self.showDriverData()
-       
-        heightMapView.constant = UIScreen.main.bounds.height
-
-        let latitudeCenterLocation = (self.locationStart.latitude + self.locationFinish.latitude) / 2
-        let longitudeCenterLocation = (self.locationStart.longitude + self.locationFinish.longitude) / 2
-        let location = CLLocationCoordinate2D(latitude: latitudeCenterLocation, longitude: longitudeCenterLocation)
-        
-        showAnnotation(location: locationStart)
-        showAnnotation(location: locationFinish)
-        
-        let region = MKCoordinateRegion(center: location , latitudinalMeters: finalRoute.distance, longitudinalMeters: finalRoute.distance)
-        self.mapView.setRegion(self.mapView.regionThatFits(region), animated: true)
-        self.mapView.setNeedsDisplay()
-        //draw route
-        self.mapView.addOverlay(finalRoute.polyline, level: MKOverlayLevel.aboveRoads)
-
     }
     
     @objc func confirmRateButtonTap() {

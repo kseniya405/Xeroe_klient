@@ -23,30 +23,31 @@ class HomeViewModel: NSObject {
      Not successful - leaves the user on LoginViewController and clear UserProfile.shared
      */
     func tokenValidation() {
-        RestApi().clientData() { (isOk, xeroeid)  in
-            guard isOk, let _ = xeroeid else {
-                debugPrint("Token is not relevant. isOk: \(isOk), xeroeid: \(String(describing: xeroeid)). Re-authorized ...")
-                
-                guard let login = UserProfile.shared.login, let password = UserProfile.shared.password else {
-                    debugPrint("Login or password does not exist. Login: \(String(describing: UserProfile.shared.login)), password: \(String(describing: UserProfile.shared.password))")
-                    self.goToLoginScreen?()
-                    return
-                }
-                
-                RestApi().login(login: login, password: password) { (isOk, token) in
-                    guard isOk, let token = token else {
-                        debugPrint("Wrong current login or password. Login: \(login), password: \(String(describing: password))")
-                        UserProfile.shared.clear(callback: { (isOk) in
-                            self.goToLoginScreen?()
-                        })
-                        return
-                    }
-                    UserProfile.shared.token = token
-                }
-                return
-            }
-            return
-        }
+        
+//        RestApi().clientData() { (isOk, xeroeid)  in
+//            guard isOk, let _ = xeroeid else {
+//                debugPrint("Token is not relevant. isOk: \(isOk), xeroeid: \(String(describing: xeroeid)). Re-authorized ...")
+//                
+//                guard let login = UserProfile.shared.login, let password = UserProfile.shared.password else {
+//                    debugPrint("Login or password does not exist. Login: \(String(describing: UserProfile.shared.login)), password: \(String(describing: UserProfile.shared.password))")
+//                    self.goToLoginScreen?()
+//                    return
+//                }
+//                
+//                RestApi().login(login: login, password: password) { (isOk, token) in
+//                    guard isOk, let token = token else {
+//                        debugPrint("Wrong current login or password. Login: \(login), password: \(String(describing: password))")
+//                        UserProfile.shared.clear(callback: { (isOk) in
+//                            self.goToLoginScreen?()
+//                        })
+//                        return
+//                    }
+//                    UserProfile.shared.token = token
+//                }
+//                return
+//            }
+//            return
+//        }
     }
 }
 

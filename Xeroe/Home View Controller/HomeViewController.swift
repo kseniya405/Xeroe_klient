@@ -9,12 +9,14 @@
 import UIKit
 import MapKit
 import CoreLocation
-import GooglePlaces
-import GoogleMaps
+//import GooglePlaces
+//import GoogleMaps
 
 fileprivate let orderVCIdentifier = "OrderDetailsViewController"
 fileprivate let loginVCIdentifier = "LoginViewController"
 fileprivate let cellIdentifier = "ResultAddressTableViewCell"
+fileprivate let defaultCoordinate = CLLocationCoordinate2D(latitude: 39.799372, longitude: -89.644458)
+
 
 fileprivate let limitDistance: Double = 16090
 
@@ -62,12 +64,13 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     let viewModel = HomeViewModel()
     var activityIndicator: UIActivityIndicatorView?
     var location: CLLocation?
-    var fetcher: GMSAutocompleteFetcher?
+    //    var fetcher: GMSAutocompleteFetcher?
+    let completer = MKLocalSearchCompleter()
     
     var distanceIsLong = false
     
-    var startPointSearchResult: [String]?
-    var endPointSearchResult: [String]?
+    var startPointSearchResult: [MKLocalSearchCompletion]?
+    var endPointSearchResult: [MKLocalSearchCompletion]?
     var startPointDelegateDataSource = SearchResultTableDataSourceDelegate()
     var endPointDelegateDataSource = SearchResultTableDataSourceDelegate()
     var startPointIsCorrect = false
@@ -76,7 +79,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     var startPoinCoordinate: MKMapItem?
     var endPoinCoordinate: MKMapItem?
     var route: MKRoute?
-
+    
     
     @objc func inputButtonTap() {
         activityIndicator = self.view.showActivityIndicator()
@@ -88,7 +91,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     
     @objc func textFieldDidChange(_ textField: UITextField) {
         if textField.text?.count ?? 0 > 2 {
-            fetcher?.sourceTextHasChanged(textField.text)
+            completer.queryFragment = textField.text ?? ""
         }
         goToOrderButton.isHidden = true
     }
@@ -100,7 +103,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
             alert.addAction(UIAlertAction(title: ok, style: UIAlertAction.Style.default, handler: nil))
             // show the alert
             self.present(alert, animated: false, completion: nil)
-
+            
         } else {
             goToNextScreen()
         }
@@ -120,7 +123,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let initialViewController = storyboard.instantiateViewController(withIdentifier: orderVCIdentifier) as! OrderDetailsViewController
         initialViewController.addWaypointsToOrder(startAddress: startPointTextField.text, finishAddress: endPointTextField.text, startPoinCoordinate: self.startPoinCoordinate?.placemark.coordinate, endPoinCoordinate: self.endPoinCoordinate?.placemark.coordinate, route: route)
-
+        
         self.navigationController?.pushViewController(initialViewController, animated: false)
     }
     
@@ -165,17 +168,22 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     
     func searchAndFilterAddresse() {
         
-        // Set up the autocomplete filter.
-        let filter = GMSAutocompleteFilter()
-        filter.type = .address
-        filter.country = "UK"
-        // Create a new session token.
-        let token: GMSAutocompleteSessionToken = GMSAutocompleteSessionToken.init()
+        completer.delegate = self;
         
-        // Create the fetcher.
-        fetcher = GMSAutocompleteFetcher(bounds: .none, filter: filter)
-        fetcher?.delegate = self
-        fetcher?.provide(token)
+        // Limit search results to the map view's current region.
+        completer.region = mapView.region
+
+        //        // Set up the autocomplete filter.
+        //        let filter = GMSAutocompleteFilter()
+        //        filter.type = .address
+        //        filter.country = "UK"
+        //        // Create a new session token.
+        //        let token: GMSAutocompleteSessionToken = GMSAutocompleteSessionToken.init()
+        //
+        //        // Create the fetcher.
+        //        fetcher = GMSAutocompleteFetcher(bounds: .none, filter: filter)
+        //        fetcher?.delegate = self
+        //        fetcher?.provide(token)
         
     }
     
@@ -203,42 +211,68 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, MKMapView
     fileprivate func activateMapAndLocationManager() {
         mapView.delegate = self
         mapView.showsUserLocation = true
+        mapView.region = MKCoordinateRegion(mapView.visibleMapRect)
         locationManager.delegate = self
         locationManager.startUpdatingHeading()
     }
     
 }
 
-extension HomeViewController: GMSAutocompleteFetcherDelegate {
-    func didAutocomplete(with predictions: [GMSAutocompletePrediction]) {
+//extension HomeViewController: GMSAutocompleteFetcherDelegate {
+//    func didAutocomplete(with predictions: [GMSAutocompletePrediction]) {
+//
+//        let resultsStr = NSMutableString()
+//        var arrayResult = [""]
+//        if predictions.count > 0 {
+//            for item in 0...predictions.count - 1 {
+//                if item == 0 {
+//                    arrayResult = [predictions[item].attributedFullText.string]
+//                } else {
+//                    arrayResult.append(predictions[item].attributedFullText.string)
+//                }
+//            }
+//        }
+//        print(resultsStr)
+//
+//        if startPointTextField.isEditing {
+//            startPointDelegateDataSource.setResult(resultArray: arrayResult)
+//            startPointTableView.reloadData()
+//        } else {
+//            endPointDelegateDataSource.setResult(resultArray: arrayResult)
+//            endPointTableView.reloadData()
+//        }
+//        self.loadViewIfNeeded()
+//        self.viewDidLayoutSubviews()
+//        self.updateViewConstraints()
+//    }
+//
+//    func didFailAutocompleteWithError(_ error: Error) {
+//        debugPrint(error.localizedDescription)
+//    }
+//}
+
+
+extension HomeViewController: MKLocalSearchCompleterDelegate {
+    func completerDidUpdateResults(_ completer: MKLocalSearchCompleter) {
+        let result = completer.results
         
-        let resultsStr = NSMutableString()
-        var arrayResult = [""]
-        if predictions.count > 0 {
-            for item in 0...predictions.count - 1 {
-                if item == 0 {
-                    arrayResult = [predictions[item].attributedFullText.string]
-                } else {
-                    arrayResult.append(predictions[item].attributedFullText.string)
-                }
-            }
-        }
-        print(resultsStr)
+        dump(result)
         
         if startPointTextField.isEditing {
-            startPointDelegateDataSource.setResult(resultArray: arrayResult)
+            startPointDelegateDataSource.setResult(resultArray: result)
             startPointTableView.reloadData()
         } else {
-            endPointDelegateDataSource.setResult(resultArray: arrayResult)
+            endPointDelegateDataSource.setResult(resultArray: result)
             endPointTableView.reloadData()
         }
         self.loadViewIfNeeded()
         self.viewDidLayoutSubviews()
         self.updateViewConstraints()
+        
     }
     
-    func didFailAutocompleteWithError(_ error: Error) {
-        debugPrint(error.localizedDescription)
+    func completer(_ completer: MKLocalSearchCompleter, didFailWithError error: Error) {
+        debugPrint("Oooops, problem with MKLocalSearchCompleter")
     }
 }
 
@@ -286,7 +320,7 @@ extension HomeViewController: SearchResultTableDelegate {
                     self.mapView.setRegion(self.mapView.regionThatFits(region), animated: true)
                     self.distanceIsLong = route.distance  > limitDistance
                     self.mapView.addOverlay(route.polyline, level: MKOverlayLevel.aboveRoads)
-
+                    
                 }
                 self.mapView.setNeedsDisplay()
                 

@@ -122,6 +122,7 @@ extension OrderDetailsViewController: UITableViewDelegate, UITableViewDataSource
                 cell.setParameters(header: header, address: order.collectionData.address ?? "", name: order.collectionData.name ?? "", mobileNumber: order.collectionData.mobileNumber ?? "", isSender: isSender, errorName: isCheck && (order.collectionData.name?.isEmpty ?? true), errorMobileNumber: isCheck && (order.collectionData.mobileNumber?.isEmpty ?? true))
             } else {
                 order.deliveryData.mobileNumber = UserProfile.shared.phone
+                print(order.deliveryData.mobileNumber)
                 cell.setParameters(header: header, address: order.deliveryData.address ?? "", name: order.deliveryData.name ?? "", mobileNumber: order.deliveryData.mobileNumber ?? "", isSender: isSender, errorName: isCheck && (order.deliveryData.name?.isEmpty ?? true), errorMobileNumber: isCheck && (order.deliveryData.mobileNumber?.isEmpty ?? true))
             }
             return cell

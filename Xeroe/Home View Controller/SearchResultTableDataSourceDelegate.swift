@@ -21,7 +21,7 @@ protocol SearchResultTableDelegate {
 class SearchResultTableDataSourceDelegate: NSObject, UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate, MKMapViewDelegate {
     
     var tableView: UITableView?
-    var resultArray: [String]?
+    var resultArray: [MKLocalSearchCompletion]?
     var textField: UITextField?
     var heightTableConstraint: NSLayoutConstraint?
     var delegate: SearchResultTableDelegate?
@@ -30,7 +30,7 @@ class SearchResultTableDataSourceDelegate: NSObject, UITableViewDataSource, UITa
     let locationAnnotation = MKPointAnnotation()
 
     
-    func setParameters(textField: UITextField, resultArray: [String]?, tableView: UITableView, tableHeight: NSLayoutConstraint, delegate: SearchResultTableDelegate, isStart: Bool) {
+    func setParameters(textField: UITextField, resultArray: [MKLocalSearchCompletion]?, tableView: UITableView, tableHeight: NSLayoutConstraint, delegate: SearchResultTableDelegate, isStart: Bool) {
         self.tableView = tableView
         self.resultArray = resultArray
         self.textField = textField
@@ -39,19 +39,20 @@ class SearchResultTableDataSourceDelegate: NSObject, UITableViewDataSource, UITa
         self.isStart = isStart
     }
     
-    func setResult(resultArray: [String]) {
+    func setResult(resultArray: [MKLocalSearchCompletion]) {
         self.resultArray = resultArray
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let currentResult = resultArray {
-            if currentResult.count == 0 || currentResult.count == 1, currentResult[0] == "" {
+            if currentResult.count == 0 { //|| currentResult.count == 1, currentResult[0] == nil {
                 tableView.isHidden = true
             } else {
                 heightTableConstraint?.constant = CGFloat(currentResult.count) * heightCell
+                heightTableConstraint?.constant = CGFloat(currentResult.count < 5 ? currentResult.count : 5) * heightCell - 1
                 tableView.isHidden = false
             }
-            return currentResult.count
+            return currentResult.count < 5 ? currentResult.count : 5
         }
         tableView.isHidden = true
         return 0
@@ -61,7 +62,7 @@ class SearchResultTableDataSourceDelegate: NSObject, UITableViewDataSource, UITa
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! ResultAddressTableViewCell
         
         if let result = resultArray, indexPath.row < result.count {
-            cell.setParameters(address: result[indexPath.row])
+            cell.setParameters(title: result[indexPath.row].title, subtitle: result[indexPath.row].subtitle)
         }
         
         return cell
@@ -74,7 +75,7 @@ class SearchResultTableDataSourceDelegate: NSObject, UITableViewDataSource, UITa
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! ResultAddressTableViewCell
-        textField?.text = cell.addressLabel.text
+        textField?.text = cell.subtitleAddressLabel.text
         resultArray?.removeAll()
         tableView.isHidden = true
         if let address = textField?.text {

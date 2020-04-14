@@ -35,21 +35,30 @@ class LoginViewModel: NSObject {
             return
         }
         
-        RestApi().login(login: login, password: password) { (isOk, token) in
-            
-            guard isOk, let token = token else {
-                self.setError?(false, false, false)
-                return
-            }
-            
+        //hardcoded
+        if login ==  "example@gmail.com", password == "password" {
+            UserProfile.shared.token = "token"
+            UserProfile.shared.password = "password"
             UserProfile.shared.login = login
-            UserProfile.shared.token = token
-            UserProfile.shared.password = password
-            
-            self.setUserData { (isOk) in
-                self.goToHomeScreen?()
-            }
+            goToHomeScreen?()
         }
+        
+        
+//        RestApi().login(login: login, password: password) { (isOk, token) in
+//
+//            guard isOk, let token = token else {
+//                self.setError?(false, false, false)
+//                return
+//            }
+//
+//            UserProfile.shared.login = login
+//            UserProfile.shared.token = token
+//            UserProfile.shared.password = password
+//
+//            self.setUserData { (isOk) in
+//                self.goToHomeScreen?()
+//            }
+//        }
     }
     
     
@@ -57,27 +66,41 @@ class LoginViewModel: NSObject {
      Gets the user's XeroeID, and it receives the rest of the user’s data.
     */
     func setUserData(callback: @escaping (Bool) -> Void)  {
-        RestApi().clientData() { (isOk, xeroeid)  in
-            DispatchQueue.main.async {
-                guard isOk, let userXeroeID = xeroeid else {
-                    debugPrint("AAAAA! Something in RestApi().clientData() wrong. isOk: \(isOk), xeroeid: \(String(describing: xeroeid))")
-                    callback(false)
-                    return
-                }
-                                
-                RestApi().findID(xeroeID: userXeroeID) { (isOk, dictionaryClientData)  in
-                    DispatchQueue.main.async {
-                        guard isOk else {
-                            callback(false)
-                            return
-                        }
-                        self.setUserProfile(dictionaryClientData)
-                        UserProfile.shared.printProfile()
-                        callback(true)
-                    }
-                }
-            }
-        }
+        
+        let hardCodedUserData: [String : Any] = [DefaultsKeys.id.rawValue : 1,
+                                                 DefaultsKeys.xeroeId.rawValue : "8ceb",
+                                                 DefaultsKeys.defaultAddressId.rawValue : 1,
+                                                 DefaultsKeys.email.rawValue : "example@gmail.com",
+                                                 DefaultsKeys.phone.rawValue : "+380669962666",
+                                                 DefaultsKeys.state.rawValue : "client",
+                                                 DefaultsKeys.avatar.rawValue : "https://www.google.com/url?sa=i&url=https%3A%2F%2Fru.pngtree.com%2Ffreepng%2F520-couple-avatar-boy-avatar-little-dinosaur-cartoon-cute_4561296.html&psig=AOvVaw3R_a72j1Fo-eHGMBOyrwt2&ust=1584632449847000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCNjH5IWupOgCFQAAAAAdAAAAABAE",
+                                                 DefaultsKeys.userableType.rawValue : "client",
+                                                 DefaultsKeys.userableId.rawValue : 1]
+        
+        self.setUserProfile(hardCodedUserData)
+        UserProfile.shared.printProfile()
+        callback(true)
+//        RestApi().clientData() { (isOk, xeroeid)  in
+//            DispatchQueue.main.async {
+//                guard isOk, let userXeroeID = xeroeid else {
+//                    debugPrint("AAAAA! Something in RestApi().clientData() wrong. isOk: \(isOk), xeroeid: \(String(describing: xeroeid))")
+//                    callback(false)
+//                    return
+//                }
+//
+//                RestApi().findID(xeroeID: userXeroeID) { (isOk, dictionaryClientData)  in
+//                    DispatchQueue.main.async {
+//                        guard isOk else {
+//                            callback(false)
+//                            return
+//                        }
+//                        self.setUserProfile(dictionaryClientData)
+//                        UserProfile.shared.printProfile()
+//                        callback(true)
+//                    }
+//                }
+//            }
+//        }
     }
     
     /**

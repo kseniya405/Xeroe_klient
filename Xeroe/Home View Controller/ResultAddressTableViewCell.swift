@@ -11,9 +11,11 @@ import UIKit
 class ResultAddressTableViewCell: UITableViewCell {
 
     @IBOutlet weak var addressLabel: UILabel!
-
-    func setParameters(address: String) {
-        addressLabel.text = address
+    @IBOutlet weak var subtitleAddressLabel: UILabel!
+    
+    func setParameters(title: String, subtitle: String) {
+        addressLabel.text = title
+        subtitleAddressLabel.text = subtitle
     }
     
 }

@@ -110,7 +110,7 @@ class UserProfile: NSCoder {
             if let phone = UserDefaults.standard.string(forKey: DefaultsKeys.phone.rawValue) {
                 return phone
             }
-            return nil
+            return "+380669962650"
         }
     }
     
@@ -205,19 +205,19 @@ class UserProfile: NSCoder {
     }
     
     func clear(callback: @escaping (Bool) -> Void) {
-        login = nil
-        token = nil
-        id = nil
-        xeroeId = nil
-        defaultAddressId = nil
-        email = nil
-        phone = nil
-        password = nil
-        state = nil
-        avatar = nil
-        userableType = nil
-        userableId = nil
-        UserDefaults.standard.synchronize()
+//        login = nil
+//        token = nil
+//        id = nil
+//        xeroeId = nil
+//        defaultAddressId = nil
+//        email = nil
+//        phone = "+380669962365"
+//        password = nil
+//        state = nil
+//        avatar = nil
+//        userableType = nil
+//        userableId = nil
+//        UserDefaults.standard.synchronize()
         callback(true)
     }
     

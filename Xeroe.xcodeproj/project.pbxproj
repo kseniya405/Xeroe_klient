@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		9D007DEF234CC8CC00702737 /* ResultAddressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D007DED234CC8CC00702737 /* ResultAddressTableViewCell.swift */; };
-		9D007DF0234CC8CC00702737 /* ResultAddressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D007DEE234CC8CC00702737 /* ResultAddressTableViewCell.xib */; };
 		9D040BF5234F611900963BFC /* OrderDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D040BF4234F611900963BFC /* OrderDetailsViewController.swift */; };
 		9D040BF8234F6A7700963BFC /* imAddressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D040BF6234F6A7700963BFC /* imAddressTableViewCell.swift */; };
 		9D040BF9234F6A7700963BFC /* imAddressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D040BF7234F6A7700963BFC /* imAddressTableViewCell.xib */; };
@@ -74,6 +73,7 @@
 		9D8874EB236180FC00613447 /* DeliveryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8874E9236180FC00613447 /* DeliveryTableViewCell.swift */; };
 		9D8874EC236180FC00613447 /* DeliveryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D8874EA236180FC00613447 /* DeliveryTableViewCell.xib */; };
 		9D8874EE2361868B00613447 /* DeliveryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8874ED2361868B00613447 /* DeliveryData.swift */; };
+		9D92D365242390630014D6BC /* ResultAddressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D92D367242390630014D6BC /* ResultAddressTableViewCell.xib */; };
 		9D94EB02236196CF00EBA47F /* deliveries.json in Resources */ = {isa = PBXBuildFile; fileRef = 9D94EB01236196CF00EBA47F /* deliveries.json */; };
 		9D94EB082361EF2C00EBA47F /* CurrentDeliveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D94EB072361EF2C00EBA47F /* CurrentDeliveryViewController.swift */; };
 		9DA30B4D2310126C0054D1ED /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA30B4C2310126C0054D1ED /* ImagePicker.swift */; };
@@ -111,8 +111,7 @@
 		35960E7A60DD5F79255E3C3D /* Pods-Xeroe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Xeroe.release.xcconfig"; path = "Target Support Files/Pods-Xeroe/Pods-Xeroe.release.xcconfig"; sourceTree = "<group>"; };
 		4DFB4B6C67FE2A0B2D660AAE /* Pods-Xeroe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Xeroe.debug.xcconfig"; path = "Target Support Files/Pods-Xeroe/Pods-Xeroe.debug.xcconfig"; sourceTree = "<group>"; };
 		81F54CE665B1ABC053917921 /* Pods_Xeroe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Xeroe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9D007DED234CC8CC00702737 /* ResultAddressTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultAddressTableViewCell.swift; sourceTree = "<group>"; };
-		9D007DEE234CC8CC00702737 /* ResultAddressTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultAddressTableViewCell.xib; sourceTree = "<group>"; };
+		9D007DED234CC8CC00702737 /* ResultAddressTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ResultAddressTableViewCell.swift; path = "Xeroe/Home View Controller/ResultAddressTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		9D040BF4234F611900963BFC /* OrderDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsViewController.swift; sourceTree = "<group>"; };
 		9D040BF6234F6A7700963BFC /* imAddressTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imAddressTableViewCell.swift; sourceTree = "<group>"; };
 		9D040BF7234F6A7700963BFC /* imAddressTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = imAddressTableViewCell.xib; sourceTree = "<group>"; };
@@ -178,6 +177,8 @@
 		9D8874E9236180FC00613447 /* DeliveryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryTableViewCell.swift; sourceTree = "<group>"; };
 		9D8874EA236180FC00613447 /* DeliveryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeliveryTableViewCell.xib; sourceTree = "<group>"; };
 		9D8874ED2361868B00613447 /* DeliveryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryData.swift; sourceTree = "<group>"; };
+		9D92D364242390350014D6BC /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		9D92D36B242391620014D6BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ResultAddressTableViewCell.xib; sourceTree = "<group>"; };
 		9D94EB01236196CF00EBA47F /* deliveries.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = deliveries.json; sourceTree = "<group>"; };
 		9D94EB072361EF2C00EBA47F /* CurrentDeliveryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentDeliveryViewController.swift; sourceTree = "<group>"; };
 		9DA30B4C2310126C0054D1ED /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
@@ -233,7 +234,8 @@
 				9D09D7DE22F1E23800D4369F /* HomeViewController.swift */,
 				9D1BFB10231E511E005E8024 /* HomeViewModel.swift */,
 				9D241205234E0061005B58A1 /* SearchResultTableDataSourceDelegate.swift */,
-				9D007DEE234CC8CC00702737 /* ResultAddressTableViewCell.xib */,
+				9D007DED234CC8CC00702737 /* ResultAddressTableViewCell.swift */,
+				9D92D367242390630014D6BC /* ResultAddressTableViewCell.xib */,
 			);
 			path = "Home View Controller";
 			sourceTree = "<group>";
@@ -248,7 +250,6 @@
 				9D04F74E2350CD03005B75A2 /* ParcelDetailsTableViewCell.swift */,
 				9D04F74F2350CD03005B75A2 /* ParcelDetailsTableViewCell.xib */,
 				9D2F29122357068600C67A0B /* ParcelSizeTableViewCell.swift */,
-				9D007DED234CC8CC00702737 /* ResultAddressTableViewCell.swift */,
 				9D2F29132357068600C67A0B /* ParcelSizeTableViewCell.xib */,
 				9D2F291A235736F100C67A0B /* ParcelSizeCell */,
 				9D2913662359DE9200EF27D3 /* ParcelValueTableViewCell.swift */,
@@ -550,6 +551,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 9DF5339522EEDBE00036866C;
 			productRefGroup = 9DF5339F22EEDBE10036866C /* Products */;
@@ -587,7 +589,7 @@
 				9D18B1372363465400132E82 /* ReportAnIssueTableViewCell.xib in Resources */,
 				9D94EB02236196CF00EBA47F /* deliveries.json in Resources */,
 				9DD934E123477B3000160003 /* ButtonTableViewCell.xib in Resources */,
-				9D007DF0234CC8CC00702737 /* ResultAddressTableViewCell.xib in Resources */,
+				9D92D365242390630014D6BC /* ResultAddressTableViewCell.xib in Resources */,
 				9D29136D2359F33C00EF27D3 /* PhotoTableViewCell.xib in Resources */,
 				9D1737F8231CFC68009EEDF6 /* RegistrationTableViewCell.xib in Resources */,
 				9D3E3DE12334C2FF00A44ED8 /* ProblemTableViewCell.xib in Resources */,
@@ -737,10 +739,19 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		9D92D367242390630014D6BC /* ResultAddressTableViewCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9D92D36B242391620014D6BC /* Base */,
+			);
+			name = ResultAddressTableViewCell.xib;
+			sourceTree = "<group>";
+		};
 		9DF533AA22EEDBE30036866C /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				9DF533AB22EEDBE30036866C /* Base */,
+				9D92D364242390350014D6BC /* ru */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -752,6 +763,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -799,7 +811,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -813,6 +825,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -854,7 +867,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

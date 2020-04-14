@@ -47,6 +47,7 @@ class LoginViewController: UIViewController {
     
     @objc func signInButtonTap() {
         activityIndicator = self.view.showActivityIndicator()
+        goToHomeScreen()
         viewModel.login(loginFormView: loginFormView)
     }
 
